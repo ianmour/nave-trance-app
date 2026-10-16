@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#159bd1">
+<meta name="description" content="Gestão de passageiros e embarque da Nave Trance Produções">
+<link rel="manifest" href="manifest.json">
+<link rel="stylesheet" href="style.css">
+<title>Nave Trance | Embarque</title>
+</head>
+<body>
+<header class="top">
+  <img src="logo-nave-trance.jpeg" alt="Nave Trance Produções" class="logo">
+  <div><p class="eyebrow">NAVE TRANCE PRODUÇÕES</p><h1>Controle de embarque</h1><p class="muted">Seu embarque começa aqui.</p></div>
+</header>
+<nav class="tabs">
+  <button class="tab active" data-tab="passageiros">Passageiros</button>
+  <button class="tab" data-tab="leitor">Leitor QR</button>
+  <button class="tab" data-tab="backup">Backup</button>
+</nav>
+<main>
+<section id="passageiros" class="panel">
+  <div class="stats">
+    <div class="stat"><span id="total">0</span><small>Passageiros</small></div>
+    <div class="stat"><span id="paid">0</span><small>Pagos</small></div>
+    <div class="stat"><span id="boarded">0</span><small>Embarcados</small></div>
+  </div>
+  <div class="card">
+    <h2>Novo passageiro</h2>
+    <form id="passengerForm">
+      <label>Nome completo<input id="name" required maxlength="100" placeholder="Nome do passageiro"></label>
+      <label>Telefone (opcional)<input id="phone" inputmode="tel" maxlength="30" placeholder="(82) 99999-9999"></label>
+      <label>Ônibus / grupo<input id="bus" maxlength="40" placeholder="Ex.: Ônibus 1"></label>
+      <label>Status do pagamento<select id="payment"><option value="pendente">Pendente</option><option value="pago">Pago</option><option value="cortesia">Cortesia</option></select></label>
+      <button class="primary" type="submit">Cadastrar e gerar QR Code</button>
+    </form>
+  </div>
+  <div class="section-head"><h2>Lista de passageiros</h2><input id="search" placeholder="Buscar nome..." aria-label="Buscar passageiro"></div>
+  <div id="passengerList" class="passenger-list"></div>
+  <p class="note">Os dados ficam neste aparelho. Faça backup regularmente. Não limpe os dados do navegador sem exportar um backup.</p>
+</section>
+<section id="leitor" class="panel hidden">
+  <div class="card">
+    <h2>Leitura de embarque</h2>
+    <p class="muted">Antes de sair, abra este app com internet e mantenha a lista atualizada neste aparelho. A leitura é processada localmente.</p>
+    <div class="scanner-actions"><button id="startScan" class="primary">Abrir câmera</button><button id="stopScan" class="secondary">Parar câmera</button></div>
+    <video id="video" playsinline muted></video>
+    <canvas id="canvas" hidden></canvas>
+    <p id="scanStatus" class="scan-status" role="status">Câmera desligada.</p>
+    <label>Ou validar código manualmente<input id="manualCode" placeholder="Cole o identificador do QR Code"></label>
+    <button id="manualCheck" class="secondary">Validar código</button>
+    <div id="scanResult"></div>
+  </div>
+  <div class="card">
+    <h2>Últimos embarques</h2>
+    <div id="recentScans"></div>
+  </div>
+</section>
+<section id="backup" class="panel hidden">
+  <div class="card">
+    <h2>Backup e exportação</h2>
+    <p>Exporte um arquivo JSON para guardar todos os dados ou uma planilha CSV com os passageiros.</p>
+    <div class="stack">
+      <button id="exportBackup" class="primary">Baixar backup completo (JSON)</button>
+      <button id="exportCsv" class="secondary">Exportar lista (CSV)</button>
+      <button id="exportTickets" class="secondary">Exportar ingressos individuais (HTML)</button>
+    </div>
+    <label class="file-label">Restaurar backup JSON<input type="file" id="restoreFile" accept=".json,application/json"></label>
+    <p class="note">Restaurar substitui os dados atuais. Faça um backup antes. O arquivo contém dados pessoais dos passageiros; guarde-o com segurança.</p>
+  </div>
+  <div class="card">
+    <h2>Instalar no celular</h2>
+    <p>Depois de publicar em HTTPS, abra o endereço no Safari (iPhone) ou Chrome (Android) e escolha “Adicionar à Tela de Início” / “Instalar app”.</p>
+    <p class="note">Protótipo local: para câmera e instalação PWA, normalmente é necessário HTTPS ou localhost. A leitura offline depende de o app e os dados terem sido carregados antes de perder a internet.</p>
+  </div>
+</section>
+</main>
+<footer> NAVE TRANCE PRODUÇÕES · Protótipo gratuito </footer>
+<script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

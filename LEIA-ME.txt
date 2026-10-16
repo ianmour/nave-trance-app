@@ -1,0 +1,43 @@
+NAVE TRANCE — PROTÓTIPO GRATUITO
+================================
+
+O QUE ESTA VERSÃO FAZ
+- Cadastro manual de passageiros.
+- Identificador exclusivo por passageiro.
+- Ingresso HTML com QR Code (requer conexão para carregar a biblioteca QR na primeira geração).
+- Status de pagamento.
+- Leitura de QR Code pelo BarcodeDetector quando o navegador oferece suporte.
+- Validação manual como alternativa.
+- Bloqueio de código repetido no mesmo aparelho.
+- Exportação de backup JSON e lista CSV.
+- Cache básico da interface para reabertura offline após a primeira visita.
+
+LIMITAÇÕES IMPORTANTES
+1. O armazenamento é local ao navegador/aparelho. Não há sincronização entre dispositivos.
+2. A câmera para QR Code depende de suporte do navegador. O protótipo usa BarcodeDetector, que não é suportado em todos os navegadores, especialmente algumas versões do iOS. Em caso de incompatibilidade, use a validação manual ou substitua por uma biblioteca de leitura incorporada ao projeto.
+3. O gerador de QR Code é carregado de CDN. A geração do ingresso pode precisar de internet; para QR offline de verdade, inclua a biblioteca localmente no pacote.
+4. Teste cuidadosamente antes de usar em uma excursão real. Não dependa deste protótipo como único registro oficial.
+5. Um backup JSON contém dados pessoais. Guarde-o com segurança e compartilhe apenas com pessoas autorizadas.
+6. O código de pagamento é conferido pelo status cadastrado; este protótipo não processa pagamentos.
+7. Não existe proteção contra duas cópias de dados desatualizadas em aparelhos diferentes. Use um único aparelho de leitura por lista.
+
+PUBLICAÇÃO GRATUITA
+1. Descompacte o ZIP no computador.
+2. Crie uma conta gratuita no GitHub.
+3. Crie um repositório público (ex.: nave-trance-app) e envie todos os arquivos, incluindo a logo.
+4. No repositório, abra Settings > Pages.
+5. Em Build and deployment, selecione Deploy from a branch; escolha main e /(root), e salve.
+6. Aguarde o GitHub Pages publicar e abra a URL HTTPS fornecida.
+7. Abra a URL no iPhone ou Android, teste cadastro, ingresso, exportação e modo offline.
+8. No iPhone: Safari > Compartilhar > Adicionar à Tela de Início. No Android: menu do Chrome > Instalar app/Adicionar à tela inicial.
+
+IMPORTANTE SOBRE O IOS
+A instalação PWA e o suporte à câmera/offline variam por versão do iOS e navegador. Faça o teste no aparelho real. O modo offline exige abrir a aplicação online pelo menos uma vez para baixar os arquivos; faça backup antes de limpar dados do navegador.
+
+ARQUIVOS
+index.html       Interface
+style.css        Identidade visual baseada na logo enviada
+app.js           Cadastro, ingressos, leitor e backups
+manifest.json    Metadados de instalação PWA
+sw.js            Cache básico offline
+logo-nave-trance.jpeg  Logo fornecida

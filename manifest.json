@@ -1,0 +1,10 @@
+{
+  "name": "Nave Trance - Embarque",
+  "short_name": "Nave Trance",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#111318",
+  "theme_color": "#159bd1",
+  "description": "Cadastro e controle de embarque da Nave Trance Produções",
+  "icons": []
+}

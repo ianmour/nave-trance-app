@@ -49,7 +49,8 @@ Ferramenta pronta para os passos 2 a 8: `_tecnico/scripts/editor.mjs` (rode sem 
 - **Imagens:** `_tecnico/scripts/buscar-imagem.mjs "<busca em inglês>" <pasta> [qtd] [vertical|horizontal]`. Rodar com `NODE_USE_ENV_PROXY=1 NODE_EXTRA_CA_CERTS=/root/.ccr/ca-bundle.crt NODE_NO_WARNINGS=1` (senão o Node não sai para a internet). Fotos reais de licença livre (Openverse/Flickr/Wikimedia). **Sempre abrir e olhar cada imagem antes de usar** — a busca às vezes traz coisa errada. Créditos ficam em `CREDITOS.md` na pasta; passar para a pessoa colocar no post.
 - **Músicas:** Openverse (fonte Jamendo), licença CC BY — sempre passar o crédito.
 - **Efeitos sonoros:** os 21 que vêm no HyperFrames (`/root/.claude/skills/media-use/audio/assets/sfx/`). Freesound só com chave gratuita da pessoa.
-- **Gerar imagens do zero:** não temos gerador. A pessoa não quer pagar nada a mais (nem API). Não oferecer serviço pago.
+- **Gerar imagens do zero:** não temos gerador. A pessoa não quer pagar nada a mais (nem API) e recusou instalar gerador local. Não oferecer de novo.
+- **Regra combinada:** quando o vídeo falar de um tema (um produto, um lugar, uma ideia), **pesquisar por conta própria imagens reais e gratuitas sobre ele e já colocar na edição** (polaroid, cartão, fundo, recorte), sem esperar a pessoa pedir. Sem imagens de IA. Olhar cada imagem antes de usar e entregar os créditos junto com o vídeo.
 
 ## Estilo visual que a pessoa gosta (vídeos em `referencias/`)
 

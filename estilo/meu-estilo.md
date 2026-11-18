@@ -31,14 +31,23 @@ Sempre pergunto (ou você me diz) se o vídeo é **pra mim** ou **pra cliente**.
 | Azul | `#0032A8` | segunda cor: contraste com o rosa, caixinhas, fundos |
 
 - Clima da referência: streetwear, ousado, letras grossas e condensadas, um toque de pixel e retrô, fundo escuro.
-- Legenda e textos usam só essas 3 cores (mais o preto do fundo).
-- A cor da imagem gravada (pele, ambiente) eu não troco por conta própria: proponho opções na primeira edição e você escolhe. O que você escolher eu anoto aqui.
+- **Legenda sempre branca** (nunca colorida). Rosa, creme e azul ficam para as animações: palavras grandes, etiquetas, telas cheias.
 
 **"É pra cliente" → neutro**
 
-- Textos em branco e preto, sem as cores ianmour.
-- Imagem com cor natural e limpa, só com correção de luz e contraste.
-- Se o cliente tiver cores próprias, você me passa e eu anoto abaixo.
+- Legenda e textos em branco (e preto para contorno), sem as cores ianmour.
+- Animações criativas e dinâmicas do mesmo jeito; só a cor muda.
+- Se o cliente tiver cores próprias, ou for uma data especial (ex.: Black Friday → vermelho), você me diz e eu anoto abaixo.
+
+**Cor da imagem (vale para os dois):** cinematográfica, puxando para o **laranja/quente**, com contraste de cinema e pele bonita.
+
+**Intensidade (aprendido no ianmour-01):** criativo, mas sem exagero.
+- Efeitos sonoros **bem abaixo da voz** (a voz sempre é a coisa mais alta) e só nos momentos fortes, não em toda animação.
+- Tremor e flash com moderação: só nos 2 ou 3 momentos mais fortes do vídeo.
+
+**Clientes com cores próprias**
+
+(nenhum ainda)
 
 **Clientes com cores próprias**
 

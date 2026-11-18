@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: #000; }
+      #main { position: relative; width: 100%; height: 100%; overflow: hidden; }
+      #palco { position: absolute; inset: 0; background: #000; }
+      #grade { position: absolute; inset: 0; opacity: 0;
+        background-image: linear-gradient(rgba(254,241,207,0.16) 2px, transparent 2px), linear-gradient(90deg, rgba(254,241,207,0.16) 2px, transparent 2px);
+        background-size: 72px 72px; }
+      #camera { position: absolute; inset: 0; overflow: hidden; transform-origin: 50% 40%; z-index: 1; }
+      #tremor { position: absolute; inset: -30px; }
+      #fundo { position: absolute; left: 30px; top: 30px; width: 1080px; height: 1920px; object-fit: cover; }
+      #flash { position: absolute; inset: 0; background: #fff; opacity: 0; z-index: 9; pointer-events: none; }
+      .host { position: absolute; inset: 0; }
+      #gancho { position: absolute; inset: 0; z-index: 3; }
+      #conexao { position: absolute; inset: 0; z-index: 3; }
+      #trabalho { position: absolute; inset: 0; z-index: 3; }
+      #nome { position: absolute; inset: 0; z-index: 3; }
+      #videomaker { position: absolute; inset: 0; z-index: 3; }
+      #final { position: absolute; inset: 0; z-index: 3; }
+      #legendas { position: absolute; inset: 0; z-index: 5; }
+    </style>
+  </head>
+  <body>
+    <div id="main" data-composition-id="main" data-start="0" data-duration="21.0333" data-width="1080" data-height="1920">
+      <div id="palco"><div id="grade"></div></div>
+      <div id="camera">
+        <div id="tremor" data-layout-allow-overflow>
+          <video id="fundo" data-color-grading="{&quot;preset&quot;:null,&quot;intensity&quot;:1,&quot;adjust&quot;:{&quot;exposure&quot;:0,&quot;contrast&quot;:0.14,&quot;highlights&quot;:-0.12,&quot;shadows&quot;:0.06,&quot;whites&quot;:0,&quot;blacks&quot;:0,&quot;temperature&quot;:0,&quot;tint&quot;:0,&quot;vibrance&quot;:0,&quot;saturation&quot;:0.04},&quot;details&quot;:{&quot;vignette&quot;:0.18,&quot;vignetteMidpoint&quot;:0.5,&quot;vignetteRoundness&quot;:0,&quot;vignetteFeather&quot;:0.65,&quot;grain&quot;:0,&quot;grainSize&quot;:0.25,&quot;grainRoughness&quot;:0.5},&quot;effects&quot;:{&quot;blur&quot;:0,&quot;pixelate&quot;:0,&quot;chromaBleed&quot;:0,&quot;tapeDamage&quot;:0,&quot;tapeTracking&quot;:0,&quot;tapeNoise&quot;:1,&quot;tapeSpeed&quot;:0.5,&quot;filmArtifacts&quot;:0,&quot;halftone&quot;:0,&quot;halftoneSize&quot;:0,&quot;twoInkPrint&quot;:0,&quot;twoInkPrintSize&quot;:0,&quot;ascii&quot;:0,&quot;asciiSize&quot;:0.06578947368421052,&quot;asciiInvert&quot;:0,&quot;asciiStyle&quot;:0,&quot;asciiColor&quot;:1,&quot;asciiRotation&quot;:0,&quot;dither&quot;:0,&quot;ditherSize&quot;:0,&quot;bloom&quot;:0,&quot;bloomRadius&quot;:8,&quot;monoScreen&quot;:0,&quot;monoScreenSize&quot;:0,&quot;monoScreenAngle&quot;:0,&quot;monoScreenSpread&quot;:0,&quot;monoScreenShape&quot;:0,&quot;monoScreenInvert&quot;:0,&quot;scanlines&quot;:0,&quot;scanlineCount&quot;:0,&quot;scanlineSoftness&quot;:0,&quot;chromaticAberration&quot;:0,&quot;chromaticAngle&quot;:0,&quot;crtCurvature&quot;:0,&quot;digitalGlitch&quot;:0,&quot;digitalGlitchColorSplit&quot;:0,&quot;digitalGlitchLineTear&quot;:0,&quot;digitalGlitchPixelate&quot;:0,&quot;digitalGlitchBlockAmount&quot;:0,&quot;digitalGlitchBlockDisplacement&quot;:0,&quot;digitalGlitchBlockOpacity&quot;:0,&quot;digitalGlitchSpeed&quot;:0,&quot;engraving&quot;:0,&quot;engravingSpacing&quot;:0.4117647058823529,&quot;engravingMinThickness&quot;:0.2,&quot;engravingMaxThickness&quot;:0.4571428571428572,&quot;engravingAngle&quot;:0.25,&quot;engravingContrast&quot;:0.4666666666666667,&quot;engravingSharpness&quot;:0.59,&quot;engravingWave&quot;:0.2,&quot;engravingWaveFrequency&quot;:0.2222222222222222,&quot;crosshatch&quot;:0,&quot;crosshatchSpacing&quot;:0.28,&quot;crosshatchThickness&quot;:0.25,&quot;crosshatchAngle&quot;:0.25,&quot;crosshatchContrast&quot;:0.3333333333333333,&quot;crosshatchEdges&quot;:0.5,&quot;crosshatchLineWeight&quot;:0,&quot;crosshatchWave&quot;:0.33,&quot;crosshatchWaveFrequency&quot;:0.2222222222222222,&quot;kuwahara&quot;:0,&quot;kuwaharaRadius&quot;:0.14285714285714285,&quot;kuwaharaSharpness&quot;:0.3125,&quot;kuwaharaSaturation&quot;:0.5},&quot;lut&quot;:null,&quot;colorSpace&quot;:&quot;rec709&quot;,&quot;wheels&quot;:{&quot;shadows&quot;:{&quot;hue&quot;:222,&quot;amount&quot;:0.12,&quot;level&quot;:0},&quot;midtones&quot;:{&quot;hue&quot;:0,&quot;amount&quot;:0,&quot;level&quot;:0},&quot;highlights&quot;:{&quot;hue&quot;:340,&quot;amount&quot;:0.06,&quot;level&quot;:0}}}" class="clip" src="assets/corte.mp4" data-start="0" data-duration="21.0333" data-track-index="0" data-has-audio="true"></video>
+        </div>
+      </div>
+      <div id="flash"></div>
+      <div id="gancho" data-composition-id="gancho" data-composition-src="compositions/gancho.html" data-start="0.000" data-duration="2.860" data-track-index="1" data-track-kind="graphics" data-width="1080" data-height="1920"></div>
+      <div id="conexao" data-composition-id="conexao" data-composition-src="compositions/conexao.html" data-start="2.860" data-duration="3.540" data-track-index="1" data-track-kind="graphics" data-width="1080" data-height="1920"></div>
+      <div id="trabalho" data-composition-id="trabalho" data-composition-src="compositions/trabalho.html" data-start="6.400" data-duration="6.670" data-track-index="1" data-track-kind="graphics" data-width="1080" data-height="1920"></div>
+      <div id="nome" data-composition-id="nome" data-composition-src="compositions/nome.html" data-start="13.070" data-duration="2.630" data-track-index="1" data-track-kind="graphics" data-width="1080" data-height="1920"></div>
+      <div id="videomaker" data-composition-id="videomaker" data-composition-src="compositions/videomaker.html" data-start="15.700" data-duration="3.550" data-track-index="1" data-track-kind="graphics" data-width="1080" data-height="1920"></div>
+      <div id="final" data-composition-id="final" data-composition-src="compositions/final.html" data-start="19.250" data-duration="1.783" data-track-index="1" data-track-kind="graphics" data-width="1080" data-height="1920"></div>
+      <div id="legendas" data-composition-id="legendas" data-composition-src="compositions/legendas.html" data-start="0" data-duration="21.0333" data-track-index="2" data-track-kind="captions" data-width="1080" data-height="1920"></div>
+      <audio id="som0" class="clip" src="assets/sfx/whoosh-short.mp3" data-start="0.050" data-duration="0.570" data-track-index="5" data-volume="0.12"></audio>
+      <audio id="som1" class="clip" src="assets/sfx/impact-bass-1.mp3" data-start="1.100" data-duration="2.120" data-track-index="6" data-volume="0.16"></audio>
+      <audio id="som2" class="clip" src="assets/sfx/glitch-1.mp3" data-start="2.200" data-duration="2.640" data-track-index="5" data-volume="0.1"></audio>
+      <audio id="som3" class="clip" src="assets/sfx/ping.mp3" data-start="3.860" data-duration="1.320" data-track-index="6" data-volume="0.1"></audio>
+      <audio id="som4" class="clip" src="assets/sfx/pop.mp3" data-start="4.670" data-duration="0.720" data-track-index="5" data-volume="0.13"></audio>
+      <audio id="som5" class="clip" src="assets/sfx/impact-bass-1.mp3" data-start="5.890" data-duration="2.120" data-track-index="6" data-volume="0.16"></audio>
+      <audio id="som6" class="clip" src="assets/sfx/whoosh.mp3" data-start="6.340" data-duration="0.570" data-track-index="5" data-volume="0.12"></audio>
+      <audio id="som7" class="clip" src="assets/sfx/whoosh-short.mp3" data-start="8.000" data-duration="0.570" data-track-index="6" data-volume="0.12"></audio>
+      <audio id="som8" class="clip" src="assets/sfx/pop.mp3" data-start="8.040" data-duration="0.720" data-track-index="5" data-volume="0.13"></audio>
+      <audio id="som9" class="clip" src="assets/sfx/pop.mp3" data-start="8.500" data-duration="0.720" data-track-index="6" data-volume="0.13"></audio>
+      <audio id="som10" class="clip" src="assets/sfx/pop.mp3" data-start="9.310" data-duration="0.720" data-track-index="5" data-volume="0.13"></audio>
+      <audio id="som11" class="clip" src="assets/sfx/pop.mp3" data-start="10.020" data-duration="0.720" data-track-index="6" data-volume="0.13"></audio>
+      <audio id="som12" class="clip" src="assets/sfx/pop.mp3" data-start="10.790" data-duration="0.720" data-track-index="5" data-volume="0.13"></audio>
+      <audio id="som13" class="clip" src="assets/sfx/whoosh-short.mp3" data-start="11.150" data-duration="0.570" data-track-index="6" data-volume="0.12"></audio>
+      <audio id="som14" class="clip" src="assets/sfx/impact-bass-1.mp3" data-start="12.530" data-duration="2.120" data-track-index="5" data-volume="0.16"></audio>
+      <audio id="som15" class="clip" src="assets/sfx/whoosh.mp3" data-start="13.000" data-duration="0.570" data-track-index="6" data-volume="0.12"></audio>
+      <audio id="som16" class="clip" src="assets/sfx/whoosh-short.mp3" data-start="15.620" data-duration="0.570" data-track-index="5" data-volume="0.12"></audio>
+      <audio id="som17" class="clip" src="assets/sfx/click.mp3" data-start="15.950" data-duration="0.370" data-track-index="6" data-volume="0.12"></audio>
+      <audio id="som18" class="clip" src="assets/sfx/whoosh.mp3" data-start="18.040" data-duration="0.570" data-track-index="5" data-volume="0.12"></audio>
+      <audio id="som19" class="clip" src="assets/sfx/whoosh.mp3" data-start="19.250" data-duration="0.570" data-track-index="6" data-volume="0.12"></audio>
+      <audio id="som20" class="clip" src="assets/sfx/impact-bass-1.mp3" data-start="20.520" data-duration="0.503" data-track-index="5" data-volume="0.16"></audio>
+    </div>
+    <script>
+      gsap.set("#camera", { scale: 1, x: 0, y: 0, borderRadius: 0 });
+      gsap.set("#tremor", { x: 0, y: 0 });
+      const tl = gsap.timeline({ paused: true });
+      gsap.set("#flash", { opacity: 0 });
+      tl.set("#camera", { scale: 1.1 }, 0.000);
+      tl.set("#camera", { scale: 1 }, 1.100);
+      tl.to("#camera", { ...{ scale: 1.15 }, duration: 0.12, ease: "power3.out" }, 2.200);
+      tl.to("#tremor", { keyframes: [{ x: 16, y: -9, duration: 0.03 }, { x: -13, y: 11, duration: 0.03 }, { x: 9, y: -6, duration: 0.03 }, { x: -6, y: 4, duration: 0.03 }, { x: 3, y: -2, duration: 0.03 }, { x: 0, y: 0, duration: 0.04 }], ease: "none" }, 2.200);
+      tl.set("#camera", { scale: 1 }, 2.860);
+      tl.to("#camera", { ...{ scale: 1.05 }, duration: 1.2, ease: "none" }, 2.860);
+      tl.set("#camera", { scale: 1.12 }, 4.120);
+      tl.set("#camera", { scale: 1 }, 5.330);
+      tl.to("#camera", { ...{ scale: 1.15 }, duration: 0.12, ease: "power3.out" }, 5.890);
+      tl.to("#tremor", { keyframes: [{ x: 16, y: -9, duration: 0.03 }, { x: -13, y: 11, duration: 0.03 }, { x: 9, y: -6, duration: 0.03 }, { x: -6, y: 4, duration: 0.03 }, { x: 3, y: -2, duration: 0.03 }, { x: 0, y: 0, duration: 0.04 }], ease: "none" }, 5.890);
+      tl.to("#flash", { keyframes: [{ opacity: 0.55, duration: 0.04 }, { opacity: 0, duration: 0.14 }], ease: "none" }, 6.360);
+      tl.set("#camera", { scale: 1.04 }, 6.400);
+      tl.to("#camera", { ...{ scale: 1.1 }, duration: 1.5, ease: "none" }, 6.400);
+      tl.set("#palco", { backgroundColor: "#FC3B7F" }, 7.900);
+      tl.set("#grade", { opacity: 1 }, 7.9);
+      tl.to("#camera", { ...{ scale: 0.6, y: 60, borderRadius: 60 }, duration: 0.4, ease: "power3.inOut" }, 8.000);
+      tl.to("#camera", { ...{ scale: 1.02, y: 0, borderRadius: 0 }, duration: 0.3, ease: "power3.inOut" }, 11.120);
+      tl.set("#grade", { opacity: 0 }, 11.45);
+      tl.set("#palco", { backgroundColor: "#000" }, 11.450);
+      tl.to("#camera", { ...{ scale: 1.08 }, duration: 1, ease: "none" }, 11.450);
+      tl.to("#camera", { ...{ scale: 1.16 }, duration: 0.12, ease: "power3.out" }, 12.530);
+      tl.to("#tremor", { keyframes: [{ x: 16, y: -9, duration: 0.03 }, { x: -13, y: 11, duration: 0.03 }, { x: 9, y: -6, duration: 0.03 }, { x: -6, y: 4, duration: 0.03 }, { x: 3, y: -2, duration: 0.03 }, { x: 0, y: 0, duration: 0.04 }], ease: "none" }, 12.530);
+      tl.to("#flash", { keyframes: [{ opacity: 0.55, duration: 0.04 }, { opacity: 0, duration: 0.14 }], ease: "none" }, 13.030);
+      tl.set("#camera", { scale: 1, y: 0 }, 13.070);
+      tl.set("#palco", { backgroundColor: "#0032A8" }, 13.200);
+      tl.to("#camera", { ...{ scale: 0.8, y: 190, borderRadius: 48 }, duration: 0.4, ease: "power3.inOut" }, 13.250);
+      tl.to("#camera", { ...{ scale: 1.1, y: 0, borderRadius: 0 }, duration: 0.3, ease: "power3.inOut" }, 15.580);
+      tl.set("#palco", { backgroundColor: "#000" }, 15.900);
+      tl.set("#camera", { scale: 1 }, 16.370);
+      tl.set("#camera", { scale: 1.14 }, 17.410);
+      tl.set("#camera", { scale: 1 }, 18.040);
+      tl.to("#camera", { ...{ scale: 1.12 }, duration: 0.12, ease: "power3.out" }, 18.840);
+      tl.set("#palco", { backgroundColor: "#0032A8" }, 19.200);
+      tl.to("#camera", { ...{ scale: 0.44, y: -300, borderRadius: 70 }, duration: 0.45, ease: "power3.inOut" }, 19.250);
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>

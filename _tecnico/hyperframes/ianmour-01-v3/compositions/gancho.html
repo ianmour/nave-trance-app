@@ -1,0 +1,42 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; }
+    .bloco { position: absolute; left: 150px; width: 780px; text-align: center; overflow: visible; }
+    .gotico { font-family: "League Gothic"; text-transform: uppercase; line-height: 0.9; letter-spacing: 0.01em; white-space: nowrap; display: inline-block; }
+    .italico { font-family: "Playfair Display"; font-style: italic; font-weight: 700; line-height: 1.05; white-space: nowrap; display: inline-block; }
+    .creme { color: #FEF1CF; }
+    .rosa { color: #FC3B7F; }
+    .azul { color: #0032A8; }
+    .sombra { text-shadow: 0 6px 26px rgba(0,0,0,0.55); }
+    .solida-azul { text-shadow: 6px 6px 0 #0032A8, 0 10px 30px rgba(0,0,0,0.5); }
+    .solida-rosa { text-shadow: 6px 6px 0 #FC3B7F, 0 10px 30px rgba(0,0,0,0.5); }
+    .etiqueta { display: inline-block; padding: 6px 22px 10px; border-radius: 14px; font-family: "Poppins"; font-weight: 800; white-space: nowrap; }
+
+    #gancho-c { height: 180px; }
+    #gancho-c .gotico { position: absolute; left: 0; right: 0; }
+    #gancho-c .ca { opacity: 0.85; mix-blend-mode: normal; }
+    #gancho-c .cb { opacity: 0.85; }
+
+  </style>
+  <div id="root" data-composition-id="gancho" data-width="1080" data-height="1920">
+      <div id="gancho-a" class="clip bloco" data-start="0.050" data-duration="1.030" data-track-index="0" style="top:300px"><span class="gotico creme solida-azul" style="font-size:120px">A sua empresa</span><br><span id="gancho-a2" class="italico rosa sombra" style="font-size:58px">precisa de</span></div>
+      <div id="gancho-b" class="clip bloco" data-start="1.100" data-duration="1.080" data-track-index="0" style="top:296px"><span class="gotico rosa solida-azul" style="font-size:170px">Muito mais</span></div>
+      <div id="gancho-c" class="clip bloco" data-start="2.200" data-duration="0.650" data-track-index="0" style="top:292px" data-layout-allow-overlap><span class="gotico ca rosa" style="font-size:180px">Aparecer</span><span class="gotico cb azul" style="font-size:180px">Aparecer</span><span class="gotico cc creme sombra" style="font-size:180px">Aparecer</span></div>
+  </div>
+  <script>
+    (function () {
+      const tl = gsap.timeline({ paused: true });
+      tl.fromTo("#gancho-a .gotico", { opacity: 0, y: 70 }, { opacity: 1, y: 0, duration: 0.28, ease: "power4.out" }, 0.050);
+      tl.fromTo("#gancho-a2", { opacity: 0, x: -160 }, { opacity: 1, x: 0, duration: 0.3, ease: "power4.out" }, 0.640);
+      tl.to("#gancho-a > *", { opacity: 0, y: -30, duration: 0.1, ease: "power2.in" }, 0.980);
+      tl.fromTo("#gancho-b span", { opacity: 0, scale: 2.4 }, { opacity: 1, scale: 1, duration: 0.16, ease: "power4.out" }, 1.100);
+      tl.to("#gancho-b span", { opacity: 0, scale: 0.4, duration: 0.12, ease: "power2.in" }, 2.060);
+      tl.fromTo("#gancho-c", { opacity: 0 }, { opacity: 1, duration: 0.04 }, 2.200);
+      tl.fromTo("#gancho-c .ca", { x: -26 }, { keyframes: [{ x: 22, duration: 0.05 }, { x: 10, duration: 0.05 }, { x: -16, duration: 0.05 }, { x: 0, duration: 0.08 }] , ease: "none" }, 2.200);
+      tl.fromTo("#gancho-c .cb", { x: 18 }, { keyframes: [{ x: -20, duration: 0.05 }, { x: -12, duration: 0.05 }, { x: 14, duration: 0.05 }, { x: 0, duration: 0.08 }] , ease: "none" }, 2.200);
+      tl.fromTo("#gancho-c .cc", { skewX: -18 }, { skewX: 0, duration: 0.22, ease: "power3.out" }, 2.200);
+      tl.to("#gancho-c", { opacity: 0, y: -30, duration: 0.1, ease: "power2.in" }, 2.740);
+      window.__timelines["gancho"] = tl;
+    })();
+  </script>
+</template>

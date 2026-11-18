@@ -10,6 +10,8 @@ A ideia: **um jeito reconhecível, sem repetir a mesma fórmula**. Por isso tem 
 > - **efeitos sonoros mais baixos que a voz** (na v2 estavam altos) — manter os efeitos, só baixar;
 > - tirar o que passar do ponto (ex.: tremor/flash em excesso), sem perder a energia.
 > As regras abaixo (legenda branca de uma letra só, palavra-chave maior, sem itálico) continuam valendo.
+>
+> **O que a pessoa prega: PERSONALIDADE.** Legenda branca, mas **as animações e tudo que passa na tela levam as cores da identidade visual** (rosa `#FC3B7F`, creme `#FEF1CF`, azul `#0032A8` para a ianmour). **Símbolos** (ícones, figurinhas, marcas visuais) **só os que forem definidos antes com a pessoa** — nunca inventar.
 
 ---
 

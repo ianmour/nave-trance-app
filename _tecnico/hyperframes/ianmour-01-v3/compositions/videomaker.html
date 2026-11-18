@@ -1,0 +1,54 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; }
+    .bloco { position: absolute; left: 150px; width: 780px; text-align: center; overflow: visible; }
+    .gotico { font-family: "League Gothic"; text-transform: uppercase; line-height: 0.9; letter-spacing: 0.01em; white-space: nowrap; display: inline-block; }
+    .italico { font-family: "Playfair Display"; font-style: italic; font-weight: 700; line-height: 1.05; white-space: nowrap; display: inline-block; }
+    .creme { color: #FEF1CF; }
+    .rosa { color: #FC3B7F; }
+    .azul { color: #0032A8; }
+    .sombra { text-shadow: 0 6px 26px rgba(0,0,0,0.55); }
+    .solida-azul { text-shadow: 6px 6px 0 #0032A8, 0 10px 30px rgba(0,0,0,0.5); }
+    .solida-rosa { text-shadow: 6px 6px 0 #FC3B7F, 0 10px 30px rgba(0,0,0,0.5); }
+    .etiqueta { display: inline-block; padding: 6px 22px 10px; border-radius: 14px; font-family: "Poppins"; font-weight: 800; white-space: nowrap; }
+
+    .canto { position: absolute; width: 90px; height: 90px; border: 0 solid #FEF1CF; }
+    .canto.ce { left: 130px; top: 280px; border-top-width: 8px; border-left-width: 8px; }
+    .canto.cd { right: 130px; top: 280px; border-top-width: 8px; border-right-width: 8px; }
+    .canto.be { left: 130px; top: 1160px; border-bottom-width: 8px; border-left-width: 8px; }
+    .canto.bd { right: 130px; top: 1160px; border-bottom-width: 8px; border-right-width: 8px; }
+    .recl { position: absolute; left: 250px; top: 1085px; font-family: "Poppins"; font-weight: 800; font-size: 40px; color: #FEF1CF; display: flex; align-items: center; gap: 12px; text-shadow: 0 2px 10px rgba(0,0,0,0.6); }
+    .ponto { width: 26px; height: 26px; border-radius: 50%; background: #FC3B7F; display: inline-block; }
+
+  </style>
+  <div id="root" data-composition-id="videomaker" data-width="1080" data-height="1920">
+      <div id="videomaker-rec" class="clip bloco" data-start="0.250" data-duration="1.900" data-track-index="0" style="left:0;top:0;width:1080px;height:1920px"><div class="canto ce"></div><div class="canto cd"></div><div class="canto be"></div><div class="canto bd"></div><div id="videomaker-recl" class="recl"><span class="ponto"></span>REC</div></div>
+      <div id="videomaker-a" class="clip bloco" data-start="0.670" data-duration="1.010" data-track-index="0" style="top:320px"><span id="videomaker-p" class="gotico creme solida-azul" style="font-size:130px">Produção</span> <span id="videomaker-e" class="gotico rosa solida-azul" style="font-size:130px">& edição</span></div>
+      <div id="videomaker-b" class="clip bloco" data-start="1.710" data-duration="0.590" data-track-index="0" style="top:310px"><span class="italico rosa sombra" style="font-size:96px">de vídeos</span></div>
+      <div id="videomaker-c" class="clip bloco" data-start="2.340" data-duration="0.760" data-track-index="0" style="top:296px"><span class="gotico creme solida-rosa" style="font-size:180px">Transformo</span></div>
+      <div id="videomaker-d" class="clip bloco" data-start="3.140" data-duration="0.400" data-track-index="0" style="top:296px"><span class="gotico rosa solida-azul" style="font-size:170px">Seu negócio</span></div>
+  </div>
+  <script>
+    (function () {
+      const tl = gsap.timeline({ paused: true });
+      tl.fromTo("#videomaker-rec .canto", { opacity: 0, scale: 1.3 }, { opacity: 1, scale: 1, duration: 0.25, ease: "power3.out", stagger: 0.03 }, 0.250);
+      tl.set("#videomaker-rec .ponto", { opacity: 0.15 }, 0.750);
+      tl.set("#videomaker-rec .ponto", { opacity: 1 }, 1.000);
+      tl.set("#videomaker-rec .ponto", { opacity: 0.15 }, 1.250);
+      tl.set("#videomaker-rec .ponto", { opacity: 1 }, 1.500);
+      tl.set("#videomaker-rec .ponto", { opacity: 0.15 }, 1.750);
+      tl.set("#videomaker-rec .ponto", { opacity: 1 }, 2.000);
+      tl.to("#videomaker-rec > *", { opacity: 0, duration: 0.1 }, 2.050);
+      tl.fromTo("#videomaker-p", { opacity: 0, x: -160 }, { opacity: 1, x: 0, duration: 0.3, ease: "power4.out" }, 0.670);
+      tl.fromTo("#videomaker-e", { opacity: 0, x: 160 }, { opacity: 1, x: 0, duration: 0.3, ease: "power4.out" }, 1.290);
+      tl.to("#videomaker-a > *", { opacity: 0, y: -30, duration: 0.1, ease: "power2.in" }, 1.580);
+      tl.fromTo("#videomaker-b span", { opacity: 0, filter: "blur(16px)", scale: 1.15 }, { opacity: 1, filter: "blur(0px)", scale: 1, duration: 0.3, ease: "power3.out" }, 1.710);
+      tl.to("#videomaker-b span", { opacity: 0, y: -30, duration: 0.1, ease: "power2.in" }, 2.200);
+      tl.fromTo("#videomaker-c span", { opacity: 0, scaleX: 2.6, scaleY: 0.4, filter: "blur(10px)" }, { opacity: 1, scaleX: 1, scaleY: 1, filter: "blur(0px)", duration: 0.32, ease: "expo.out" }, 2.340);
+      tl.to("#videomaker-c span", { opacity: 0, y: -30, duration: 0.1, ease: "power2.in" }, 3.000);
+      tl.fromTo("#videomaker-d span", { opacity: 0, scale: 2.4 }, { opacity: 1, scale: 1, duration: 0.16, ease: "power4.out" }, 3.140);
+      tl.to("#videomaker-d span", { opacity: 0, y: -30, duration: 0.1, ease: "power2.in" }, 3.440);
+      window.__timelines["videomaker"] = tl;
+    })();
+  </script>
+</template>

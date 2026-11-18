@@ -1,0 +1,28 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; }
+    .bloco { position: absolute; left: 150px; width: 780px; text-align: center; overflow: visible; }
+    .gotico { font-family: "League Gothic"; text-transform: uppercase; line-height: 0.9; letter-spacing: 0.01em; white-space: nowrap; display: inline-block; }
+    .italico { font-family: "Playfair Display"; font-style: italic; font-weight: 700; line-height: 1.05; white-space: nowrap; display: inline-block; }
+    .creme { color: #FEF1CF; }
+    .rosa { color: #FC3B7F; }
+    .azul { color: #0032A8; }
+    .sombra { text-shadow: 0 6px 26px rgba(0,0,0,0.55); }
+    .solida-azul { text-shadow: 6px 6px 0 #0032A8, 0 10px 30px rgba(0,0,0,0.5); }
+    .solida-rosa { text-shadow: 6px 6px 0 #FC3B7F, 0 10px 30px rgba(0,0,0,0.5); }
+    .etiqueta { display: inline-block; padding: 6px 22px 10px; border-radius: 14px; font-family: "Poppins"; font-weight: 800; white-space: nowrap; }
+
+  </style>
+  <div id="root" data-composition-id="final" data-width="1080" data-height="1920">
+      <div id="final-a" class="clip bloco" data-start="0.110" data-duration="1.673" data-track-index="0" style="top:1010px" data-layout-allow-overlap><span id="final-um" class="italico creme" style="font-size:58px">uma experiência</span><br><span id="final-v" class="gotico rosa" style="font-size:150px;margin-right:28px;text-shadow:5px 5px 0 #FEF1CF">Visual</span> <span id="final-u" class="gotico creme" style="font-size:150px;text-shadow:5px 5px 0 #FC3B7F">única</span></div>
+  </div>
+  <script>
+    (function () {
+      const tl = gsap.timeline({ paused: true });
+      tl.fromTo("#final-um", { opacity: 0, filter: "blur(16px)", scale: 1.15 }, { opacity: 1, filter: "blur(0px)", scale: 1, duration: 0.3, ease: "power3.out" }, 0.110);
+      tl.fromTo("#final-v", { opacity: 0, scale: 2.4 }, { opacity: 1, scale: 1, duration: 0.16, ease: "power4.out" }, 0.920);
+      tl.fromTo("#final-u", { opacity: 0, scale: 2.4 }, { opacity: 1, scale: 1, duration: 0.16, ease: "power4.out" }, 1.270);
+      window.__timelines["final"] = tl;
+    })();
+  </script>
+</template>

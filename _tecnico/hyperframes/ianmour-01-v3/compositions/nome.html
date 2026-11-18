@@ -1,0 +1,37 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; }
+    .bloco { position: absolute; left: 150px; width: 780px; text-align: center; overflow: visible; }
+    .gotico { font-family: "League Gothic"; text-transform: uppercase; line-height: 0.9; letter-spacing: 0.01em; white-space: nowrap; display: inline-block; }
+    .italico { font-family: "Playfair Display"; font-style: italic; font-weight: 700; line-height: 1.05; white-space: nowrap; display: inline-block; }
+    .creme { color: #FEF1CF; }
+    .rosa { color: #FC3B7F; }
+    .azul { color: #0032A8; }
+    .sombra { text-shadow: 0 6px 26px rgba(0,0,0,0.55); }
+    .solida-azul { text-shadow: 6px 6px 0 #0032A8, 0 10px 30px rgba(0,0,0,0.5); }
+    .solida-rosa { text-shadow: 6px 6px 0 #FC3B7F, 0 10px 30px rgba(0,0,0,0.5); }
+    .etiqueta { display: inline-block; padding: 6px 22px 10px; border-radius: 14px; font-family: "Poppins"; font-weight: 800; white-space: nowrap; }
+
+  </style>
+  <div id="root" data-composition-id="nome" data-width="1080" data-height="1920">
+      <div id="nome-a" class="clip bloco" data-start="0.160" data-duration="2.390" data-track-index="0" style="top:292px"><span id="nome-eu" class="italico creme" style="font-size:60px">eu sou</span><br>
+        <span id="nome-barra" style="display:inline-block;position:relative;padding:4px 26px 0">
+          <span id="nome-fundo" style="position:absolute;inset:0;background:#FC3B7F;transform-origin:left center"></span>
+          <span id="nome-txt" class="gotico creme" style="font-size:150px;position:relative">Ricardo Lucas</span>
+        </span><br>
+        <span id="nome-prof" class="italico creme" style="font-size:50px;margin-top:10px">publicitário <span id="nome-vm">& video maker</span></span></div>
+  </div>
+  <script>
+    (function () {
+      const tl = gsap.timeline({ paused: true });
+      tl.fromTo("#nome-eu", { opacity: 0, filter: "blur(16px)", scale: 1.15 }, { opacity: 1, filter: "blur(0px)", scale: 1, duration: 0.3, ease: "power3.out" }, 0.160);
+      tl.fromTo("#nome-fundo", { scaleX: 0 }, { scaleX: 1, duration: 0.3, ease: "expo.out" }, 0.350);
+      tl.fromTo("#nome-txt", { opacity: 0, y: 70 }, { opacity: 1, y: 0, duration: 0.28, ease: "power4.out" }, 0.390);
+      tl.fromTo("#nome-prof", { opacity: 0, x: -160 }, { opacity: 1, x: 0, duration: 0.3, ease: "power4.out" }, 1.230);
+      tl.fromTo("#nome-vm", { opacity: 0 }, { opacity: 1, duration: 0.15 }, 2.020);
+      tl.set("#nome-vm", { opacity: 0 }, 0);
+      tl.to("#nome-a > *", { opacity: 0, y: -30, duration: 0.1, ease: "power2.in" }, 2.430);
+      window.__timelines["nome"] = tl;
+    })();
+  </script>
+</template>

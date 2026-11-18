@@ -17,27 +17,44 @@
     .nome { display: inline-flex; align-items: center; gap: 22px; padding: 22px 34px 22px 22px; border-radius: 30px; background: rgba(20,20,24,0.72); color: #fff; box-shadow: 0 14px 34px rgba(0,0,0,0.35); }
     .nome i { width: 12px; height: 92px; border-radius: 6px; background: #fff; display: block; }
     .nome b { display: block; font-size: 56px; font-weight: 900; letter-spacing: -0.03em; } .nome span { display: block; font-size: 32px; font-weight: 600; opacity: 0.85; }
+    .acima { font-family: "Inter"; font-weight: 900; letter-spacing: -0.045em; line-height: 0.9; color: #fff; text-shadow: 0 10px 40px rgba(0,0,0,0.35); }
+    .tela { position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 40%, #2a2420 0%, #12100e 70%); }
+    .faixa { position: absolute; left: 0; right: 0; top: 0; bottom: 0; background-image: linear-gradient(rgba(255,255,255,0.04) 2px, transparent 2px); background-size: 100% 12px; }
+    .tmeu { position: absolute; left: 0; right: 0; top: 700px; text-align: center; font-family: "Inter"; font-weight: 500; font-size: 56px; letter-spacing: -0.03em; color: rgba(255,255,255,0.75); }
+    .tpal { position: absolute; left: 0; right: 0; top: 800px; text-align: center; font-family: "Inter"; font-weight: 900; font-size: 168px; letter-spacing: -0.05em; line-height: 1; color: #fff; }
+    .tpal.grande { top: 860px; font-size: 200px; }
     .icone { position: absolute; filter: drop-shadow(0 6px 14px rgba(0,0,0,0.35)); }
     .saiba { display: inline-flex; align-items: center; gap: 10px; padding: 22px 44px; border-radius: 999px; background: rgba(20,20,24,0.72); border: 2px solid rgba(255,255,255,0.35); color: #fff; font-size: 52px; font-weight: 800; box-shadow: 0 14px 34px rgba(0,0,0,0.35); }
   </style>
   <div id="root" data-composition-id="app" data-width="1080" data-height="1920">
-      <div id="ic" class="clip ui" data-start="3.460" data-duration="0.640" data-track-index="0" style="left:0;top:0;width:1080px;height:1920px" data-layout-allow-overlap><div id="ic0" class="icone" style="left:150px;top:1040px;transform:rotate(-12deg)"><svg viewBox="0 0 48 48" width="118" height="118"><path d="M8 8h32a4 4 0 0 1 4 4v18a4 4 0 0 1-4 4H22l-8 7v-7H8a4 4 0 0 1-4-4V12a4 4 0 0 1 4-4z" fill="#fff"/><path d="M13 16h22M13 22h16" stroke="#1c1c1e" stroke-width="3" stroke-linecap="round"/></svg></div><div id="ic1" class="icone" style="left:790px;top:1030px;transform:rotate(10deg)"><svg viewBox="0 0 48 48" width="118" height="118"><path d="M8 8h32a4 4 0 0 1 4 4v18a4 4 0 0 1-4 4H22l-8 7v-7H8a4 4 0 0 1-4-4V12a4 4 0 0 1 4-4z" fill="#fff"/><path d="M13 16h22M13 22h16" stroke="#1c1c1e" stroke-width="3" stroke-linecap="round"/></svg></div><div id="ic2" class="icone" style="left:250px;top:1270px;transform:rotate(8deg)"><svg viewBox="0 0 48 48" width="118" height="118"><path d="M8 8h32a4 4 0 0 1 4 4v18a4 4 0 0 1-4 4H22l-8 7v-7H8a4 4 0 0 1-4-4V12a4 4 0 0 1 4-4z" fill="#fff"/><path d="M13 16h22M13 22h16" stroke="#1c1c1e" stroke-width="3" stroke-linecap="round"/></svg></div><div id="ic3" class="icone" style="left:690px;top:1280px;transform:rotate(-8deg)"><svg viewBox="0 0 48 48" width="118" height="118"><path d="M8 8h32a4 4 0 0 1 4 4v18a4 4 0 0 1-4 4H22l-8 7v-7H8a4 4 0 0 1-4-4V12a4 4 0 0 1 4-4z" fill="#fff"/><path d="M13 16h22M13 22h16" stroke="#1c1c1e" stroke-width="3" stroke-linecap="round"/></svg></div></div>
-      <div id="pg" class="clip ui" data-start="16.270" data-duration="2.870" data-track-index="0" style="left:150px;width:780px;top:300px" data-layout-allow-overlap><div class="nt"><div class="nti"><svg viewBox="0 0 24 24" width="40" height="40"><circle cx="12" cy="12" r="11" fill="#FF9F0A"/><path d="M10 8l6 4-6 4z" fill="#fff"/></svg></div><div class="ntx"><div class="nta">EDITOR<span>agora</span></div><b id="pgt">Editando vídeo…</b><div class="barra"><i id="pgb"></i></div></div></div></div>
-      <div id="sm" class="clip ui" data-start="19.430" data-duration="1.603" data-track-index="0" style="left:240px;width:600px;top:1290px;text-align:center" data-layout-allow-overlap><div class="saiba">Saiba mais <svg viewBox="0 0 24 24" width="34" height="34"><path d="M9 6l6 6-6 6" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+      <div id="a1" class="clip ui" data-start="1.050" data-duration="0.770" data-track-index="0" style="left:60px;width:960px;top:300px;text-align:center" data-layout-allow-overlap><div class="acima" style="font-size:150px">MUITO MAIS</div></div>
+      <div id="a2" class="clip ui" data-start="2.150" data-duration="0.760" data-track-index="0" style="left:60px;width:960px;top:300px;text-align:center" data-layout-allow-overlap><div class="acima" style="font-size:150px">APARECER</div></div>
+      <div id="a3" class="clip ui" data-start="18.620" data-duration="0.690" data-track-index="0" style="left:60px;width:960px;top:300px;text-align:center" data-layout-allow-overlap><div class="acima" style="font-size:128px">SEU NEGÓCIO</div></div>
+      <div id="tc" class="clip ui" data-start="6.430" data-duration="6.680" data-track-index="0" style="left:0;top:0;width:1080px;height:1920px" data-layout-allow-overlap><div class="tela"><div class="faixa"></div>
+  <div id="tcm" class="tmeu">meu trabalho é</div>
+  <div id="tp0" class="tpal">TRANSFORMAR</div><div id="tp1" class="tpal">IDEIAS</div><div id="tp2" class="tpal">IMAGENS</div><div id="tp3" class="tpal">HISTÓRIAS</div><div id="tp4" class="tpal">EMOÇÕES</div><div id="tp5" class="tpal">MARCAS</div>
+  <div id="tce" class="tmeu" style="top:780px">experiências que conectam</div><div id="tcp" class="tpal grande">PESSOAS</div></div></div>
   </div>
   <script>
     (function () {
       const tl = gsap.timeline({ paused: true });
-      tl.fromTo("#ic0", { scale: 0, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.28, ease: "back.out(2.4)" }, 3.510);
-      tl.fromTo("#ic1", { scale: 0, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.28, ease: "back.out(2.4)" }, 3.600);
-      tl.fromTo("#ic2", { scale: 0, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.28, ease: "back.out(2.4)" }, 3.690);
-      tl.fromTo("#ic3", { scale: 0, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.28, ease: "back.out(2.4)" }, 3.780);
-      tl.to("#ic .icone", { scale: 0.6, opacity: 0, duration: 0.18, stagger: 0.03, ease: "power2.in" }, 3.870);
-      tl.fromTo("#pg", { y: -140, opacity: 0 }, { y: 0, opacity: 1, duration: 0.45, ease: "back.out(1.5)" }, 16.270);
-      tl.fromTo("#pgb", { scaleX: 0 }, { scaleX: 1, duration: 1.340, ease: "power1.inOut" }, 16.370);
-      tl.set("#pgt", { textContent: "Vídeo pronto ✓" }, 17.760);
-      tl.to("#pg", { y: -140, opacity: 0, duration: 0.3, ease: "power2.in" }, 18.890);
-      tl.fromTo("#sm", { scale: 0.3, opacity: 0, y: 30 }, { scale: 1, opacity: 1, y: 0, duration: 0.32, ease: "back.out(2)" }, 19.530);
+      tl.fromTo("#a1 .acima", { opacity: 0, y: 40, scale: 1.15, filter: "blur(10px)" }, { opacity: 1, y: 0, scale: 1, filter: "blur(0px)", duration: 0.3, ease: "power3.out" }, 1.050);
+      tl.to("#a1 .acima", { opacity: 0, y: -30, filter: "blur(8px)", duration: 0.2, ease: "power2.in" }, 1.620);
+      tl.fromTo("#a2 .acima", { opacity: 0, y: 40, scale: 1.15, filter: "blur(10px)" }, { opacity: 1, y: 0, scale: 1, filter: "blur(0px)", duration: 0.3, ease: "power3.out" }, 2.150);
+      tl.to("#a2 .acima", { opacity: 0, y: -30, filter: "blur(8px)", duration: 0.2, ease: "power2.in" }, 2.710);
+      tl.fromTo("#a3 .acima", { opacity: 0, y: 40, scale: 1.15, filter: "blur(10px)" }, { opacity: 1, y: 0, scale: 1, filter: "blur(0px)", duration: 0.3, ease: "power3.out" }, 18.620);
+      tl.to("#a3 .acima", { opacity: 0, y: -30, filter: "blur(8px)", duration: 0.2, ease: "power2.in" }, 19.110);
+      tl.fromTo("#tc .tela", { clipPath: "inset(100% 0 0 0)" }, { clipPath: "inset(0% 0 0 0)", duration: 0.4, ease: "power3.inOut" }, 6.430);
+      tl.fromTo("#tcm", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.3 }, 6.630); tl.to("#tcm", { opacity: 0, duration: 0.2 }, 11.000);
+      tl.fromTo("#tp0", { x: 900, opacity: 0 }, { x: 0, opacity: 1, duration: 0.28, ease: "power3.out" }, 7.240); tl.to("#tp0", { x: -900, opacity: 0, duration: 0.25, ease: "power3.in" }, 7.910);
+      tl.fromTo("#tp1", { x: 900, opacity: 0 }, { x: 0, opacity: 1, duration: 0.28, ease: "power3.out" }, 7.960); tl.to("#tp1", { x: -900, opacity: 0, duration: 0.25, ease: "power3.in" }, 8.370);
+      tl.fromTo("#tp2", { x: 900, opacity: 0 }, { x: 0, opacity: 1, duration: 0.28, ease: "power3.out" }, 8.420); tl.to("#tp2", { x: -900, opacity: 0, duration: 0.25, ease: "power3.in" }, 9.180);
+      tl.fromTo("#tp3", { x: 900, opacity: 0 }, { x: 0, opacity: 1, duration: 0.28, ease: "power3.out" }, 9.230); tl.to("#tp3", { x: -900, opacity: 0, duration: 0.25, ease: "power3.in" }, 9.890);
+      tl.fromTo("#tp4", { x: 900, opacity: 0 }, { x: 0, opacity: 1, duration: 0.28, ease: "power3.out" }, 9.940); tl.to("#tp4", { x: -900, opacity: 0, duration: 0.25, ease: "power3.in" }, 10.660);
+      tl.fromTo("#tp5", { x: 900, opacity: 0 }, { x: 0, opacity: 1, duration: 0.28, ease: "power3.out" }, 10.710); tl.to("#tp5", { x: -900, opacity: 0, duration: 0.25, ease: "power3.in" }, 11.100);
+      tl.fromTo("#tce", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.25 }, 11.200);
+      tl.fromTo("#tcp", { opacity: 0, scale: 1.4, filter: "blur(12px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.3, ease: "power3.out" }, 12.480);
+      tl.to("#tc .tela", { clipPath: "inset(0 0 100% 0)", duration: 0.35, ease: "power3.inOut" }, 12.760);
       window.__timelines["app"] = tl;
     })();
   </script>

@@ -1,0 +1,93 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; }
+    .grupo { position: absolute; left: 140px; width: 800px; bottom: 690px; text-align: center; overflow: visible; }
+    .linha { display: inline-block; line-height: 1.15; font-family: "Poppins"; font-weight: 700; color: #ffffff;
+      text-shadow: 2px 2px 0 #000, -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 0 3px 0 #000, 0 6px 20px rgba(0,0,0,0.75); }
+    .pal { display: inline-block; }
+  </style>
+  <div id="root" data-composition-id="legendas" data-width="1080" data-height="1920">
+      <div id="lg0" class="clip grupo" data-start="0.100" data-duration="0.490" data-track-index="0"><div class="linha" style="font-size:64px"><span id="lg0w0" class="pal">A</span> <span id="lg0w1" class="pal">sua</span> <span id="lg0w2" class="pal">empresa</span></div></div>
+      <div id="lg1" class="clip grupo" data-start="0.590" data-duration="0.740" data-track-index="0"><div class="linha" style="font-size:64px"><span id="lg1w0" class="pal">precisa</span> <span id="lg1w1" class="pal">de</span> <span id="lg1w2" class="pal">muito</span></div></div>
+      <div id="lg2" class="clip grupo" data-start="1.330" data-duration="0.490" data-track-index="0"><div class="linha" style="font-size:64px"><span id="lg2w0" class="pal">mais</span> <span id="lg2w1" class="pal">do</span> <span id="lg2w2" class="pal">que</span></div></div>
+      <div id="lg3" class="clip grupo" data-start="1.820" data-duration="0.990" data-track-index="0"><div class="linha" style="font-size:64px"><span id="lg3w0" class="pal">apenas</span> <span id="lg3w1" class="pal">aparecer.</span></div></div>
+      <div id="lg4" class="clip grupo" data-start="2.810" data-duration="0.650" data-track-index="0"><div class="linha" style="font-size:64px"><span id="lg4w0" class="pal">Ela</span> <span id="lg4w1" class="pal">precisa</span> <span id="lg4w2" class="pal">se</span></div></div>
+      <div id="lg5" class="clip grupo" data-start="3.460" data-duration="0.610" data-track-index="0"><div class="linha" style="font-size:64px"><span id="lg5w0" class="pal">conectar,</span></div></div>
+      <div id="lg6" class="clip grupo" data-start="4.070" data-duration="1.210" data-track-index="0"><div class="linha" style="font-size:60px"><span id="lg6w0" class="pal">despertar</span> <span id="lg6w1" class="pal">interesse</span> <span id="lg6w2" class="pal">e</span></div></div>
+      <div id="lg7" class="clip grupo" data-start="5.280" data-duration="1.250" data-track-index="0"><div class="linha" style="font-size:63px"><span id="lg7w0" class="pal">conquistar</span> <span id="lg7w1" class="pal">clientes.</span></div></div>
+      <div id="lg8" class="clip grupo" data-start="6.530" data-duration="0.740" data-track-index="0"><div class="linha" style="font-size:64px"><span id="lg8w0" class="pal">Meu</span> <span id="lg8w1" class="pal">trabalho</span> <span id="lg8w2" class="pal">é</span></div></div>
+      <div id="lg9" class="clip grupo" data-start="7.270" data-duration="0.730" data-track-index="0"><div class="linha" style="font-size:64px"><span id="lg9w0" class="pal">transformar</span></div></div>
+      <div id="lg10" class="clip grupo" data-start="11.200" data-duration="1.280" data-track-index="0"><div class="linha" style="font-size:50px"><span id="lg10w0" class="pal">experiências</span> <span id="lg10w1" class="pal">que</span> <span id="lg10w2" class="pal">conectam</span></div></div>
+      <div id="lg11" class="clip grupo" data-start="12.480" data-duration="0.590" data-track-index="0"><div class="linha" style="font-size:64px"><span id="lg11w0" class="pal">pessoas.</span></div></div>
+      <div id="lg12" class="clip grupo" data-start="15.650" data-duration="0.670" data-track-index="0"><div class="linha" style="font-size:64px"><span id="lg12w0" class="pal">e</span> <span id="lg12w1" class="pal">através</span> <span id="lg12w2" class="pal">da</span></div></div>
+      <div id="lg13" class="clip grupo" data-start="16.320" data-duration="1.020" data-track-index="0"><div class="linha" style="font-size:64px"><span id="lg13w0" class="pal">produção</span> <span id="lg13w1" class="pal">e</span> <span id="lg13w2" class="pal">edição</span></div></div>
+      <div id="lg14" class="clip grupo" data-start="17.340" data-duration="0.550" data-track-index="0"><div class="linha" style="font-size:64px"><span id="lg14w0" class="pal">de</span> <span id="lg14w1" class="pal">vídeos</span> <span id="lg14w2" class="pal">que</span></div></div>
+      <div id="lg15" class="clip grupo" data-start="17.890" data-duration="0.730" data-track-index="0"><div class="linha" style="font-size:64px"><span id="lg15w0" class="pal">eu</span> <span id="lg15w1" class="pal">transformo</span> <span id="lg15w2" class="pal">o</span></div></div>
+      <div id="lg16" class="clip grupo" data-start="18.620" data-duration="0.630" data-track-index="0"><div class="linha" style="font-size:64px"><span id="lg16w0" class="pal">seu</span> <span id="lg16w1" class="pal">negócio</span></div></div>
+  </div>
+  <script>
+    (function () {
+      const tl = gsap.timeline({ paused: true });
+      tl.fromTo("#lg0w0", { opacity: 0, y: 22, scale: 0.7 }, { opacity: 1, y: 0, scale: 1, duration: 0.14, ease: "back.out(2.4)" }, 0.050);
+      tl.fromTo("#lg0w1", { opacity: 0, y: 22, scale: 0.7 }, { opacity: 1, y: 0, scale: 1, duration: 0.14, ease: "back.out(2.4)" }, 0.080);
+      tl.fromTo("#lg0w2", { opacity: 0, y: 22, scale: 0.7 }, { opacity: 1, y: 0, scale: 1, duration: 0.14, ease: "back.out(2.4)" }, 0.210);
+      tl.to("#lg0 .linha", { opacity: 0, duration: 0.07, ease: "power2.in" }, 0.520);
+      tl.fromTo("#lg1w0", { opacity: 0, y: 22, scale: 0.7 }, { opacity: 1, y: 0, scale: 1, duration: 0.14, ease: "back.out(2.4)" }, 0.640);
+      tl.fromTo("#lg1w1", { opacity: 0, y: 22, scale: 0.7 }, { opacity: 1, y: 0, scale: 1, duration: 0.14, ease: "back.out(2.4)" }, 0.990);
+      tl.fromTo("#lg1w2", { opacity: 0, y: 22, scale: 0.7 }, { opacity: 1, y: 0, scale: 1, duration: 0.14, ease: "back.out(2.4)" }, 1.100);
+      tl.to("#lg1 .linha", { opacity: 0, duration: 0.07, ease: "power2.in" }, 1.260);
+      tl.fromTo("#lg2w0", { opacity: 0, y: 22, scale: 0.7 }, { opacity: 1, y: 0, scale: 1, duration: 0.14, ease: "back.out(2.4)" }, 1.380);
+      tl.fromTo("#lg2w1", { opacity: 0, y: 22, scale: 0.7 }, { opacity: 1, y: 0, scale: 1, duration: 0.14, ease: "back.out(2.4)" }, 1.600);
+      tl.fromTo("#lg2w2", { opacity: 0, y: 22, scale: 0.7 }, { opacity: 1, y: 0, scale: 1, duration: 0.14, ease: "back.out(2.4)" }, 1.720);
+      tl.to("#lg2 .linha", { opacity: 0, duration: 0.07, ease: "power2.in" }, 1.750);
+      tl.fromTo("#lg3w0", { opacity: 0, y: 22, scale: 0.7 }, { opacity: 1, y: 0, scale: 1, duration: 0.14, ease: "back.out(2.4)" }, 1.870);
+      tl.fromTo("#lg3w1", { opacity: 0, y: 22, scale: 0.7 }, { opacity: 1, y: 0, scale: 1, duration: 0.14, ease: "back.out(2.4)" }, 2.200);
+      tl.to("#lg3 .linha", { opacity: 0, duration: 0.07, ease: "power2.in" }, 2.740);
+      tl.fromTo("#lg4w0", { opacity: 0, y: 22, scale: 0.7 }, { opacity: 1, y: 0, scale: 1, duration: 0.14, ease: "back.out(2.4)" }, 2.860);
+      tl.fromTo("#lg4w1", { opacity: 0, y: 22, scale: 0.7 }, { opacity: 1, y: 0, scale: 1, duration: 0.14, ease: "back.out(2.4)" }, 2.960);
+      tl.fromTo("#lg4w2", { opacity: 0, y: 22, scale: 0.7 }, { opacity: 1, y: 0, scale: 1, duration: 0.14, ease: "back.out(2.4)" }, 3.420);
+      tl.to("#lg4 .linha", { opacity: 0, duration: 0.07, ease: "power2.in" }, 3.390);
+      tl.fromTo("#lg5w0", { opacity: 0, y: 22, scale: 0.7 }, { opacity: 1, y: 0, scale: 1, duration: 0.14, ease: "back.out(2.4)" }, 3.510);
+      tl.to("#lg5 .linha", { opacity: 0, duration: 0.07, ease: "power2.in" }, 4.000);
+      tl.fromTo("#lg6w0", { opacity: 0, y: 22, scale: 0.7 }, { opacity: 1, y: 0, scale: 1, duration: 0.14, ease: "back.out(2.4)" }, 4.120);
+      tl.fromTo("#lg6w1", { opacity: 0, y: 22, scale: 0.7 }, { opacity: 1, y: 0, scale: 1, duration: 0.14, ease: "back.out(2.4)" }, 4.670);
+      tl.fromTo("#lg6w2", { opacity: 0, y: 22, scale: 0.7 }, { opacity: 1, y: 0, scale: 1, duration: 0.14, ease: "back.out(2.4)" }, 5.280);
+      tl.to("#lg6 .linha", { opacity: 0, duration: 0.07, ease: "power2.in" }, 5.210);
+      tl.fromTo("#lg7w0", { opacity: 0, y: 22, scale: 0.7 }, { opacity: 1, y: 0, scale: 1, duration: 0.14, ease: "back.out(2.4)" }, 5.330);
+      tl.fromTo("#lg7w1", { opacity: 0, y: 22, scale: 0.7 }, { opacity: 1, y: 0, scale: 1, duration: 0.14, ease: "back.out(2.4)" }, 5.890);
+      tl.to("#lg7 .linha", { opacity: 0, duration: 0.07, ease: "power2.in" }, 6.460);
+      tl.fromTo("#lg8w0", { opacity: 0, y: 22, scale: 0.7 }, { opacity: 1, y: 0, scale: 1, duration: 0.14, ease: "back.out(2.4)" }, 6.580);
+      tl.fromTo("#lg8w1", { opacity: 0, y: 22, scale: 0.7 }, { opacity: 1, y: 0, scale: 1, duration: 0.14, ease: "back.out(2.4)" }, 6.700);
+      tl.fromTo("#lg8w2", { opacity: 0, y: 22, scale: 0.7 }, { opacity: 1, y: 0, scale: 1, duration: 0.14, ease: "back.out(2.4)" }, 7.240);
+      tl.to("#lg8 .linha", { opacity: 0, duration: 0.07, ease: "power2.in" }, 7.200);
+      tl.fromTo("#lg9w0", { opacity: 0, y: 22, scale: 0.7 }, { opacity: 1, y: 0, scale: 1, duration: 0.14, ease: "back.out(2.4)" }, 7.320);
+      tl.to("#lg9 .linha", { opacity: 0, duration: 0.07, ease: "power2.in" }, 7.930);
+      tl.fromTo("#lg10w0", { opacity: 0, y: 22, scale: 0.7 }, { opacity: 1, y: 0, scale: 1, duration: 0.14, ease: "back.out(2.4)" }, 11.250);
+      tl.fromTo("#lg10w1", { opacity: 0, y: 22, scale: 0.7 }, { opacity: 1, y: 0, scale: 1, duration: 0.14, ease: "back.out(2.4)" }, 11.960);
+      tl.fromTo("#lg10w2", { opacity: 0, y: 22, scale: 0.7 }, { opacity: 1, y: 0, scale: 1, duration: 0.14, ease: "back.out(2.4)" }, 12.060);
+      tl.to("#lg10 .linha", { opacity: 0, duration: 0.07, ease: "power2.in" }, 12.410);
+      tl.fromTo("#lg11w0", { opacity: 0, y: 22, scale: 0.7 }, { opacity: 1, y: 0, scale: 1, duration: 0.14, ease: "back.out(2.4)" }, 12.530);
+      tl.to("#lg11 .linha", { opacity: 0, duration: 0.07, ease: "power2.in" }, 13.000);
+      tl.fromTo("#lg12w0", { opacity: 0, y: 22, scale: 0.7 }, { opacity: 1, y: 0, scale: 1, duration: 0.14, ease: "back.out(2.4)" }, 15.700);
+      tl.fromTo("#lg12w1", { opacity: 0, y: 22, scale: 0.7 }, { opacity: 1, y: 0, scale: 1, duration: 0.14, ease: "back.out(2.4)" }, 15.950);
+      tl.fromTo("#lg12w2", { opacity: 0, y: 22, scale: 0.7 }, { opacity: 1, y: 0, scale: 1, duration: 0.14, ease: "back.out(2.4)" }, 16.250);
+      tl.to("#lg12 .linha", { opacity: 0, duration: 0.07, ease: "power2.in" }, 16.250);
+      tl.fromTo("#lg13w0", { opacity: 0, y: 22, scale: 0.7 }, { opacity: 1, y: 0, scale: 1, duration: 0.14, ease: "back.out(2.4)" }, 16.370);
+      tl.fromTo("#lg13w1", { opacity: 0, y: 22, scale: 0.7 }, { opacity: 1, y: 0, scale: 1, duration: 0.14, ease: "back.out(2.4)" }, 16.830);
+      tl.fromTo("#lg13w2", { opacity: 0, y: 22, scale: 0.7 }, { opacity: 1, y: 0, scale: 1, duration: 0.14, ease: "back.out(2.4)" }, 16.990);
+      tl.to("#lg13 .linha", { opacity: 0, duration: 0.07, ease: "power2.in" }, 17.270);
+      tl.fromTo("#lg14w0", { opacity: 0, y: 22, scale: 0.7 }, { opacity: 1, y: 0, scale: 1, duration: 0.14, ease: "back.out(2.4)" }, 17.390);
+      tl.fromTo("#lg14w1", { opacity: 0, y: 22, scale: 0.7 }, { opacity: 1, y: 0, scale: 1, duration: 0.14, ease: "back.out(2.4)" }, 17.410);
+      tl.fromTo("#lg14w2", { opacity: 0, y: 22, scale: 0.7 }, { opacity: 1, y: 0, scale: 1, duration: 0.14, ease: "back.out(2.4)" }, 17.760);
+      tl.to("#lg14 .linha", { opacity: 0, duration: 0.07, ease: "power2.in" }, 17.820);
+      tl.fromTo("#lg15w0", { opacity: 0, y: 22, scale: 0.7 }, { opacity: 1, y: 0, scale: 1, duration: 0.14, ease: "back.out(2.4)" }, 17.940);
+      tl.fromTo("#lg15w1", { opacity: 0, y: 22, scale: 0.7 }, { opacity: 1, y: 0, scale: 1, duration: 0.14, ease: "back.out(2.4)" }, 18.040);
+      tl.fromTo("#lg15w2", { opacity: 0, y: 22, scale: 0.7 }, { opacity: 1, y: 0, scale: 1, duration: 0.14, ease: "back.out(2.4)" }, 18.630);
+      tl.to("#lg15 .linha", { opacity: 0, duration: 0.07, ease: "power2.in" }, 18.550);
+      tl.fromTo("#lg16w0", { opacity: 0, y: 22, scale: 0.7 }, { opacity: 1, y: 0, scale: 1, duration: 0.14, ease: "back.out(2.4)" }, 18.670);
+      tl.fromTo("#lg16w1", { opacity: 0, y: 22, scale: 0.7 }, { opacity: 1, y: 0, scale: 1, duration: 0.14, ease: "back.out(2.4)" }, 18.840);
+      tl.to("#lg16 .linha", { opacity: 0, duration: 0.07, ease: "power2.in" }, 19.180);
+      window.__timelines["legendas"] = tl;
+    })();
+  </script>
+</template>

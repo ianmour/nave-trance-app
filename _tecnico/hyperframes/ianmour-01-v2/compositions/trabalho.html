@@ -1,0 +1,56 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; }
+    .bloco { position: absolute; left: 150px; width: 780px; text-align: center; overflow: visible; }
+    .gotico { font-family: "League Gothic"; text-transform: uppercase; line-height: 0.9; letter-spacing: 0.01em; white-space: nowrap; display: inline-block; }
+    .italico { font-family: "Playfair Display"; font-style: italic; font-weight: 700; line-height: 1.05; white-space: nowrap; display: inline-block; }
+    .creme { color: #FEF1CF; }
+    .rosa { color: #FC3B7F; }
+    .azul { color: #0032A8; }
+    .sombra { text-shadow: 0 6px 26px rgba(0,0,0,0.55); }
+    .solida-azul { text-shadow: 6px 6px 0 #0032A8, 0 10px 30px rgba(0,0,0,0.5); }
+    .solida-rosa { text-shadow: 6px 6px 0 #FC3B7F, 0 10px 30px rgba(0,0,0,0.5); }
+    .etiqueta { display: inline-block; padding: 6px 22px 10px; border-radius: 14px; font-family: "Poppins"; font-weight: 800; white-space: nowrap; }
+
+    .pil { text-align: left; }
+
+  </style>
+  <div id="root" data-composition-id="trabalho" data-width="1080" data-height="1920">
+      <div id="trabalho-a" class="clip bloco" data-start="0.180" data-duration="0.720" data-track-index="0" style="top:320px"><span class="italico creme sombra" style="font-size:70px">meu trabalho é</span></div>
+      <div id="trabalho-b" class="clip bloco" data-start="0.920" data-duration="0.660" data-track-index="0" style="top:296px"><span class="gotico rosa solida-azul" style="font-size:180px">Transformar</span></div>
+      <div id="trabalho-t" class="clip bloco" data-start="1.600" data-duration="3.200" data-track-index="0" style="top:300px"><span class="gotico creme" style="font-size:96px;text-shadow:5px 5px 0 #0032A8">Transformar</span></div>
+      <div id="trabalho-p0" class="clip bloco pil" data-start="1.640" data-duration="3.160" data-track-index="0" style="left:130px;top:520px;width:max-content" data-layout-allow-overflow><span class="etiqueta" style="background:#0032A8;color:#FEF1CF;font-size:58px;box-shadow:6px 6px 0 #FEF1CF">ideias</span></div>
+      <div id="trabalho-p1" class="clip bloco pil" data-start="2.100" data-duration="2.700" data-track-index="0" style="left:540px;top:720px;width:max-content" data-layout-allow-overflow><span class="etiqueta" style="background:#0032A8;color:#FEF1CF;font-size:58px;box-shadow:6px 6px 0 #FEF1CF">imagens</span></div>
+      <div id="trabalho-p2" class="clip bloco pil" data-start="2.910" data-duration="1.890" data-track-index="0" style="left:130px;top:930px;width:max-content" data-layout-allow-overflow><span class="etiqueta" style="background:#0032A8;color:#FEF1CF;font-size:58px;box-shadow:6px 6px 0 #FEF1CF">histórias</span></div>
+      <div id="trabalho-p3" class="clip bloco pil" data-start="3.620" data-duration="1.180" data-track-index="0" style="left:530px;top:1090px;width:max-content" data-layout-allow-overflow><span class="etiqueta" style="background:#0032A8;color:#FEF1CF;font-size:58px;box-shadow:6px 6px 0 #FEF1CF">emoções</span></div>
+      <div id="trabalho-p4" class="clip bloco pil" data-start="4.390" data-duration="0.410" data-track-index="0" style="left:340px;top:1150px;width:max-content" data-layout-allow-overflow><span class="etiqueta" style="background:#0032A8;color:#FEF1CF;font-size:58px;box-shadow:6px 6px 0 #FEF1CF">marcas</span></div>
+      <div id="trabalho-c" class="clip bloco" data-start="4.850" data-duration="1.250" data-track-index="0" style="top:320px"><span class="italico creme sombra" style="font-size:66px">experiências que conectam</span></div>
+      <div id="trabalho-d" class="clip bloco" data-start="6.130" data-duration="0.530" data-track-index="0" style="top:296px"><span class="gotico rosa solida-azul" style="font-size:210px">Pessoas</span></div>
+  </div>
+  <script>
+    (function () {
+      const tl = gsap.timeline({ paused: true });
+      tl.fromTo("#trabalho-a span", { opacity: 0, filter: "blur(16px)", scale: 1.15 }, { opacity: 1, filter: "blur(0px)", scale: 1, duration: 0.3, ease: "power3.out" }, 0.180);
+      tl.to("#trabalho-a span", { opacity: 0, y: -30, duration: 0.1, ease: "power2.in" }, 0.800);
+      tl.fromTo("#trabalho-b span", { opacity: 0, scaleX: 2.6, scaleY: 0.4, filter: "blur(10px)" }, { opacity: 1, scaleX: 1, scaleY: 1, filter: "blur(0px)", duration: 0.32, ease: "expo.out" }, 0.920);
+      tl.to("#trabalho-b span", { opacity: 0, y: -30, duration: 0.1, ease: "power2.in" }, 1.480);
+      tl.fromTo("#trabalho-t span", { opacity: 0, y: 70 }, { opacity: 1, y: 0, duration: 0.28, ease: "power4.out" }, 1.650);
+      tl.to("#trabalho-t span", { opacity: 0, y: -30, duration: 0.1, ease: "power2.in" }, 4.680);
+      tl.fromTo("#trabalho-p0 span", { opacity: 0, scale: 0, rotation: -18 }, { opacity: 1, scale: 1, rotation: -6, duration: 0.3, ease: "back.out(2.6)" }, 1.640);
+      tl.to("#trabalho-p0 span", { opacity: 0, scale: 0.4, duration: 0.12, ease: "power2.in" }, 4.660);
+      tl.fromTo("#trabalho-p1 span", { opacity: 0, scale: 0, rotation: 15 }, { opacity: 1, scale: 1, rotation: 5, duration: 0.3, ease: "back.out(2.6)" }, 2.100);
+      tl.to("#trabalho-p1 span", { opacity: 0, scale: 0.4, duration: 0.12, ease: "power2.in" }, 4.660);
+      tl.fromTo("#trabalho-p2 span", { opacity: 0, scale: 0, rotation: -12 }, { opacity: 1, scale: 1, rotation: -4, duration: 0.3, ease: "back.out(2.6)" }, 2.910);
+      tl.to("#trabalho-p2 span", { opacity: 0, scale: 0.4, duration: 0.12, ease: "power2.in" }, 4.660);
+      tl.fromTo("#trabalho-p3 span", { opacity: 0, scale: 0, rotation: 18 }, { opacity: 1, scale: 1, rotation: 6, duration: 0.3, ease: "back.out(2.6)" }, 3.620);
+      tl.to("#trabalho-p3 span", { opacity: 0, scale: 0.4, duration: 0.12, ease: "power2.in" }, 4.660);
+      tl.fromTo("#trabalho-p4 span", { opacity: 0, scale: 0, rotation: -9 }, { opacity: 1, scale: 1, rotation: -3, duration: 0.3, ease: "back.out(2.6)" }, 4.390);
+      tl.to("#trabalho-p4 span", { opacity: 0, scale: 0.4, duration: 0.12, ease: "power2.in" }, 4.710);
+      tl.fromTo("#trabalho-c span", { opacity: 0, x: -160 }, { opacity: 1, x: 0, duration: 0.3, ease: "power4.out" }, 4.850);
+      tl.to("#trabalho-c span", { opacity: 0, y: -30, duration: 0.1, ease: "power2.in" }, 6.000);
+      tl.fromTo("#trabalho-d span", { opacity: 0, scale: 2.4 }, { opacity: 1, scale: 1, duration: 0.16, ease: "power4.out" }, 6.130);
+      tl.to("#trabalho-d span", { opacity: 0, y: -30, duration: 0.1, ease: "power2.in" }, 6.550);
+      window.__timelines["trabalho"] = tl;
+    })();
+  </script>
+</template>

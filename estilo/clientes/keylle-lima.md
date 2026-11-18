@@ -1,7 +1,9 @@
 # Cliente: Keylle Lima
 
-- **Nome:** Keylle Lima (escreve-se K-E-Y-L-L-E).
+- **Quem é:** Keylle Lima — **ele** (homem), chefe da pessoa. Escreve-se K-E-Y-L-L-E.
+- **Instagram:** @keyllelima (não dá para abrir o Instagram daqui; usar como a pessoa soletrou).
 - **Identidade visual:** azul.
 - **Temas:** gestão de pessoas, liderança — sempre com foco em **pequenos negócios**.
-- **Voz para vídeos narrados:** Alex (`pm_alex`, Kokoro). Atenção à pronúncia de "Keylle" na voz gerada — testar e, se preciso, escrever do jeito que se fala só no texto da voz.
-- **Formato em teste:** vídeo de conteúdo 100% animado (ver `estilo/guia-de-estilo.md` → "Vídeo de CONTEÚDO 100% animado"), com um fundo único feito em código.
+- **Tipo de vídeo preferido para começar:** **educativo** (ensinar algo prático) ou mostrar algo que está acontecendo. Não usar números/estatísticas sem fonte confirmada.
+- **Voz para vídeos narrados:** Alex (`pm_alex`, Kokoro). Testar a pronúncia de "Keylle" e "@keyllelima" na voz; se precisar, escrever como se fala só no texto da narração.
+- **Formato em teste:** vídeo de conteúdo 100% animado (ver `estilo/guia-de-estilo.md`), com um fundo único feito em código.

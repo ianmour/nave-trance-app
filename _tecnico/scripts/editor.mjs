@@ -25,6 +25,18 @@ function require_spawn(cmd, args) {
   return spawnSync(cmd, args, { encoding: "utf8", maxBuffer: 1 << 28 });
 }
 
+function lerWav(arq) {
+  const b = fs.readFileSync(arq);
+  let p = 12, sr = 16000;
+  while (p < b.length - 8) {
+    const id = b.toString("ascii", p, p + 4), tam = b.readUInt32LE(p + 4);
+    if (id === "fmt ") sr = b.readUInt32LE(p + 12);
+    if (id === "data") return { sr, s: new Int16Array(b.buffer.slice(b.byteOffset + p + 8, b.byteOffset + p + 8 + (tam & ~1))) };
+    p += 8 + tam + (tam & 1);
+  }
+  throw new Error("WAV sem dados");
+}
+
 function lerEstilo() {
   const txt = fs.readFileSync(ESTILO, "utf8");
   const get = (k, d) => {
@@ -154,6 +166,29 @@ function analisar(video) {
   for (const f of falas) {
     if (!f.palavras.length && f.fim - f.ini < 1.5) removidas.set(f.id, "som sem fala (estalo, respiração ou \"ééé\")");
   }
+  // Regra: som curto e bem mais fraco que a fala (respiração, estalo de boca), mesmo que o
+  // whisper tenha "grudado" uma palavra nele. Medido direto no áudio.
+  const pcm = lerWav(wav);
+  const rms = (a, b) => {
+    const i0 = Math.floor(a * pcm.sr), i1 = Math.min(pcm.s.length, Math.ceil(b * pcm.sr));
+    let soma = 0;
+    for (let i = i0; i < i1; i++) soma += pcm.s[i] * pcm.s[i];
+    return 20 * Math.log10(Math.sqrt(soma / Math.max(1, i1 - i0)) / 32768 || 1e-9);
+  };
+  const niveis = falas.map((f) => rms(f.ini, f.fim));
+  const ordenados = [...niveis].sort((x, y) => x - y);
+  const mediana = ordenados[Math.floor(ordenados.length / 2)];
+  falas.forEach((f, i) => {
+    f.nivel = niveis[i];
+    if (!removidas.has(f.id) && f.fim - f.ini < 0.35 && niveis[i] < mediana - 12)
+      removidas.set(f.id, `som curto e fraco (respiração ou estalo de boca)`);
+    // estalo: som curtíssimo (< 0,15 s) com pausa dos dois lados
+    const antes = i === 0 ? f.ini : f.ini - falas[i - 1].fim;
+    const depois = i === falas.length - 1 ? dur - f.fim : falas[i + 1].ini - f.fim;
+    if (!removidas.has(f.id) && f.fim - f.ini < 0.15 && antes >= est.pausaMin && depois >= est.pausaMin)
+      removidas.set(f.id, `estalo de boca`);
+  });
+
   // Regra: frase repetida -> fica a última tomada
   if (est.repeticao === "manter_ultima") {
     for (let i = 0; i < frasesInfo.length - 1; i++) {

@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: #FAFCFF; }
+      #main { position: relative; width: 100%; height: 100%; overflow: hidden; background-color: #FAFCFF;
+        background-image: linear-gradient(rgba(30,91,255,0.07) 2px, transparent 2px), linear-gradient(90deg, rgba(30,91,255,0.07) 2px, transparent 2px);
+        background-size: 64px 64px; }
+      #luzA { position: absolute; width: 1100px; height: 1100px; left: -520px; top: -480px; border-radius: 50%;
+        background: radial-gradient(circle, rgba(120,170,255,0.75) 0%, rgba(150,190,255,0.35) 35%, rgba(250,252,255,0) 68%); }
+      #luzB { position: absolute; width: 1100px; height: 1100px; right: -520px; bottom: -480px; border-radius: 50%;
+        background: radial-gradient(circle, rgba(120,170,255,0.75) 0%, rgba(150,190,255,0.35) 35%, rgba(250,252,255,0) 68%); }
+      #cenas, #legendas { position: absolute; inset: 0; }
+      #legendas { z-index: 3; } #cenas { z-index: 2; }
+    </style>
+  </head>
+  <body>
+    <div id="main" data-composition-id="main" data-start="0" data-duration="31.0333" data-width="1080" data-height="1920">
+      <div id="luzA" data-layout-ignore></div>
+      <div id="luzB" data-layout-ignore></div>
+      <div id="cenas" data-composition-id="cenas" data-composition-src="compositions/cenas.html" data-start="0" data-duration="31.033" data-track-index="1" data-track-kind="graphics" data-width="1080" data-height="1920"></div>
+      <div id="legendas" data-composition-id="legendas" data-composition-src="compositions/legendas.html" data-start="0" data-duration="31.033" data-track-index="2" data-track-kind="captions" data-width="1080" data-height="1920"></div>
+      <audio id="voz" class="clip" src="assets/narracao.wav" data-start="0" data-duration="30.010" data-track-index="4" data-volume="1.6"></audio>
+      <audio id="som0" class="clip" src="assets/sfx/pop.mp3" data-start="0.660" data-duration="0.720" data-track-index="5" data-volume="0.16"></audio>
+      <audio id="som1" class="clip" src="assets/sfx/pop.mp3" data-start="2.830" data-duration="0.720" data-track-index="6" data-volume="0.16"></audio>
+      <audio id="som2" class="clip" src="assets/sfx/error.mp3" data-start="2.930" data-duration="1.620" data-track-index="7" data-volume="0.07"></audio>
+      <audio id="som3" class="clip" src="assets/sfx/whoosh-short.mp3" data-start="3.580" data-duration="0.570" data-track-index="5" data-volume="0.12"></audio>
+      <audio id="som4" class="clip" src="assets/sfx/click-soft.mp3" data-start="4.080" data-duration="0.370" data-track-index="6" data-volume="0.14"></audio>
+      <audio id="som5" class="clip" src="assets/sfx/whoosh-short.mp3" data-start="4.720" data-duration="0.570" data-track-index="7" data-volume="0.12"></audio>
+      <audio id="som6" class="clip" src="assets/sfx/click.mp3" data-start="6.270" data-duration="0.370" data-track-index="5" data-volume="0.14"></audio>
+      <audio id="som7" class="clip" src="assets/sfx/pop.mp3" data-start="6.340" data-duration="0.720" data-track-index="6" data-volume="0.16"></audio>
+      <audio id="som8" class="clip" src="assets/sfx/whoosh-short.mp3" data-start="6.910" data-duration="0.570" data-track-index="7" data-volume="0.12"></audio>
+      <audio id="som9" class="clip" src="assets/sfx/pop.mp3" data-start="7.080" data-duration="0.720" data-track-index="5" data-volume="0.12"></audio>
+      <audio id="som10" class="clip" src="assets/sfx/pop.mp3" data-start="7.170" data-duration="0.720" data-track-index="6" data-volume="0.12"></audio>
+      <audio id="som11" class="clip" src="assets/sfx/pop.mp3" data-start="7.260" data-duration="0.720" data-track-index="7" data-volume="0.12"></audio>
+      <audio id="som12" class="clip" src="assets/sfx/whoosh-short.mp3" data-start="7.470" data-duration="0.570" data-track-index="5" data-volume="0.12"></audio>
+      <audio id="som13" class="clip" src="assets/sfx/whoosh.mp3" data-start="7.780" data-duration="0.570" data-track-index="6" data-volume="0.1"></audio>
+      <audio id="som14" class="clip" src="assets/sfx/click.mp3" data-start="8.700" data-duration="0.370" data-track-index="7" data-volume="0.16"></audio>
+      <audio id="som15" class="clip" src="assets/sfx/notification.mp3" data-start="10.570" data-duration="2.460" data-track-index="5" data-volume="0.07"></audio>
+      <audio id="som16" class="clip" src="assets/sfx/whoosh-short.mp3" data-start="11.580" data-duration="0.570" data-track-index="6" data-volume="0.12"></audio>
+      <audio id="som17" class="clip" src="assets/sfx/pop.mp3" data-start="14.770" data-duration="0.720" data-track-index="7" data-volume="0.14"></audio>
+      <audio id="som18" class="clip" src="assets/sfx/click-soft.mp3" data-start="15.630" data-duration="0.370" data-track-index="5" data-volume="0.16"></audio>
+      <audio id="som19" class="clip" src="assets/sfx/ping.mp3" data-start="16.010" data-duration="1.320" data-track-index="6" data-volume="0.1"></audio>
+      <audio id="som20" class="clip" src="assets/sfx/whoosh-short.mp3" data-start="17.580" data-duration="0.570" data-track-index="7" data-volume="0.12"></audio>
+      <audio id="som21" class="clip" src="assets/sfx/key-press.mp3" data-start="18.800" data-duration="0.400" data-track-index="5" data-volume="0.14"></audio>
+      <audio id="som22" class="clip" src="assets/sfx/key-press.mp3" data-start="18.980" data-duration="0.400" data-track-index="6" data-volume="0.14"></audio>
+      <audio id="som23" class="clip" src="assets/sfx/key-press.mp3" data-start="19.120" data-duration="0.400" data-track-index="7" data-volume="0.14"></audio>
+      <audio id="som24" class="clip" src="assets/sfx/sparkle.mp3" data-start="19.510" data-duration="1.800" data-track-index="5" data-volume="0.1"></audio>
+      <audio id="som25" class="clip" src="assets/sfx/typing.mp3" data-start="19.920" data-duration="1.500" data-track-index="6" data-volume="0.09"></audio>
+      <audio id="som26" class="clip" src="assets/sfx/whoosh-short.mp3" data-start="21.940" data-duration="0.570" data-track-index="7" data-volume="0.12"></audio>
+      <audio id="som27" class="clip" src="assets/sfx/whoosh.mp3" data-start="23.740" data-duration="0.570" data-track-index="5" data-volume="0.12"></audio>
+      <audio id="som28" class="clip" src="assets/sfx/chime.mp3" data-start="24.180" data-duration="2.500" data-track-index="6" data-volume="0.07"></audio>
+      <audio id="som29" class="clip" src="assets/sfx/whoosh-short.mp3" data-start="24.700" data-duration="0.570" data-track-index="7" data-volume="0.12"></audio>
+      <audio id="som30" class="clip" src="assets/sfx/key-press.mp3" data-start="27.980" data-duration="0.400" data-track-index="5" data-volume="0.14"></audio>
+      <audio id="som31" class="clip" src="assets/sfx/key-press.mp3" data-start="28.180" data-duration="0.400" data-track-index="6" data-volume="0.14"></audio>
+      <audio id="som32" class="clip" src="assets/sfx/key-press.mp3" data-start="28.380" data-duration="0.400" data-track-index="7" data-volume="0.14"></audio>
+      <audio id="som33" class="clip" src="assets/sfx/click.mp3" data-start="28.630" data-duration="0.370" data-track-index="5" data-volume="0.16"></audio>
+      <audio id="som34" class="clip" src="assets/sfx/sparkle.mp3" data-start="28.230" data-duration="1.800" data-track-index="6" data-volume="0.12"></audio>
+    </div>
+    <script>
+      const tl = gsap.timeline({ paused: true });
+      tl.fromTo("#luzA", { x: 0, y: 0, scale: 1 }, { x: 80, y: 60, scale: 1.12, duration: 31.033, ease: "sine.inOut" }, 0);
+      tl.fromTo("#luzB", { x: 0, y: 0, scale: 1 }, { x: -80, y: -60, scale: 1.12, duration: 31.033, ease: "sine.inOut" }, 0);
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>

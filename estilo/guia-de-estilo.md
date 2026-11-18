@@ -4,7 +4,7 @@ Tirado das suas próprias edições (`referencias/ianmour-01-sua-edicao.MOV` e `
 
 A ideia: **um jeito reconhecível, sem repetir a mesma fórmula**. Por isso tem uma **base fixa** e um **cardápio** que eu vario de vídeo para vídeo.
 
-> **🔇 REGRA DE SOM (mais recente):** **sem música de fundo**. Mas **"trilha sonora" = design de som, e a pessoa ama**: whoosh, pop, clique, digitação, impacto, subida de tensão antes do momento forte, sons de interface — caprichar em todo vídeo, sempre abaixo da voz. (Músicas "de sonho/esperança" foram rejeitadas; se um dia voltar a ter música, tem que ser séria e firme.)
+> **🔇 REGRA DE SOM (mais recente):** **sem música de fundo**. Mas **efeitos sonoros a pessoa ama**: whoosh, pop, clique, digitação, impacto, subida de tensão antes do momento forte, sons de interface — caprichar em todo vídeo, sempre abaixo da voz. (Músicas "de sonho/esperança" foram rejeitadas; se um dia voltar a ter música, tem que ser séria e firme.)
 >
 > **⚠️ Atualização mais importante (feedback do ianmour-01):** a pessoa **preferiu a versão animada e enérgica** (`final/ianmour-01-editado.mp4`, projeto `_tecnico/hyperframes/ianmour-01-v2`): cores rosa e azul, palavras grandes batendo na tela, telas cheias coloridas, etiquetas, moldura REC, câmera com zoom alternando, efeitos sonoros. A versão "elegante e minimalista" (`final/ianmour-01-cliente.mp4`) **NÃO agradou** — ficou contida e sem graça.
 > **Ponto de partida de toda edição = a versão animada (v2)**, com estes ajustes:

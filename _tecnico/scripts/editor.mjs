@@ -275,28 +275,54 @@ function cortar(video, modo, saidaDir) {
   const { nome, dir } = pastaTrabalho(video);
   const arq = path.join(dir, "cortes.json");
   if (!fs.existsSync(arq)) throw new Error("Rode 'analisar' primeiro.");
-  const { ficam } = JSON.parse(fs.readFileSync(arq, "utf8"));
+  let { ficam } = JSON.parse(fs.readFileSync(arq, "utf8"));
   const comVideo = temVideo(video);
+  // Cortes em cima da troca de quadro: a imagem é cortada contando quadros e o som contando
+  // amostras (números exatos), assim os dois têm exatamente a mesma duração
+  const sr = Number(run("ffprobe", ["-v", "error", "-select_streams", "a:0", "-show_entries", "stream=sample_rate", "-of", "csv=p=0", video]).trim());
+  let q = null;
+  if (comVideo) {
+    const [fn, fd] = run("ffprobe", ["-v", "error", "-select_streams", "v:0", "-show_entries", "stream=avg_frame_rate", "-of", "csv=p=0", video]).trim().split("/").map(Number);
+    q = fd / fn;
+    ficam = ficam
+      // arredonda "para dentro" (a pausa da emenda nunca passa do limite); só o começo do
+      // vídeo e o fim do último trecho arredondam "para fora", para não engolir som
+      .map((k, i, arr) => ({
+        q0: i === 0 ? Math.floor(k.ini / q + 1e-6) : Math.ceil(k.ini / q - 1e-6),
+        q1: i === arr.length - 1 ? Math.ceil(k.fim / q - 1e-6) : Math.floor(k.fim / q + 1e-6),
+      }))
+      .filter((k) => k.q1 > k.q0)
+      .map((k) => ({ ...k, ini: k.q0 * q, fim: k.q1 * q }));
+  }
   const destino = saidaDir || path.join(RAIZ, modo === "final" ? "final" : "previas");
   fs.mkdirSync(destino, { recursive: true });
   const saida = path.join(destino, `${nome}-${modo}.mp4`);
   if (path.resolve(saida) === path.resolve(video)) throw new Error("A saída seria o próprio original. Parei.");
 
-  // Cada trecho: corta vídeo e áudio, com um fade de 10 ms no som para a emenda não estalar
-  const partes = [];
-  let fc = "";
+  // Cada trecho: corta vídeo e áudio nos mesmos tempos; fade de 10 ms no som para a emenda não estalar
+  let vfc = "", afc = "";
   ficam.forEach((k, i) => {
-    const d = (k.fim - k.ini).toFixed(3);
-    if (comVideo) fc += `[0:v]trim=start=${k.ini.toFixed(3)}:end=${k.fim.toFixed(3)},setpts=PTS-STARTPTS[v${i}];`;
-    fc += `[0:a]atrim=start=${k.ini.toFixed(3)}:end=${k.fim.toFixed(3)},asetpts=PTS-STARTPTS,afade=t=in:d=0.01,afade=t=out:st=${Math.max(0, d - 0.01).toFixed(3)}:d=0.01[a${i}];`;
-    partes.push(comVideo ? `[v${i}][a${i}]` : `[a${i}]`);
+    const s0 = Math.round(k.ini * sr), s1 = Math.round(k.fim * sr), d = (s1 - s0) / sr;
+    if (comVideo) vfc += `[0:v]trim=start_frame=${k.q0}:end_frame=${k.q1},setpts=PTS-STARTPTS[v${i}];`;
+    afc += `[0:a]atrim=start_sample=${s0}:end_sample=${s1},asetpts=PTS-STARTPTS,afade=t=in:d=0.01,afade=t=out:st=${Math.max(0, d - 0.01).toFixed(4)}:d=0.01[a${i}];`;
   });
-  fc += `${partes.join("")}concat=n=${ficam.length}:v=${comVideo ? 1 : 0}:a=1${comVideo ? "[v]" : ""}[a]`;
-  if (comVideo && modo === "previa") fc = fc.replace(/\[v\]\[a\]$/, "[vc][a];[vc]scale='min(720,iw)':-2[v]");
+  const n = ficam.length;
+  vfc += ficam.map((_, i) => `[v${i}]`).join("") + `concat=n=${n}:v=1:a=0` + (modo === "previa" ? ",scale='min(720,iw)':-2" : "") + "[v]";
+  afc += ficam.map((_, i) => `[a${i}]`).join("") + `concat=n=${n}:v=0:a=1[aj]`;
 
-  const qualidade = modo === "final"
-    ? ["-c:v", "libx264", "-preset", "slow", "-crf", "18", "-c:a", "aac", "-b:a", "192k"]
-    : ["-c:v", "libx264", "-preset", "veryfast", "-crf", "28", "-c:a", "aac", "-b:a", "128k"];
+  // Volume: -14 LUFS em duas passadas (mede, depois aplica), como na documentação do loudnorm
+  const alvo = `I=${LUFS}:TP=-1.0:LRA=11`;
+  const med = require_spawn("ffmpeg", ["-hide_banner", "-nostats", "-i", video, "-filter_complex", afc + `;[aj]loudnorm=${alvo}:print_format=json[a]`, "-map", "[a]", "-f", "null", "-"]);
+  const j = med.stderr.match(/\{[^{}]*"input_i"[^{}]*\}/);
+  if (!j) throw new Error("Não consegui medir o volume:\n" + med.stderr.slice(-1500));
+  const m = JSON.parse(j[0]);
+  afc += `;[aj]loudnorm=${alvo}:measured_I=${m.input_i}:measured_TP=${m.input_tp}:measured_LRA=${m.input_lra}:measured_thresh=${m.input_thresh}:offset=${m.target_offset}:linear=true,aresample=48000[a]`;
+  const fc = comVideo ? vfc + ";" + afc : afc;
+  if (process.env.MOSTRAR_FILTRO) fs.writeFileSync(process.env.MOSTRAR_FILTRO, afc);
+
+  const qualidade = modo === "previa"
+    ? ["-c:v", "libx264", "-preset", "veryfast", "-crf", "28", "-c:a", "aac", "-b:a", "128k"]
+    : ["-c:v", "libx264", "-preset", "slow", "-crf", "18", "-c:a", "aac", "-b:a", "192k"];
   const args = ["-v", "error", "-y", "-i", video, "-filter_complex", fc, ...(comVideo ? ["-map", "[v]"] : []), "-map", "[a]", ...qualidade, "-pix_fmt", "yuv420p", "-movflags", "+faststart", saida];
   const r = require_spawn("ffmpeg", args);
   if (r.status !== 0) throw new Error("O corte falhou:\n" + r.stderr.slice(-2000));
@@ -305,12 +331,13 @@ function cortar(video, modo, saidaDir) {
 
 const [cmd, video, modo, ...resto] = process.argv.slice(2);
 const TUTORIAL = process.argv.includes("--tutorial");
+const LUFS = -14;
 const iSaida = process.argv.indexOf("--saida");
 const saidaDir = iSaida > 0 ? path.resolve(process.argv[iSaida + 1]) : null;
 try {
   if (cmd === "analisar" && video) analisar(path.resolve(video));
-  else if (cmd === "cortar" && video && (modo === "previa" || modo === "final")) cortar(path.resolve(video), modo, saidaDir);
-  else console.log("Uso:\n  node _tecnico/scripts/editor.mjs analisar <video> [--tutorial]\n  node _tecnico/scripts/editor.mjs cortar <video> previa|final [--saida <pasta>]");
+  else if (cmd === "cortar" && video && ["previa", "corte", "final"].includes(modo)) cortar(path.resolve(video), modo, saidaDir);
+  else console.log("Uso:\n  node _tecnico/scripts/editor.mjs analisar <video> [--tutorial]\n  node _tecnico/scripts/editor.mjs cortar <video> previa|corte|final [--saida <pasta>]\n    previa = leve (720 px) em previas/; corte = qualidade cheia em previas/; final = qualidade cheia em final/");
 } catch (e) {
   console.error("ERRO: " + e.message);
   process.exit(1);

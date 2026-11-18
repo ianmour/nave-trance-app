@@ -63,6 +63,7 @@ Tirado dos vídeos em `referencias/`:
 ## Como o vídeo sai
 
 - Mesmo tamanho e formato do original (vídeo em pé continua em pé).
+- Volume normalizado em **-14 LUFS**, o padrão das redes sociais: todos os vídeos ficam com o mesmo volume.
 - Prévia (mais leve, para conferir) em `previas/`.
 - Versão final (qualidade alta) em `final/`.
 - Formato MP4, que abre em qualquer celular, computador e rede social.

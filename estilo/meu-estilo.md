@@ -18,6 +18,32 @@ Você tem dois jeitos:
 - **Começo:** o vídeo começa **direto na primeira palavra**, sem silêncio antes. Deixo só 0,03 s, imperceptível, para não engolir a primeira sílaba.
 - **Tutorial:** quando o vídeo é um passo a passo, guardo uma **pausa curta (0,5 s) antes de cada passo**, para quem assiste respirar e acompanhar. Eu reconheço um passo por palavras como "primeiro", "segundo", "passo", "agora", "depois", "em seguida", "por último". Sempre aviso na lista de cortes quando tratei o vídeo como tutorial.
 
+## Cores: para quem é o vídeo
+
+Sempre pergunto (ou você me diz) se o vídeo é **pra mim** ou **pra cliente**.
+
+**"É pra mim" → identidade ianmour** (referência: `estilo/ianmour-id-visual.jpg`)
+
+| Cor | Código | Uso |
+|---|---|---|
+| Rosa | `#FC3B7F` | cor principal: palavras grandes, destaques, fundos de tela cheia |
+| Creme | `#FEF1CF` | texto sobre rosa ou azul, legenda |
+| Azul | `#0032A8` | segunda cor: contraste com o rosa, caixinhas, fundos |
+
+- Clima da referência: streetwear, ousado, letras grossas e condensadas, um toque de pixel e retrô, fundo escuro.
+- Legenda e textos usam só essas 3 cores (mais o preto do fundo).
+- A cor da imagem gravada (pele, ambiente) eu não troco por conta própria: proponho opções na primeira edição e você escolhe. O que você escolher eu anoto aqui.
+
+**"É pra cliente" → neutro**
+
+- Textos em branco e preto, sem as cores ianmour.
+- Imagem com cor natural e limpa, só com correção de luz e contraste.
+- Se o cliente tiver cores próprias, você me passa e eu anoto abaixo.
+
+**Clientes com cores próprias**
+
+(nenhum ainda)
+
 ## O que eu NÃO faço sem você pedir
 
 - Mudar a ordem das frases.

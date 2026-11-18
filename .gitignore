@@ -1,0 +1,17 @@
+# Editor de vídeo: arquivos pesados ou pessoais ficam fora do GitHub
+originais/*
+referencias/*
+previas/*
+final/*
+_tecnico/modelos/
+_tecnico/testes/
+_tecnico/trabalho/
+_tecnico/hyperframes/node_modules/
+_tecnico/hyperframes/renders/
+*.mp4
+*.MP4
+*.mov
+*.MOV
+*.wav
+!**/.gitkeep
+_tecnico/hyperframes/.hyperframes/

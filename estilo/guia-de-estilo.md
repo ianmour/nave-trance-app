@@ -74,6 +74,18 @@ Tirado de `referencias/ref-cliente-falado-01.mp4` e `ref-cliente-falado-02.mp4` 
 
 **Detalhes:** figurinhas animadas pequenas (sol, ícones) · contornos finos · moldura arredondada.
 
+**Cartões que explicam o que a pessoa fala** (de `referencias/ref-estilo-03.mp4`, que a pessoa disse ser "basicamente o estilo que eu gosto"; a legenda dele NÃO agradou — usar a nossa):
+- **Barras de comparação** que enchem animadas ("Edição manual: 2 a 4 h" × "Com IA: 15 min").
+- **Lista sendo riscada** ("~~CapCut~~ ~~Premiere~~ ~~Edits~~ → 0 min").
+- **Checklist** com os itens sendo marcados ✓.
+- **Balão de mensagem/chat** com a frase digitada.
+- **Número gigante** em tela cheia ("50%") e **título em tela cheia** ("Edição Viral") na cor da marca.
+- **Faixa de miniaturas** no topo quando se fala de vários vídeos/exemplos.
+- **Gravação de tela** num cartão arredondado.
+- **Palavra grande atrás da pessoa**, com a imagem levemente escurecida.
+- **Pílula "Saiba mais"** no final.
+- Uma paleta de marca só no vídeo inteiro (nele: verde-escuro + dourado).
+
 ---
 
 ## Lições das referências favoritas (Hanah Franklin e @midtrack.co)

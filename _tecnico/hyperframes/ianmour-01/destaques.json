@@ -1,0 +1,51 @@
+[
+ {
+  "ini": 0.05,
+  "fim": 2.15,
+  "pequeno": "a sua empresa precisa de",
+  "grande": "muito mais",
+  "zoom": false
+ },
+ {
+  "ini": 2.2,
+  "fim": 2.84,
+  "pequeno": "",
+  "grande": "aparecer",
+  "zoom": true
+ },
+ {
+  "ini": 3.42,
+  "fim": 5.2,
+  "pequeno": "ela precisa se",
+  "grande": "conectar",
+  "zoom": false
+ },
+ {
+  "ini": 5.33,
+  "fim": 6.5,
+  "pequeno": "e conquistar",
+  "grande": "clientes",
+  "zoom": true
+ },
+ {
+  "ini": 11.25,
+  "fim": 13.15,
+  "pequeno": "experiências que conectam",
+  "grande": "pessoas",
+  "zoom": true
+ },
+ {
+  "ini": 13.42,
+  "fim": 15.68,
+  "pequeno": "publicitário e video maker",
+  "grande": "Ricardo Lucas",
+  "zoom": false
+ },
+ {
+  "ini": 18.9,
+  "fim": 21.03,
+  "pequeno": "uma experiência",
+  "grande": "visual única",
+  "zoom": true
+ }
+]

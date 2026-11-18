@@ -1,0 +1,72 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; }
+    .destaque { position: absolute; left: 120px; width: 768px; top: 296px; text-align: center; overflow: visible; }
+    .pequeno {
+      display: inline-block; margin-bottom: 10px; padding: 6px 18px 8px;
+      background: #0032A8; color: #FEF1CF;
+      font-family: "Poppins"; font-style: italic; font-weight: 700; font-size: 38px; line-height: 1.1;
+    }
+    .grande {
+      display: block; font-family: "Archivo Black"; line-height: 0.95; letter-spacing: -0.01em;
+      text-transform: uppercase; color: #FC3B7F;
+      text-shadow: 5px 5px 0 #0032A8, -2px -2px 0 #0032A8, 2px -2px 0 #0032A8, -2px 2px 0 #0032A8, 0 10px 34px rgba(0,0,0,0.6);
+    }
+  </style>
+  <div id="root" data-composition-id="destaques" data-width="1080" data-height="1920">
+      <div id="dt0" class="clip destaque" data-start="0.050" data-duration="2.100" data-track-index="0">
+        <div id="dt0p" class="pequeno">a sua empresa precisa de</div>
+        <div id="dt0g" class="grande" style="font-size:80px">muito mais</div>
+      </div>
+      <div id="dt1" class="clip destaque" data-start="2.200" data-duration="0.640" data-track-index="0">
+        
+        <div id="dt1g" class="grande" style="font-size:100px">aparecer</div>
+      </div>
+      <div id="dt2" class="clip destaque" data-start="3.420" data-duration="1.780" data-track-index="0">
+        <div id="dt2p" class="pequeno">ela precisa se</div>
+        <div id="dt2g" class="grande" style="font-size:100px">conectar</div>
+      </div>
+      <div id="dt3" class="clip destaque" data-start="5.330" data-duration="1.170" data-track-index="0">
+        <div id="dt3p" class="pequeno">e conquistar</div>
+        <div id="dt3g" class="grande" style="font-size:100px">clientes</div>
+      </div>
+      <div id="dt4" class="clip destaque" data-start="11.250" data-duration="1.900" data-track-index="0">
+        <div id="dt4p" class="pequeno">experiências que conectam</div>
+        <div id="dt4g" class="grande" style="font-size:112px">pessoas</div>
+      </div>
+      <div id="dt5" class="clip destaque" data-start="13.420" data-duration="2.260" data-track-index="0">
+        <div id="dt5p" class="pequeno">publicitário e video maker</div>
+        <div id="dt5g" class="grande" style="font-size:61px">Ricardo Lucas</div>
+      </div>
+      <div id="dt6" class="clip destaque" data-start="18.900" data-duration="2.130" data-track-index="0">
+        <div id="dt6p" class="pequeno">uma experiência</div>
+        <div id="dt6g" class="grande" style="font-size:66px">visual única</div>
+      </div>
+  </div>
+  <script>
+    (function () {
+      const tl = gsap.timeline({ paused: true });
+      tl.fromTo("#dt0p", { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 0.18, ease: "power3.out" }, 0.050);
+      tl.fromTo("#dt0g", { opacity: 0, scale: 1.55 }, { opacity: 1, scale: 1, duration: 0.24, ease: "back.out(2.2)" }, 0.110);
+      tl.to("#dt0 > div", { opacity: 0, y: -10, duration: 0.14, ease: "power2.in" }, 2.010);
+      tl.fromTo("#dt1g", { opacity: 0, scale: 1.55 }, { opacity: 1, scale: 1, duration: 0.24, ease: "back.out(2.2)" }, 2.200);
+      tl.to("#dt1 > div", { opacity: 0, y: -10, duration: 0.14, ease: "power2.in" }, 2.700);
+      tl.fromTo("#dt2p", { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 0.18, ease: "power3.out" }, 3.420);
+      tl.fromTo("#dt2g", { opacity: 0, scale: 1.55 }, { opacity: 1, scale: 1, duration: 0.24, ease: "back.out(2.2)" }, 3.480);
+      tl.to("#dt2 > div", { opacity: 0, y: -10, duration: 0.14, ease: "power2.in" }, 5.060);
+      tl.fromTo("#dt3p", { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 0.18, ease: "power3.out" }, 5.330);
+      tl.fromTo("#dt3g", { opacity: 0, scale: 1.55 }, { opacity: 1, scale: 1, duration: 0.24, ease: "back.out(2.2)" }, 5.390);
+      tl.to("#dt3 > div", { opacity: 0, y: -10, duration: 0.14, ease: "power2.in" }, 6.360);
+      tl.fromTo("#dt4p", { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 0.18, ease: "power3.out" }, 11.250);
+      tl.fromTo("#dt4g", { opacity: 0, scale: 1.55 }, { opacity: 1, scale: 1, duration: 0.24, ease: "back.out(2.2)" }, 11.310);
+      tl.to("#dt4 > div", { opacity: 0, y: -10, duration: 0.14, ease: "power2.in" }, 13.010);
+      tl.fromTo("#dt5p", { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 0.18, ease: "power3.out" }, 13.420);
+      tl.fromTo("#dt5g", { opacity: 0, scale: 1.55 }, { opacity: 1, scale: 1, duration: 0.24, ease: "back.out(2.2)" }, 13.480);
+      tl.to("#dt5 > div", { opacity: 0, y: -10, duration: 0.14, ease: "power2.in" }, 15.540);
+      tl.fromTo("#dt6p", { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 0.18, ease: "power3.out" }, 18.900);
+      tl.fromTo("#dt6g", { opacity: 0, scale: 1.55 }, { opacity: 1, scale: 1, duration: 0.24, ease: "back.out(2.2)" }, 18.960);
+      tl.to("#dt6 > div", { opacity: 0, y: -10, duration: 0.14, ease: "power2.in" }, 20.890);
+      window.__timelines["destaques"] = tl;
+    })();
+  </script>
+</template>

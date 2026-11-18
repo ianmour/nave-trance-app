@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: #000; }
+      #main { position: relative; width: 100%; height: 100%; overflow: hidden; }
+      #camera { position: absolute; inset: 0; overflow: hidden; transform-origin: 50% 40%; z-index: 1; }
+      #fundo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+      #brilho { position: absolute; inset: -240px; z-index: 6; opacity: 0; pointer-events: none; mix-blend-mode: screen;
+        background: radial-gradient(ellipse at 65% 35%, rgba(255,190,120,0.95) 0%, rgba(252,59,127,0.45) 32%, rgba(255,90,20,0) 66%); }
+      #quadro { position: absolute; inset: 0; z-index: 3; }
+      #anel { position: absolute; inset: 0; z-index: 4; }
+      #textos { position: absolute; inset: 0; z-index: 5; }
+    </style>
+  </head>
+  <body>
+    <div id="main" data-composition-id="main" data-start="0" data-duration="21.0333" data-width="1080" data-height="1920">
+      <div id="camera">
+        <video id="fundo" data-color-grading="{&quot;preset&quot;:null,&quot;intensity&quot;:1,&quot;adjust&quot;:{&quot;exposure&quot;:0,&quot;contrast&quot;:0.14,&quot;highlights&quot;:-0.1,&quot;shadows&quot;:0.03,&quot;whites&quot;:0,&quot;blacks&quot;:0,&quot;temperature&quot;:0.12,&quot;tint&quot;:0.02,&quot;vibrance&quot;:0,&quot;saturation&quot;:0.06},&quot;details&quot;:{&quot;vignette&quot;:0.24,&quot;vignetteMidpoint&quot;:0.5,&quot;vignetteRoundness&quot;:0,&quot;vignetteFeather&quot;:0.65,&quot;grain&quot;:0.12,&quot;grainSize&quot;:0.25,&quot;grainRoughness&quot;:0.5},&quot;effects&quot;:{&quot;blur&quot;:0,&quot;pixelate&quot;:0,&quot;chromaBleed&quot;:0,&quot;tapeDamage&quot;:0,&quot;tapeTracking&quot;:0,&quot;tapeNoise&quot;:1,&quot;tapeSpeed&quot;:0.5,&quot;filmArtifacts&quot;:0,&quot;halftone&quot;:0,&quot;halftoneSize&quot;:0,&quot;twoInkPrint&quot;:0,&quot;twoInkPrintSize&quot;:0,&quot;ascii&quot;:0,&quot;asciiSize&quot;:0.06578947368421052,&quot;asciiInvert&quot;:0,&quot;asciiStyle&quot;:0,&quot;asciiColor&quot;:1,&quot;asciiRotation&quot;:0,&quot;dither&quot;:0,&quot;ditherSize&quot;:0,&quot;bloom&quot;:0,&quot;bloomRadius&quot;:8,&quot;monoScreen&quot;:0,&quot;monoScreenSize&quot;:0,&quot;monoScreenAngle&quot;:0,&quot;monoScreenSpread&quot;:0,&quot;monoScreenShape&quot;:0,&quot;monoScreenInvert&quot;:0,&quot;scanlines&quot;:0,&quot;scanlineCount&quot;:0,&quot;scanlineSoftness&quot;:0,&quot;chromaticAberration&quot;:0,&quot;chromaticAngle&quot;:0,&quot;crtCurvature&quot;:0,&quot;digitalGlitch&quot;:0,&quot;digitalGlitchColorSplit&quot;:0,&quot;digitalGlitchLineTear&quot;:0,&quot;digitalGlitchPixelate&quot;:0,&quot;digitalGlitchBlockAmount&quot;:0,&quot;digitalGlitchBlockDisplacement&quot;:0,&quot;digitalGlitchBlockOpacity&quot;:0,&quot;digitalGlitchSpeed&quot;:0,&quot;engraving&quot;:0,&quot;engravingSpacing&quot;:0.4117647058823529,&quot;engravingMinThickness&quot;:0.2,&quot;engravingMaxThickness&quot;:0.4571428571428572,&quot;engravingAngle&quot;:0.25,&quot;engravingContrast&quot;:0.4666666666666667,&quot;engravingSharpness&quot;:0.59,&quot;engravingWave&quot;:0.2,&quot;engravingWaveFrequency&quot;:0.2222222222222222,&quot;crosshatch&quot;:0,&quot;crosshatchSpacing&quot;:0.28,&quot;crosshatchThickness&quot;:0.25,&quot;crosshatchAngle&quot;:0.25,&quot;crosshatchContrast&quot;:0.3333333333333333,&quot;crosshatchEdges&quot;:0.5,&quot;crosshatchLineWeight&quot;:0,&quot;crosshatchWave&quot;:0.33,&quot;crosshatchWaveFrequency&quot;:0.2222222222222222,&quot;kuwahara&quot;:0,&quot;kuwaharaRadius&quot;:0.14285714285714285,&quot;kuwaharaSharpness&quot;:0.3125,&quot;kuwaharaSaturation&quot;:0.5},&quot;lut&quot;:null,&quot;colorSpace&quot;:&quot;rec709&quot;,&quot;wheels&quot;:{&quot;shadows&quot;:{&quot;hue&quot;:200,&quot;amount&quot;:0.07,&quot;level&quot;:-0.02},&quot;midtones&quot;:{&quot;hue&quot;:0,&quot;amount&quot;:0,&quot;level&quot;:0},&quot;highlights&quot;:{&quot;hue&quot;:30,&quot;amount&quot;:0.1,&quot;level&quot;:0}}}" class="clip" style="--hf-color-grading-blur: 0" src="assets/corte.mp4" data-start="0" data-duration="21.0333" data-track-index="0" data-has-audio="true"></video>
+      </div>
+      <div id="brilho" data-layout-ignore data-layout-allow-overflow></div>
+      <div id="quadro" data-composition-id="quadro" data-composition-src="compositions/quadro.html" data-start="7.980" data-duration="3.220" data-track-index="1" data-track-kind="graphics" data-width="1080" data-height="1920"></div>
+      <div id="anel" data-composition-id="anel" data-composition-src="compositions/anel.html" data-start="13.200" data-duration="2.480" data-track-index="2" data-track-kind="graphics" data-width="1080" data-height="1920"></div>
+      <div id="textos" data-composition-id="textos" data-composition-src="compositions/textos.html" data-start="0.000" data-duration="21.033" data-track-index="3" data-track-kind="captions" data-width="1080" data-height="1920"></div>
+      <audio id="som0" class="clip" src="assets/sfx/impact-bass-1.mp3" data-start="1.080" data-duration="2.120" data-track-index="6" data-volume="0.13"></audio>
+      <audio id="som1" class="clip" src="assets/sfx/whoosh-short.mp3" data-start="2.160" data-duration="0.570" data-track-index="7" data-volume="0.12"></audio>
+      <audio id="som2" class="clip" src="assets/sfx/whoosh.mp3" data-start="6.300" data-duration="0.570" data-track-index="6" data-volume="0.12"></audio>
+      <audio id="som3" class="clip" src="assets/sfx/whoosh-short.mp3" data-start="7.950" data-duration="0.570" data-track-index="7" data-volume="0.12"></audio>
+      <audio id="som4" class="clip" src="assets/sfx/pop.mp3" data-start="8.040" data-duration="0.720" data-track-index="6" data-volume="0.12"></audio>
+      <audio id="som5" class="clip" src="assets/sfx/pop.mp3" data-start="8.500" data-duration="0.720" data-track-index="7" data-volume="0.12"></audio>
+      <audio id="som6" class="clip" src="assets/sfx/pop.mp3" data-start="9.310" data-duration="0.720" data-track-index="6" data-volume="0.12"></audio>
+      <audio id="som7" class="clip" src="assets/sfx/pop.mp3" data-start="10.020" data-duration="0.720" data-track-index="7" data-volume="0.12"></audio>
+      <audio id="som8" class="clip" src="assets/sfx/pop.mp3" data-start="10.790" data-duration="0.720" data-track-index="6" data-volume="0.12"></audio>
+      <audio id="som9" class="clip" src="assets/sfx/whoosh-short.mp3" data-start="11.120" data-duration="0.570" data-track-index="7" data-volume="0.12"></audio>
+      <audio id="som10" class="clip" src="assets/sfx/impact-bass-1.mp3" data-start="12.530" data-duration="2.120" data-track-index="6" data-volume="0.13"></audio>
+      <audio id="som11" class="clip" src="assets/sfx/whoosh.mp3" data-start="13.000" data-duration="0.570" data-track-index="7" data-volume="0.12"></audio>
+      <audio id="som12" class="clip" src="assets/sfx/whoosh-short.mp3" data-start="18.800" data-duration="0.570" data-track-index="6" data-volume="0.12"></audio>
+      <audio id="som13" class="clip" src="assets/sfx/impact-bass-1.mp3" data-start="20.500" data-duration="0.523" data-track-index="7" data-volume="0.14"></audio>
+    </div>
+    <script>
+      gsap.set("#camera", { scale: 1 });
+      gsap.set("#brilho", { opacity: 0, x: -240 });
+      const tl = gsap.timeline({ paused: true });
+      tl.set("#camera", { scale: 1.08 }, 0.000);
+      tl.to("#camera", { ...{ scale: 1.1 }, duration: 1.1, ease: "none" }, 0.000);
+      tl.set("#camera", { scale: 1 }, 1.100);
+      tl.to("#camera", { scale: 1.14, duration: 0.14, ease: "power3.out" }, 2.200);
+      tl.to("#fundo", { keyframes: [{ "--hf-color-grading-blur": 0.55, duration: 0.07 }, { "--hf-color-grading-blur": 0, duration: 0.2 }], ease: "none" }, 2.200);
+      tl.set("#camera", { scale: 1.06 }, 2.860);
+      tl.to("#camera", { ...{ scale: 1.08 }, duration: 1.26, ease: "none" }, 2.860);
+      tl.set("#camera", { scale: 1 }, 4.120);
+      tl.to("#camera", { scale: 1.13, duration: 0.14, ease: "power3.out" }, 5.890);
+      tl.to("#fundo", { keyframes: [{ "--hf-color-grading-blur": 0.55, duration: 0.07 }, { "--hf-color-grading-blur": 0, duration: 0.2 }], ease: "none" }, 5.890);
+      tl.to("#brilho", { keyframes: [{ opacity: 0.85, x: 0, duration: 0.2 }, { opacity: 0, x: 240, duration: 0.45 }], ease: "power1.inOut" }, 6.200);
+      tl.set("#camera", { scale: 1.02 }, 6.400);
+      tl.to("#camera", { ...{ scale: 1.07 }, duration: 1.6, ease: "none" }, 6.400);
+      tl.to("#brilho", { keyframes: [{ opacity: 0.85, x: 0, duration: 0.2 }, { opacity: 0, x: 240, duration: 0.45 }], ease: "power1.inOut" }, 7.850);
+      tl.to("#brilho", { keyframes: [{ opacity: 0.85, x: 0, duration: 0.2 }, { opacity: 0, x: 240, duration: 0.45 }], ease: "power1.inOut" }, 11.050);
+      tl.set("#camera", { scale: 1.04 }, 11.200);
+      tl.to("#camera", { ...{ scale: 1.07 }, duration: 1.3, ease: "none" }, 11.200);
+      tl.to("#camera", { scale: 1.14, duration: 0.14, ease: "power3.out" }, 12.530);
+      tl.to("#fundo", { keyframes: [{ "--hf-color-grading-blur": 0.55, duration: 0.07 }, { "--hf-color-grading-blur": 0, duration: 0.2 }], ease: "none" }, 12.530);
+      tl.to("#brilho", { keyframes: [{ opacity: 0.85, x: 0, duration: 0.2 }, { opacity: 0, x: 240, duration: 0.45 }], ease: "power1.inOut" }, 12.900);
+      tl.set("#camera", { scale: 1 }, 13.070);
+      tl.to("#camera", { ...{ scale: 1.03 }, duration: 2.6, ease: "none" }, 13.070);
+      tl.set("#camera", { scale: 1.08 }, 15.700);
+      tl.to("#camera", { ...{ scale: 1.11 }, duration: 1.7, ease: "none" }, 15.700);
+      tl.set("#camera", { scale: 1 }, 17.410);
+      tl.to("#camera", { scale: 1.12, duration: 0.14, ease: "power3.out" }, 18.840);
+      tl.to("#fundo", { keyframes: [{ "--hf-color-grading-blur": 0.55, duration: 0.07 }, { "--hf-color-grading-blur": 0, duration: 0.2 }], ease: "none" }, 18.840);
+      tl.set("#camera", { scale: 1.04 }, 19.300);
+      tl.to("#camera", { ...{ scale: 1.09 }, duration: 1.73, ease: "none" }, 19.300);
+      tl.to("#fundo", { keyframes: [{ "--hf-color-grading-blur": 0.55, duration: 0.07 }, { "--hf-color-grading-blur": 0, duration: 0.2 }], ease: "none" }, 6.360);
+      tl.to("#fundo", { keyframes: [{ "--hf-color-grading-blur": 0.55, duration: 0.07 }, { "--hf-color-grading-blur": 0, duration: 0.2 }], ease: "none" }, 13.030);
+      tl.to("#brilho", { keyframes: [{ opacity: 0.85, x: 0, duration: 0.2 }, { opacity: 0, x: 240, duration: 0.45 }], ease: "power1.inOut" }, 20.600);
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>

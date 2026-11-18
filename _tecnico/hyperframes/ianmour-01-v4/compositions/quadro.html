@@ -1,0 +1,48 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; }
+    #qd-fundo { position: absolute; inset: -60px; background-color: #0f0f12;
+      background-image: linear-gradient(rgba(254,241,207,0.09) 2px, transparent 2px), linear-gradient(90deg, rgba(254,241,207,0.09) 2px, transparent 2px);
+      background-size: 90px 90px; }
+    #qd-luz { position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 40%, rgba(255,255,255,0.08), rgba(0,0,0,0.55) 75%); }
+    #qd-mesa { position: absolute; inset: 0; transform-origin: 50% 50%; }
+    .pol { position: absolute; width: 300px; padding: 12px 12px 58px; background: #f4efe4; box-shadow: 0 18px 40px rgba(0,0,0,0.55); }
+    .pol img { display: block; width: 276px; height: 345px; object-fit: cover; }
+    .pol .leg { position: absolute; left: 0; right: 0; bottom: 14px; text-align: center; font-family: "Inter"; font-weight: 900; font-size: 34px; letter-spacing: -0.03em; color: #16161a; text-transform: lowercase; }
+    .pino { position: absolute; left: 137px; top: 2px; width: 26px; height: 26px; border-radius: 50%; background: #FC3B7F; box-shadow: 0 3px 6px rgba(0,0,0,0.5); }
+    #qd-svg { position: absolute; left: 0; top: 0; overflow: visible; z-index: 5; }
+    #qd-tit { position: absolute; left: 120px; top: 300px; font-family: "Inter"; font-weight: 700; font-size: 44px; letter-spacing: -0.03em; color: #fff; z-index: 6; }
+    #qd-tit b { color: #FC3B7F; font-weight: 900; }
+  </style>
+  <div id="root" data-composition-id="quadro" data-width="1080" data-height="1920">
+    <div id="qd-cena" class="clip" data-start="0" data-duration="3.220" data-track-index="0" style="position:absolute;inset:0" data-layout-allow-overlap data-layout-allow-overflow>
+      <div id="qd-fundo"></div>
+      <div id="qd-mesa">
+      <div id="qd-p0" class="pol" style="left:80px;top:300px"><img src="assets/fotos/f1.jpg" alt=""><span class="leg">ideias</span><span class="pino"></span></div>
+      <div id="qd-p1" class="pol" style="left:610px;top:430px"><img src="assets/fotos/f2.jpg" alt=""><span class="leg">imagens</span><span class="pino"></span></div>
+      <div id="qd-p2" class="pol" style="left:110px;top:780px"><img src="assets/fotos/f3.jpg" alt=""><span class="leg">histórias</span><span class="pino"></span></div>
+      <div id="qd-p3" class="pol" style="left:620px;top:930px"><img src="assets/fotos/f4.jpg" alt=""><span class="leg">emoções</span><span class="pino"></span></div>
+      <div id="qd-p4" class="pol" style="left:370px;top:1260px"><img src="assets/fotos/f5.jpg" alt=""><span class="leg">marcas</span><span class="pino"></span></div>
+        <svg id="qd-svg" width="1080" height="1920" viewBox="0 0 1080 1920"><polyline id="qd-fio" points="230,314 760,444 260,794 770,944 520,1274" fill="none" stroke="#FC3B7F" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="2101.6" stroke-dashoffset="2101.6"/></svg>
+      </div>
+      <div id="qd-luz"></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const tl = gsap.timeline({ paused: true });
+      tl.fromTo("#qd-mesa", { scale: 1.12, rotation: -2 }, { scale: 1, rotation: 1, duration: 3.220, ease: "none" }, 0);
+      tl.fromTo("#qd-p0", { opacity: 0, scale: 1.6, rotation: -21 }, { opacity: 1, scale: 1, rotation: -7, duration: 0.28, ease: "back.out(1.6)" }, 0.060);
+      tl.fromTo("#qd-p1", { opacity: 0, scale: 1.6, rotation: 18 }, { opacity: 1, scale: 1, rotation: 6, duration: 0.28, ease: "back.out(1.6)" }, 0.520);
+      tl.fromTo("#qd-p2", { opacity: 0, scale: 1.6, rotation: 12 }, { opacity: 1, scale: 1, rotation: 4, duration: 0.28, ease: "back.out(1.6)" }, 1.330);
+      tl.fromTo("#qd-p3", { opacity: 0, scale: 1.6, rotation: -15 }, { opacity: 1, scale: 1, rotation: -5, duration: 0.28, ease: "back.out(1.6)" }, 2.040);
+      tl.fromTo("#qd-p4", { opacity: 0, scale: 1.6, rotation: -9 }, { opacity: 1, scale: 1, rotation: -3, duration: 0.28, ease: "back.out(1.6)" }, 2.810);
+      tl.to("#qd-fio", { attr: { "stroke-dashoffset": 1555.9 }, duration: 0.3, ease: "power2.inOut" }, 0.570);
+      tl.to("#qd-fio", { attr: { "stroke-dashoffset": 945.6 }, duration: 0.3, ease: "power2.inOut" }, 1.380);
+      tl.to("#qd-fio", { attr: { "stroke-dashoffset": 414.0 }, duration: 0.3, ease: "power2.inOut" }, 2.090);
+      tl.to("#qd-fio", { attr: { "stroke-dashoffset": 0.0 }, duration: 0.3, ease: "power2.inOut" }, 2.860);
+      tl.to("#qd-cena", { opacity: 0, duration: 0.15 }, 3.070);
+      window.__timelines["quadro"] = tl;
+    })();
+  </script>
+</template>

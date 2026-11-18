@@ -1,0 +1,30 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; }
+    #an-svg { position: absolute; left: 0; top: 0; overflow: visible; }
+  </style>
+  <div id="root" data-composition-id="anel" data-width="1080" data-height="1920">
+    <div id="an-cena" class="clip" data-start="0" data-duration="2.480" data-track-index="0" style="position:absolute;inset:0" data-layout-allow-overlap data-layout-allow-overflow>
+      <svg id="an-svg" width="1080" height="1920" viewBox="0 0 1080 1920">
+        <defs>
+          <path id="an-cam" d="M 200,600 a 340,96 0 1,0 680,0 a 340,96 0 1,0 -680,0"/>
+          <clipPath id="an-tras"><rect x="0" y="0" width="1080" height="600"/></clipPath>
+          <clipPath id="an-frente"><rect x="0" y="600" width="1080" height="1320"/></clipPath>
+        </defs>
+        <g id="an-giro" transform="rotate(-7 540 600)">
+          <g clip-path="url(#an-tras)" opacity="0.35"><text font-family="Inter" font-weight="900" font-size="58" letter-spacing="1" fill="#FC3B7F" stroke="#FEF1CF" stroke-width="1.2"><textPath id="an-t1" href="#an-cam" startOffset="0">RICARDO LUCAS • VIDEO MAKER • RICARDO LUCAS • VIDEO MAKER • RICARDO LUCAS • VIDEO MAKER • </textPath></text></g>
+          <g clip-path="url(#an-frente)" opacity="1"><text font-family="Inter" font-weight="900" font-size="58" letter-spacing="1" fill="#FC3B7F" stroke="#FEF1CF" stroke-width="1.2"><textPath id="an-t2" href="#an-cam" startOffset="0">RICARDO LUCAS • VIDEO MAKER • RICARDO LUCAS • VIDEO MAKER • RICARDO LUCAS • VIDEO MAKER • </textPath></text></g>
+        </g>
+      </svg>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const tl = gsap.timeline({ paused: true });
+      tl.fromTo("#an-svg", { opacity: 0, scale: 1.3, transformOrigin: "540px 600px" }, { opacity: 1, scale: 1, duration: 0.3, ease: "power3.out" }, 0.030);
+      tl.fromTo(["#an-t1", "#an-t2"], { attr: { startOffset: 0 } }, { attr: { startOffset: -1479.2 }, duration: 2.480, ease: "none" }, 0);
+      tl.to("#an-svg", { opacity: 0, duration: 0.15 }, 2.330);
+      window.__timelines["anel"] = tl;
+    })();
+  </script>
+</template>

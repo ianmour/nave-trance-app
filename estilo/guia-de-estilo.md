@@ -30,6 +30,23 @@ Tirado de `referencias/ref-cliente-falado-01.mp4` e `ref-cliente-falado-02.mp4` 
 
 ---
 
+## Vídeo de CONTEÚDO 100% animado (narração + animação em código)
+
+Tirado de `referencias/ref-animacao-codigo-01.mp4` (reels feito inteiro pelo Claude em código; a pessoa quer fazer igual e melhor):
+
+- **Palco fixo:** um fundo único o vídeo todo (ali: creme/pêssego com mancha de luz suave). Nada de cortes secos — **as cenas se transformam umas nas outras**.
+- **Um cartão central por ideia**, cada um com uma "mini cena" que ilustra a frase: janela de terminal com texto sendo digitado, contador subindo (0 → 42 reels; 7.828.884 → 14.000.060 views), grade de miniaturas, leque de cartões, cartão de preço/comparação (Reels ∞ · créditos 0 · editor R$ 0), checklist, botão de chamada ("Comenta EDIT IA").
+- **Física e objetos**: bola de demolição derrubando tijolos que voam; ícones em pixel 3D; tipografia estilo comercial da Apple; caderno com letra de mão. Varia o estilo de cena para cena.
+- **Legenda embaixo, centralizada**, palavra por palavra, letra lisa escura/branca; **a palavra-chave dentro de uma etiqueta colorida** (texto branco sobre a cor da marca).
+- **Mascote/símbolo recorrente** (ali: um bichinho de pixel laranja aparecendo nos cantos) — dá personalidade. Para a ianmour: **definir o símbolo junto com a pessoa antes**.
+- **Celebração** nos números grandes (confete ao bater "+20.003 seguidores").
+- **Narração** (voz) + **efeito sonoro em cada ação** (digitar, clique, impacto, confete) + música de leve. Volume -14 LUFS.
+- **Final com chamada** clara (comente X / toque em Saiba mais).
+
+Como eu faço: roteiro → voz (Kokoro, `pf_dora` aprovada) → tempo de cada palavra → uma cena de animação por frase no HyperFrames, todas sobre o mesmo palco → efeitos sonoros e música → render → conferir.
+
+---
+
 ## Base fixa (todo vídeo)
 
 ### Legenda

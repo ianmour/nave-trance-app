@@ -15,6 +15,21 @@ A ideia: **um jeito reconhecível, sem repetir a mesma fórmula**. Por isso tem 
 
 ---
 
+## Vídeo FALADO de CLIENTE (pessoa falando para a câmera) — estilo padrão
+
+Tirado de `referencias/ref-cliente-falado-01.mp4` e `ref-cliente-falado-02.mp4` (a pessoa disse: "é exatamente assim que eu gosto"):
+
+- **Legenda:** branca, letra lisa e moderna, **pequena**, 1 a 3 palavras por vez, centralizada na altura do peito, entrando com esmaecido rápido. **Uma palavra de destaque** de vez em quando: mais grossa (ex.: "uma conta **rápida**") ou maior/na cor de destaque. Às vezes a frase curta fica numa **pílula escura translúcida** ("R$10 a mais", "Saiba Mais").
+- **Cortes de zoom** a cada poucos segundos (enquadramento aberto ↔ fechado), seco, sem tremor — dá ritmo a quem só fala.
+- **Imagens de apoio** sobre o tema dentro de um **cartão arredondado** (estilo tela de celular) sobre fundo escuro, com a legenda continuando por cima.
+- **Tela cheia de frase** em 1 ou 2 momentos-chave, sobre foto de fundo neutra, com a palavra forte grande na cor de destaque.
+- **Ícone/logo pequeno** surgindo ao lado da palavra quando se fala de uma marca/produto (só os definidos com a pessoa).
+- **Final com a marca do cliente** (logo + chamada tipo "Saiba Mais"), se houver material.
+- **Música de leve**, uns 10 dB abaixo da voz, o vídeo inteiro. Efeitos sonoros discretos.
+- Cor natural, quente e bonita. Volume final -14 LUFS (as duas referências estão exatamente nisso).
+
+---
+
 ## Base fixa (todo vídeo)
 
 ### Legenda

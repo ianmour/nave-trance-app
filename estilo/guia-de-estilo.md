@@ -52,6 +52,25 @@ A ideia: **um jeito reconhecível, sem repetir a mesma fórmula**. Por isso tem 
 
 ---
 
+## Lições das referências favoritas (Hanah Franklin e @midtrack.co)
+
+Estudadas quadro a quadro (10 fotos por segundo). Por que parecem criativas **sem exagero**:
+
+1. **Pouca coisa na tela ao mesmo tempo.** Um título OU uma legenda pequena, e muito espaço vazio em volta.
+2. **O texto mora no espaço vazio da imagem**: na parede ao lado da pessoa, no céu, ao lado do objeto. Não fica sempre no centro do topo.
+3. **Entradas curtas e limpas**: o título aparece **desfocado e entra em foco** em uns 0,2–0,3 s (Hanah), ou **surge seco no tempo exato da palavra** (@midtrack). Sem quique, sem tremor, sem pulo.
+4. **Título que se monta junto com a fala**: linha por linha, cada linha surgindo quando a palavra é dita ("SE VOCÊ / TÁ JUNTANDO / DINHEIRO / PRA COMPRAR").
+5. **Combinação "frase pequena + palavra grande"**: uma linha pequena em cima ("cê sabia") e a palavra grande embaixo ("disso?").
+6. **Legenda discreta**: pequena, 1 ou 2 palavras, trocando seco no ritmo da fala. Quem chama atenção são os títulos, não a legenda.
+7. **Quem dá o ritmo são as imagens**, não os efeitos: muitas tomadas curtas (no @midtrack, trocas de 0,2 a 0,5 s nos detalhes do produto).
+8. **Uma cor de destaque só** (amarelo no @midtrack, branco na Hanah).
+9. **Transições com luz**: um "vazamento de luz" laranja suave para entrar numa gravação de tela, que aparece num cartão sobre o fundo desfocado.
+10. **Texto que acompanha o objeto** (@midtrack): "MICROFONE" escrito em curva em volta do produto, letra por letra. É um recurso avançado, para usar de vez em quando.
+
+Ajuste ao seu gosto: os títulos da Hanah usam letra inclinada; **você prefere a mesma letra da legenda**, então a ênfase dos títulos vem do **tamanho e do peso**, não da inclinação.
+
+---
+
 ## Histórico de variações
 
 | Vídeo | Forma tema | Transição | Cor de destaque |

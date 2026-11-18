@@ -131,3 +131,4 @@ Ajuste ao seu gosto: os títulos da Hanah usam letra inclinada; **você prefere 
 | ianmour-01 (sua edição) | círculos de linha + curva | abertura em círculo | azul |
 | roda-gigante (sua edição, cliente) | ondas | onda subindo | ciano + petróleo |
 | ianmour-01 (versão cliente, minha) | linhas finas âmbar + cartão no final | brilho de luz quente | branco + âmbar |
+| keylle-lima/bronca (conteúdo animado, cliente) | cartões explicativos sobre fundo azul com luz | cena que se transforma (sobe/desce) | azul + branco, vermelho só para "errado" |

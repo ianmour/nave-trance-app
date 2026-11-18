@@ -4,6 +4,13 @@ Tirado das suas próprias edições (`referencias/ianmour-01-sua-edicao.MOV` e `
 
 A ideia: **um jeito reconhecível, sem repetir a mesma fórmula**. Por isso tem uma **base fixa** e um **cardápio** que eu vario de vídeo para vídeo.
 
+> **⚠️ Atualização mais importante (feedback do ianmour-01):** a pessoa **preferiu a versão animada e enérgica** (`final/ianmour-01-editado.mp4`, projeto `_tecnico/hyperframes/ianmour-01-v2`): cores rosa e azul, palavras grandes batendo na tela, telas cheias coloridas, etiquetas, moldura REC, câmera com zoom alternando, efeitos sonoros. A versão "elegante e minimalista" (`final/ianmour-01-cliente.mp4`) **NÃO agradou** — ficou contida e sem graça.
+> **Ponto de partida de toda edição = a versão animada (v2)**, com estes ajustes:
+> - **música de fundo** (faltou na v2);
+> - **efeitos sonoros mais baixos que a voz** (na v2 estavam altos) — manter os efeitos, só baixar;
+> - tirar o que passar do ponto (ex.: tremor/flash em excesso), sem perder a energia.
+> As regras abaixo (legenda branca de uma letra só, palavra-chave maior, sem itálico) continuam valendo.
+
 ---
 
 ## Base fixa (todo vídeo)

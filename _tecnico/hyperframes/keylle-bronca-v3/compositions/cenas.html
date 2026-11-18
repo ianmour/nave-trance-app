@@ -1,0 +1,331 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; font-family: "Inter"; letter-spacing: -0.03em; color: #0A1E4A; }
+    .cena { position: absolute; left: 120px; width: 840px; text-align: center; }
+    .kicker { display: inline-block; font-weight: 800; font-size: 26px; letter-spacing: 0.12em; color: #1E5BFF; background: #DCE8FF; padding: 8px 18px; border-radius: 999px; }
+    .tit { font-weight: 900; font-size: 84px; line-height: 0.98; margin-top: 16px; }
+    .mk { background-image: linear-gradient(#1E5BFF55, #1E5BFF55); background-repeat: no-repeat; background-position: 0 85%; background-size: 0% 40%; padding: 0 6px; }
+    .card { background: #fff; border-radius: 34px; box-shadow: 0 24px 60px rgba(10,30,74,0.16), 0 4px 14px rgba(10,30,74,0.08); }
+    .flip { position: relative; width: 600px; height: 640px; margin: 0 auto; transform-style: preserve-3d; }
+    .face { position: absolute; inset: 0; backface-visibility: hidden; -webkit-backface-visibility: hidden; padding: 34px; text-align: left; }
+    .verso { transform: rotateY(180deg); }
+    .fhead { display: flex; align-items: center; gap: 16px; font-size: 34px; padding-bottom: 22px; border-bottom: 2px solid #EEF2FA; }
+    .av { width: 64px; height: 64px; border-radius: 50%; color: #fff; font-style: normal; font-weight: 900; font-size: 26px; display: inline-flex; align-items: center; justify-content: center; }
+    .bub { display: inline-block; margin-top: 30px; padding: 22px 28px; border-radius: 28px; font-weight: 800; font-size: 44px; line-height: 1.15; }
+    .bub.eu { background: #1E5BFF; color: #fff; border-bottom-right-radius: 8px; float: right; max-width: 470px; }
+    .bub.ele { background: #EEF2FA; color: #0A1E4A; border-bottom-left-radius: 8px; max-width: 470px; }
+    .cur { opacity: 0.6; font-weight: 400; }
+    .chip { display: inline-block; padding: 12px 24px 14px; border-radius: 999px; font-weight: 900; font-size: 34px; color: #fff; }
+    .chip.ok { background: #2BD576; } .chip.no { background: #FF4D5E; }
+    .frente .chip { position: absolute; left: 34px; bottom: 40px; } .verso .chip { position: absolute; left: 34px; bottom: 40px; }
+    .medidor { position: relative; margin: 26px auto 0; width: 300px; text-align: center; } .humor { position: absolute; left: 118px; top: 96px; } .humor span { position: absolute; left: 0; top: 0; }
+    .enq { width: 720px; margin: 0 auto; padding: 44px; text-align: left; position: relative; }
+    .enqt { font-weight: 900; font-size: 64px; line-height: 1; margin-bottom: 30px; }
+    .opc { position: relative; height: 100px; border-radius: 24px; background: #EEF2FA; margin-top: 18px; overflow: hidden; display: flex; align-items: center; padding-left: 30px; font-weight: 800; font-size: 44px; }
+    .opc span { position: relative; } .barra { position: absolute; left: 0; top: 0; bottom: 0; width: 100%; background: #DCE8FF; transform-origin: left center; }
+    .dedo { position: absolute; right: 120px; top: 200px; }
+    .cfg { width: 760px; margin: 0 auto; padding: 44px; text-align: left; }
+    .linha { display: flex; justify-content: space-between; align-items: center; font-weight: 900; font-size: 60px; }
+    .sw { width: 128px; height: 72px; border-radius: 999px; background: #C9D3E6; position: relative; } .sw i { position: absolute; left: 8px; top: 8px; width: 56px; height: 56px; border-radius: 50%; background: #fff; box-shadow: 0 3px 8px rgba(0,0,0,0.2); }
+    .sep { height: 2px; background: #EEF2FA; margin: 34px 0; }
+    .slider { position: relative; height: 230px; margin-top: 20px; }
+    .trilho { position: absolute; left: 60px; right: 60px; top: 30px; height: 22px; border-radius: 999px; background: #E4EAF6; overflow: hidden; } .fill { position: absolute; inset: 0; background: linear-gradient(90deg, #FF4D5E, #FFC24B, #2BD576); transform-origin: left center; }
+    .knob { position: absolute; left: 30px; top: 6px; width: 70px; height: 70px; border-radius: 50%; background: #fff; box-shadow: 0 6px 16px rgba(10,30,74,0.3); border: 6px solid #1E5BFF; }
+    .ponta { position: absolute; top: 100px; text-align: center; font-weight: 800; font-size: 32px; } .ponta b { display: block; } .ponta.esq { left: 20px; } .ponta.dir { right: 20px; }
+    .passos { display: flex; align-items: center; justify-content: center; margin-top: 26px; }
+    .passo { display: flex; align-items: center; gap: 10px; padding: 12px 20px 12px 12px; border-radius: 999px; background: #fff; box-shadow: 0 24px 60px rgba(10,30,74,0.16), 0 4px 14px rgba(10,30,74,0.08); font-weight: 800; font-size: 30px; color: #0A1E4A; }
+    .passo i { width: 46px; height: 46px; border-radius: 50%; background: #DCE8FF; color: #1E5BFF; font-style: normal; font-weight: 900; display: inline-flex; align-items: center; justify-content: center; }
+    .lig { width: 40px; height: 6px; background: #E4EAF6; border-radius: 3px; overflow: hidden; } .lig b { display: block; height: 100%; background: #1E5BFF; transform-origin: left center; transform: scaleX(0); }
+    .planta { width: 760px; margin: 0 auto; padding: 30px; }
+    .piso { position: relative; height: 560px; border-radius: 24px; background: #F3F6FC; overflow: hidden; }
+    .mesa { position: absolute; width: 150px; height: 80px; border-radius: 14px; background: #fff; box-shadow: 0 6px 14px rgba(10,30,74,0.1); }
+    .pt { position: absolute; z-index: 2; width: 46px; height: 46px; border-radius: 50%; border: 4px solid #fff; box-shadow: 0 4px 10px rgba(10,30,74,0.25); }
+    .pt.grande { width: 70px; height: 70px; color: #fff; font-size: 24px; font-weight: 900; display: flex; align-items: center; justify-content: center; }
+    .sala2 { position: absolute; z-index: 1; right: 20px; top: 20px; width: 230px; height: 300px; border-radius: 20px; background: #fff; border: 4px dashed #1E5BFF; }
+    .sala2 span { position: absolute; left: 0; right: 0; top: 12px; font-weight: 800; font-size: 24px; color: #1E5BFF; }
+    .porta2 { position: absolute; left: -4px; bottom: 60px; width: 8px; height: 110px; background: #1E5BFF; border-radius: 4px; transform-origin: 50% 100%; }
+    .campo, .tarefa { width: 800px; margin: 0 auto; padding: 40px; text-align: left; position: relative; }
+    .rot { font-weight: 800; font-size: 28px; letter-spacing: 0.1em; text-transform: uppercase; color: #8A97B5; margin-bottom: 18px; }
+    .input { position: relative; min-height: 120px; border-radius: 22px; background: #F3F6FC; padding: 30px; font-weight: 800; font-size: 50px; }
+    .ondulado { position: absolute; left: 30px; bottom: 26px; width: 420px; height: 10px; background: repeating-linear-gradient(135deg, #FF4D5E 0 6px, transparent 6px 12px); transform-origin: left center; transform: scaleX(0); }
+    .dicas { display: flex; gap: 18px; margin-top: 24px; }
+    .task { display: flex; align-items: center; gap: 18px; clear: both; margin-top: 30px; padding: 24px; border-radius: 22px; background: #F3F6FC; font-weight: 800; font-size: 36px; }
+    .cb { width: 44px; height: 44px; border-radius: 12px; border: 4px solid #0A1E4A; background: #fff; display: inline-block; flex: none; }
+    .avs { margin-left: auto; display: flex; } .avs i { width: 54px; height: 54px; border-radius: 50%; color: #fff; font-style: normal; font-size: 20px; font-weight: 900; display: inline-flex; align-items: center; justify-content: center; border: 3px solid #fff; margin-left: -12px; }
+    .carimbo { position: absolute; right: 40px; top: 30px; padding: 10px 22px; border: 7px solid #2BD576; color: #2BD576; border-radius: 16px; font-weight: 900; font-size: 52px; letter-spacing: 0.06em; background: rgba(255,255,255,0.85); }
+    .pendulo { position: absolute; left: 345px; top: 140px; transform-origin: 75px 0; }
+    .fio { position: absolute; left: 73px; top: -150px; width: 4px; height: 170px; background: #0A1E4A; }
+    .maoP { transform-origin: 75px 0; }
+    .mapa { position: relative; width: 760px; height: 520px; margin: 0 auto; overflow: hidden; }
+    .post { width: 700px; margin: 0 auto; padding: 26px; text-align: left; }
+    .img { margin-top: 20px; height: 420px; border-radius: 20px; background: linear-gradient(150deg, #0B2466, #1E5BFF); display: flex; align-items: center; justify-content: center; }
+    .imgt { color: #fff; font-weight: 900; font-size: 56px; line-height: 1; text-align: center; }
+    .acoes { margin-top: 18px; }
+    .coment { position: relative; margin-top: 14px; padding: 18px 150px 18px 24px; border-radius: 999px; background: #F3F6FC; font-weight: 900; font-size: 44px; min-height: 86px; }
+    .coment i { position: absolute; right: 26px; top: 22px; font-style: normal; font-weight: 900; font-size: 30px; color: #1E5BFF; }
+    .dm { position: absolute; z-index: 5; left: 70px; top: 330px; width: 700px; display: flex; align-items: center; gap: 20px; padding: 22px 28px; text-align: left; font-size: 32px; }
+    .dm b { display: block; font-size: 34px; } .dm span { color: #8A97B5; font-weight: 700; }
+  </style>
+  <div id="root" data-composition-id="cenas" data-width="1080" data-height="1920">
+      <div id="topo1" class="clip cena " data-start="0.000" data-duration="6.950" data-track-index="0" style="top:220px" data-layout-allow-overlap><div class="kicker">LIDERANÇA · PEQUENOS NEGÓCIOS</div><div class="tit">corrigiu ou <span class="mk">humilhou?</span></div></div>
+      <div id="cA" class="clip cena " data-start="0.000" data-duration="3.710" data-track-index="0" style="top:510px;height:720px;perspective:1600px" data-layout-allow-overlap>
+  <div id="cAflip" class="flip">
+    <div class="face frente card fone"><div class="fhead"><i class="av" style="background:#1E5BFF">VC</i><b>você (chefe)</b></div>
+      <div class="bub eu"><span id="cAtxt"></span><span class="cur">|</span></div>
+      <div id="cAok" class="chip ok">você acha: corrigi ✓</div></div>
+    <div class="face verso card fone"><div class="fhead"><i class="av" style="background:#9AB6FF">EQ</i><b>funcionário</b></div>
+      <div class="bub ele">Pedido errado DE NOVO. Presta atenção!</div>
+      <div class="medidor"><svg viewBox="0 0 300 170" width="300" height="170"><path d="M30 150 A120 120 0 0 1 270 150" fill="none" stroke="#E4EAF6" stroke-width="26" stroke-linecap="round"/>
+        <path d="M30 150 A120 120 0 0 1 90 46" fill="none" stroke="#FF4D5E" stroke-width="26" stroke-linecap="round"/><path d="M90 46 A120 120 0 0 1 210 46" fill="none" stroke="#FFC24B" stroke-width="26"/><path d="M210 46 A120 120 0 0 1 270 150" fill="none" stroke="#2BD576" stroke-width="26" stroke-linecap="round"/>
+        <g id="cAagulha" style="transform-origin:150px 150px"><path d="M150 150 L150 50" stroke="#0A1E4A" stroke-width="8" stroke-linecap="round"/><circle cx="150" cy="150" r="14" fill="#0A1E4A"/></g></svg>
+        <div class="humor"><span id="cAh2"><svg viewBox="0 0 70 70" width="64" height="64"><circle cx="35" cy="35" r="31" fill="#FFE08A" stroke="#0A1E4A" stroke-width="3"/><circle cx="26" cy="32" r="3.5" fill="#0A1E4A"/><circle cx="44" cy="32" r="3.5" fill="#0A1E4A"/><path d="M22 40 Q35 52 48 40" fill="none" stroke="#0A1E4A" stroke-width="4" stroke-linecap="round"/></svg></span><span id="cAh0" style="opacity:0"><svg viewBox="0 0 70 70" width="64" height="64"><circle cx="35" cy="35" r="31" fill="#FFB3A8" stroke="#0A1E4A" stroke-width="3"/><circle cx="26" cy="32" r="3.5" fill="#0A1E4A"/><circle cx="44" cy="32" r="3.5" fill="#0A1E4A"/><path d="M24 48 Q35 38 46 48" fill="none" stroke="#0A1E4A" stroke-width="4" stroke-linecap="round"/><path d="M18 22 L30 28 M52 22 L40 28" stroke="#0A1E4A" stroke-width="4" stroke-linecap="round"/></svg></span></div></div>
+      <div id="cAno" class="chip no">ele sente: humilhado</div></div>
+  </div></div>
+      <div id="cB" class="clip cena " data-start="3.510" data-duration="1.200" data-track-index="0" style="top:470px" data-layout-allow-overlap><div class="card enq"><div class="enqt">Você já passou por isso?</div>
+  <div class="opc"><div id="cBbar" class="barra"></div><span>Sim</span></div><div class="opc"><span>Não</span></div>
+  <div id="cBdedo" class="dedo"><svg viewBox="0 0 70 70" width="0" height="0"><circle cx="35" cy="35" r="31" fill="#FFE8B8" stroke="#0A1E4A" stroke-width="3"/><circle cx="26" cy="32" r="3.5" fill="#0A1E4A"/><circle cx="44" cy="32" r="3.5" fill="#0A1E4A"/><path d="M24 44 L46 44" stroke="#0A1E4A" stroke-width="4" stroke-linecap="round"/></svg><svg viewBox="0 0 60 80" width="70" height="92"><path d="M22 76 L22 30 Q22 22 29 22 Q36 22 36 30 L36 44 L48 46 Q56 48 54 58 L50 76 Z" fill="#F2C9A0" stroke="#0A1E4A" stroke-width="3.5" stroke-linejoin="round"/></svg></div></div></div>
+      <div id="cC" class="clip cena " data-start="4.730" data-duration="2.220" data-track-index="0" style="top:470px" data-layout-allow-overlap><div class="card cfg"><div class="linha"><span>corrigir</span><div id="cCsw" class="sw"><i></i></div></div>
+  <div class="sep"></div><div class="linha"><span>o jeito</span></div>
+  <div class="slider"><div class="trilho"><div id="cCfill" class="fill"></div></div><div id="cCknob" class="knob"></div>
+    <div class="ponta esq"><svg viewBox="0 0 70 70" width="66" height="66"><circle cx="35" cy="35" r="31" fill="#FFB3A8" stroke="#0A1E4A" stroke-width="3"/><circle cx="26" cy="32" r="3.5" fill="#0A1E4A"/><circle cx="44" cy="32" r="3.5" fill="#0A1E4A"/><path d="M24 48 Q35 38 46 48" fill="none" stroke="#0A1E4A" stroke-width="4" stroke-linecap="round"/><path d="M18 22 L30 28 M52 22 L40 28" stroke="#0A1E4A" stroke-width="4" stroke-linecap="round"/></svg><b>bronca</b></div><div class="ponta dir"><svg viewBox="0 0 70 70" width="66" height="66"><circle cx="35" cy="35" r="31" fill="#FFE08A" stroke="#0A1E4A" stroke-width="3"/><circle cx="26" cy="32" r="3.5" fill="#0A1E4A"/><circle cx="44" cy="32" r="3.5" fill="#0A1E4A"/><path d="M22 40 Q35 52 48 40" fill="none" stroke="#0A1E4A" stroke-width="4" stroke-linecap="round"/></svg><b>conversa</b></div></div></div></div>
+      <div id="topo2" class="clip cena " data-start="6.970" data-duration="14.770" data-track-index="0" style="top:220px" data-layout-allow-overlap><div class="tit" style="font-size:72px">Faça assim</div>
+  <div class="passos"><div id="p1" class="passo"><i>1</i>particular</div><div class="lig"><b id="l1"></b></div><div id="p2" class="passo"><i>2</i>fato</div><div class="lig"><b id="l2"></b></div><div id="p3" class="passo"><i>3</i>próximo passo</div></div></div>
+      <div id="cE" class="clip cena " data-start="7.590" data-duration="4.280" data-track-index="0" style="top:430px" data-layout-allow-overlap><div class="card planta"><div class="piso"><i class="mesa" style="left:60px;top:60px"></i><i class="mesa" style="left:250px;top:60px"></i><i class="mesa" style="left:60px;top:230px"></i><i class="mesa" style="left:250px;top:230px"></i><b id="cEg0" class="pt" style="left:95px;top:150px;background:#9AB6FF"></b><b id="cEg1" class="pt" style="left:285px;top:150px;background:#9AB6FF"></b><b id="cEg2" class="pt" style="left:95px;top:320px;background:#9AB6FF"></b><b id="cEg3" class="pt" style="left:285px;top:320px;background:#9AB6FF"></b>
+    <b id="cEch" class="pt grande" style="left:170px;top:420px;background:#1E5BFF">VC</b><b id="cEfu" class="pt grande" style="left:260px;top:420px;background:#7FA3FF">EQ</b>
+    <div class="sala2"><span>sala reservada</span><div id="cEporta" class="porta2"></div></div></div>
+  <div id="cEal" class="chip no" style="margin-top:22px">na frente dos outros = humilhação</div></div></div>
+      <div id="cF" class="clip cena " data-start="11.890" data-duration="5.620" data-track-index="0" style="top:500px" data-layout-allow-overlap><div class="card campo"><div class="rot">como falar</div>
+  <div class="input"><span id="cFtxt"></span><span class="cur">|</span><i id="cFsub" class="ondulado"></i></div>
+  <div class="dicas"><span id="cFd1" class="chip no">pessoa ✕</span><span id="cFd2" class="chip ok">fato ✓</span></div></div></div>
+      <div id="cG" class="clip cena " data-start="17.530" data-duration="4.210" data-track-index="0" style="top:500px" data-layout-allow-overlap><div class="card tarefa"><div class="rot">próximo passo</div>
+  <div class="bub eu" style="max-width:640px"><span id="cGtxt"></span></div>
+  <div id="cGtask" class="task"><i class="cb"></i><span>Conferir o pedido antes de enviar</span><span class="avs"><i style="background:#1E5BFF">VC</i><i style="background:#7FA3FF">EQ</i></span></div>
+  <div id="cGcar" class="carimbo">COMBINADO</div></div></div>
+      <div id="topo3" class="clip cena " data-start="21.760" data-duration="2.870" data-track-index="0" style="top:220px" data-layout-allow-overlap><div class="tit" style="font-size:80px">bronca boa não<br><span class="mk" id="topo3mk">aponta o dedo</span></div></div>
+      <div id="cH" class="clip cena " data-start="21.760" data-duration="2.870" data-track-index="0" style="top:460px" data-layout-allow-overlap><div class="pendulo"><i class="fio"></i><div id="cHmao" class="maoP"><svg viewBox="0 0 90 120" width="150" height="200"><path d="M30 6 L30 60 Q30 70 22 70 Q12 70 12 82 Q12 108 40 114 L62 114 Q80 112 80 92 L80 62 Q80 54 72 54 Q66 54 64 60 Q64 50 56 50 Q50 50 48 56 Q48 46 40 46 L40 6 Q40 0 35 0 Q30 0 30 6 Z" fill="#F2C9A0" stroke="#0A1E4A" stroke-width="4" stroke-linejoin="round" transform="rotate(180 45 60)"/></svg></div></div>
+  <div id="cHmapa" class="card mapa"><svg viewBox="0 0 760 520" width="760" height="520">
+    <rect width="760" height="520" rx="26" fill="#EEF4FF"/><path d="M0 130 H760 M0 300 H760 M0 440 H760 M180 0 V520 M420 0 V520 M610 0 V520" stroke="#fff" stroke-width="28"/>
+    <path id="cHrota" d="M120 440 L180 440 L180 300 L420 300 L420 130 L610 130" fill="none" stroke="#1E5BFF" stroke-width="14" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="1200" stroke-dashoffset="1200"/>
+    <circle cx="120" cy="440" r="18" fill="#0A1E4A"/><g id="cHpin"><path d="M610 128 Q580 92 580 72 A30 30 0 0 1 640 72 Q640 92 610 128 Z" fill="#FF4D5E" stroke="#0A1E4A" stroke-width="4"/><circle cx="610" cy="72" r="11" fill="#fff"/></g></svg>
+    <div class="rot" style="position:absolute;left:30px;top:24px">mostra o caminho</div></div></div>
+      <div id="cI" class="clip cena " data-start="24.650" data-duration="5.650" data-track-index="0" style="top:240px" data-layout-allow-overlap><div class="tit" style="font-size:64px;margin-bottom:30px">quer as frases prontas?</div>
+  <div id="cIpost" class="card post"><div class="fhead"><i class="av" style="background:#1E5BFF">KL</i><b>keyllelima</b></div>
+    <div class="img"><div class="imgt">como dar bronca<br>sem destruir<br>a sua equipe</div></div>
+    <div class="acoes"><svg id="cIcor" viewBox="0 0 40 36" width="56" height="50"><path d="M20 34 L4 18 A9 9 0 0 1 20 6 A9 9 0 0 1 36 18 Z" fill="none" stroke="#0A1E4A" stroke-width="3.5" stroke-linejoin="round"/></svg></div>
+    <div class="coment"><span id="cItxt"></span><span class="cur">|</span><i id="cIenv">publicar</i></div></div>
+  <div id="cIdm" class="card dm"><i class="av" style="background:#1E5BFF">KL</i><div><b>Keylle Lima</b><span>te enviou as frases prontas</span></div></div></div>
+  </div>
+  <script>
+    (function () {
+      const tl = gsap.timeline({ paused: true });
+      tl.fromTo("#topo1 .kicker", { opacity: 0, y: -20 }, { opacity: 1, y: 0, duration: 0.3 }, 0);
+      tl.fromTo("#topo1 .mk", { backgroundSize: "0% 40%" }, { backgroundSize: "100% 40%", duration: 0.5, ease: "power2.out" }, 2.680);
+      tl.to("#topo1", { opacity: 0, y: -40, scale: 0.96, duration: 0.25, ease: "power2.in" }, 6.720);
+      tl.fromTo("#cA", { y: 160, opacity: 0, rotation: 4 }, { y: 0, opacity: 1, rotation: 0, duration: 0.5, ease: "back.out(1.4)" }, 0.020);
+      tl.set("#cAtxt", { textContent: "P" }, 0.250);
+      tl.set("#cAtxt", { textContent: "Pe" }, 0.271);
+      tl.set("#cAtxt", { textContent: "Ped" }, 0.291);
+      tl.set("#cAtxt", { textContent: "Pedi" }, 0.312);
+      tl.set("#cAtxt", { textContent: "Pedid" }, 0.332);
+      tl.set("#cAtxt", { textContent: "Pedido" }, 0.353);
+      tl.set("#cAtxt", { textContent: "Pedido " }, 0.373);
+      tl.set("#cAtxt", { textContent: "Pedido e" }, 0.394);
+      tl.set("#cAtxt", { textContent: "Pedido er" }, 0.414);
+      tl.set("#cAtxt", { textContent: "Pedido err" }, 0.435);
+      tl.set("#cAtxt", { textContent: "Pedido erra" }, 0.455);
+      tl.set("#cAtxt", { textContent: "Pedido errad" }, 0.476);
+      tl.set("#cAtxt", { textContent: "Pedido errado" }, 0.496);
+      tl.set("#cAtxt", { textContent: "Pedido errado " }, 0.517);
+      tl.set("#cAtxt", { textContent: "Pedido errado D" }, 0.537);
+      tl.set("#cAtxt", { textContent: "Pedido errado DE" }, 0.558);
+      tl.set("#cAtxt", { textContent: "Pedido errado DE " }, 0.578);
+      tl.set("#cAtxt", { textContent: "Pedido errado DE N" }, 0.599);
+      tl.set("#cAtxt", { textContent: "Pedido errado DE NO" }, 0.619);
+      tl.set("#cAtxt", { textContent: "Pedido errado DE NOV" }, 0.640);
+      tl.set("#cAtxt", { textContent: "Pedido errado DE NOVO" }, 0.661);
+      tl.set("#cAtxt", { textContent: "Pedido errado DE NOVO." }, 0.681);
+      tl.set("#cAtxt", { textContent: "Pedido errado DE NOVO. " }, 0.702);
+      tl.set("#cAtxt", { textContent: "Pedido errado DE NOVO. P" }, 0.722);
+      tl.set("#cAtxt", { textContent: "Pedido errado DE NOVO. Pr" }, 0.743);
+      tl.set("#cAtxt", { textContent: "Pedido errado DE NOVO. Pre" }, 0.763);
+      tl.set("#cAtxt", { textContent: "Pedido errado DE NOVO. Pres" }, 0.784);
+      tl.set("#cAtxt", { textContent: "Pedido errado DE NOVO. Prest" }, 0.804);
+      tl.set("#cAtxt", { textContent: "Pedido errado DE NOVO. Presta" }, 0.825);
+      tl.set("#cAtxt", { textContent: "Pedido errado DE NOVO. Presta " }, 0.845);
+      tl.set("#cAtxt", { textContent: "Pedido errado DE NOVO. Presta a" }, 0.866);
+      tl.set("#cAtxt", { textContent: "Pedido errado DE NOVO. Presta at" }, 0.886);
+      tl.set("#cAtxt", { textContent: "Pedido errado DE NOVO. Presta ate" }, 0.907);
+      tl.set("#cAtxt", { textContent: "Pedido errado DE NOVO. Presta aten" }, 0.927);
+      tl.set("#cAtxt", { textContent: "Pedido errado DE NOVO. Presta atenç" }, 0.948);
+      tl.set("#cAtxt", { textContent: "Pedido errado DE NOVO. Presta atençã" }, 0.968);
+      tl.set("#cAtxt", { textContent: "Pedido errado DE NOVO. Presta atenção" }, 0.989);
+      tl.set("#cAtxt", { textContent: "Pedido errado DE NOVO. Presta atenção!" }, 1.009);
+      tl.fromTo("#cAok", { opacity: 0, scale: 0.4, rotation: -6 }, { opacity: 1, scale: 1, rotation: -3, duration: 0.3, ease: "back.out(2)" }, 0.980);
+      tl.to("#cAflip", { rotationY: 180, duration: 0.6, ease: "power3.inOut" }, 1.120);
+      tl.fromTo("#cAagulha", { rotation: 60 }, { rotation: -62, duration: 0.8, ease: "back.out(1.6)" }, 2.530);
+      tl.set("#cAh2", { opacity: 0 }, 2.780); tl.set("#cAh0", { opacity: 1 }, 2.780);
+      tl.fromTo("#cAno", { opacity: 0, scale: 0.4, rotation: 6 }, { opacity: 1, scale: 1, rotation: 3, duration: 0.3, ease: "back.out(2)" }, 2.880);
+      tl.to("#cA", { scale: 1.9, opacity: 0, filter: "blur(10px)", duration: 0.35, ease: "power2.in" }, 3.360);
+      tl.fromTo("#cB", { scale: 0.55, opacity: 0, filter: "blur(10px)" }, { scale: 1, opacity: 1, filter: "blur(0px)", duration: 0.45, ease: "power3.out" }, 3.410);
+      tl.fromTo("#cBdedo", { x: 260, y: 220, opacity: 0 }, { x: 0, y: 0, opacity: 1, duration: 0.45, ease: "power2.out" }, 3.760);
+      tl.fromTo("#cBdedo", { scale: 1 }, { keyframes: [{ scale: 0.85, duration: 0.08 }, { scale: 1, duration: 0.12 }] }, 4.210);
+      tl.fromTo("#cBbar", { scaleX: 0 }, { scaleX: 0.86, duration: 0.5, ease: "power3.out" }, 4.260);
+      tl.to("#cB", { scale: 1.9, opacity: 0, filter: "blur(10px)", duration: 0.35, ease: "power2.in" }, 4.430);
+      tl.fromTo("#cC", { scale: 0.55, opacity: 0, filter: "blur(10px)" }, { scale: 1, opacity: 1, filter: "blur(0px)", duration: 0.45, ease: "power3.out" }, 4.630);
+      tl.to("#cCsw", { backgroundColor: "#2BD576", duration: 0.2 }, 5.530); tl.fromTo("#cCsw i", { x: 0 }, { x: 56, duration: 0.25, ease: "back.out(2)" }, 5.530);
+      tl.fromTo("#cCknob", { x: 0 }, { x: 520, duration: 0.7, ease: "power3.inOut" }, 6.010); tl.fromTo("#cCfill", { scaleX: 0 }, { scaleX: 1, duration: 0.7, ease: "power3.inOut" }, 6.010);
+      tl.to("#cC", { scale: 1.9, opacity: 0, filter: "blur(10px)", duration: 0.35, ease: "power2.in" }, 6.670);
+      tl.fromTo("#topo2 .tit", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.3 }, 6.970);
+      tl.fromTo("#p1", { opacity: 0, scale: 0.4, rotation: 0 }, { opacity: 1, scale: 1, rotation: 0, duration: 0.3, ease: "back.out(2)" }, 7.120);
+      tl.fromTo("#p2", { opacity: 0, scale: 0.4, rotation: 0 }, { opacity: 1, scale: 1, rotation: 0, duration: 0.3, ease: "back.out(2)" }, 7.240);
+      tl.fromTo("#p3", { opacity: 0, scale: 0.4, rotation: 0 }, { opacity: 1, scale: 1, rotation: 0, duration: 0.3, ease: "back.out(2)" }, 7.360);
+      tl.to("#p1", { backgroundColor: "#1E5BFF", color: "#fff", duration: 0.2 }, 7.640); tl.fromTo("#p1", { scale: 1 }, { keyframes: [{ scale: 1.15, duration: 0.1 }, { scale: 1, duration: 0.15 }] }, 7.640);
+      tl.to("#p2", { backgroundColor: "#1E5BFF", color: "#fff", duration: 0.2 }, 11.940); tl.fromTo("#p2", { scale: 1 }, { keyframes: [{ scale: 1.15, duration: 0.1 }, { scale: 1, duration: 0.15 }] }, 11.940);
+      tl.fromTo("#l1", { scaleX: 0 }, { scaleX: 1, duration: 0.4 }, 12.040);
+      tl.to("#p3", { backgroundColor: "#1E5BFF", color: "#fff", duration: 0.2 }, 17.580); tl.fromTo("#p3", { scale: 1 }, { keyframes: [{ scale: 1.15, duration: 0.1 }, { scale: 1, duration: 0.15 }] }, 17.580);
+      tl.fromTo("#l2", { scaleX: 0 }, { scaleX: 1, duration: 0.4 }, 17.680);
+      tl.to("#topo2", { opacity: 0, y: -40, scale: 0.96, duration: 0.25, ease: "power2.in" }, 21.510);
+      tl.fromTo("#cE", { scale: 0.55, opacity: 0, filter: "blur(10px)" }, { scale: 1, opacity: 1, filter: "blur(0px)", duration: 0.45, ease: "power3.out" }, 7.540);
+      tl.to("#cEch", { x: 330, y: -170, duration: 0.7, ease: "power2.inOut" }, 7.900); tl.to("#cEfu", { x: 330, y: -170, duration: 0.7, ease: "power2.inOut" }, 8.000);
+      tl.fromTo("#cEporta", { rotation: -80 }, { rotation: 0, duration: 0.35, ease: "back.out(2)" }, 8.750);
+      tl.to("#cEg0", { backgroundColor: "#FF4D5E", scale: 1.25, duration: 0.2 }, 9.080);
+      tl.to("#cEg1", { backgroundColor: "#FF4D5E", scale: 1.25, duration: 0.2 }, 9.140);
+      tl.to("#cEg2", { backgroundColor: "#FF4D5E", scale: 1.25, duration: 0.2 }, 9.200);
+      tl.to("#cEg3", { backgroundColor: "#FF4D5E", scale: 1.25, duration: 0.2 }, 9.260);
+      tl.fromTo("#cEal", { opacity: 0, scale: 0.4, rotation: -4 }, { opacity: 1, scale: 1, rotation: -2, duration: 0.3, ease: "back.out(2)" }, 10.660);
+      tl.to("#cE", { scale: 1.9, opacity: 0, filter: "blur(10px)", duration: 0.35, ease: "power2.in" }, 11.590);
+      tl.fromTo("#cF", { scale: 0.55, opacity: 0, filter: "blur(10px)" }, { scale: 1, opacity: 1, filter: "blur(0px)", duration: 0.45, ease: "power3.out" }, 11.840);
+      tl.set("#cFtxt", { textContent: "V" }, 14.070);
+      tl.set("#cFtxt", { textContent: "Vo" }, 14.132);
+      tl.set("#cFtxt", { textContent: "Voc" }, 14.195);
+      tl.set("#cFtxt", { textContent: "Você" }, 14.257);
+      tl.set("#cFtxt", { textContent: "Você " }, 14.319);
+      tl.set("#cFtxt", { textContent: "Você é" }, 14.382);
+      tl.set("#cFtxt", { textContent: "Você é " }, 14.444);
+      tl.set("#cFtxt", { textContent: "Você é d" }, 14.506);
+      tl.set("#cFtxt", { textContent: "Você é de" }, 14.569);
+      tl.set("#cFtxt", { textContent: "Você é des" }, 14.631);
+      tl.set("#cFtxt", { textContent: "Você é desa" }, 14.694);
+      tl.set("#cFtxt", { textContent: "Você é desat" }, 14.756);
+      tl.set("#cFtxt", { textContent: "Você é desate" }, 14.818);
+      tl.set("#cFtxt", { textContent: "Você é desaten" }, 14.881);
+      tl.set("#cFtxt", { textContent: "Você é desatent" }, 14.943);
+      tl.set("#cFtxt", { textContent: "Você é desatento" }, 15.005);
+      tl.set("#cFtxt", { textContent: "Você é desatento." }, 15.068);
+      tl.fromTo("#cFsub", { scaleX: 0 }, { scaleX: 1, duration: 0.3 }, 15.180);
+      tl.fromTo("#cFd1", { opacity: 0, scale: 0.4, rotation: -6 }, { opacity: 1, scale: 1, rotation: -3, duration: 0.3, ease: "back.out(2)" }, 15.230);
+      tl.set("#cFtxt", { textContent: "Você é desatento" }, 15.420);
+      tl.set("#cFtxt", { textContent: "Você é desatent" }, 15.443);
+      tl.set("#cFtxt", { textContent: "Você é desaten" }, 15.466);
+      tl.set("#cFtxt", { textContent: "Você é desate" }, 15.489);
+      tl.set("#cFtxt", { textContent: "Você é desat" }, 15.512);
+      tl.set("#cFtxt", { textContent: "Você é desa" }, 15.535);
+      tl.set("#cFtxt", { textContent: "Você é des" }, 15.558);
+      tl.set("#cFtxt", { textContent: "Você é de" }, 15.581);
+      tl.set("#cFtxt", { textContent: "Você é d" }, 15.604);
+      tl.set("#cFtxt", { textContent: "Você é " }, 15.626);
+      tl.set("#cFtxt", { textContent: "Você é" }, 15.649);
+      tl.set("#cFtxt", { textContent: "Você " }, 15.672);
+      tl.set("#cFtxt", { textContent: "Você" }, 15.695);
+      tl.set("#cFtxt", { textContent: "Voc" }, 15.718);
+      tl.set("#cFtxt", { textContent: "Vo" }, 15.741);
+      tl.set("#cFtxt", { textContent: "V" }, 15.764);
+      tl.set("#cFtxt", { textContent: "" }, 15.787);
+      tl.set("#cFsub", { scaleX: 0 }, 15.470);
+      tl.set("#cFtxt", { textContent: "O" }, 15.840);
+      tl.set("#cFtxt", { textContent: "O " }, 15.892);
+      tl.set("#cFtxt", { textContent: "O p" }, 15.943);
+      tl.set("#cFtxt", { textContent: "O pe" }, 15.995);
+      tl.set("#cFtxt", { textContent: "O ped" }, 16.046);
+      tl.set("#cFtxt", { textContent: "O pedi" }, 16.098);
+      tl.set("#cFtxt", { textContent: "O pedid" }, 16.149);
+      tl.set("#cFtxt", { textContent: "O pedido" }, 16.201);
+      tl.set("#cFtxt", { textContent: "O pedido " }, 16.252);
+      tl.set("#cFtxt", { textContent: "O pedido s" }, 16.304);
+      tl.set("#cFtxt", { textContent: "O pedido sa" }, 16.355);
+      tl.set("#cFtxt", { textContent: "O pedido sai" }, 16.407);
+      tl.set("#cFtxt", { textContent: "O pedido saiu" }, 16.458);
+      tl.set("#cFtxt", { textContent: "O pedido saiu " }, 16.510);
+      tl.set("#cFtxt", { textContent: "O pedido saiu e" }, 16.562);
+      tl.set("#cFtxt", { textContent: "O pedido saiu er" }, 16.613);
+      tl.set("#cFtxt", { textContent: "O pedido saiu err" }, 16.665);
+      tl.set("#cFtxt", { textContent: "O pedido saiu erra" }, 16.716);
+      tl.set("#cFtxt", { textContent: "O pedido saiu errad" }, 16.768);
+      tl.set("#cFtxt", { textContent: "O pedido saiu errado" }, 16.819);
+      tl.set("#cFtxt", { textContent: "O pedido saiu errado " }, 16.871);
+      tl.set("#cFtxt", { textContent: "O pedido saiu errado h" }, 16.922);
+      tl.set("#cFtxt", { textContent: "O pedido saiu errado ho" }, 16.974);
+      tl.set("#cFtxt", { textContent: "O pedido saiu errado hoj" }, 17.025);
+      tl.set("#cFtxt", { textContent: "O pedido saiu errado hoje" }, 17.077);
+      tl.set("#cFtxt", { textContent: "O pedido saiu errado hoje." }, 17.128);
+      tl.fromTo("#cFd2", { opacity: 0, scale: 0.4, rotation: 6 }, { opacity: 1, scale: 1, rotation: 3, duration: 0.3, ease: "back.out(2)" }, 17.130);
+      tl.to("#cF", { scale: 1.9, opacity: 0, filter: "blur(10px)", duration: 0.35, ease: "power2.in" }, 17.230);
+      tl.fromTo("#cG", { scale: 0.55, opacity: 0, filter: "blur(10px)" }, { scale: 1, opacity: 1, filter: "blur(0px)", duration: 0.45, ease: "power3.out" }, 17.480);
+      tl.set("#cGtxt", { textContent: "O" }, 19.510);
+      tl.set("#cGtxt", { textContent: "O " }, 19.557);
+      tl.set("#cGtxt", { textContent: "O q" }, 19.603);
+      tl.set("#cGtxt", { textContent: "O qu" }, 19.650);
+      tl.set("#cGtxt", { textContent: "O que" }, 19.697);
+      tl.set("#cGtxt", { textContent: "O que " }, 19.743);
+      tl.set("#cGtxt", { textContent: "O que a" }, 19.790);
+      tl.set("#cGtxt", { textContent: "O que a " }, 19.837);
+      tl.set("#cGtxt", { textContent: "O que a g" }, 19.883);
+      tl.set("#cGtxt", { textContent: "O que a ge" }, 19.930);
+      tl.set("#cGtxt", { textContent: "O que a gen" }, 19.977);
+      tl.set("#cGtxt", { textContent: "O que a gent" }, 20.023);
+      tl.set("#cGtxt", { textContent: "O que a gente" }, 20.070);
+      tl.set("#cGtxt", { textContent: "O que a gente " }, 20.117);
+      tl.set("#cGtxt", { textContent: "O que a gente f" }, 20.163);
+      tl.set("#cGtxt", { textContent: "O que a gente fa" }, 20.210);
+      tl.set("#cGtxt", { textContent: "O que a gente faz" }, 20.257);
+      tl.set("#cGtxt", { textContent: "O que a gente faz " }, 20.303);
+      tl.set("#cGtxt", { textContent: "O que a gente faz p" }, 20.350);
+      tl.set("#cGtxt", { textContent: "O que a gente faz pr" }, 20.397);
+      tl.set("#cGtxt", { textContent: "O que a gente faz pra" }, 20.443);
+      tl.set("#cGtxt", { textContent: "O que a gente faz pra " }, 20.490);
+      tl.set("#cGtxt", { textContent: "O que a gente faz pra i" }, 20.537);
+      tl.set("#cGtxt", { textContent: "O que a gente faz pra is" }, 20.583);
+      tl.set("#cGtxt", { textContent: "O que a gente faz pra iss" }, 20.630);
+      tl.set("#cGtxt", { textContent: "O que a gente faz pra isso" }, 20.677);
+      tl.set("#cGtxt", { textContent: "O que a gente faz pra isso " }, 20.723);
+      tl.set("#cGtxt", { textContent: "O que a gente faz pra isso n" }, 20.770);
+      tl.set("#cGtxt", { textContent: "O que a gente faz pra isso nã" }, 20.817);
+      tl.set("#cGtxt", { textContent: "O que a gente faz pra isso não" }, 20.863);
+      tl.set("#cGtxt", { textContent: "O que a gente faz pra isso não " }, 20.910);
+      tl.set("#cGtxt", { textContent: "O que a gente faz pra isso não s" }, 20.957);
+      tl.set("#cGtxt", { textContent: "O que a gente faz pra isso não se" }, 21.003);
+      tl.set("#cGtxt", { textContent: "O que a gente faz pra isso não se " }, 21.050);
+      tl.set("#cGtxt", { textContent: "O que a gente faz pra isso não se r" }, 21.097);
+      tl.set("#cGtxt", { textContent: "O que a gente faz pra isso não se re" }, 21.143);
+      tl.set("#cGtxt", { textContent: "O que a gente faz pra isso não se rep" }, 21.190);
+      tl.set("#cGtxt", { textContent: "O que a gente faz pra isso não se repe" }, 21.237);
+      tl.set("#cGtxt", { textContent: "O que a gente faz pra isso não se repet" }, 21.283);
+      tl.set("#cGtxt", { textContent: "O que a gente faz pra isso não se repeti" }, 21.330);
+      tl.set("#cGtxt", { textContent: "O que a gente faz pra isso não se repetir" }, 21.377);
+      tl.set("#cGtxt", { textContent: "O que a gente faz pra isso não se repetir?" }, 21.423);
+      tl.fromTo("#cGtask", { y: 160, opacity: 0, rotation: 4 }, { y: 0, opacity: 1, rotation: 0, duration: 0.4, ease: "back.out(1.4)" }, 18.040);
+      tl.fromTo("#cGcar", { scale: 2.6, rotation: -30, opacity: 0 }, { scale: 1, rotation: -12, opacity: 1, duration: 0.25, ease: "power4.in" }, 21.420); tl.to("#cGtask .cb", { backgroundColor: "#2BD576", duration: 0.15 }, 21.470);
+      tl.to("#cG", { scale: 1.9, opacity: 0, filter: "blur(10px)", duration: 0.35, ease: "power2.in" }, 21.460);
+      tl.fromTo("#topo3", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.3 }, 21.760); tl.fromTo("#topo3mk", { backgroundSize: "0% 40%" }, { backgroundSize: "100% 40%", duration: 0.5 }, 22.450);
+      tl.to("#topo3", { opacity: 0, y: -40, scale: 0.96, duration: 0.25, ease: "power2.in" }, 24.400);
+      tl.fromTo("#cHmao", { rotation: -38 }, { keyframes: [{ rotation: 32, duration: 0.55 }, { rotation: -22, duration: 0.5 }, { rotation: 14, duration: 0.45 }, { rotation: 0, duration: 0.4 }], ease: "sine.inOut" }, 21.710);
+      tl.fromTo(".pendulo", { y: -500 }, { y: 0, duration: 0.4, ease: "power2.out" }, 21.660); tl.to(".pendulo", { y: -700, opacity: 0, duration: 0.35, ease: "power2.in" }, 23.140);
+      tl.fromTo("#cHmapa", { scale: 0.55, opacity: 0, filter: "blur(10px)" }, { scale: 1, opacity: 1, filter: "blur(0px)", duration: 0.45, ease: "power3.out" }, 23.240);
+      tl.fromTo("#cHrota", { attr: { "stroke-dashoffset": 1200 } }, { attr: { "stroke-dashoffset": 0 }, duration: 0.9, ease: "power2.inOut" }, 23.440);
+      tl.fromTo("#cHpin", { y: -260, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, ease: "bounce.out" }, 24.100);
+      tl.set("#cHmapa", { opacity: 0 }, 0);
+      tl.to("#cHmapa", { scale: 1.9, opacity: 0, filter: "blur(10px)", duration: 0.35, ease: "power2.in" }, 24.350);
+      tl.fromTo("#cI", { scale: 0.55, opacity: 0, filter: "blur(10px)" }, { scale: 1, opacity: 1, filter: "blur(0px)", duration: 0.45, ease: "power3.out" }, 24.600);
+      tl.to("#cIcor path", { fill: "#FF4D5E", stroke: "#FF4D5E", duration: 0.15 }, 25.320); tl.fromTo("#cIcor", { scale: 1 }, { keyframes: [{ scale: 1.4, duration: 0.12 }, { scale: 1, duration: 0.15 }] }, 25.320);
+      tl.set("#cItxt", { textContent: "B" }, 27.740);
+      tl.set("#cItxt", { textContent: "BR" }, 27.823);
+      tl.set("#cItxt", { textContent: "BRO" }, 27.907);
+      tl.set("#cItxt", { textContent: "BRON" }, 27.990);
+      tl.set("#cItxt", { textContent: "BRONC" }, 28.073);
+      tl.set("#cItxt", { textContent: "BRONCA" }, 28.157);
+      tl.fromTo("#cIenv", { scale: 1 }, { keyframes: [{ scale: 1.2, duration: 0.1 }, { scale: 1, duration: 0.12 }] }, 28.390);
+      tl.fromTo("#cIdm", { y: -300, opacity: 0 }, { y: 0, opacity: 1, duration: 0.45, ease: "back.out(1.6)" }, 28.560);
+      window.__timelines["cenas"] = tl;
+    })();
+  </script>
+</template>

@@ -44,6 +44,13 @@ Os vídeos são para a marca **ianmour** e para os clientes dela. (O nome da pas
 
 Ferramenta pronta para os passos 2 a 8: `_tecnico/scripts/editor.mjs` (rode sem argumentos para ver o uso).
 
+## Imagens, músicas e efeitos (grátis, sem conta)
+
+- **Imagens:** `_tecnico/scripts/buscar-imagem.mjs "<busca em inglês>" <pasta> [qtd] [vertical|horizontal]`. Rodar com `NODE_USE_ENV_PROXY=1 NODE_EXTRA_CA_CERTS=/root/.ccr/ca-bundle.crt NODE_NO_WARNINGS=1` (senão o Node não sai para a internet). Fotos reais de licença livre (Openverse/Flickr/Wikimedia). **Sempre abrir e olhar cada imagem antes de usar** — a busca às vezes traz coisa errada. Créditos ficam em `CREDITOS.md` na pasta; passar para a pessoa colocar no post.
+- **Músicas:** Openverse (fonte Jamendo), licença CC BY — sempre passar o crédito.
+- **Efeitos sonoros:** os 21 que vêm no HyperFrames (`/root/.claude/skills/media-use/audio/assets/sfx/`). Freesound só com chave gratuita da pessoa.
+- **Gerar imagens do zero:** não temos gerador. A pessoa não quer pagar nada a mais (nem API). Não oferecer serviço pago.
+
 ## Estilo visual que a pessoa gosta (vídeos em `referencias/`)
 
 **Mais importante: `estilo/guia-de-estilo.md`** — o guia tirado das edições da própria pessoa (legenda branca de uma letra só, destaque por tamanho, sem itálico; movimento suave; uma forma "tema" que muda a cada vídeo). Leia antes de qualquer legenda ou animação e anote no histórico do guia a variação usada.

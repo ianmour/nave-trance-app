@@ -32,14 +32,16 @@
   "fim": 13.15,
   "pequeno": "experiências que conectam",
   "grande": "pessoas",
-  "zoom": true
+  "zoom": true,
+  "grandeIni": 12.5
  },
  {
   "ini": 13.42,
   "fim": 15.68,
   "pequeno": "publicitário e video maker",
   "grande": "Ricardo Lucas",
-  "zoom": false
+  "zoom": false,
+  "tamanho": 56
  },
  {
   "ini": 18.9,

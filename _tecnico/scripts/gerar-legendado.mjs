@@ -86,13 +86,14 @@ ${legJs}      window.__timelines["legendas"] = tl;
 // ---------- Destaques: palavra grande + linha pequena ----------
 let desHtml = "", desJs = "", zoomJs = "";
 destaques.forEach((d, i) => {
-  const grande = tamanho(d.grande, 112, 0.9, 720);
+  const grande = d.tamanho || tamanho(d.grande, 112, 0.9, 720);
+  const iniGrande = d.grandeIni ?? d.ini + (d.pequeno ? 0.06 : 0);
   desHtml += `      <div id="dt${i}" class="clip destaque" data-start="${f(d.ini)}" data-duration="${f(d.fim - d.ini)}" data-track-index="0">
         ${d.pequeno ? `<div id="dt${i}p" class="pequeno">${esc(d.pequeno)}</div>` : ""}
         <div id="dt${i}g" class="grande" style="font-size:${grande}px">${esc(d.grande)}</div>
       </div>\n`;
   if (d.pequeno) desJs += `      tl.fromTo("#dt${i}p", { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 0.18, ease: "power3.out" }, ${f(d.ini)});\n`;
-  desJs += `      tl.fromTo("#dt${i}g", { opacity: 0, scale: 1.55 }, { opacity: 1, scale: 1, duration: 0.24, ease: "back.out(2.2)" }, ${f(d.ini + (d.pequeno ? 0.06 : 0))});\n`;
+  desJs += `      tl.fromTo("#dt${i}g", { opacity: 0, scale: 1.55 }, { opacity: 1, scale: 1, duration: 0.24, ease: "back.out(2.2)" }, ${f(iniGrande)});\n`;
   desJs += `      tl.to("#dt${i} > div", { opacity: 0, y: -10, duration: 0.14, ease: "power2.in" }, ${f(d.fim - 0.14)});\n`;
   if (d.zoom) {
     zoomJs += `      tl.to("#enquadro", { scale: 1.06, duration: 0.25, ease: "power3.out" }, ${f(d.ini)});\n`;
@@ -105,12 +106,12 @@ const destaquesHtml = `<template>
     #root { position: absolute; inset: 0; }
     .destaque { position: absolute; left: 120px; width: 768px; top: 296px; text-align: center; overflow: visible; }
     .pequeno {
-      display: inline-block; margin-bottom: 10px; padding: 6px 18px 8px;
+      display: inline-block; margin-bottom: 6px; padding: 5px 18px 7px;
       background: ${COR.azul}; color: ${COR.creme};
       font-family: "Poppins"; font-style: italic; font-weight: 700; font-size: 38px; line-height: 1.1;
     }
     .grande {
-      display: block; font-family: "Archivo Black"; line-height: 0.95; letter-spacing: -0.01em;
+      display: block; white-space: nowrap; font-family: "Archivo Black"; line-height: 0.95; letter-spacing: -0.01em;
       text-transform: uppercase; color: ${COR.rosa};
       text-shadow: 5px 5px 0 ${COR.azul}, -2px -2px 0 ${COR.azul}, 2px -2px 0 ${COR.azul}, -2px 2px 0 ${COR.azul}, 0 10px 34px rgba(0,0,0,0.6);
     }

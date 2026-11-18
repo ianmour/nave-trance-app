@@ -59,15 +59,9 @@ Sempre pergunto (ou você me diz) se o vídeo é **pra mim** ou **pra cliente**.
 - Cortar frases inteiras que não são repetição.
 - Colocar música, legenda ou animação.
 
-## Estilo visual que você gosta (para quando pedir legenda/animação)
+## Estilo visual (legenda e animação)
 
-Tirado dos vídeos em `referencias/`:
-- Vídeo em pé, ritmo rápido, gancho forte logo no primeiro segundo.
-- Legenda pequena, de 1 a 3 palavras por vez, no meio da tela, em amarelo ou branco.
-- Palavras-chave GRANDES e animadas nos momentos fortes (ex.: "plano FECHADO:", "não esquece de nos seguir").
-- Zoom rápido no rosto nas frases de impacto.
-- Cortes para imagens de detalhe ou da tela do celular, quando houver essas imagens.
-- Cor quente, de cinema.
+Veja **`estilo/guia-de-estilo.md`**: tirado das suas próprias edições. Resumo: legenda branca de uma letra só, palavra-chave maior (sem itálico), movimento suave, uma forma "tema" diferente a cada vídeo, música de fundo e poucos efeitos.
 
 ## Como o vídeo sai
 

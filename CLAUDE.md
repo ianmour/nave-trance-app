@@ -46,7 +46,9 @@ Ferramenta pronta para os passos 2 a 8: `_tecnico/scripts/editor.mjs` (rode sem 
 
 ## Estilo visual que a pessoa gosta (vídeos em `referencias/`)
 
-Estudo completo, com números: `estilo/referencias-estudo.md`. Leia antes de fazer legenda ou animação.
+**Mais importante: `estilo/guia-de-estilo.md`** — o guia tirado das edições da própria pessoa (legenda branca de uma letra só, destaque por tamanho, sem itálico; movimento suave; uma forma "tema" que muda a cada vídeo). Leia antes de qualquer legenda ou animação e anote no histórico do guia a variação usada.
+
+Estudo dos vídeos de outros criadores, com números: `estilo/referencias-estudo.md` (inspiração, não regra).
 
 Vídeo em pé; legenda pequena com 1 a 3 palavras por vez no meio da tela; palavras-chave GRANDES e animadas nos momentos fortes; zoom rápido no rosto nas frases de impacto; cortes rápidos para imagens de detalhe ou da tela; cor quente de cinema; gancho forte no primeiro segundo.
 

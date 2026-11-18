@@ -27,6 +27,12 @@ Tirado de `referencias/ref-cliente-falado-01.mp4` e `ref-cliente-falado-02.mp4` 
 - **Tela cheia de frase** em 1 ou 2 momentos-chave, sobre foto de fundo neutra, com a palavra forte grande na cor de destaque.
 - **Ícone/logo pequeno** surgindo ao lado da palavra quando se fala de uma marca/produto (só os definidos com a pessoa).
 - **Final com a marca do cliente** (logo + chamada tipo "Saiba Mais"), se houver material.
+- (de `referencias/ref-falado-04.mp4`, mesmo criador, "gosto muito desse estilo") **Elementos de app que ilustram a palavra no instante em que é dita**:
+  - **balões de conversa** surgindo com o verbo ("copia" / "cola" em balões verdes);
+  - **notificação no canto** mostrando um processo ("Montando apresentação…" → "Apresentação concluída!");
+  - **grade de ícones** subindo de baixo quando fala de "várias ferramentas";
+  - **ícone pequeno grudado na palavra** ("Inteligência Artificial" com um selinho "AI").
+- Cortes alternando **plano aberto ↔ fechado** a cada 2–4 s (ali são dois ângulos de câmera; com uma câmera só, usar zoom seco).
 - **Música de leve**, uns 10 dB abaixo da voz, o vídeo inteiro. Efeitos sonoros discretos.
 - Cor natural, quente e bonita. Volume final -14 LUFS (as duas referências estão exatamente nisso).
 

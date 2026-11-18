@@ -1,0 +1,38 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; }
+    .t { position: absolute; top: 300px; overflow: visible; font-family: "Inter"; color: #fff; letter-spacing: -0.03em; }
+    .esq { left: 130px; text-align: left; }
+    .dir { right: 192px; text-align: right; }
+    .meio { left: 140px; width: 800px; text-align: center; }
+    .baixo { top: 1086px; }
+    .peq { display: block; font-weight: 700; font-size: 46px; line-height: 1.1; text-shadow: 0 2px 14px rgba(0,0,0,0.55); white-space: nowrap; }
+    .gde { display: block; font-weight: 900; font-size: 128px; line-height: 0.95; text-transform: uppercase; text-shadow: 0 4px 24px rgba(0,0,0,0.5); white-space: nowrap; }
+    .linha { display: block; height: 4px; width: 260px; background: #E9A35B; margin: 14px 0 12px; transform-origin: left center; }
+    .dir .linha { margin-left: auto; transform-origin: right center; }
+    .meio .linha { margin-left: auto; margin-right: auto; transform-origin: center; }
+
+  </style>
+  <div id="root" data-composition-id="trabalho" data-width="1080" data-height="1920">
+      <div id="trabalho-a" class="clip t esq" data-start="0.180" data-duration="4.600" data-track-index="0" data-layout-allow-overlap><span id="trabalho-a1" class="peq">meu trabalho é transformar</span><span id="trabalho-a2" class="linha" style="width:180px"></span><span id="trabalho-l0" class="peq" style="font-size:62px;font-weight:900;line-height:1.08"><span style="color:#E9A35B;font-size:28px;font-weight:700;vertical-align:middle;margin-right:14px">01</span>ideias</span><span id="trabalho-l1" class="peq" style="font-size:62px;font-weight:900;line-height:1.08"><span style="color:#E9A35B;font-size:28px;font-weight:700;vertical-align:middle;margin-right:14px">02</span>imagens</span><span id="trabalho-l2" class="peq" style="font-size:62px;font-weight:900;line-height:1.08"><span style="color:#E9A35B;font-size:28px;font-weight:700;vertical-align:middle;margin-right:14px">03</span>histórias</span><span id="trabalho-l3" class="peq" style="font-size:62px;font-weight:900;line-height:1.08"><span style="color:#E9A35B;font-size:28px;font-weight:700;vertical-align:middle;margin-right:14px">04</span>emoções</span><span id="trabalho-l4" class="peq" style="font-size:62px;font-weight:900;line-height:1.08"><span style="color:#E9A35B;font-size:28px;font-weight:700;vertical-align:middle;margin-right:14px">05</span>marcas</span></div>
+      <div id="trabalho-b" class="clip t esq" data-start="4.850" data-duration="1.790" data-track-index="0" data-layout-allow-overlap><span id="trabalho-b1" class="peq">experiências que conectam</span><span id="trabalho-b2" class="gde">pessoas</span><span id="trabalho-b3" class="linha"></span></div>
+  </div>
+  <script>
+    (function () {
+      const tl = gsap.timeline({ paused: true });
+      tl.fromTo("#trabalho-a1", { opacity: 0, y: 14, filter: "blur(14px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.32, ease: "power3.out" }, 0.180);
+      tl.fromTo("#trabalho-a2", { scaleX: 0 }, { scaleX: 1, duration: 0.45, ease: "power2.inOut" }, 0.920);
+      tl.fromTo("#trabalho-l0", { opacity: 0, y: 14, filter: "blur(14px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.32, ease: "power3.out" }, 1.640);
+      tl.fromTo("#trabalho-l1", { opacity: 0, y: 14, filter: "blur(14px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.32, ease: "power3.out" }, 2.100);
+      tl.fromTo("#trabalho-l2", { opacity: 0, y: 14, filter: "blur(14px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.32, ease: "power3.out" }, 2.910);
+      tl.fromTo("#trabalho-l3", { opacity: 0, y: 14, filter: "blur(14px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.32, ease: "power3.out" }, 3.620);
+      tl.fromTo("#trabalho-l4", { opacity: 0, y: 14, filter: "blur(14px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.32, ease: "power3.out" }, 4.390);
+      tl.to("#trabalho-a > *", { opacity: 0, filter: "blur(8px)", duration: 0.2, ease: "power2.in" }, 4.600);
+      tl.fromTo("#trabalho-b1", { opacity: 0, y: 14, filter: "blur(14px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.32, ease: "power3.out" }, 4.850);
+      tl.fromTo("#trabalho-b2", { opacity: 0, y: 14, filter: "blur(14px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.32, ease: "power3.out" }, 6.130);
+      tl.fromTo("#trabalho-b3", { scaleX: 0 }, { scaleX: 1, duration: 0.45, ease: "power2.inOut" }, 6.220);
+      tl.to("#trabalho-b > *", { opacity: 0, filter: "blur(8px)", duration: 0.2, ease: "power2.in" }, 6.460);
+      window.__timelines["trabalho"] = tl;
+    })();
+  </script>
+</template>

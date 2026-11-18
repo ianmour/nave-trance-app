@@ -1,0 +1,73 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; }
+    .grupo { position: absolute; left: 170px; width: 740px; bottom: 690px; text-align: center; overflow: visible; }
+    .caixa { display: inline-block; font-family: "Inter"; font-weight: 700; font-size: 48px; line-height: 1.12; letter-spacing: -0.035em; color: #fff;
+      text-shadow: 0 0 2px rgba(0,0,0,0.55), 0 3px 14px rgba(0,0,0,0.55); }
+    .ln { white-space: nowrap; }
+    .pal { display: inline-block; }
+    .chave { font-weight: 900; font-size: 64px; }
+  </style>
+  <div id="root" data-composition-id="legendas" data-width="1080" data-height="1920">
+      <div id="lg0" class="clip grupo" data-start="0.100" data-duration="1.240" data-track-index="0"><div class="caixa"><div class="ln"><span id="lg0w0" class="pal">A</span> <span id="lg0w1" class="pal">sua</span> <span id="lg0w2" class="pal">empresa</span></div><div class="ln"><span id="lg0w3" class="pal">precisa</span> <span id="lg0w4" class="pal">de</span> <span id="lg0w5" class="pal">muito</span></div></div></div>
+      <div id="lg1" class="clip grupo" data-start="1.330" data-duration="1.490" data-track-index="0"><div class="caixa"><div class="ln"><span id="lg1w0" class="pal">mais</span> <span id="lg1w1" class="pal">do</span> <span id="lg1w2" class="pal">que</span></div><div class="ln"><span id="lg1w3" class="pal">apenas</span> <span id="lg1w4" class="pal chave">aparecer.</span></div></div></div>
+      <div id="lg2" class="clip grupo" data-start="2.810" data-duration="1.270" data-track-index="0"><div class="caixa"><div class="ln"><span id="lg2w0" class="pal">Ela</span> <span id="lg2w1" class="pal">precisa</span></div><div class="ln"><span id="lg2w2" class="pal">se</span> <span id="lg2w3" class="pal chave">conectar,</span></div></div></div>
+      <div id="lg3" class="clip grupo" data-start="4.070" data-duration="2.480" data-track-index="0"><div class="caixa"><div class="ln"><span id="lg3w0" class="pal">despertar</span> <span id="lg3w1" class="pal">interesse</span> <span id="lg3w2" class="pal">e</span></div><div class="ln"><span id="lg3w3" class="pal">conquistar</span> <span id="lg3w4" class="pal chave">clientes.</span></div></div></div>
+      <div id="lg4" class="clip grupo" data-start="11.200" data-duration="2.000" data-track-index="0"><div class="caixa"><div class="ln"><span id="lg4w0" class="pal chave">experiências</span> <span id="lg4w1" class="pal">que</span></div><div class="ln"><span id="lg4w2" class="pal">conectam</span> <span id="lg4w3" class="pal chave">pessoas.</span></div></div></div>
+      <div id="lg5" class="clip grupo" data-start="15.650" data-duration="1.700" data-track-index="0"><div class="caixa"><div class="ln"><span id="lg5w0" class="pal">e</span> <span id="lg5w1" class="pal">através</span> <span id="lg5w2" class="pal">da</span></div><div class="ln"><span id="lg5w3" class="pal">produção</span> <span id="lg5w4" class="pal">e</span> <span id="lg5w5" class="pal">edição</span></div></div></div>
+      <div id="lg6" class="clip grupo" data-start="17.340" data-duration="1.290" data-track-index="0"><div class="caixa"><div class="ln"><span id="lg6w0" class="pal">de</span> <span id="lg6w1" class="pal chave">vídeos</span> <span id="lg6w2" class="pal">que</span></div><div class="ln"><span id="lg6w3" class="pal">eu</span> <span id="lg6w4" class="pal">transformo</span> <span id="lg6w5" class="pal">o</span></div></div></div>
+      <div id="lg7" class="clip grupo" data-start="18.620" data-duration="0.630" data-track-index="0"><div class="caixa"><div class="ln"><span id="lg7w0" class="pal">seu</span> <span id="lg7w1" class="pal chave">negócio</span></div></div></div>
+  </div>
+  <script>
+    (function () {
+      const tl = gsap.timeline({ paused: true });
+      tl.fromTo("#lg0w0", { opacity: 0, y: 8, filter: "blur(8px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.18, ease: "power2.out" }, 0.050);
+      tl.fromTo("#lg0w1", { opacity: 0, y: 8, filter: "blur(8px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.18, ease: "power2.out" }, 0.080);
+      tl.fromTo("#lg0w2", { opacity: 0, y: 8, filter: "blur(8px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.18, ease: "power2.out" }, 0.210);
+      tl.fromTo("#lg0w3", { opacity: 0, y: 8, filter: "blur(8px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.18, ease: "power2.out" }, 0.640);
+      tl.fromTo("#lg0w4", { opacity: 0, y: 8, filter: "blur(8px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.18, ease: "power2.out" }, 0.990);
+      tl.fromTo("#lg0w5", { opacity: 0, y: 8, filter: "blur(8px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.18, ease: "power2.out" }, 1.100);
+      tl.to("#lg0 .caixa", { opacity: 0, duration: 0.1, ease: "power2.in" }, 1.240);
+      tl.fromTo("#lg1w0", { opacity: 0, y: 8, filter: "blur(8px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.18, ease: "power2.out" }, 1.380);
+      tl.fromTo("#lg1w1", { opacity: 0, y: 8, filter: "blur(8px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.18, ease: "power2.out" }, 1.600);
+      tl.fromTo("#lg1w2", { opacity: 0, y: 8, filter: "blur(8px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.18, ease: "power2.out" }, 1.720);
+      tl.fromTo("#lg1w3", { opacity: 0, y: 8, filter: "blur(8px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.18, ease: "power2.out" }, 1.870);
+      tl.fromTo("#lg1w4", { opacity: 0, y: 8, filter: "blur(8px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.18, ease: "power2.out" }, 2.200);
+      tl.to("#lg1 .caixa", { opacity: 0, duration: 0.1, ease: "power2.in" }, 2.720);
+      tl.fromTo("#lg2w0", { opacity: 0, y: 8, filter: "blur(8px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.18, ease: "power2.out" }, 2.860);
+      tl.fromTo("#lg2w1", { opacity: 0, y: 8, filter: "blur(8px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.18, ease: "power2.out" }, 2.960);
+      tl.fromTo("#lg2w2", { opacity: 0, y: 8, filter: "blur(8px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.18, ease: "power2.out" }, 3.420);
+      tl.fromTo("#lg2w3", { opacity: 0, y: 8, filter: "blur(8px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.18, ease: "power2.out" }, 3.510);
+      tl.to("#lg2 .caixa", { opacity: 0, duration: 0.1, ease: "power2.in" }, 3.980);
+      tl.fromTo("#lg3w0", { opacity: 0, y: 8, filter: "blur(8px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.18, ease: "power2.out" }, 4.120);
+      tl.fromTo("#lg3w1", { opacity: 0, y: 8, filter: "blur(8px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.18, ease: "power2.out" }, 4.670);
+      tl.fromTo("#lg3w2", { opacity: 0, y: 8, filter: "blur(8px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.18, ease: "power2.out" }, 5.280);
+      tl.fromTo("#lg3w3", { opacity: 0, y: 8, filter: "blur(8px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.18, ease: "power2.out" }, 5.330);
+      tl.fromTo("#lg3w4", { opacity: 0, y: 8, filter: "blur(8px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.18, ease: "power2.out" }, 5.890);
+      tl.to("#lg3 .caixa", { opacity: 0, duration: 0.1, ease: "power2.in" }, 6.450);
+      tl.fromTo("#lg4w0", { opacity: 0, y: 8, filter: "blur(8px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.18, ease: "power2.out" }, 11.250);
+      tl.fromTo("#lg4w1", { opacity: 0, y: 8, filter: "blur(8px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.18, ease: "power2.out" }, 11.960);
+      tl.fromTo("#lg4w2", { opacity: 0, y: 8, filter: "blur(8px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.18, ease: "power2.out" }, 12.060);
+      tl.fromTo("#lg4w3", { opacity: 0, y: 8, filter: "blur(8px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.18, ease: "power2.out" }, 12.530);
+      tl.to("#lg4 .caixa", { opacity: 0, duration: 0.1, ease: "power2.in" }, 13.100);
+      tl.fromTo("#lg5w0", { opacity: 0, y: 8, filter: "blur(8px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.18, ease: "power2.out" }, 15.700);
+      tl.fromTo("#lg5w1", { opacity: 0, y: 8, filter: "blur(8px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.18, ease: "power2.out" }, 15.950);
+      tl.fromTo("#lg5w2", { opacity: 0, y: 8, filter: "blur(8px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.18, ease: "power2.out" }, 16.250);
+      tl.fromTo("#lg5w3", { opacity: 0, y: 8, filter: "blur(8px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.18, ease: "power2.out" }, 16.370);
+      tl.fromTo("#lg5w4", { opacity: 0, y: 8, filter: "blur(8px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.18, ease: "power2.out" }, 16.830);
+      tl.fromTo("#lg5w5", { opacity: 0, y: 8, filter: "blur(8px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.18, ease: "power2.out" }, 16.990);
+      tl.to("#lg5 .caixa", { opacity: 0, duration: 0.1, ease: "power2.in" }, 17.250);
+      tl.fromTo("#lg6w0", { opacity: 0, y: 8, filter: "blur(8px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.18, ease: "power2.out" }, 17.390);
+      tl.fromTo("#lg6w1", { opacity: 0, y: 8, filter: "blur(8px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.18, ease: "power2.out" }, 17.410);
+      tl.fromTo("#lg6w2", { opacity: 0, y: 8, filter: "blur(8px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.18, ease: "power2.out" }, 17.760);
+      tl.fromTo("#lg6w3", { opacity: 0, y: 8, filter: "blur(8px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.18, ease: "power2.out" }, 17.940);
+      tl.fromTo("#lg6w4", { opacity: 0, y: 8, filter: "blur(8px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.18, ease: "power2.out" }, 18.040);
+      tl.fromTo("#lg6w5", { opacity: 0, y: 8, filter: "blur(8px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.18, ease: "power2.out" }, 18.630);
+      tl.to("#lg6 .caixa", { opacity: 0, duration: 0.1, ease: "power2.in" }, 18.530);
+      tl.fromTo("#lg7w0", { opacity: 0, y: 8, filter: "blur(8px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.18, ease: "power2.out" }, 18.670);
+      tl.fromTo("#lg7w1", { opacity: 0, y: 8, filter: "blur(8px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.18, ease: "power2.out" }, 18.840);
+      tl.to("#lg7 .caixa", { opacity: 0, duration: 0.1, ease: "power2.in" }, 19.150);
+      window.__timelines["legendas"] = tl;
+    })();
+  </script>
+</template>

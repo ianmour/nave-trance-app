@@ -1,0 +1,29 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; }
+    .t { position: absolute; top: 300px; overflow: visible; font-family: "Inter"; color: #fff; letter-spacing: -0.03em; }
+    .esq { left: 130px; text-align: left; }
+    .dir { right: 192px; text-align: right; }
+    .meio { left: 140px; width: 800px; text-align: center; }
+    .baixo { top: 1086px; }
+    .peq { display: block; font-weight: 700; font-size: 46px; line-height: 1.1; text-shadow: 0 2px 14px rgba(0,0,0,0.55); white-space: nowrap; }
+    .gde { display: block; font-weight: 900; font-size: 128px; line-height: 0.95; text-transform: uppercase; text-shadow: 0 4px 24px rgba(0,0,0,0.5); white-space: nowrap; }
+    .linha { display: block; height: 4px; width: 260px; background: #E9A35B; margin: 14px 0 12px; transform-origin: left center; }
+    .dir .linha { margin-left: auto; transform-origin: right center; }
+    .meio .linha { margin-left: auto; margin-right: auto; transform-origin: center; }
+
+  </style>
+  <div id="root" data-composition-id="fim" data-width="1080" data-height="1920">
+      <div id="fim-a" class="clip t meio baixo" data-start="0.110" data-duration="1.673" data-track-index="0" data-layout-allow-overlap><span id="fim-a1" class="peq">em uma experiência</span><span id="fim-a2" class="linha" style="width:200px"></span><span class="gde" style="font-size:112px"><span id="fim-v">visual</span> <span id="fim-u">única</span></span></div>
+  </div>
+  <script>
+    (function () {
+      const tl = gsap.timeline({ paused: true });
+      tl.fromTo("#fim-a1", { opacity: 0, y: 14, filter: "blur(14px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.32, ease: "power3.out" }, 0.110);
+      tl.fromTo("#fim-a2", { scaleX: 0 }, { scaleX: 1, duration: 0.45, ease: "power2.inOut" }, 0.350);
+      tl.fromTo("#fim-v", { opacity: 0, y: 14, filter: "blur(14px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.32, ease: "power3.out" }, 0.920);
+      tl.fromTo("#fim-u", { opacity: 0, y: 14, filter: "blur(14px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.32, ease: "power3.out" }, 1.270);
+      window.__timelines["fim"] = tl;
+    })();
+  </script>
+</template>

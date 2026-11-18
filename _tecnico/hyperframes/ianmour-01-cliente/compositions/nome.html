@@ -1,0 +1,29 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; }
+    .t { position: absolute; top: 300px; overflow: visible; font-family: "Inter"; color: #fff; letter-spacing: -0.03em; }
+    .esq { left: 130px; text-align: left; }
+    .dir { right: 192px; text-align: right; }
+    .meio { left: 140px; width: 800px; text-align: center; }
+    .baixo { top: 1086px; }
+    .peq { display: block; font-weight: 700; font-size: 46px; line-height: 1.1; text-shadow: 0 2px 14px rgba(0,0,0,0.55); white-space: nowrap; }
+    .gde { display: block; font-weight: 900; font-size: 128px; line-height: 0.95; text-transform: uppercase; text-shadow: 0 4px 24px rgba(0,0,0,0.5); white-space: nowrap; }
+    .linha { display: block; height: 4px; width: 260px; background: #E9A35B; margin: 14px 0 12px; transform-origin: left center; }
+    .dir .linha { margin-left: auto; transform-origin: right center; }
+    .meio .linha { margin-left: auto; margin-right: auto; transform-origin: center; }
+
+  </style>
+  <div id="root" data-composition-id="nome" data-width="1080" data-height="1920">
+      <div id="nome-a" class="clip t esq" data-start="0.310" data-duration="2.240" data-track-index="0" data-layout-allow-overlap><span id="nome-a1" class="linha" style="width:120px;margin-top:0"></span><span id="nome-a2" class="gde" style="font-size:88px">Ricardo Lucas</span><span id="nome-a3" class="peq" style="margin-top:12px;font-weight:400;font-size:42px">Publicitário &amp; Video Maker</span></div>
+  </div>
+  <script>
+    (function () {
+      const tl = gsap.timeline({ paused: true });
+      tl.fromTo("#nome-a1", { scaleX: 0 }, { scaleX: 1, duration: 0.45, ease: "power2.inOut" }, 0.310);
+      tl.fromTo("#nome-a2", { opacity: 0, y: 14, filter: "blur(14px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.32, ease: "power3.out" }, 0.390);
+      tl.fromTo("#nome-a3", { opacity: 0, y: 14, filter: "blur(14px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.32, ease: "power3.out" }, 1.230);
+      tl.to("#nome-a > *", { opacity: 0, filter: "blur(8px)", duration: 0.2, ease: "power2.in" }, 2.350);
+      window.__timelines["nome"] = tl;
+    })();
+  </script>
+</template>

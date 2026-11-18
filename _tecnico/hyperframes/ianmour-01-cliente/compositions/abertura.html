@@ -1,0 +1,41 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; }
+    .t { position: absolute; top: 300px; overflow: visible; font-family: "Inter"; color: #fff; letter-spacing: -0.03em; }
+    .esq { left: 130px; text-align: left; }
+    .dir { right: 192px; text-align: right; }
+    .meio { left: 140px; width: 800px; text-align: center; }
+    .baixo { top: 1086px; }
+    .peq { display: block; font-weight: 700; font-size: 46px; line-height: 1.1; text-shadow: 0 2px 14px rgba(0,0,0,0.55); white-space: nowrap; }
+    .gde { display: block; font-weight: 900; font-size: 128px; line-height: 0.95; text-transform: uppercase; text-shadow: 0 4px 24px rgba(0,0,0,0.5); white-space: nowrap; }
+    .linha { display: block; height: 4px; width: 260px; background: #E9A35B; margin: 14px 0 12px; transform-origin: left center; }
+    .dir .linha { margin-left: auto; transform-origin: right center; }
+    .meio .linha { margin-left: auto; margin-right: auto; transform-origin: center; }
+
+  </style>
+  <div id="root" data-composition-id="abertura" data-width="1080" data-height="1920">
+      <div id="abertura-a" class="clip t esq" data-start="0.180" data-duration="2.620" data-track-index="0" data-layout-allow-overlap><span id="abertura-a1" class="peq">sua empresa precisa de</span><span id="abertura-a2" class="gde" style="font-size:112px">muito mais</span><span id="abertura-a3" class="linha"></span><span id="abertura-a4" class="peq">do que apenas aparecer.</span></div>
+      <div id="abertura-b" class="clip t dir" data-start="2.920" data-duration="2.300" data-track-index="0" data-layout-allow-overlap><span id="abertura-b1" class="peq">ela precisa se</span><span id="abertura-b2" class="gde">conectar</span><span id="abertura-b3" class="linha"></span><span id="abertura-b4" class="peq">e despertar interesse</span></div>
+      <div id="abertura-c" class="clip t esq" data-start="5.300" data-duration="1.080" data-track-index="0" data-layout-allow-overlap><span id="abertura-c1" class="peq">e conquistar</span><span id="abertura-c2" class="gde">clientes</span><span id="abertura-c3" class="linha"></span></div>
+  </div>
+  <script>
+    (function () {
+      const tl = gsap.timeline({ paused: true });
+      tl.fromTo("#abertura-a1", { opacity: 0, y: 14, filter: "blur(14px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.32, ease: "power3.out" }, 0.180);
+      tl.fromTo("#abertura-a2", { opacity: 0, y: 14, filter: "blur(14px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.32, ease: "power3.out" }, 1.100);
+      tl.fromTo("#abertura-a3", { scaleX: 0 }, { scaleX: 1, duration: 0.45, ease: "power2.inOut" }, 1.250);
+      tl.fromTo("#abertura-a4", { opacity: 0, y: 14, filter: "blur(14px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.32, ease: "power3.out" }, 1.720);
+      tl.to("#abertura-a > *", { opacity: 0, filter: "blur(8px)", duration: 0.2, ease: "power2.in" }, 2.580);
+      tl.fromTo("#abertura-b1", { opacity: 0, y: 14, filter: "blur(14px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.32, ease: "power3.out" }, 2.920);
+      tl.fromTo("#abertura-b2", { opacity: 0, y: 14, filter: "blur(14px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.32, ease: "power3.out" }, 3.510);
+      tl.fromTo("#abertura-b3", { scaleX: 0 }, { scaleX: 1, duration: 0.45, ease: "power2.inOut" }, 3.660);
+      tl.fromTo("#abertura-b4", { opacity: 0, y: 14, filter: "blur(14px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.32, ease: "power3.out" }, 4.120);
+      tl.to("#abertura-b > *", { opacity: 0, filter: "blur(8px)", duration: 0.2, ease: "power2.in" }, 5.000);
+      tl.fromTo("#abertura-c1", { opacity: 0, y: 14, filter: "blur(14px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.32, ease: "power3.out" }, 5.300);
+      tl.fromTo("#abertura-c2", { opacity: 0, y: 14, filter: "blur(14px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.32, ease: "power3.out" }, 5.890);
+      tl.fromTo("#abertura-c3", { scaleX: 0 }, { scaleX: 1, duration: 0.45, ease: "power2.inOut" }, 6.000);
+      tl.to("#abertura-c > *", { opacity: 0, filter: "blur(8px)", duration: 0.2, ease: "power2.in" }, 6.180);
+      window.__timelines["abertura"] = tl;
+    })();
+  </script>
+</template>

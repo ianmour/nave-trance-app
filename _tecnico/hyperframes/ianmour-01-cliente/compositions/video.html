@@ -1,0 +1,34 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; }
+    .t { position: absolute; top: 300px; overflow: visible; font-family: "Inter"; color: #fff; letter-spacing: -0.03em; }
+    .esq { left: 130px; text-align: left; }
+    .dir { right: 192px; text-align: right; }
+    .meio { left: 140px; width: 800px; text-align: center; }
+    .baixo { top: 1086px; }
+    .peq { display: block; font-weight: 700; font-size: 46px; line-height: 1.1; text-shadow: 0 2px 14px rgba(0,0,0,0.55); white-space: nowrap; }
+    .gde { display: block; font-weight: 900; font-size: 128px; line-height: 0.95; text-transform: uppercase; text-shadow: 0 4px 24px rgba(0,0,0,0.5); white-space: nowrap; }
+    .linha { display: block; height: 4px; width: 260px; background: #E9A35B; margin: 14px 0 12px; transform-origin: left center; }
+    .dir .linha { margin-left: auto; transform-origin: right center; }
+    .meio .linha { margin-left: auto; margin-right: auto; transform-origin: center; }
+
+  </style>
+  <div id="root" data-composition-id="video" data-width="1080" data-height="1920">
+      <div id="video-a" class="clip t dir" data-start="0.250" data-duration="2.030" data-track-index="0" data-layout-allow-overlap><span id="video-a1" class="peq">através da produção e edição</span><span id="video-a2" class="gde">de vídeos</span><span id="video-a3" class="linha"></span></div>
+      <div id="video-b" class="clip t esq" data-start="2.340" data-duration="1.180" data-track-index="0" data-layout-allow-overlap><span id="video-b1" class="peq">que eu transformo o</span><span id="video-b2" class="gde">seu negócio</span><span id="video-b3" class="linha"></span></div>
+  </div>
+  <script>
+    (function () {
+      const tl = gsap.timeline({ paused: true });
+      tl.fromTo("#video-a1", { opacity: 0, y: 14, filter: "blur(14px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.32, ease: "power3.out" }, 0.250);
+      tl.fromTo("#video-a2", { opacity: 0, y: 14, filter: "blur(14px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.32, ease: "power3.out" }, 1.710);
+      tl.fromTo("#video-a3", { scaleX: 0 }, { scaleX: 1, duration: 0.45, ease: "power2.inOut" }, 1.800);
+      tl.to("#video-a > *", { opacity: 0, filter: "blur(8px)", duration: 0.2, ease: "power2.in" }, 2.080);
+      tl.fromTo("#video-b1", { opacity: 0, y: 14, filter: "blur(14px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.32, ease: "power3.out" }, 2.340);
+      tl.fromTo("#video-b2", { opacity: 0, y: 14, filter: "blur(14px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.32, ease: "power3.out" }, 3.140);
+      tl.fromTo("#video-b3", { scaleX: 0 }, { scaleX: 1, duration: 0.45, ease: "power2.inOut" }, 3.220);
+      tl.to("#video-b > *", { opacity: 0, filter: "blur(8px)", duration: 0.2, ease: "power2.in" }, 3.340);
+      window.__timelines["video"] = tl;
+    })();
+  </script>
+</template>

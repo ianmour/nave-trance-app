@@ -15,6 +15,12 @@ A ideia: **um jeito reconhecível, sem repetir a mesma fórmula**. Por isso tem 
 >
 > **O que a pessoa prega: PERSONALIDADE.** Legenda branca, mas **as animações e tudo que passa na tela levam as cores da identidade visual** (rosa `#FC3B7F`, creme `#FEF1CF`, azul `#0032A8` para a ianmour). **Símbolos** (ícones, figurinhas, marcas visuais) **só os que forem definidos antes com a pessoa** — nunca inventar.
 
+> **📌 LEGENDA DE VÍDEO FALADO (aprovada como referência — vídeo do "mago verde", `referencias/ref-falado-04.mp4`):**
+> letra lisa (Inter) **peso médio**, branca, **sem contorno** (sombra quase invisível), ~64 px, centralizada a ~60% da altura;
+> a frase já fica "reservada" no lugar e **as palavras surgem uma a uma com esmaecido rápido** (sem pulo, sem recentralizar);
+> **palavra-chave sozinha**, um pouco maior e mais firme (peso 700), às vezes com **ícones pequenos pulando em volta**.
+> **POUQUÍSSIMOS elementos**: 2 ou 3 no vídeo todo, bem espaçados. A primeira versão do ianmour-01 cliente teve um elemento por frase e a pessoa achou EXAGERADO.
+
 ---
 
 ## Vídeo FALADO de CLIENTE (pessoa falando para a câmera) — estilo padrão

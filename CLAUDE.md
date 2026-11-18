@@ -47,7 +47,7 @@ Ferramenta pronta para os passos 2 a 8: `_tecnico/scripts/editor.mjs` (rode sem 
 ## Imagens, músicas e efeitos (grátis, sem conta)
 
 - **Imagens:** `_tecnico/scripts/buscar-imagem.mjs "<busca em inglês>" <pasta> [qtd] [vertical|horizontal]`. Rodar com `NODE_USE_ENV_PROXY=1 NODE_EXTRA_CA_CERTS=/root/.ccr/ca-bundle.crt NODE_NO_WARNINGS=1` (senão o Node não sai para a internet). Fotos reais de licença livre (Openverse/Flickr/Wikimedia). **Sempre abrir e olhar cada imagem antes de usar** — a busca às vezes traz coisa errada. Créditos ficam em `CREDITOS.md` na pasta; passar para a pessoa colocar no post.
-- **Músicas:** Openverse (fonte Jamendo), licença CC BY — sempre passar o crédito.
+- **Músicas: NÃO colocar música** (a pessoa detestou as músicas usadas; ela mesma põe música depois, se quiser). No lugar, **mais efeitos sonoros** acompanhando as animações (sempre abaixo da voz).
 - **Efeitos sonoros:** os 21 que vêm no HyperFrames (`/root/.claude/skills/media-use/audio/assets/sfx/`). Freesound só com chave gratuita da pessoa.
 - **Narração (voz a partir de roteiro):** `npx hyperframes tts "<texto>" -v pf_dora|pm_alex|pm_santa -l pt-br -o saida.wav` (Kokoro, local, grátis, uso comercial ok). Precisa de `HYPERFRAMES_PYTHON=/root/tools/kokoro-venv/bin/python` (venv com `kokoro-onnx` e `soundfile`, instalado com autorização da pessoa). Se a venv sumiu numa sessão nova, pedir autorização antes de reinstalar.
 - **Gerar imagens do zero:** não temos gerador. A pessoa não quer pagar nada a mais (nem API) e recusou instalar gerador local. Não oferecer de novo.

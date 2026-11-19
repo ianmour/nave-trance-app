@@ -50,7 +50,7 @@
         while ((span.scrollWidth > caixa.clientWidth || span.scrollHeight > caixa.clientHeight || caixa.scrollWidth > caixa.clientWidth) && t > minimo) { t -= .25; caixa.style.fontSize = t + 'mm'; }
         return t; };
       caixa.style.whiteSpace = 'nowrap'; span.style.display = '';
-      let t = encaixar(8.5, 3);
+      let t = encaixar(6.75, 3); // máximo = tamanho do "João Pedro" (todos iguais)
       if (t < 4.5 && span.textContent.trim().includes(' ')) { caixa.style.whiteSpace = 'normal'; span.style.display = 'block'; caixa.style.lineHeight = '.95'; t = encaixar(6.5, 3); }
       caixa.dataset.tamanho = t;
     });

@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Apresentação — [PREENCHER tema]</title>
+<!--
+  MODELO DE APRESENTAÇÃO (16:9, 1280x720). Copie para departamentos/propostas-e-apresentacoes/<cliente>/ antes de mexer.
+  Cada slide é um <section class="slide">. Tipos prontos: capa, titulo+texto, lista, numero-grande, duas-colunas, fim.
+  Cores: troque só as 4 variáveis em :root (ianmour: rosa/azul/creme; cliente: cores da ficha em estilo/clientes/).
+  Números e resultados: só os que a pessoa passar. Nunca inventar.
+  Exportar PDF e PowerPoint: node _tecnico/scripts/exportar-pdf.mjs <este.html> <pasta> --pptx
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+  :root { --cor1:#FC3B7F; --cor2:#0032A8; --claro:#FEF1CF; --escuro:#111014; }
+  @page { size: 1280px 720px; margin: 0; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Archivo', sans-serif; background: #333; }
+  .slide { width: 1280px; height: 720px; position: relative; overflow: hidden; page-break-after: always; padding: 72px 88px; background: #fff; color: var(--escuro); }
+  .slide:last-child { page-break-after: auto; }
+  h1, h2, .grande { font-family: 'Anton', sans-serif; text-transform: uppercase; line-height: .95; }
+  .num { position: absolute; right: 40px; bottom: 28px; font-size: 14px; color: #999; }
+  .marca { position: absolute; left: 88px; bottom: 28px; font-family: 'Anton'; font-size: 16px; letter-spacing: 2px; color: var(--cor1); }
+
+  .escuro { background: var(--escuro); color: var(--claro); }
+  .cor1 { background: var(--cor1); color: #fff; }
+  .cor2 { background: var(--cor2); color: #fff; }
+
+  .capa h1 { font-size: 120px; max-width: 900px; }
+  .capa h1 span { color: var(--cor1); }
+  .capa .sub { font-size: 26px; margin-top: 28px; opacity: .9; }
+  .capa .bola { position: absolute; right: -120px; top: -80px; width: 520px; height: 520px; border-radius: 50%; background: var(--cor2); }
+  .capa .quad { position: absolute; right: 120px; bottom: 90px; width: 140px; height: 140px; background: var(--cor1); transform: rotate(12deg); }
+
+  .etiqueta { display: inline-block; font-weight: 800; font-size: 16px; letter-spacing: 3px; color: var(--cor1); margin-bottom: 18px; }
+  h2 { font-size: 72px; margin-bottom: 32px; max-width: 1000px; }
+  p { font-size: 26px; line-height: 1.45; max-width: 950px; }
+
+  ul.lista { list-style: none; }
+  ul.lista li { font-size: 28px; padding: 18px 0 18px 48px; border-bottom: 2px solid #eee; position: relative; }
+  ul.lista li::before { content: ''; position: absolute; left: 0; top: 28px; width: 20px; height: 20px; background: var(--cor1); }
+
+  .numero-grande .grande { font-size: 260px; color: var(--cor1); }
+  .numero-grande p { font-size: 32px; }
+
+  .duas { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+  .caixa { padding: 32px; border: 3px solid var(--escuro); }
+  .caixa h3 { font-family: 'Anton'; text-transform: uppercase; font-size: 36px; margin-bottom: 14px; }
+  .caixa p { font-size: 22px; }
+  .caixa.destaque { background: var(--cor2); color: #fff; border-color: var(--cor2); }
+
+  .fim { display: flex; flex-direction: column; justify-content: center; }
+  .fim .grande { font-size: 150px; color: var(--claro); }
+  .fim p { color: #fff; margin-top: 24px; }
+</style>
+</head>
+<body>
+
+<section class="slide escuro capa">
+  <div class="bola"></div><div class="quad"></div>
+  <div style="position:relative;margin-top:120px">
+    <h1>[PREENCHER título] <span>[destaque]</span></h1>
+    <div class="sub">[PREENCHER subtítulo] · [PREENCHER data]</div>
+  </div>
+  <div class="marca">IANMOUR</div>
+</section>
+
+<section class="slide">
+  <div class="etiqueta">[PREENCHER etiqueta]</div>
+  <h2>[PREENCHER título do slide]</h2>
+  <p>[PREENCHER texto curto: no máximo 2 frases.]</p>
+  <div class="marca">IANMOUR</div><div class="num">2</div>
+</section>
+
+<section class="slide">
+  <div class="etiqueta">[PREENCHER etiqueta]</div>
+  <h2>[PREENCHER título]</h2>
+  <ul class="lista">
+    <li>[PREENCHER ponto 1]</li>
+    <li>[PREENCHER ponto 2]</li>
+    <li>[PREENCHER ponto 3]</li>
+  </ul>
+  <div class="marca">IANMOUR</div><div class="num">3</div>
+</section>
+
+<section class="slide numero-grande">
+  <div class="grande">[PREENCHER nº]</div>
+  <p>[PREENCHER o que esse número significa — só número com fonte confirmada]</p>
+  <div class="marca">IANMOUR</div><div class="num">4</div>
+</section>
+
+<section class="slide">
+  <div class="etiqueta">[PREENCHER etiqueta]</div>
+  <h2>[PREENCHER título]</h2>
+  <div class="duas">
+    <div class="caixa"><h3>[PREENCHER antes]</h3><p>[PREENCHER]</p></div>
+    <div class="caixa destaque"><h3>[PREENCHER depois]</h3><p>[PREENCHER]</p></div>
+  </div>
+  <div class="marca">IANMOUR</div><div class="num">5</div>
+</section>
+
+<section class="slide cor1 fim">
+  <div class="grande">Obrigado!</div>
+  <p>[PREENCHER contato]</p>
+</section>
+
+</body>
+</html>

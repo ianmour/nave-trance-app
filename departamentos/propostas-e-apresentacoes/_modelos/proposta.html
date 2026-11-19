@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Proposta — [PREENCHER cliente]</title>
+<!--
+  MODELO DE PROPOSTA (A4). Copie para departamentos/propostas-e-apresentacoes/<cliente>/ antes de mexer.
+  Cores: troque só as 4 variáveis em :root.
+    ianmour (peça da agência):  --cor1 #FC3B7F  --cor2 #0032A8  --claro #FEF1CF  --escuro #111014
+    cliente: use as cores da ficha em estilo/clientes/ (ex.: Keylle Lima = azul).
+  Tudo que estiver como [PREENCHER ...] é a pessoa quem passa (preço, prazo, dados). Nunca inventar.
+  Exportar: node _tecnico/scripts/exportar-pdf.mjs <este.html> <pasta>
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+  :root { --cor1:#FC3B7F; --cor2:#0032A8; --claro:#FEF1CF; --escuro:#111014; }
+  @page { size: A4; margin: 0; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Archivo', sans-serif; color: var(--escuro); background: #fff; }
+  .pagina { width: 210mm; height: 297mm; position: relative; overflow: hidden; page-break-after: always; padding: 22mm 20mm; background: #fff; }
+  .pagina:last-child { page-break-after: auto; }
+  h1, h2, .grande { font-family: 'Anton', sans-serif; text-transform: uppercase; letter-spacing: .5px; line-height: .95; }
+
+  /* capa */
+  .capa { background: var(--escuro); color: var(--claro); display: flex; flex-direction: column; justify-content: space-between; }
+  .capa .marca { font-family: 'Anton'; font-size: 20pt; color: var(--cor1); letter-spacing: 2px; }
+  .capa h1 { font-size: 64pt; color: var(--claro); }
+  .capa h1 span { color: var(--cor1); display: block; }
+  .capa .para { font-size: 14pt; margin-top: 8mm; }
+  .capa .faixa { position: absolute; right: -30mm; top: 90mm; width: 120mm; height: 120mm; border-radius: 50%; background: var(--cor2); opacity: .9; }
+  .capa .faixa2 { position: absolute; right: 30mm; top: 160mm; width: 40mm; height: 40mm; background: var(--cor1); transform: rotate(12deg); }
+  .capa .rodape { font-size: 10pt; opacity: .8; display: flex; justify-content: space-between; position: relative; }
+
+  /* páginas internas */
+  .topo { display: flex; justify-content: space-between; font-size: 9pt; color: #777; border-bottom: 2px solid var(--cor1); padding-bottom: 3mm; margin-bottom: 12mm; }
+  h2 { font-size: 30pt; margin-bottom: 6mm; }
+  h2 small { display: block; font-family: 'Archivo'; font-weight: 800; font-size: 10pt; color: var(--cor1); letter-spacing: 2px; margin-bottom: 2mm; }
+  p { font-size: 11.5pt; line-height: 1.55; margin-bottom: 4mm; }
+  .bloco { margin-bottom: 14mm; }
+  ul.lista { list-style: none; }
+  ul.lista li { font-size: 11.5pt; line-height: 1.5; padding: 3mm 0 3mm 9mm; border-bottom: 1px solid #eee; position: relative; }
+  ul.lista li::before { content: ''; position: absolute; left: 0; top: 5mm; width: 4mm; height: 4mm; background: var(--cor1); }
+  ul.lista li b { display: block; }
+
+  table { width: 100%; border-collapse: collapse; font-size: 11pt; }
+  th { text-align: left; background: var(--cor2); color: #fff; padding: 3mm 4mm; font-weight: 800; }
+  td { padding: 3.5mm 4mm; border-bottom: 1px solid #e5e5e5; vertical-align: top; }
+  td.valor, th.valor { text-align: right; white-space: nowrap; }
+  tr.total td { font-weight: 800; font-size: 13pt; border-top: 3px solid var(--escuro); border-bottom: none; }
+  tr.total td.valor { color: var(--cor1); }
+
+  .etapas { display: grid; grid-template-columns: repeat(4, 1fr); gap: 4mm; }
+  .etapa { border: 2px solid var(--escuro); padding: 4mm; min-height: 38mm; }
+  .etapa .n { font-family: 'Anton'; font-size: 26pt; color: var(--cor1); }
+  .etapa b { display: block; margin: 1mm 0 2mm; }
+  .etapa span { font-size: 9.5pt; line-height: 1.4; }
+
+  .fim { background: var(--cor1); color: #fff; display: flex; flex-direction: column; justify-content: center; }
+  .fim .grande { font-size: 56pt; color: var(--claro); }
+  .fim p { font-size: 13pt; color: #fff; }
+  .assin { margin-top: 18mm; display: grid; grid-template-columns: 1fr 1fr; gap: 14mm; }
+  .assin div { border-top: 2px solid #fff; padding-top: 2mm; font-size: 10pt; }
+  .pendente { background: #fff3a0; }
+</style>
+</head>
+<body>
+
+<!-- 1. CAPA -->
+<section class="pagina capa">
+  <div class="faixa"></div><div class="faixa2"></div>
+  <div class="marca">IANMOUR</div>
+  <div style="position:relative">
+    <h1>Proposta<span>comercial</span></h1>
+    <div class="para">Para: <b>[PREENCHER cliente]</b></div>
+    <div class="para" style="margin-top:2mm">[PREENCHER serviço — ex.: edição de vídeos para Instagram]</div>
+  </div>
+  <div class="rodape"><span>[PREENCHER data]</span><span>Válida por [PREENCHER] dias</span></div>
+</section>
+
+<!-- 2. O QUE VAMOS FAZER -->
+<section class="pagina">
+  <div class="topo"><span>IANMOUR · Proposta para [PREENCHER cliente]</span><span>2</span></div>
+  <div class="bloco">
+    <h2><small>O DESAFIO</small>O que você precisa</h2>
+    <p>[PREENCHER — 2 ou 3 frases sobre a situação do cliente, com as palavras dele.]</p>
+  </div>
+  <div class="bloco">
+    <h2><small>A SOLUÇÃO</small>O que vamos entregar</h2>
+    <ul class="lista">
+      <li><b>[PREENCHER item 1]</b>[PREENCHER detalhe: quantidade, formato]</li>
+      <li><b>[PREENCHER item 2]</b>[PREENCHER detalhe]</li>
+      <li><b>[PREENCHER item 3]</b>[PREENCHER detalhe]</li>
+    </ul>
+  </div>
+</section>
+
+<!-- 3. COMO FUNCIONA + INVESTIMENTO -->
+<section class="pagina">
+  <div class="topo"><span>IANMOUR · Proposta para [PREENCHER cliente]</span><span>3</span></div>
+  <div class="bloco">
+    <h2><small>PASSO A PASSO</small>Como funciona</h2>
+    <div class="etapas">
+      <div class="etapa"><div class="n">01</div><b>Conversa</b><span>Alinhamos objetivo, tom e referências.</span></div>
+      <div class="etapa"><div class="n">02</div><b>Produção</b><span>[PREENCHER — o que acontece aqui]</span></div>
+      <div class="etapa"><div class="n">03</div><b>Ajustes</b><span>[PREENCHER] rodada(s) de ajuste inclusas.</span></div>
+      <div class="etapa"><div class="n">04</div><b>Entrega</b><span>Arquivos prontos para postar.</span></div>
+    </div>
+  </div>
+  <div class="bloco">
+    <h2><small>ORÇAMENTO</small>Investimento</h2>
+    <table>
+      <tr><th>Item</th><th>Qtd.</th><th class="valor">Valor</th></tr>
+      <tr><td>[PREENCHER item 1]</td><td>[PREENCHER]</td><td class="valor">R$ [PREENCHER]</td></tr>
+      <tr><td>[PREENCHER item 2]</td><td>[PREENCHER]</td><td class="valor">R$ [PREENCHER]</td></tr>
+      <tr class="total"><td>Total</td><td></td><td class="valor">R$ [PREENCHER]</td></tr>
+    </table>
+    <p style="margin-top:6mm"><b>Pagamento:</b> [PREENCHER — ex.: 50% para começar e 50% na entrega]<br>
+    <b>Prazo:</b> [PREENCHER]</p>
+  </div>
+</section>
+
+<!-- 4. FECHAMENTO -->
+<section class="pagina fim">
+  <div class="grande">Bora<br>começar?</div>
+  <p style="margin-top:8mm">Para aprovar, é só responder esta proposta ou assinar abaixo.</p>
+  <p>[PREENCHER contato: WhatsApp / e-mail / @]</p>
+  <div class="assin"><div>ianmour</div><div>[PREENCHER cliente]</div></div>
+</section>
+
+</body>
+</html>

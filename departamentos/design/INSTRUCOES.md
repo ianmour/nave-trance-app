@@ -25,3 +25,12 @@ O design é feito **com código** (HTML/CSS) e exportado em **PNG de alta qualid
 1. Skills oficiais da Anthropic (github.com/anthropics/skills, licença Apache-2.0): **frontend-design**, **canvas-design** (com as 27 fontes gratuitas) e **theme-factory**.
 2. Script de exportação HTML → PNG em `_tecnico/scripts/exportar-design.mjs` (usa o Chromium que já existe; não instalar outro Playwright).
 3. Liberar fonts.googleapis.com e fonts.gstatic.com na rede do ambiente (pedido de aprovação aparece para a pessoa).
+
+## Como usar (instalado em 19/11/2026)
+- **Skills** em `.claude/skills/` (carregam sozinhas em toda sessão): `frontend-design` (direção visual), `canvas-design` (pôsteres/peças, com 54 fontes grátis em `.claude/skills/canvas-design/canvas-fonts/`) e `theme-factory` (temas prontos de cor/fonte). Origem e licença: `.claude/skills/ORIGEM.md`.
+- **Exportar para PNG:** `node _tecnico/scripts/exportar-design.mjs <peca.html> <pasta> [post|story|reels|quadrado|LxA] [--escala 2]`
+  - Carrossel: cada lâmina é um elemento com `class="lamina"` → um PNG por lâmina (`nome-01.png`, `nome-02.png`...).
+  - Sem lâminas: exporta a página inteira no tamanho do formato.
+  - Avisa se uma lâmina está no tamanho errado ou se alguma fonte/imagem não carregou.
+- **Fontes do Google** liberadas na rede (fonts.googleapis.com e fonts.gstatic.com). Se falhar, usar as fontes da canvas-design com `@font-face`.
+- Exemplo testado: `projetos/ianmour/2026-11-19-teste-exportacao/carrossel-teste.html` (Anton + Silkscreen + Archivo; rosa/creme/azul em fundo escuro).

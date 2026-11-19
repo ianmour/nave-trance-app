@@ -6,7 +6,7 @@ Cada departamento é uma aba (conversa) separada do Claude Code, com as suas pr�
 |---|---|---|
 | Edição de vídeo | (raiz: `originais/`, `previas/`, `final/`) | pronta |
 | Roteiros | `roteiros/` | pronta |
-| Design | `departamentos/design/` | em montagem |
+| Design | `departamentos/design/` | pronta (skills frontend-design, canvas-design e theme-factory; exportação HTML → PNG; fontes do Google liberadas) |
 | Ideias e planejamento mensal | `departamentos/ideias-e-planejamento/` | criada, falta instalar |
 | Propostas e apresentações | `departamentos/propostas-e-apresentacoes/` | criada, falta instalar |
 

@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<!-- Equipe Charlie — adesivo de caneca, VERSÃO C: a versão B com as 8 dicas (fiel ao logo do cliente). Rascunho. -->
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Stencil+Display:wght@800;900&family=Playfair+Display:wght@900&display=swap" rel="stylesheet">
+<style>
+  :root { --diametro:60mm; --sangria:2mm; --seguro:3mm;
+    --fundo:#272A23; --estrela:#9DAA3C; --amarelo:#F4EC5C; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html, body { background:transparent; }
+  .adesivo { width:calc(var(--diametro) + 2*var(--sangria)); height:calc(var(--diametro) + 2*var(--sangria));
+    border-radius:50%; overflow:hidden; position:relative; background:var(--fundo); }
+  svg.arte { position:absolute; inset:0; width:100%; height:100%; }
+  .nome { position:absolute; left:27%; right:27%; top:72.5%; height:8.6mm; display:flex; align-items:center; justify-content:center;
+    text-align:center; font-family:'Big Shoulders Stencil Display', sans-serif; font-weight:900; text-transform:uppercase;
+    line-height:1; white-space:nowrap; letter-spacing:.04em; color:var(--amarelo); }
+  .guia-corte, .guia-seguro { display:none; position:absolute; border-radius:50%; }
+  .guias .guia-corte { display:block; inset:var(--sangria); border:.2mm dashed #ff2d55; }
+  .guias .guia-seguro { display:block; inset:calc(var(--sangria) + var(--seguro)); border:.2mm dotted #00e0ff; }
+</style>
+</head>
+<body>
+<div class="adesivo">
+  <svg class="arte" viewBox="0 0 64 64">
+    <defs>
+      <!-- concreto escuro -->
+      <filter id="concreto" x="0" y="0" width="100%" height="100%">
+        <feTurbulence type="fractalNoise" baseFrequency=".09" numOctaves="4" seed="11" result="manchas"/>
+        <feColorMatrix in="manchas" type="matrix" values="0 0 0 0 .07  0 0 0 0 .08  0 0 0 0 .06  -1.6 0 0 0 .9" result="escuras"/>
+        <feTurbulence type="fractalNoise" baseFrequency="2.2" numOctaves="2" seed="5" result="grao"/>
+        <feColorMatrix in="grao" type="matrix" values="0 0 0 0 .24  0 0 0 0 .26  0 0 0 0 .21  0 0 0 -2.6 1.12" result="pontos"/>
+        <feMerge><feMergeNode in="escuras"/><feMergeNode in="pontos"/></feMerge>
+      </filter>
+      <radialGradient id="vinheta" cx="50%" cy="50%" r="50%">
+        <stop offset=".6" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".45"/>
+      </radialGradient>
+      <!-- tinta gasta (estrela, letras) -->
+      <filter id="gasto" x="-5%" y="-5%" width="110%" height="110%">
+        <feTurbulence type="fractalNoise" baseFrequency="1.4" numOctaves="3" seed="2" result="r"/>
+        <feColorMatrix in="r" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -11 7.7" result="m"/>
+        <feComposite in="SourceGraphic" in2="m" operator="in" result="tinta"/>
+        <feTurbulence type="fractalNoise" baseFrequency=".25" numOctaves="3" seed="8" result="s"/>
+        <feColorMatrix in="s" type="matrix" values="0 0 0 0 .2  0 0 0 0 .22  0 0 0 0 .08  -1.2 0 0 0 .5" result="sujeira"/>
+        <feComposite in="sujeira" in2="tinta" operator="in" result="sujeira2"/>
+        <feMerge><feMergeNode in="tinta"/><feMergeNode in="sujeira2"/></feMerge>
+      </filter>
+      <filter id="gasto-leve" x="-5%" y="-5%" width="110%" height="110%">
+        <feTurbulence type="fractalNoise" baseFrequency="1.8" numOctaves="2" seed="6" result="r"/>
+        <feColorMatrix in="r" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -14 9.6" result="m"/>
+        <feComposite in="SourceGraphic" in2="m" operator="in"/>
+      </filter>
+      <!-- C em chamas -->
+      <linearGradient id="fogo" x1="0" y1="1" x2="0" y2="0">
+        <stop offset="0" stop-color="#E0400C"/><stop offset=".5" stop-color="#F7891C"/><stop offset="1" stop-color="#FFB12E"/>
+      </linearGradient>
+      <filter id="chamas" x="-25%" y="-25%" width="150%" height="150%">
+        <feTurbulence type="fractalNoise" baseFrequency=".8" numOctaves="3" seed="3" result="n"/>
+        <feDisplacementMap in="SourceGraphic" in2="n" scale="1.9" xChannelSelector="R" yChannelSelector="G" result="forma"/>
+        <!-- brilho em volta -->
+        <feGaussianBlur in="forma" stdDeviation=".9" result="b"/>
+        <feFlood flood-color="#FF5A0A" flood-opacity=".55"/><feComposite in2="b" operator="in" result="brilho"/>
+        <!-- contorno escuro -->
+        <feMorphology in="forma" operator="dilate" radius=".35" result="grossa"/>
+        <feFlood flood-color="#3B0A02"/><feComposite in2="grossa" operator="in" result="contorno"/>
+        <!-- textura de fogo dentro -->
+        <feTurbulence type="turbulence" baseFrequency=".9 2.2" numOctaves="3" seed="7" result="t"/>
+        <feColorMatrix in="t" type="matrix" values="0 0 0 0 .62  0 0 0 0 .08  0 0 0 0 .02  2.8 0 0 0 -.35" result="veios"/>
+        <feComposite in="veios" in2="forma" operator="in" result="veios2"/>
+        <!-- miolo claro -->
+        <feMorphology in="forma" operator="erode" radius=".55" result="fina"/>
+        <feGaussianBlur in="fina" stdDeviation=".45" result="fb"/>
+        <feFlood flood-color="#FFD45A" flood-opacity=".6"/><feComposite in2="fb" operator="in" result="miolo"/>
+        <feMerge>
+          <feMergeNode in="brilho"/><feMergeNode in="contorno"/><feMergeNode in="forma"/>
+          <feMergeNode in="veios2"/><feMergeNode in="miolo"/>
+        </feMerge>
+      </filter>
+      <path id="arco" d="M 8.7 32 A 23.3 23.3 0 0 1 55.3 32"/>
+    </defs>
+
+    <!-- fundo de concreto -->
+    <rect width="64" height="64" fill="var(--fundo)"/>
+    <rect width="64" height="64" filter="url(#concreto)"/>
+    <rect width="64" height="64" fill="url(#vinheta)"/>
+
+    <!-- parafusos (4, como no logo) -->
+    <g fill="#F2DC2E"><circle cx="10.4" cy="19.6" r="1.35"/><circle cx="53.6" cy="19.6" r="1.35"/><circle cx="10.4" cy="44.4" r="1.35"/><circle cx="53.6" cy="44.4" r="1.35"/></g>
+    <g fill="#272A23"><circle cx="10.4" cy="19.6" r=".55"/><circle cx="53.6" cy="19.6" r=".55"/><circle cx="10.4" cy="44.4" r=".55"/><circle cx="53.6" cy="44.4" r=".55"/></g>
+
+    <!-- EQUIPE, menor -->
+    <text font-family="Big Shoulders Stencil Display" font-weight="800" font-size="3.6" letter-spacing="1.5" fill="var(--amarelo)" fill-opacity=".9" text-anchor="middle">
+      <textPath href="#arco" startOffset="50%">EQUIPE</textPath></text>
+
+    <!-- estrela -->
+    <polygon filter="url(#gasto)" fill="var(--estrela)"
+      points="32.00,13.20 35.97,24.53 47.97,24.79 38.42,32.06 41.88,43.56 32.00,36.70 22.12,43.56 25.58,32.06 16.03,24.79 28.03,24.53"/>
+
+    <!-- C em chamas (atrás do CHARLIE) -->
+    <path d="M 41.47 21.97 A 11.4 11.4 0 1 0 41.47 37.23" fill="none" stroke="url(#fogo)" stroke-width="4" filter="url(#chamas)"/>
+
+    <!-- CHARLIE na frente, legível -->
+    <text x="32" y="33.9" text-anchor="middle" font-family="Big Shoulders Stencil Display" font-weight="900" font-size="11.2" letter-spacing=".35"
+      fill="#14160F" opacity=".55" transform="translate(.35 .35)">CHARLIE</text>
+    <text x="32" y="33.9" text-anchor="middle" font-family="Big Shoulders Stencil Display" font-weight="900" font-size="11.2" letter-spacing=".35"
+      fill="var(--amarelo)" stroke="#16180F" stroke-width=".7" paint-order="stroke" filter="url(#gasto-leve)">CHARLIE</text>
+
+  </svg>
+  <div class="nome"><span data-campo="nome">NOME</span></div>
+  <div class="guia-corte"></div><div class="guia-seguro"></div>
+</div>
+<script>
+  window.ajustarTexto = () => {
+    document.querySelectorAll('.nome').forEach(caixa => {
+      const span = caixa.querySelector('[data-campo=nome]');
+      const encaixar = (inicio, minimo) => { let t = inicio; caixa.style.fontSize = t + 'mm';
+        while ((span.scrollWidth > caixa.clientWidth || span.scrollHeight > caixa.clientHeight || caixa.scrollWidth > caixa.clientWidth) && t > minimo) { t -= .25; caixa.style.fontSize = t + 'mm'; }
+        return t; };
+      caixa.style.whiteSpace = 'nowrap'; span.style.display = '';
+      let t = encaixar(8.6, 3);
+      if (t < 4.5 && span.textContent.trim().includes(' ')) { caixa.style.whiteSpace = 'normal'; span.style.display = 'block'; caixa.style.lineHeight = '.95'; t = encaixar(6.5, 3); }
+      caixa.dataset.tamanho = t;
+    });
+  };
+  document.fonts.ready.then(window.ajustarTexto);
+</script>
+</body>
+</html>

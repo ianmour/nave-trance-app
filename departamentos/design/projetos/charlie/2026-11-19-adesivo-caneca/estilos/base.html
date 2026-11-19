@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<!-- Equipe Charlie — adesivo de caneca, estilo {{TITULO}} (rascunho). Gerado a partir da versão B. -->
+<link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap" rel="stylesheet">
+<style>
+  :root { --diametro:60mm; --sangria:2mm; --seguro:3mm;
+    --fundo:#17190F; --oliva:#6F7A2B; --amarelo:#F2DE45; --laranja:#EE5A12; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html, body { background:transparent; }
+  .adesivo { width:calc(var(--diametro) + 2*var(--sangria)); height:calc(var(--diametro) + 2*var(--sangria));
+    border-radius:50%; overflow:hidden; position:relative; background:var(--fundo); }
+  svg.arte { position:absolute; inset:0; width:100%; height:100%; }
+  .nome { position:absolute; display:flex; align-items:center; justify-content:center; text-align:center;
+    font-family:'Black Ops One', sans-serif; text-transform:uppercase; line-height:1; white-space:nowrap; letter-spacing:.02em;
+    /*NOME*/ }
+  .guia-corte, .guia-seguro { display:none; position:absolute; border-radius:50%; }
+  .guias .guia-corte { display:block; inset:var(--sangria); border:.2mm dashed #ff2d55; }
+  .guias .guia-seguro { display:block; inset:calc(var(--sangria) + var(--seguro)); border:.2mm dotted #00e0ff; }
+</style>
+</head>
+<body>
+<div class="adesivo">
+  <svg class="arte" viewBox="0 0 64 64"><defs><!--DEFS--></defs><!--ARTE--></svg>
+  <div class="nome"><span data-campo="nome">NOME</span></div>
+  <div class="guia-corte"></div><div class="guia-seguro"></div>
+</div>
+<script>
+  window.ajustarTexto = () => {
+    document.querySelectorAll('.nome').forEach(caixa => {
+      const span = caixa.querySelector('[data-campo=nome]');
+      const encaixar = (inicio, minimo) => { let t = inicio; caixa.style.fontSize = t + 'mm';
+        while ((span.scrollWidth > caixa.clientWidth || span.scrollHeight > caixa.clientHeight || caixa.scrollWidth > caixa.clientWidth) && t > minimo) { t -= .25; caixa.style.fontSize = t + 'mm'; }
+        return t; };
+      caixa.style.whiteSpace = 'nowrap'; span.style.display = '';
+      let t = encaixar(7.5, 3);
+      if (t < 4.5 && span.textContent.trim().includes(' ')) { caixa.style.whiteSpace = 'normal'; span.style.display = 'block'; caixa.style.lineHeight = '.95'; t = encaixar(6.5, 3); }
+      caixa.dataset.tamanho = t;
+    });
+  };
+  document.fonts.ready.then(window.ajustarTexto);
+</script>
+</body>
+</html>

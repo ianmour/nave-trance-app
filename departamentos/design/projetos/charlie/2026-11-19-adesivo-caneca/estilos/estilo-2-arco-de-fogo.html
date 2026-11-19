@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<!-- Equipe Charlie — adesivo de caneca, estilo 2-arco-de-fogo (rascunho). Gerado a partir da versão B. -->
+<link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap" rel="stylesheet">
+<style>
+  :root { --diametro:60mm; --sangria:2mm; --seguro:3mm;
+    --fundo:#17190F; --oliva:#6F7A2B; --amarelo:#F2DE45; --laranja:#EE5A12; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html, body { background:transparent; }
+  .adesivo { width:calc(var(--diametro) + 2*var(--sangria)); height:calc(var(--diametro) + 2*var(--sangria));
+    border-radius:50%; overflow:hidden; position:relative; background:var(--fundo); }
+  svg.arte { position:absolute; inset:0; width:100%; height:100%; }
+  .nome { position:absolute; display:flex; align-items:center; justify-content:center; text-align:center;
+    font-family:'Black Ops One', sans-serif; text-transform:uppercase; line-height:1; white-space:nowrap; letter-spacing:.02em;
+    left:20%; right:20%; top:68%; height:9mm; color:var(--amarelo); }
+  .guia-corte, .guia-seguro { display:none; position:absolute; border-radius:50%; }
+  .guias .guia-corte { display:block; inset:var(--sangria); border:.2mm dashed #ff2d55; }
+  .guias .guia-seguro { display:block; inset:calc(var(--sangria) + var(--seguro)); border:.2mm dotted #00e0ff; }
+</style>
+</head>
+<body>
+<div class="adesivo">
+  <svg class="arte" viewBox="0 0 64 64"><defs>
+<filter id="desgaste" x="0" y="0" width="100%" height="100%">
+  <feTurbulence type="fractalNoise" baseFrequency="1.6" numOctaves="2" seed="4" result="ruido"/>
+  <feColorMatrix in="ruido" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -1.1 1.3" result="mascara"/>
+  <feComposite in="SourceGraphic" in2="mascara" operator="in"/>
+</filter>
+<filter id="textura" x="0" y="0" width="100%" height="100%">
+  <feTurbulence type="fractalNoise" baseFrequency=".35" numOctaves="3" seed="9"/>
+  <feColorMatrix type="matrix" values="0 0 0 0 .55  0 0 0 0 .6  0 0 0 0 .4  0 0 0 .12 0"/>
+</filter>
+<linearGradient id="fogo" x1="0" y1="1" x2="0" y2="0">
+  <stop offset="0" stop-color="#B3170E"/><stop offset=".45" stop-color="#EE5A12"/><stop offset="1" stop-color="#FFC233"/>
+</linearGradient>
+<linearGradient id="metal" x1="0" y1="0" x2="1" y2="1">
+  <stop offset="0" stop-color="#E6E3D6"/><stop offset=".5" stop-color="#A9A796"/><stop offset="1" stop-color="#D4D1C2"/>
+</linearGradient>
+</defs>
+<rect width="64" height="64" fill="var(--fundo)"/><rect width="64" height="64" filter="url(#textura)"/>
+<path id="a2" d="M 8.43 25.68 A 24.4 24.4 0 0 1 55.57 25.68" fill="none"/><text font-family="Black Ops One" font-size="4.3" letter-spacing="0.9" fill="var(--amarelo)" text-anchor="middle"><textPath href="#a2" startOffset="50%">EQUIPE CHARLIE</textPath></text>
+<path d="M 40.58 36.70 A 11.2 11.2 0 1 1 40.58 22.30" fill="none" stroke="#2A0A04" stroke-width="5.4"/>
+<path d="M 40.58 36.70 A 11.2 11.2 0 1 1 40.58 22.30" fill="none" stroke="url(#fogo)" stroke-width="4.4" stroke-dasharray="10.6 .9"/>
+<polygon points="32.00,22.90 33.55,27.36 38.28,27.46 34.51,30.32 35.88,34.84 32.00,32.14 28.12,34.84 29.49,30.32 25.72,27.46 30.45,27.36" fill="var(--oliva)" filter="url(#desgaste)"/>
+<circle cx="32" cy="32" r="28.4" fill="none" stroke="var(--oliva)" stroke-width=".5"/>
+</svg>
+  <div class="nome"><span data-campo="nome">NOME</span></div>
+  <div class="guia-corte"></div><div class="guia-seguro"></div>
+</div>
+<script>
+  window.ajustarTexto = () => {
+    document.querySelectorAll('.nome').forEach(caixa => {
+      const span = caixa.querySelector('[data-campo=nome]');
+      const encaixar = (inicio, minimo) => { let t = inicio; caixa.style.fontSize = t + 'mm';
+        while ((span.scrollWidth > caixa.clientWidth || span.scrollHeight > caixa.clientHeight || caixa.scrollWidth > caixa.clientWidth) && t > minimo) { t -= .25; caixa.style.fontSize = t + 'mm'; }
+        return t; };
+      caixa.style.whiteSpace = 'nowrap'; span.style.display = '';
+      let t = encaixar(7.5, 3);
+      if (t < 4.5 && span.textContent.trim().includes(' ')) { caixa.style.whiteSpace = 'normal'; span.style.display = 'block'; caixa.style.lineHeight = '.95'; t = encaixar(6.5, 3); }
+      caixa.dataset.tamanho = t;
+    });
+  };
+  document.fonts.ready.then(window.ajustarTexto);
+</script>
+</body>
+</html>

@@ -15,6 +15,8 @@ A ideia: **um jeito reconhecível, sem repetir a mesma fórmula**. Por isso tem 
 >
 > **O que a pessoa prega: PERSONALIDADE.** Legenda branca, mas **as animações e tudo que passa na tela levam as cores da identidade visual** (rosa `#FC3B7F`, creme `#FEF1CF`, azul `#0032A8` para a ianmour). **Símbolos** (ícones, figurinhas, marcas visuais) **só os que forem definidos antes com a pessoa** — nunca inventar.
 
+> **⚠️ O TAKE PRINCIPAL NUNCA SOME.** O take mais forte do vídeo (o de clima, mistério ou emoção) fica **com a pessoa visível na tela**. Nada de tela cheia, cartão ou animação cobrindo esse momento — no máximo legenda e palavras atrás/acima dela. Tela cheia só em trechos de explicação, nunca no take que carrega o clima. (Lição do ianmour-01 cliente falado v3: a tela cheia escura com palavras passando matou o mistério do take principal.)
+
 > **📌 LEGENDA DE VÍDEO FALADO (aprovada como referência — vídeo do "mago verde", `referencias/ref-falado-04.mp4`):**
 > letra lisa (Inter) **peso médio**, branca, **sem contorno** (sombra quase invisível), ~64 px, centralizada a ~60% da altura;
 > a frase já fica "reservada" no lugar e **as palavras surgem uma a uma com esmaecido rápido** (sem pulo, sem recentralizar);
@@ -149,4 +151,4 @@ Ajuste ao seu gosto: os títulos da Hanah usam letra inclinada; **você prefere 
 | keylle-lima/bronca v2 (conteúdo animado) | fundo branco quadriculado + degradê azul claro nos cantos; estilo "adesivo" (contorno escuro + sombra marcada); personagens com rosto e expressão | cena que sobe/desce | azul + branco, vermelho só para "errado"; sem música |
 | keylle-lima/bronca v3 (conteúdo animado) | telas de app (celular que gira, enquete, controle deslizante, planta de escritório, campo de texto, cartão de tarefa, mapa, post) + barra de 3 passos que acumula | zoom entrando no cartão; pêndulo | branco + azul; sombras suaves (sem contorno grosso); sem música |
 | ianmour-01 cliente falado (estilo ref-falado) | elementos de app: notificações estilo iPhone, balões, grade de ícones, cartão de nome, progresso, "Saiba mais" | zoom seco aberto/fechado | neutro (branco/cinza, azul iMessage nos balões); sem música |
-| ianmour-01 cliente falado v3 (APROVAR?) | legenda do "mago" + palavras grandes ATRÁS da pessoa (recorte) e ACIMA da cabeça + tela cheia escura com palavras passando | zoom seco; cortina na tela cheia | neutro (branco/creme), cor de cinema forte; sem música |
+| ianmour-01 cliente falado v3 (legenda ✅, cortes ✅; tela cheia ❌ — cobriu o take principal) | legenda do "mago" + palavras grandes ATRÁS da pessoa (recorte) e ACIMA da cabeça + tela cheia escura com palavras passando | zoom seco; cortina na tela cheia | neutro (branco/creme), cor de cinema forte; sem música |

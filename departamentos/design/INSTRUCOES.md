@@ -52,3 +52,9 @@ O design é feito **com código** (HTML/CSS) e exportado em **PNG de alta qualid
 - Para caneca: 5 a 7 cm de diâmetro costuma caber (caneca comum tem ~9,5 cm de altura). Confirmar com a gráfica: tamanho, se querem sangria, se aceitam PDF (preferir) e se o vinil é laminado/resistente a lavar.
 - O símbolo do cliente: pedir em vetor (PDF, SVG, AI ou EPS) ou PNG grande com fundo transparente. Se vier com fundo, recortar com rembg.
 - Cores: a tela mostra RGB; a gráfica imprime em CMYK. Cores muito vivas (neon) podem sair mais apagadas — avisar a pessoa.
+
+## Como a pessoa quer os ajustes (aprendido no adesivo Charlie, 19/11/2026)
+- Quando ela gostar de uma versão, **essa versão é a base e não muda**. "Melhorar" significa testar **uma coisa pequena por vez** em cima dela: tamanho da estrela, cor de um elemento, tamanho do "EQUIPE", posição do nome etc.
+- **Nunca** refazer o visual inteiro, trocar cores, fontes, fundo ou o desenho do logo sem ela pedir aquilo especificamente.
+- Mostrar os testes lado a lado com a base, cada um com só uma diferença.
+- Charlie: a base aprovada é `projetos/charlie/2026-11-19-adesivo-caneca/versao-b-redesenho.html`.

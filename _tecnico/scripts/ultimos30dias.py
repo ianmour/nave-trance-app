@@ -51,28 +51,25 @@ def noticias(busca, qtd=10):
     return itens[:qtd], None
 
 
-def youtube(busca, qtd=8, olhar=15):
-    # sp=EgQIBBAB = filtro oficial da busca do YouTube: "Este mês" + "Vídeo"
-    url = "https://www.youtube.com/results?" + urllib.parse.urlencode(
-        {"search_query": busca, "sp": "EgQIBBAB", "hl": "pt", "gl": "BR"})
-    cmd = [str(VENV_BIN / "yt-dlp"), "--skip-download", "--no-warnings", "--ignore-errors",
-           "--playlist-items", f"1-{olhar}", "--print",
-           '{"data":"%(upload_date)s","views":"%(view_count)s","canal":%(channel)j,"titulo":%(title)j,"link":"%(webpage_url)s"}',
-           url]
+def youtube(busca, qtd=8, olhar=20):
+    # Lê só a página de busca (uma chamada por busca; abrir vídeo por vídeo faz o YouTube bloquear).
+    # sp=EgQIBBAB = filtro oficial da busca do YouTube: "Este mês" + "Vídeo". Por isso não precisa da data de cada vídeo.
+    url = "https://www.youtube.com/results?" + urllib.parse.urlencode({"search_query": busca, "sp": "EgQIBBAB"})
+    cmd = [str(VENV_BIN / "yt-dlp"), "--flat-playlist", "--no-warnings", "--ignore-errors",
+           "--extractor-args", "youtube:lang=pt", "--playlist-items", f"1-{olhar}", "--print",
+           '{"views":"%(view_count)s","canal":%(channel)j,"titulo":%(title)j,"link":"%(url)s"}', url]
     try:
-        r = subprocess.run(cmd, capture_output=True, text=True, timeout=240)
+        r = subprocess.run(cmd, capture_output=True, text=True, timeout=90)
     except subprocess.TimeoutExpired:
         return None, "o YouTube demorou demais"
     itens = []
     for linha in r.stdout.splitlines():
         try:
             v = json.loads(linha)
-            v["data"] = dt.datetime.strptime(v["data"], "%Y%m%d").date()
             v["views"] = int(v["views"]) if v["views"].isdigit() else 0
         except Exception:
             continue
-        if v["data"] >= LIMITE:
-            itens.append(v)
+        itens.append(v)
     if not itens and r.returncode:
         return None, (r.stderr.strip().splitlines() or ["erro desconhecido"])[-1]
     itens.sort(key=lambda v: v["views"], reverse=True)
@@ -124,20 +121,34 @@ def main():
     ap.add_argument("buscas", nargs="*")
     ap.add_argument("--lista", help="arquivo com uma busca por linha")
     ap.add_argument("--trends", action="append", default=[], help="palavra curta para o Google Trends")
+    ap.add_argument("--tema", help="assunto do cliente: monta sozinho as buscas a partir de buscas/_angulos.txt")
+    ap.add_argument("--publico", default="", help="para quem é o conteúdo (ex.: pequenos negócios)")
     ap.add_argument("--saida", help="salvar o relatório neste arquivo .md")
     a = ap.parse_args()
 
     buscas, termos = list(a.buscas), list(a.trends)
+    if a.tema:
+        modelo = Path(__file__).resolve().parents[2] / "departamentos/ideias-e-planejamento/buscas/_angulos.txt"
+        for linha in modelo.read_text(encoding="utf-8").splitlines():
+            linha = linha.strip()
+            if not linha or linha.startswith("#") or ("{publico}" in linha and not a.publico):
+                continue
+            linha = " ".join(linha.replace("{tema}", a.tema).replace("{publico}", a.publico).split())
+            if linha.lower().startswith("trends:"):
+                termos.append(linha.split(":", 1)[1].strip())
+            else:
+                buscas.append(linha)
     if a.lista:
         b, t = ler_lista(a.lista)
         buscas += b
         termos += t
     if not buscas:
-        ap.error("diga pelo menos uma busca (ou --lista)")
+        ap.error("diga pelo menos uma busca (ou --lista, ou --tema)")
     if not termos:
         termos = [b for b in buscas if len(b.split()) <= 2]
 
-    out = [f"# Últimos 30 dias — {', '.join(buscas)}",
+    out = [f"# Últimos 30 dias — {a.tema or ', '.join(buscas)}" + (f" ({a.publico})" if a.publico else ""),
+           f"Buscas feitas: {'; '.join(buscas)}",
            f"Período: {LIMITE:%d/%m/%Y} a {HOJE:%d/%m/%Y}. Fontes: Google Notícias, YouTube, Google Trends.",
            "Tudo abaixo tem link: conferir a fonte antes de usar qualquer número no conteúdo.", ""]
 
@@ -159,7 +170,7 @@ def main():
         elif not itens:
             out.append("- nada nos últimos 30 dias")
         for v in itens or []:
-            out.append(f"- {v['data']:%d/%m} — {v['titulo']} — {v['canal']} — {fmt_views(v['views'])} views — {v['link']}")
+            out.append(f"- {v['titulo']} — {v['canal']} — {fmt_views(v['views'])} views — {v['link']}")
         out.append("")
 
     if termos:

@@ -7,6 +7,8 @@ Pensa ideias de conteúdo, pesquisa o que está em alta no tema de cada cliente 
 - Planejamentos salvos em `departamentos/ideias-e-planejamento/<cliente>/<ano-mes>.md`.
 - Limite: daqui não dá para abrir Instagram nem TikTok.
 
+**Processo padrão para qualquer cliente: `PROCESSO.md`** (pesquisa dos últimos 30 dias sobre o assunto → ideias de conteúdo → calendário, se pedir).
+
 ## Ferramentas (instaladas em 19/11/2026)
 Ficam em `/root/tools/ideias-venv/` e se reinstalam sozinhas em cada sessão nova (script do ambiente). Rede liberada: news.google.com, trends.google.com, www.youtube.com.
 

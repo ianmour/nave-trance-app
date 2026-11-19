@@ -1,0 +1,14 @@
+# Ângulos de pesquisa usados com --tema (servem para QUALQUER cliente).
+# {tema} = assunto do cliente; {publico} = para quem é (linhas com {publico} são puladas se não houver público).
+# Cada linha vira uma busca nos últimos 30 dias (notícias + YouTube). "trends:" vai para o Google Trends.
+{tema}
+{tema} {publico}
+{tema} novidade
+{tema} tendência
+{tema} como fazer
+{tema} erros
+{tema} polêmica
+{tema} nova lei regra
+{tema} pesquisa estudo
+{tema} inteligência artificial
+trends: {tema}

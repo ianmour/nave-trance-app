@@ -34,3 +34,11 @@ O design é feito **com código** (HTML/CSS) e exportado em **PNG de alta qualid
   - Avisa se uma lâmina está no tamanho errado ou se alguma fonte/imagem não carregou.
 - **Fontes do Google** liberadas na rede (fonts.googleapis.com e fonts.gstatic.com). Se falhar, usar as fontes da canvas-design com `@font-face`.
 - Exemplo testado: `projetos/ianmour/2026-11-19-teste-exportacao/carrossel-teste.html` (Anton + Silkscreen + Archivo; rosa/creme/azul em fundo escuro).
+
+## Extras liberados (19/11/2026)
+- **Recorte de fundo (rembg)**, local, sem enviar nada para fora:
+  `cd /root && /root/tools/rembg-venv/bin/rembg i -m u2net foto.jpg recorte.png` (pessoas: `-m u2net_human_seg`).
+  Reinstala sozinho em sessão nova (script do ambiente). O modelo (~170 MB) baixa do GitHub oficial na primeira vez.
+- **Ícones grátis (Iconify)**: `https://api.iconify.design/<coleção>/<ícone>.svg?color=%23FC3B7F` (ex.: `ph/arrow-right-bold`). Preferir coleções de licença livre (Phosphor `ph`, Lucide `lucide`, Tabler `tabler`).
+- **Wikimedia Commons direto** (`commons.wikimedia.org/w/api.php`): mais fotos livres. Às vezes limita pedidos; esperar e tentar de novo.
+- **Pexels**: opcional, precisa de conta grátis da pessoa (chave). Ainda não configurado.

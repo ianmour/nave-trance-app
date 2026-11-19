@@ -1,6 +1,6 @@
 # Cliente: Keylle Lima
 
-- **Quem é:** Keylle Lima — **ele** (homem), chefe da pessoa. Escreve-se K-E-Y-L-L-E.
+- **Quem é:** Keylle Lima — **ele** (homem): sempre "o cliente", nunca "a cliente". Chefe da pessoa. Escreve-se K-E-Y-L-L-E. Quando a pessoa falar "Keyle" (por voz), é ele: Keylle Lima.
 - **Instagram:** @keyllelima (não dá para abrir o Instagram daqui; usar como a pessoa soletrou).
 - **Identidade visual:** azul.
 - **Temas:** gestão de pessoas, liderança — sempre com foco em **pequenos negócios**.

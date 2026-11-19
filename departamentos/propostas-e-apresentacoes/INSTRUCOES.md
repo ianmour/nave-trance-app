@@ -8,3 +8,6 @@ Faz propostas comerciais para clientes, orçamentos, apresentações (slides) e 
 
 ## Situação
 Aba criada, ferramentas ainda **não instaladas**.
+
+## Clientes
+- **Keylle Lima** — é **homem**: "o cliente", "ele". Escreve-se K-E-Y-L-L-E. Se a pessoa disser "Keyle", é ele. Ficha em `estilo/clientes/keylle-lima.md`.

@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<!--
+  MODELO de adesivo redondo personalizado (um por pessoa).
+  Medidas em milímetros. O gerador (_tecnico/scripts/gerar-adesivos.mjs) troca:
+    --diametro (tamanho final, linha de corte), --sangria (cor que passa da linha de corte)
+    e o texto de todo elemento com data-campo="nome".
+  Área segura: nada importante a menos de 3 mm da linha de corte.
+  Trocar o símbolo e o nome da equipe quando o cliente mandar os arquivos.
+-->
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@600;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --diametro: 60mm;   /* tamanho final do adesivo */
+    --sangria: 2mm;     /* margem extra para o corte não deixar borda branca */
+    --seguro: 3mm;      /* distância mínima dos textos até o corte */
+    --fundo: #10223F;   /* cores provisórias: trocar pelas da equipe */
+    --tinta: #FFFFFF;
+    --destaque: #F2B632;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html, body { background: transparent; }
+  .adesivo {
+    width: calc(var(--diametro) + 2 * var(--sangria));
+    height: calc(var(--diametro) + 2 * var(--sangria));
+    border-radius: 50%;
+    background: var(--fundo);
+    position: relative; overflow: hidden;
+    color: var(--tinta); font-family: 'Archivo', sans-serif;
+  }
+  /* tudo o que é conteúdo fica dentro do círculo final menos a área segura */
+  .miolo { position:absolute; inset: calc(var(--sangria) + var(--seguro)); border-radius:50%; }
+  .anel { position:absolute; inset: calc(var(--sangria) + 1.6mm); border-radius:50%; border: .5mm solid var(--destaque); }
+
+  .equipe-curva { position:absolute; inset:0; width:100%; height:100%; overflow:visible; }
+  .equipe-curva text { font-family:'Anton', sans-serif; font-size: 5.2px; letter-spacing: .6px; fill: var(--tinta); }
+
+  .simbolo { position:absolute; left:50%; top:39%; width:42%; aspect-ratio:1; transform:translate(-50%,-50%);
+    border: .4mm dashed rgba(255,255,255,.5); border-radius: 50%; display:grid; place-items:center;
+    font-size: 2.6mm; opacity:.8; text-align:center; }
+  .simbolo img { width:100%; height:100%; object-fit:contain; }
+
+  .nome { position:absolute; left: 21%; right: 21%; top: 62%; height: 13mm;
+    display:flex; align-items:center; justify-content:center; text-align:center;
+    font-family:'Anton', sans-serif; text-transform:uppercase; line-height:1; white-space:nowrap;
+    font-size: 9mm; color: var(--destaque); }
+
+  /* guias: só aparecem na folha de conferência (classe .guias no body) */
+  .guia-corte, .guia-seguro { display:none; position:absolute; border-radius:50%; pointer-events:none; }
+  .guias .guia-corte { display:block; inset: var(--sangria); border:.2mm dashed #ff2d55; }
+  .guias .guia-seguro { display:block; inset: calc(var(--sangria) + var(--seguro)); border:.2mm dotted #00e0ff; }
+</style>
+</head>
+<body>
+  <div class="adesivo" id="adesivo">
+    <div class="anel"></div>
+    <svg class="equipe-curva" viewBox="0 0 64 64">
+      <defs><path id="arco" d="M 12 32 A 20 20 0 0 1 52 32"/></defs>
+      <text text-anchor="middle"><textPath href="#arco" startOffset="50%">NOME DA EQUIPE</textPath></text>
+    </svg>
+    <div class="simbolo">símbolo<br>da equipe</div>
+    <div class="nome"><span data-campo="nome">NOME</span></div>
+    <div class="guia-corte"></div>
+    <div class="guia-seguro"></div>
+  </div>
+<script>
+  // Encaixa o nome no espaço: diminui a letra até caber (nomes longos ficam menores, nunca cortados).
+  // 1) tenta numa linha só, diminuindo até caber;
+  // 2) se ficar pequeno demais (abaixo de 6 mm), quebra em duas linhas e encaixa de novo.
+  window.ajustarTexto = () => {
+    document.querySelectorAll('.nome').forEach(caixa => {
+      const span = caixa.querySelector('[data-campo=nome]');
+      const encaixar = (inicio, minimo) => {
+        let tam = inicio;
+        caixa.style.fontSize = tam + 'mm';
+        while ((span.scrollWidth > caixa.clientWidth || span.scrollHeight > caixa.clientHeight || caixa.scrollWidth > caixa.clientWidth) && tam > minimo) {
+          tam -= 0.25; caixa.style.fontSize = tam + 'mm';
+        }
+        return tam;
+      };
+      caixa.style.whiteSpace = 'nowrap'; span.style.display = '';
+      let tam = encaixar(9, 3);
+      if (tam < 6 && span.textContent.trim().includes(' ')) {
+        caixa.style.whiteSpace = 'normal'; span.style.display = 'block'; caixa.style.lineHeight = '.95';
+        tam = encaixar(7, 3);
+      }
+      caixa.dataset.tamanho = tam;
+    });
+  };
+  document.fonts.ready.then(window.ajustarTexto);
+</script>
+</body>
+</html>

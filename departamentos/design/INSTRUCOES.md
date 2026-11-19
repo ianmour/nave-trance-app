@@ -42,3 +42,13 @@ O design é feito **com código** (HTML/CSS) e exportado em **PNG de alta qualid
 - **Ícones grátis (Iconify)**: `https://api.iconify.design/<coleção>/<ícone>.svg?color=%23FC3B7F` (ex.: `ph/arrow-right-bold`). Preferir coleções de licença livre (Phosphor `ph`, Lucide `lucide`, Tabler `tabler`).
 - **Wikimedia Commons direto** (`commons.wikimedia.org/w/api.php`): mais fotos livres. Às vezes limita pedidos; esperar e tentar de novo.
 - **Pexels**: descartado. O Pexels não está liberando chaves novas (nov/2026). Não oferecer de novo; usar Openverse e Wikimedia.
+
+## Adesivos personalizados (um por pessoa) — pronto desde 19/11/2026
+- Modelo: `projetos/_modelos/adesivo-redondo/modelo.html` (redondo: nome da equipe em arco no topo, símbolo no meio, nome da pessoa embaixo). Copiar para a pasta do cliente e trocar símbolo, nome da equipe e cores.
+- Gerar: `node _tecnico/scripts/gerar-adesivos.mjs <modelo.html> <nomes.txt> <pasta> [--diametro 60] [--sangria 2] [--dpi 300]`
+  Sai: um PDF vetorial e um PNG 300 dpi (fundo transparente) por pessoa, `todos.pdf` (um por página) e `folha-de-conferencia.png` (todos lado a lado, com linha de corte vermelha e área segura azul).
+- Nome longo: o modelo diminui a letra e, se ficar abaixo de 6 mm, quebra em duas linhas. O script avisa se ficar abaixo de 5 mm.
+- Padrões de gráfica: 300 dpi; sangria de 2 mm (a cor passa da linha de corte); área segura de 3 mm (nada importante perto do corte); letra do nome com no mínimo ~4 mm de altura.
+- Para caneca: 5 a 7 cm de diâmetro costuma caber (caneca comum tem ~9,5 cm de altura). Confirmar com a gráfica: tamanho, se querem sangria, se aceitam PDF (preferir) e se o vinil é laminado/resistente a lavar.
+- O símbolo do cliente: pedir em vetor (PDF, SVG, AI ou EPS) ou PNG grande com fundo transparente. Se vier com fundo, recortar com rembg.
+- Cores: a tela mostra RGB; a gráfica imprime em CMYK. Cores muito vivas (neon) podem sair mais apagadas — avisar a pessoa.

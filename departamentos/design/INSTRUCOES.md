@@ -41,4 +41,4 @@ O design é feito **com código** (HTML/CSS) e exportado em **PNG de alta qualid
   Reinstala sozinho em sessão nova (script do ambiente). O modelo (~170 MB) baixa do GitHub oficial na primeira vez.
 - **Ícones grátis (Iconify)**: `https://api.iconify.design/<coleção>/<ícone>.svg?color=%23FC3B7F` (ex.: `ph/arrow-right-bold`). Preferir coleções de licença livre (Phosphor `ph`, Lucide `lucide`, Tabler `tabler`).
 - **Wikimedia Commons direto** (`commons.wikimedia.org/w/api.php`): mais fotos livres. Às vezes limita pedidos; esperar e tentar de novo.
-- **Pexels**: opcional, precisa de conta grátis da pessoa (chave). Ainda não configurado.
+- **Pexels**: descartado. O Pexels não está liberando chaves novas (nov/2026). Não oferecer de novo; usar Openverse e Wikimedia.

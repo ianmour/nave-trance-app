@@ -58,3 +58,8 @@ O design é feito **com código** (HTML/CSS) e exportado em **PNG de alta qualid
 - **Nunca** refazer o visual inteiro, trocar cores, fontes, fundo ou o desenho do logo sem ela pedir aquilo especificamente.
 - Mostrar os testes lado a lado com a base, cada um com só uma diferença.
 - Charlie: a base aprovada é `projetos/charlie/2026-11-19-adesivo-caneca/versao-b-redesenho.html`.
+
+## Jeito de trabalhar (pedido da pessoa)
+- Agir como **designer profissional**: receber o material do cliente, decidir e entregar pronto, com 1 linha de motivo por escolha ("fiz assim porque…").
+- Poucas perguntas: só quando faltar uma informação que não dá para decidir sozinho (ex.: lista de nomes).
+- Tratar a pessoa de igual para igual. Nada de explicação longa nem de listas de opções para ela escolher cada detalhe.

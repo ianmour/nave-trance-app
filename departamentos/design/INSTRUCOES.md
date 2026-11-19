@@ -44,7 +44,7 @@ O design é feito **com código** (HTML/CSS) e exportado em **PNG de alta qualid
 - **Pexels**: descartado. O Pexels não está liberando chaves novas (nov/2026). Não oferecer de novo; usar Openverse e Wikimedia.
 
 ## Adesivos personalizados (um por pessoa) — pronto desde 19/11/2026
-- Modelo: `projetos/_modelos/adesivo-redondo/modelo.html` (redondo: nome da equipe em arco no topo, símbolo no meio, nome da pessoa embaixo). Copiar para a pasta do cliente e trocar símbolo, nome da equipe e cores.
+- Modelo: `projetos/_modelos/adesivo-redondo/modelo.html`. É **só um teste técnico** (medidas, margens, encaixe do nome): visual, cores, fonte e posição NÃO estão decididos. Esperar a pessoa definir o design com o material do cliente.
 - Gerar: `node _tecnico/scripts/gerar-adesivos.mjs <modelo.html> <nomes.txt> <pasta> [--diametro 60] [--sangria 2] [--dpi 300]`
   Sai: um PDF vetorial e um PNG 300 dpi (fundo transparente) por pessoa, `todos.pdf` (um por página) e `folha-de-conferencia.png` (todos lado a lado, com linha de corte vermelha e área segura azul).
 - Nome longo: o modelo diminui a letra e, se ficar abaixo de 6 mm, quebra em duas linhas. O script avisa se ficar abaixo de 5 mm.

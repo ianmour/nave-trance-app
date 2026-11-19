@@ -16,8 +16,6 @@
     text-align:center; font-family:'Big Shoulders Display', sans-serif; font-weight:800; text-transform:uppercase;
     line-height:1; white-space:nowrap; letter-spacing:.06em; color:var(--amarelo);
     text-shadow: .25mm .25mm 0 #0d0f0a, -.15mm -.15mm 0 #0d0f0a, .15mm -.15mm 0 #0d0f0a, -.15mm .15mm 0 #0d0f0a; }
-  /* centraliza de verdade: compensa o espaço que sobra depois da última letra e empurra um pouco para a direita */
-  .nome span { padding-left:.06em; transform:translateX(.35mm); display:inline-block; }
   .guia-corte, .guia-seguro { display:none; position:absolute; border-radius:50%; }
   .guias .guia-corte { display:block; inset:var(--sangria); border:.2mm dashed #ff2d55; }
   .guias .guia-seguro { display:block; inset:calc(var(--sangria) + var(--seguro)); border:.2mm dotted #00e0ff; }
@@ -38,7 +36,7 @@
     <!-- anel fino -->
     <circle cx="32" cy="32" r="28.2" fill="none" stroke="var(--amarelo)" stroke-width=".35" opacity=".9"/>
     <!-- EQUIPE -->
-    <text font-family="Big Shoulders Stencil Display" font-weight="900" font-size="4.6" letter-spacing="1.6" fill="var(--amarelo)"
+    <text transform="rotate(2.6 32 32)" font-family="Big Shoulders Stencil Display" font-weight="900" font-size="4.6" letter-spacing="1.6" fill="var(--amarelo)"
       stroke="#0d0f0a" stroke-width=".5" paint-order="stroke" text-anchor="middle"><textPath href="#arco" startOffset="50%">EQUIPE</textPath></text>
   </svg>
   <div class="nome"><span data-campo="nome">NOME</span></div>

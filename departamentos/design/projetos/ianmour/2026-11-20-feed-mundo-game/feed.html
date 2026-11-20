@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<!-- Feed ianmour "meu mundo é um jogo": 9 posts (1080x1440 cada) mostrados em grade 3x3, como no perfil.
+     Exportar: node _tecnico/scripts/exportar-design.mjs feed.html <pasta> 1086x1446 --escala 2 -->
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Silkscreen:wght@400;700&family=Archivo:wght@500;700&family=Press+Start+2P&display=swap" rel="stylesheet">
+<script src="../../../marca-ianmour/simbolos.js"></script>
+<style>
+  :root { --rosa:#FC3B7F; --creme:#FEF1CF; --azul:#0032A8; --noite:#0A0A14; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { width:1086px; height:1446px; background:#000; overflow:hidden; }
+  .grade { display:grid; grid-template-columns:repeat(3, 360px); grid-auto-rows:480px; gap:3px; }
+  .cel { width:360px; height:480px; overflow:hidden; }
+  .post { width:1080px; height:1440px; transform:scale(.33334); transform-origin:0 0; position:relative; overflow:hidden; color:var(--creme); font-family:'Archivo'; }
+  .gridbg::before { content:''; position:absolute; inset:0; pointer-events:none;
+    background-image: linear-gradient(rgba(254,241,207,.05) 2px, transparent 2px), linear-gradient(90deg, rgba(254,241,207,.05) 2px, transparent 2px);
+    background-size:60px 60px; }
+  .ps { font-family:'Press Start 2P'; }
+  .an { font-family:'Anton'; text-transform:uppercase; line-height:.88; }
+  .abs { position:absolute; }
+  .s svg, .spr svg { width:100%; height:100%; display:block; overflow:visible; }
+  .foto { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+  .barra { position:absolute; height:44px; border:6px solid var(--creme); background:var(--noite); }
+  .barra i { display:block; height:100%; }
+  .pisca { position:absolute; width:26px; height:26px; }
+</style>
+</head>
+<body>
+<div class="grade">
+
+  <!-- 1. PRESS START -->
+  <div class="cel"><div class="post gridbg" style="background:var(--noite)">
+    <div class="abs ps" style="left:80px; top:110px; font-size:34px; color:var(--rosa)">PLAYER 1</div>
+    <div class="abs an" style="left:80px; top:330px; font-size:210px">Bem-<br>vindo ao<br><span style="color:var(--rosa)">meu<br>mundo</span></div>
+    <div class="abs s" data-s="faisca:creme" style="right:90px; top:300px; width:170px; height:170px"></div>
+    <div class="abs ps" style="left:0; right:0; bottom:120px; text-align:center; font-size:46px; color:var(--creme)">&#9654; PRESS START</div>
+  </div></div>
+
+  <!-- 2. FOTO metade pixel -->
+  <div class="cel"><div class="post">
+    <img class="foto" src="../../../entregas/ianmour/marca/referencias/foto-perfil-metade-pixel.jpg" style="object-position:50% 30%">
+  </div></div>
+
+  <!-- 3. FASE 1: DRONE -->
+  <div class="cel"><div class="post" style="background:var(--rosa)">
+    <div class="abs spr" id="nuvem1" style="left:90px; top:230px; width:260px; height:100px"></div>
+    <div class="abs spr" id="nuvem2" style="right:60px; top:470px; width:200px; height:78px"></div>
+    <div class="abs ps" style="left:80px; top:110px; font-size:40px; color:var(--noite)">FASE 1</div>
+    <div class="abs spr" id="drone1" style="left:250px; top:600px; width:580px; height:240px"></div>
+    <div class="abs an" style="left:70px; bottom:90px; font-size:300px; color:var(--noite)">Drone</div>
+  </div></div>
+
+  <!-- 4. DICA -->
+  <div class="cel"><div class="post gridbg" style="background:var(--azul)">
+    <div class="abs" style="left:80px; top:120px; width:230px; height:230px; background:var(--noite); box-shadow:22px 22px 0 var(--rosa); display:grid; place-items:center">
+      <div class="s" data-s="raio:creme" style="width:150px; height:150px"></div></div>
+    <div class="abs ps" style="left:380px; top:200px; font-size:40px; line-height:1.6">DICA<br><span style="color:var(--rosa)">RÁPIDA</span></div>
+    <div class="abs an" style="left:80px; top:520px; font-size:200px">3 erros<br>de quem<br><span style="color:var(--rosa)">começa</span></div>
+    <div class="abs s" data-s="seta:creme" style="right:80px; bottom:80px; width:110px; height:110px"></div>
+  </div></div>
+
+  <!-- 5. NÍVEL CIDADE -->
+  <div class="cel"><div class="post" style="background:var(--noite)">
+    <div class="abs ps" style="left:70px; top:90px; font-size:34px">SCORE <span style="color:var(--rosa)">001200</span></div>
+    <div class="abs ps" style="right:70px; top:90px; font-size:34px">&#9829;&#9829;&#9829;</div>
+    <div class="abs spr" id="drone2" style="left:300px; top:330px; width:480px; height:200px"></div>
+    <div class="abs ps" style="left:0; right:0; top:640px; text-align:center; font-size:44px; color:var(--rosa)">FASE 2: CIDADE</div>
+    <div class="abs spr" id="cidade" style="left:0; bottom:0; width:1080px; height:600px"></div>
+  </div></div>
+
+  <!-- 6. IDEIA -->
+  <div class="cel"><div class="post" style="background:var(--creme); color:var(--noite)">
+    <div class="abs s" data-s="faisca:azul" style="left:80px; top:120px; width:150px; height:150px"></div>
+    <div class="abs an" style="left:70px; top:420px; font-size:330px; color:var(--rosa)">Ideia</div>
+    <div class="abs" style="left:80px; top:780px; right:80px; font-size:56px; font-weight:700; line-height:1.15">Todo vídeo bom<br>começa com um<br>"e se...?"</div>
+    <div class="abs ps" style="left:80px; bottom:110px; font-size:30px">@IANMOUR</div>
+  </div></div>
+
+  <!-- 7. FOTO real com HUD -->
+  <div class="cel"><div class="post">
+    <img class="foto" src="../../../entregas/ianmour/marca/referencias/foto-perfil-real.jpg" style="object-position:50% 25%">
+    <div class="abs ps" style="left:60px; top:70px; font-size:32px; color:var(--creme); text-shadow:4px 4px 0 var(--noite)">@IANMOUR · LVL 1</div>
+    <div class="abs ps" style="left:60px; top:135px; font-size:26px; color:var(--creme); text-shadow:4px 4px 0 var(--noite)">HP</div>
+    <div class="barra" style="left:130px; top:122px; width:340px"><i style="width:85%; background:var(--rosa)"></i></div>
+    <div class="abs ps" style="left:60px; top:200px; font-size:26px; color:var(--creme); text-shadow:4px 4px 0 var(--noite)">XP</div>
+    <div class="barra" style="left:130px; top:187px; width:340px"><i style="width:55%; background:var(--azul)"></i></div>
+  </div></div>
+
+  <!-- 8. CONTINUE? -->
+  <div class="cel"><div class="post" style="background:var(--rosa); color:var(--noite)">
+    <div class="abs ps" style="left:0; right:0; top:200px; text-align:center; font-size:64px">CONTINUE?</div>
+    <div class="abs ps" style="left:0; right:0; top:330px; text-align:center; font-size:150px; color:var(--creme); text-shadow:10px 10px 0 var(--noite)">9</div>
+    <div class="abs an" style="left:80px; right:80px; top:660px; font-size:170px; line-height:1; text-align:center">Salva pra<br>próxima<br>fase</div>
+    <div class="abs ps" style="left:0; right:0; bottom:110px; text-align:center; font-size:34px">&#9654; SIM &nbsp;&nbsp; NÃO</div>
+  </div></div>
+
+  <!-- 9. MISSÃO DO DIA -->
+  <div class="cel"><div class="post gridbg" style="background:var(--noite)">
+    <div class="abs ps" style="left:80px; top:120px; font-size:40px; color:var(--rosa)">MISSÃO DO DIA</div>
+    <div class="abs" style="left:80px; right:80px; top:300px">
+      <div style="display:flex; gap:44px; align-items:center; margin-bottom:90px"><div class="s" data-s="feito:rosa" style="width:130px;height:130px;flex:none"></div><div class="an" style="font-size:110px">Gravar</div></div>
+      <div style="display:flex; gap:44px; align-items:center; margin-bottom:90px"><div class="s" data-s="feito:rosa" style="width:130px;height:130px;flex:none"></div><div class="an" style="font-size:110px">Editar</div></div>
+      <div style="display:flex; gap:44px; align-items:center; margin-bottom:90px"><div style="width:130px;height:130px;flex:none;border:10px solid var(--creme)"></div><div class="an" style="font-size:110px; opacity:.45">Postar</div></div>
+    </div>
+    <div class="abs ps" style="left:80px; bottom:110px; font-size:30px">2/3 COMPLETAS</div>
+  </div></div>
+
+</div>
+<script>
+  document.querySelectorAll('[data-s]').forEach(e => { const [n, c] = e.dataset.s.split(':'); e.innerHTML = window.SIMBOLOS[n].svg[c]; });
+  // pixel art desenhada em grade
+  function sprite(id, linhas, cores) {
+    const w = linhas[0].length, h = linhas.length; let r = '';
+    linhas.forEach((l, y) => [...l].forEach((ch, x) => { if (cores[ch]) r += `<rect x="${x}" y="${y}" width="1.02" height="1.02" fill="${cores[ch]}"/>`; }));
+    document.getElementById(id).innerHTML = `<svg viewBox="0 0 ${w} ${h}" shape-rendering="crispEdges" preserveAspectRatio="none">${r}</svg>`;
+  }
+  const DRONE = [
+    '#######..............#######',
+    '...##..................##...',
+    '...##..................##...',
+    '..########........########..',
+    '......##################....',
+    '......##.....####.....##....',
+    '......##################....',
+    '..........##########........',
+    '..........###.oo.###........',
+    '..........##########........',
+    '...........#......#.........',
+    '.........###......###.......',
+  ];
+  sprite('drone1', DRONE, { '#': '#0A0A14', 'o': '#FEF1CF' });
+  sprite('drone2', DRONE, { '#': '#FEF1CF', 'o': '#FC3B7F' });
+  const NUVEM = ['....######....', '..##########..', '##############', '.############.'];
+  sprite('nuvem1', NUVEM, { '#': '#FEF1CF' });
+  sprite('nuvem2', NUVEM, { '#': '#FEF1CF' });
+  // cidade em pixel: prédios azuis com janelas creme/rosa
+  (() => {
+    const W = 54, H = 30, m = Array.from({ length: H }, () => Array(W).fill('.'));
+    let x = 0, seed = 7; const rnd = () => (seed = (seed * 9301 + 49297) % 233280) / 233280;
+    while (x < W) { const larg = 5 + Math.floor(rnd() * 5), alt = 10 + Math.floor(rnd() * 18);
+      for (let i = x; i < Math.min(W, x + larg); i++) for (let j = H - alt; j < H; j++) m[j][i] = '#';
+      for (let i = x + 1; i < Math.min(W, x + larg) - 1; i += 2) for (let j = H - alt + 2; j < H - 1; j += 3) if (rnd() > .35) m[j][i] = rnd() > .85 ? 'r' : 'w';
+      x += larg + 1; }
+    sprite('cidade', m.map(l => l.join('')), { '#': '#0032A8', 'w': '#FEF1CF', 'r': '#FC3B7F' });
+  })();
+</script>
+</body>
+</html>

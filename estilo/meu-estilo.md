@@ -22,7 +22,7 @@ Você tem dois jeitos:
 
 Sempre pergunto (ou você me diz) se o vídeo é **pra mim** ou **pra cliente**.
 
-**"É pra mim" → identidade ianmour** (referência: `estilo/ianmour-id-visual.jpg`)
+**"É pra mim" → identidade ianmour** (referência: `estilo/ianmour-id-visual.jpg`; padrão completo de cores e símbolos: `departamentos/design/marca-ianmour/LEIA-ME.md`)
 
 | Cor | Código | Uso |
 |---|---|---|

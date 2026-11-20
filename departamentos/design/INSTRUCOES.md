@@ -68,3 +68,6 @@ O design é feito **com código** (HTML/CSS) e exportado em **PNG de alta qualid
 - **Equipe Charlie — adesivo de caneca (20/11/2026, aprovado pelo cliente):** 17 adesivos redondos de 6 cm.
   Modelo: `projetos/charlie/2026-11-19-adesivo-caneca/versao-logo-original.html`. Nomes em `nomes-equipe-charlie.txt`.
   O que deu certo: usar o logo verdadeiro do cliente ocupando o adesivo, "EQUIPE" em arco na letra de estêncil e o nome da pessoa em letra lisa (Big Shoulders Display), sem enfeite.
+
+## Marca ianmour
+Padrão de cores e símbolos próprios em `marca-ianmour/LEIA-ME.md`. Usar em toda peça "pra mim".

@@ -28,6 +28,7 @@ Pasta `simbolos/`: 8 símbolos × 4 cores (`<nome>-rosa|creme|azul|noite.svg`), 
 
 **Regras**
 - **Assinatura:** todo símbolo tem o **pixel solto** no canto de cima à direita, na cor de destaque (rosa; azul quando o símbolo é rosa). Nunca tirar.
+- **Fundo azul:** símbolo sempre em creme (o pixel solto fica rosa). Símbolo rosa só em fundo escuro ou creme.
 - **Carimbo:** em destaque, o símbolo vai num quadrado azul com sombra rosa dura (deslocada para baixo e para a direita).
 - Usar só estes símbolos nas peças ianmour. **Não usar ícones prontos** (de banco de ícones) nas peças da marca.
 - Precisa de um símbolo novo? Desenhar na mesma grade 12×12 em `gerar-simbolos.py` (mesma espessura, pixel solto), rodar `python3 gerar-simbolos.py` e acrescentar na tabela.

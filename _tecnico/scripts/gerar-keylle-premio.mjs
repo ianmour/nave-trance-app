@@ -16,7 +16,11 @@ const DUR = +process.env.DUR;
 // ---- texto: só os parágrafos (pula título e linhas de instrução) ----
 const linhas = fs.readFileSync(TXT, "utf8").split("\n").filter((l) => l.trim() && !/^#|^Pedido:|^Palavras entre/.test(l));
 const pal = []; let dentro = false, chaveId = -1;
-for (const tok of linhas.join(" ").split(/\s+/).filter(Boolean)) {
+// onde ele falou diferente do texto escrito, a legenda segue a fala (conferido ouvindo trecho a trecho)
+const FALOU = [["que são capazes", "que estão sendo capazes"], ["cada vez mais os rostos, os sorrisos e as emoções", "cada vez mais sorrisos e emoções"]];
+let corrido = linhas.join(" ");
+for (const [de, para] of FALOU) { if (!corrido.includes(de)) throw new Error("não achei no texto: " + de); corrido = corrido.replace(de, para); }
+for (const tok of corrido.split(/\s+/).filter(Boolean)) {
   const abre = tok.startsWith("*"), fecha = /\*[.,!?;:]*$/.test(tok);
   if (abre) { dentro = true; chaveId++; }
   pal.push({ texto: tok.replace(/\*/g, ""), chave: dentro ? chaveId : -1 });
@@ -69,7 +73,9 @@ chaves.forEach((c, i) => {
   const t0 = c.ps[0].ini - 0.06, prox = chaves[i + 1];
   const t1 = Math.min(prox ? prox.ps[0].ini - 0.12 : DUR, c.ps[c.ps.length - 1].fim + 2.6, DUR);
   const txt = c.ps.map((p) => p.texto.replace(/[.,!?;:]+$/, "")).join(" ").toUpperCase();
-  const tam = txt.length > 22 ? 84 : txt.length > 13 ? 100 : 124;
+  // tamanho: a palavra mais longa tem que caber na coluna (~680px) sem invadir o rosto dele
+  const maior = Math.max(...txt.split(" ").map((w) => w.length));
+  const tam = Math.round(Math.min(txt.length > 22 ? 88 : 120, 680 / (maior * 0.6)));
   kh += `      <div id="k${i}" class="clip chave" data-start="${f(t0)}" data-duration="${f(t1 - t0)}" data-track-index="1"><div class="kx" style="font-size:${tam}px">${esc(txt)}</div><i class="kl"></i></div>\n`;
   kj += `      tl.fromTo("#k${i} .kx", { opacity: 0, y: 26, filter: "blur(8px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.35, ease: "power3.out" }, ${f(t0)});\n`;
   kj += `      tl.fromTo("#k${i} .kl", { scaleX: 0 }, { scaleX: 1, duration: 0.4, ease: "power2.out" }, ${f(t0 + 0.12)});\n`;

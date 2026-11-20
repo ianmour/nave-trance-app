@@ -1,0 +1,4286 @@
+[
+ {
+  "texto": "Para",
+  "chave": -1,
+  "ini": 0.14,
+  "fim": 0.46,
+  "igual": true
+ },
+ {
+  "texto": "mim,",
+  "chave": -1,
+  "ini": 0.46,
+  "fim": 1.11,
+  "igual": true
+ },
+ {
+  "texto": "o",
+  "chave": -1,
+  "ini": 1.11,
+  "fim": 1.2,
+  "igual": true
+ },
+ {
+  "texto": "prêmio",
+  "chave": -1,
+  "ini": 1.2,
+  "fim": 1.56,
+  "igual": true
+ },
+ {
+  "texto": "Histórias",
+  "chave": -1,
+  "ini": 1.56,
+  "fim": 2.25,
+  "igual": true
+ },
+ {
+  "texto": "de",
+  "chave": -1,
+  "ini": 2.25,
+  "fim": 2.39,
+  "igual": true
+ },
+ {
+  "texto": "Quem",
+  "chave": -1,
+  "ini": 2.39,
+  "fim": 2.77,
+  "igual": true
+ },
+ {
+  "texto": "Atende,",
+  "chave": -1,
+  "ini": 2.77,
+  "fim": 3.18,
+  "igual": true
+ },
+ {
+  "texto": "do",
+  "chave": -1,
+  "ini": 3.18,
+  "fim": 3.32,
+  "igual": true
+ },
+ {
+  "texto": "Sebrae,",
+  "chave": -1,
+  "ini": 3.32,
+  "fim": 4.02,
+  "igual": false
+ },
+ {
+  "texto": "está",
+  "chave": -1,
+  "ini": 4.02,
+  "fim": 4.34,
+  "igual": true
+ },
+ {
+  "texto": "muito",
+  "chave": -1,
+  "ini": 4.34,
+  "fim": 5,
+  "igual": true
+ },
+ {
+  "texto": "além",
+  "chave": -1,
+  "ini": 5,
+  "fim": 5.28,
+  "igual": true
+ },
+ {
+  "texto": "de",
+  "chave": -1,
+  "ini": 5.28,
+  "fim": 5.43,
+  "igual": true
+ },
+ {
+  "texto": "uma",
+  "chave": -1,
+  "ini": 5.43,
+  "fim": 5.68,
+  "igual": true
+ },
+ {
+  "texto": "simples",
+  "chave": -1,
+  "ini": 5.68,
+  "fim": 6.2,
+  "igual": true
+ },
+ {
+  "texto": "premiação.",
+  "chave": -1,
+  "ini": 6.2,
+  "fim": 7.2,
+  "igual": true
+ },
+ {
+  "texto": "É",
+  "chave": -1,
+  "ini": 7.2,
+  "fim": 7.34,
+  "igual": true
+ },
+ {
+  "texto": "o",
+  "chave": -1,
+  "ini": 7.34,
+  "fim": 7.4,
+  "igual": true
+ },
+ {
+  "texto": "reconhecimento",
+  "chave": 0,
+  "ini": 7.4,
+  "fim": 8.8,
+  "igual": true
+ },
+ {
+  "texto": "de",
+  "chave": -1,
+  "ini": 8.8,
+  "fim": 9,
+  "igual": true
+ },
+ {
+  "texto": "tudo",
+  "chave": -1,
+  "ini": 9,
+  "fim": 9.4,
+  "igual": true
+ },
+ {
+  "texto": "aquilo",
+  "chave": -1,
+  "ini": 9.4,
+  "fim": 10,
+  "igual": true
+ },
+ {
+  "texto": "que",
+  "chave": -1,
+  "ini": 10,
+  "fim": 10.3,
+  "igual": true
+ },
+ {
+  "texto": "fazemos,",
+  "chave": -1,
+  "ini": 10.3,
+  "fim": 11.22,
+  "igual": true
+ },
+ {
+  "texto": "do",
+  "chave": -1,
+  "ini": 11.22,
+  "fim": 11.43,
+  "igual": true
+ },
+ {
+  "texto": "que",
+  "chave": -1,
+  "ini": 11.43,
+  "fim": 11.7,
+  "igual": true
+ },
+ {
+  "texto": "entregamos",
+  "chave": -1,
+  "ini": 11.7,
+  "fim": 12.7,
+  "igual": true
+ },
+ {
+  "texto": "e,",
+  "chave": -1,
+  "ini": 12.7,
+  "fim": 13,
+  "igual": true
+ },
+ {
+  "texto": "sobretudo,",
+  "chave": -1,
+  "ini": 13,
+  "fim": 14.11,
+  "igual": true
+ },
+ {
+  "texto": "de",
+  "chave": -1,
+  "ini": 14.11,
+  "fim": 14.2,
+  "igual": true
+ },
+ {
+  "texto": "como",
+  "chave": -1,
+  "ini": 14.2,
+  "fim": 14.94,
+  "igual": true
+ },
+ {
+  "texto": "servimos",
+  "chave": -1,
+  "ini": 14.94,
+  "fim": 15.56,
+  "igual": true
+ },
+ {
+  "texto": "e",
+  "chave": -1,
+  "ini": 15.56,
+  "fim": 15.7,
+  "igual": true
+ },
+ {
+  "texto": "ajudamos",
+  "chave": -1,
+  "ini": 15.7,
+  "fim": 16.34,
+  "igual": true
+ },
+ {
+  "texto": "a",
+  "chave": -1,
+  "ini": 16.34,
+  "fim": 16.77,
+  "igual": true
+ },
+ {
+  "texto": "transformar",
+  "chave": -1,
+  "ini": 16.77,
+  "fim": 17.37,
+  "igual": true
+ },
+ {
+  "texto": "a",
+  "chave": -1,
+  "ini": 17.37,
+  "fim": 17.46,
+  "igual": true
+ },
+ {
+  "texto": "vida",
+  "chave": -1,
+  "ini": 17.46,
+  "fim": 17.81,
+  "igual": true
+ },
+ {
+  "texto": "das",
+  "chave": -1,
+  "ini": 17.81,
+  "fim": 18.1,
+  "igual": true
+ },
+ {
+  "texto": "pessoas.",
+  "chave": -1,
+  "ini": 18.1,
+  "fim": 19,
+  "igual": true
+ },
+ {
+  "texto": "Sim,",
+  "chave": -1,
+  "ini": 19,
+  "fim": 19.6,
+  "igual": true
+ },
+ {
+  "texto": "falo",
+  "chave": -1,
+  "ini": 19.6,
+  "fim": 20.2,
+  "igual": true
+ },
+ {
+  "texto": "de",
+  "chave": -1,
+  "ini": 20.2,
+  "fim": 20.43,
+  "igual": true
+ },
+ {
+  "texto": "pessoas!",
+  "chave": 1,
+  "ini": 20.43,
+  "fim": 21.72,
+  "igual": true
+ },
+ {
+  "texto": "Porque",
+  "chave": -1,
+  "ini": 21.94,
+  "fim": 22.16,
+  "igual": false
+ },
+ {
+  "texto": "negócios",
+  "chave": -1,
+  "ini": 22.16,
+  "fim": 22.92,
+  "igual": true
+ },
+ {
+  "texto": "não",
+  "chave": -1,
+  "ini": 22.92,
+  "fim": 22.96,
+  "igual": true
+ },
+ {
+  "texto": "existem",
+  "chave": -1,
+  "ini": 22.96,
+  "fim": 23.47,
+  "igual": true
+ },
+ {
+  "texto": "sem",
+  "chave": -1,
+  "ini": 23.47,
+  "fim": 23.77,
+  "igual": true
+ },
+ {
+  "texto": "elas.",
+  "chave": -1,
+  "ini": 23.77,
+  "fim": 24.24,
+  "igual": true
+ },
+ {
+  "texto": "Por",
+  "chave": -1,
+  "ini": 24.38,
+  "fim": 24.51,
+  "igual": true
+ },
+ {
+  "texto": "trás",
+  "chave": -1,
+  "ini": 24.51,
+  "fim": 24.88,
+  "igual": true
+ },
+ {
+  "texto": "de",
+  "chave": -1,
+  "ini": 24.88,
+  "fim": 25.05,
+  "igual": true
+ },
+ {
+  "texto": "cada",
+  "chave": -1,
+  "ini": 25.05,
+  "fim": 25.44,
+  "igual": true
+ },
+ {
+  "texto": "CNPJ",
+  "chave": -1,
+  "ini": 25.44,
+  "fim": 25.97,
+  "igual": true
+ },
+ {
+  "texto": "existe",
+  "chave": -1,
+  "ini": 25.97,
+  "fim": 26.52,
+  "igual": true
+ },
+ {
+  "texto": "alguém",
+  "chave": -1,
+  "ini": 26.52,
+  "fim": 27.07,
+  "igual": true
+ },
+ {
+  "texto": "que",
+  "chave": -1,
+  "ini": 27.07,
+  "fim": 27.34,
+  "igual": true
+ },
+ {
+  "texto": "sonha,",
+  "chave": 2,
+  "ini": 27.34,
+  "fim": 28.26,
+  "igual": true
+ },
+ {
+  "texto": "enfrenta",
+  "chave": -1,
+  "ini": 28.26,
+  "fim": 28.7,
+  "igual": true
+ },
+ {
+  "texto": "dificuldades,",
+  "chave": -1,
+  "ini": 28.7,
+  "fim": 29.98,
+  "igual": true
+ },
+ {
+  "texto": "assume",
+  "chave": 3,
+  "ini": 29.98,
+  "fim": 30.55,
+  "igual": true
+ },
+ {
+  "texto": "riscos",
+  "chave": 3,
+  "ini": 30.55,
+  "fim": 31.2,
+  "igual": true
+ },
+ {
+  "texto": "e",
+  "chave": -1,
+  "ini": 31.2,
+  "fim": 31.34,
+  "igual": true
+ },
+ {
+  "texto": "encontra",
+  "chave": -1,
+  "ini": 31.34,
+  "fim": 31.89,
+  "igual": true
+ },
+ {
+  "texto": "forças",
+  "chave": 4,
+  "ini": 31.89,
+  "fim": 32.42,
+  "igual": true
+ },
+ {
+  "texto": "para",
+  "chave": -1,
+  "ini": 32.42,
+  "fim": 32.75,
+  "igual": true
+ },
+ {
+  "texto": "continuar.",
+  "chave": -1,
+  "ini": 32.75,
+  "fim": 33.76,
+  "igual": true
+ },
+ {
+  "texto": "E,",
+  "chave": -1,
+  "ini": 33.76,
+  "fim": 33.9,
+  "igual": true
+ },
+ {
+  "texto": "muitas",
+  "chave": -1,
+  "ini": 33.9,
+  "fim": 34.29,
+  "igual": true
+ },
+ {
+  "texto": "vezes,",
+  "chave": -1,
+  "ini": 34.29,
+  "fim": 34.43,
+  "igual": true
+ },
+ {
+  "texto": "é",
+  "chave": -1,
+  "ini": 34.43,
+  "fim": 34.89,
+  "igual": true
+ },
+ {
+  "texto": "no",
+  "chave": -1,
+  "ini": 34.89,
+  "fim": 34.96,
+  "igual": true
+ },
+ {
+  "texto": "atendimento",
+  "chave": -1,
+  "ini": 34.96,
+  "fim": 35.81,
+  "igual": true
+ },
+ {
+  "texto": "do",
+  "chave": -1,
+  "ini": 35.81,
+  "fim": 35.88,
+  "igual": true
+ },
+ {
+  "texto": "Sebrae",
+  "chave": -1,
+  "ini": 35.88,
+  "fim": 36.33,
+  "igual": false
+ },
+ {
+  "texto": "que",
+  "chave": -1,
+  "ini": 36.33,
+  "fim": 36.56,
+  "igual": true
+ },
+ {
+  "texto": "esse",
+  "chave": -1,
+  "ini": 36.56,
+  "fim": 36.87,
+  "igual": true
+ },
+ {
+  "texto": "empreendedor",
+  "chave": -1,
+  "ini": 36.87,
+  "fim": 37.79,
+  "igual": true
+ },
+ {
+  "texto": "encontra",
+  "chave": -1,
+  "ini": 37.79,
+  "fim": 38.4,
+  "igual": true
+ },
+ {
+  "texto": "não",
+  "chave": -1,
+  "ini": 38.4,
+  "fim": 38.64,
+  "igual": true
+ },
+ {
+  "texto": "apenas",
+  "chave": -1,
+  "ini": 38.64,
+  "fim": 39.2,
+  "igual": true
+ },
+ {
+  "texto": "uma",
+  "chave": -1,
+  "ini": 39.2,
+  "fim": 39.45,
+  "igual": true
+ },
+ {
+  "texto": "orientação,",
+  "chave": -1,
+  "ini": 39.45,
+  "fim": 40.47,
+  "igual": true
+ },
+ {
+  "texto": "mas",
+  "chave": -1,
+  "ini": 40.47,
+  "fim": 40.72,
+  "igual": true
+ },
+ {
+  "texto": "alguém",
+  "chave": -1,
+  "ini": 40.72,
+  "fim": 41.25,
+  "igual": true
+ },
+ {
+  "texto": "disposto",
+  "chave": -1,
+  "ini": 41.25,
+  "fim": 41.97,
+  "igual": true
+ },
+ {
+  "texto": "a",
+  "chave": -1,
+  "ini": 41.97,
+  "fim": 41.99,
+  "igual": true
+ },
+ {
+  "texto": "ouvi-lo,",
+  "chave": -1,
+  "ini": 41.99,
+  "fim": 42.83,
+  "igual": false
+ },
+ {
+  "texto": "compreender",
+  "chave": -1,
+  "ini": 42.83,
+  "fim": 43.77,
+  "igual": true
+ },
+ {
+  "texto": "sua",
+  "chave": -1,
+  "ini": 43.77,
+  "fim": 44.02,
+  "igual": true
+ },
+ {
+  "texto": "dor",
+  "chave": -1,
+  "ini": 44.02,
+  "fim": 44.27,
+  "igual": true
+ },
+ {
+  "texto": "e",
+  "chave": -1,
+  "ini": 44.27,
+  "fim": 44.35,
+  "igual": true
+ },
+ {
+  "texto": "ajudá-lo",
+  "chave": -1,
+  "ini": 44.35,
+  "fim": 45.16,
+  "igual": true
+ },
+ {
+  "texto": "a",
+  "chave": -1,
+  "ini": 45.16,
+  "fim": 45.25,
+  "igual": true
+ },
+ {
+  "texto": "enxergar",
+  "chave": -1,
+  "ini": 45.25,
+  "fim": 46.04,
+  "igual": true
+ },
+ {
+  "texto": "novos",
+  "chave": -1,
+  "ini": 46.04,
+  "fim": 46.59,
+  "igual": true
+ },
+ {
+  "texto": "caminhos.",
+  "chave": -1,
+  "ini": 46.59,
+  "fim": 47.84,
+  "igual": true
+ },
+ {
+  "texto": "Falamos",
+  "chave": -1,
+  "ini": 47.84,
+  "fim": 48.37,
+  "igual": true
+ },
+ {
+  "texto": "muito",
+  "chave": -1,
+  "ini": 48.37,
+  "fim": 48.51,
+  "igual": true
+ },
+ {
+  "texto": "em",
+  "chave": -1,
+  "ini": 48.51,
+  "fim": 49.05,
+  "igual": true
+ },
+ {
+  "texto": "centralidade",
+  "chave": 5,
+  "ini": 49.05,
+  "fim": 49.89,
+  "igual": true
+ },
+ {
+  "texto": "do",
+  "chave": -1,
+  "ini": 49.89,
+  "fim": 49.96,
+  "igual": true
+ },
+ {
+  "texto": "cliente.",
+  "chave": -1,
+  "ini": 49.96,
+  "fim": 50.64,
+  "igual": true
+ },
+ {
+  "texto": "Mas",
+  "chave": -1,
+  "ini": 50.64,
+  "fim": 50.87,
+  "igual": true
+ },
+ {
+  "texto": "acredito",
+  "chave": -1,
+  "ini": 50.87,
+  "fim": 51.42,
+  "igual": true
+ },
+ {
+  "texto": "que",
+  "chave": -1,
+  "ini": 51.42,
+  "fim": 51.86,
+  "igual": true
+ },
+ {
+  "texto": "precisamos",
+  "chave": -1,
+  "ini": 51.86,
+  "fim": 52.46,
+  "igual": true
+ },
+ {
+  "texto": "falar,",
+  "chave": -1,
+  "ini": 52.46,
+  "fim": 52.84,
+  "igual": true
+ },
+ {
+  "texto": "com",
+  "chave": -1,
+  "ini": 52.84,
+  "fim": 53.07,
+  "igual": true
+ },
+ {
+  "texto": "a",
+  "chave": -1,
+  "ini": 53.07,
+  "fim": 53.14,
+  "igual": true
+ },
+ {
+  "texto": "mesma",
+  "chave": -1,
+  "ini": 53.14,
+  "fim": 53.6,
+  "igual": true
+ },
+ {
+  "texto": "intensidade,",
+  "chave": -1,
+  "ini": 53.74,
+  "fim": 54.54,
+  "igual": true
+ },
+ {
+  "texto": "da",
+  "chave": -1,
+  "ini": 54.54,
+  "fim": 54.81,
+  "igual": true
+ },
+ {
+  "texto": "centralidade",
+  "chave": 6,
+  "ini": 54.81,
+  "fim": 55.74,
+  "igual": true
+ },
+ {
+  "texto": "de",
+  "chave": 6,
+  "ini": 55.74,
+  "fim": 55.91,
+  "igual": true
+ },
+ {
+  "texto": "quem",
+  "chave": 6,
+  "ini": 55.91,
+  "fim": 56.25,
+  "igual": true
+ },
+ {
+  "texto": "atende.",
+  "chave": 6,
+  "ini": 56.25,
+  "fim": 56.93,
+  "igual": true
+ },
+ {
+  "texto": "De",
+  "chave": -1,
+  "ini": 56.93,
+  "fim": 57.1,
+  "igual": true
+ },
+ {
+  "texto": "quem",
+  "chave": -1,
+  "ini": 57.1,
+  "fim": 57.62,
+  "igual": true
+ },
+ {
+  "texto": "está",
+  "chave": -1,
+  "ini": 57.62,
+  "fim": 57.83,
+  "igual": true
+ },
+ {
+  "texto": "todos",
+  "chave": -1,
+  "ini": 57.83,
+  "fim": 58.21,
+  "igual": true
+ },
+ {
+  "texto": "os",
+  "chave": -1,
+  "ini": 58.21,
+  "fim": 58.38,
+  "igual": true
+ },
+ {
+  "texto": "dias",
+  "chave": -1,
+  "ini": 58.38,
+  "fim": 58.72,
+  "igual": true
+ },
+ {
+  "texto": "na",
+  "chave": -1,
+  "ini": 58.72,
+  "fim": 58.89,
+  "igual": true
+ },
+ {
+  "texto": "linha",
+  "chave": -1,
+  "ini": 58.89,
+  "fim": 59.32,
+  "igual": true
+ },
+ {
+  "texto": "de",
+  "chave": -1,
+  "ini": 59.32,
+  "fim": 59.49,
+  "igual": true
+ },
+ {
+  "texto": "frente,",
+  "chave": -1,
+  "ini": 59.49,
+  "fim": 60.36,
+  "igual": true
+ },
+ {
+  "texto": "fazendo",
+  "chave": -1,
+  "ini": 60.36,
+  "fim": 60.91,
+  "igual": true
+ },
+ {
+  "texto": "a",
+  "chave": -1,
+  "ini": 60.91,
+  "fim": 60.97,
+  "igual": true
+ },
+ {
+  "texto": "conexão",
+  "chave": 7,
+  "ini": 60.97,
+  "fim": 61.57,
+  "igual": true
+ },
+ {
+  "texto": "entre",
+  "chave": -1,
+  "ini": 61.57,
+  "fim": 61.91,
+  "igual": true
+ },
+ {
+  "texto": "o",
+  "chave": -1,
+  "ini": 61.91,
+  "fim": 61.98,
+  "igual": true
+ },
+ {
+  "texto": "propósito",
+  "chave": 8,
+  "ini": 61.98,
+  "fim": 62.67,
+  "igual": true
+ },
+ {
+  "texto": "da",
+  "chave": -1,
+  "ini": 62.67,
+  "fim": 62.82,
+  "igual": true
+ },
+ {
+  "texto": "nossa",
+  "chave": -1,
+  "ini": 62.82,
+  "fim": 63.21,
+  "igual": true
+ },
+ {
+  "texto": "instituição",
+  "chave": -1,
+  "ini": 63.21,
+  "fim": 64.05,
+  "igual": true
+ },
+ {
+  "texto": "e",
+  "chave": -1,
+  "ini": 64.05,
+  "fim": 64.14,
+  "igual": true
+ },
+ {
+  "texto": "a",
+  "chave": -1,
+  "ini": 64.14,
+  "fim": 64.38,
+  "igual": true
+ },
+ {
+  "texto": "realidade",
+  "chave": -1,
+  "ini": 64.38,
+  "fim": 64.91,
+  "igual": true
+ },
+ {
+  "texto": "de",
+  "chave": -1,
+  "ini": 64.91,
+  "fim": 65.06,
+  "igual": true
+ },
+ {
+  "texto": "milhões",
+  "chave": -1,
+  "ini": 65.06,
+  "fim": 65.72,
+  "igual": true
+ },
+ {
+  "texto": "de",
+  "chave": -1,
+  "ini": 65.72,
+  "fim": 65.84,
+  "igual": true
+ },
+ {
+  "texto": "brasileiros.",
+  "chave": -1,
+  "ini": 65.84,
+  "fim": 67.36,
+  "igual": true
+ },
+ {
+  "texto": "Quando",
+  "chave": -1,
+  "ini": 67.36,
+  "fim": 67.8,
+  "igual": true
+ },
+ {
+  "texto": "Fernanda",
+  "chave": -1,
+  "ini": 67.8,
+  "fim": 68.52,
+  "igual": true
+ },
+ {
+  "texto": "me",
+  "chave": -1,
+  "ini": 68.52,
+  "fim": 68.57,
+  "igual": true
+ },
+ {
+  "texto": "comunicou",
+  "chave": -1,
+  "ini": 68.57,
+  "fim": 69.17,
+  "igual": true
+ },
+ {
+  "texto": "que",
+  "chave": -1,
+  "ini": 69.17,
+  "fim": 69.41,
+  "igual": true
+ },
+ {
+  "texto": "eu",
+  "chave": -1,
+  "ini": 69.41,
+  "fim": 69.53,
+  "igual": true
+ },
+ {
+  "texto": "seria",
+  "chave": -1,
+  "ini": 69.53,
+  "fim": 69.9,
+  "igual": true
+ },
+ {
+  "texto": "um",
+  "chave": -1,
+  "ini": 69.9,
+  "fim": 70.03,
+  "igual": true
+ },
+ {
+  "texto": "dos",
+  "chave": -1,
+  "ini": 70.03,
+  "fim": 70.25,
+  "igual": true
+ },
+ {
+  "texto": "embaixadores",
+  "chave": -1,
+  "ini": 70.25,
+  "fim": 71.15,
+  "igual": true
+ },
+ {
+  "texto": "do",
+  "chave": -1,
+  "ini": 71.15,
+  "fim": 71.38,
+  "igual": true
+ },
+ {
+  "texto": "prêmio,",
+  "chave": -1,
+  "ini": 71.38,
+  "fim": 71.82,
+  "igual": true
+ },
+ {
+  "texto": "fiquei",
+  "chave": -1,
+  "ini": 71.82,
+  "fim": 72.26,
+  "igual": true
+ },
+ {
+  "texto": "extremamente",
+  "chave": -1,
+  "ini": 72.26,
+  "fim": 73.24,
+  "igual": true
+ },
+ {
+  "texto": "feliz.",
+  "chave": -1,
+  "ini": 73.24,
+  "fim": 73.81,
+  "igual": true
+ },
+ {
+  "texto": "Não",
+  "chave": -1,
+  "ini": 73.81,
+  "fim": 74.05,
+  "igual": true
+ },
+ {
+  "texto": "pelo",
+  "chave": -1,
+  "ini": 74.05,
+  "fim": 74.45,
+  "igual": true
+ },
+ {
+  "texto": "título,",
+  "chave": -1,
+  "ini": 74.45,
+  "fim": 75.05,
+  "igual": true
+ },
+ {
+  "texto": "pela",
+  "chave": -1,
+  "ini": 75.05,
+  "fim": 75.38,
+  "igual": true
+ },
+ {
+  "texto": "homenagem",
+  "chave": -1,
+  "ini": 75.38,
+  "fim": 76.12,
+  "igual": true
+ },
+ {
+  "texto": "ou",
+  "chave": -1,
+  "ini": 76.12,
+  "fim": 76.28,
+  "igual": true
+ },
+ {
+  "texto": "pelo",
+  "chave": -1,
+  "ini": 76.28,
+  "fim": 76.61,
+  "igual": true
+ },
+ {
+  "texto": "reconhecimento",
+  "chave": -1,
+  "ini": 76.61,
+  "fim": 77.77,
+  "igual": true
+ },
+ {
+  "texto": "pessoal.",
+  "chave": -1,
+  "ini": 77.77,
+  "fim": 78.68,
+  "igual": true
+ },
+ {
+  "texto": "Fiquei",
+  "chave": -1,
+  "ini": 78.74,
+  "fim": 79.07,
+  "igual": true
+ },
+ {
+  "texto": "feliz",
+  "chave": -1,
+  "ini": 79.07,
+  "fim": 79.53,
+  "igual": true
+ },
+ {
+  "texto": "porque,",
+  "chave": -1,
+  "ini": 80.21,
+  "fim": 80.6,
+  "igual": true
+ },
+ {
+  "texto": "de",
+  "chave": -1,
+  "ini": 80.6,
+  "fim": 80.74,
+  "igual": true
+ },
+ {
+  "texto": "alguma",
+  "chave": -1,
+  "ini": 80.74,
+  "fim": 81.14,
+  "igual": true
+ },
+ {
+  "texto": "forma,",
+  "chave": -1,
+  "ini": 81.14,
+  "fim": 81.48,
+  "igual": true
+ },
+ {
+  "texto": "esse",
+  "chave": -1,
+  "ini": 81.48,
+  "fim": 81.75,
+  "igual": true
+ },
+ {
+  "texto": "convite",
+  "chave": -1,
+  "ini": 81.75,
+  "fim": 82.22,
+  "igual": true
+ },
+ {
+  "texto": "representa",
+  "chave": -1,
+  "ini": 82.22,
+  "fim": 82.91,
+  "igual": true
+ },
+ {
+  "texto": "o",
+  "chave": -1,
+  "ini": 82.91,
+  "fim": 82.96,
+  "igual": true
+ },
+ {
+  "texto": "reconhecimento",
+  "chave": -1,
+  "ini": 82.96,
+  "fim": 84,
+  "igual": true
+ },
+ {
+  "texto": "de",
+  "chave": -1,
+  "ini": 84,
+  "fim": 84.17,
+  "igual": true
+ },
+ {
+  "texto": "algo",
+  "chave": -1,
+  "ini": 84.17,
+  "fim": 84.51,
+  "igual": true
+ },
+ {
+  "texto": "em",
+  "chave": -1,
+  "ini": 84.51,
+  "fim": 84.64,
+  "igual": true
+ },
+ {
+  "texto": "que",
+  "chave": -1,
+  "ini": 84.64,
+  "fim": 85.2,
+  "igual": true
+ },
+ {
+  "texto": "acredito",
+  "chave": -1,
+  "ini": 85.2,
+  "fim": 85.63,
+  "igual": true
+ },
+ {
+  "texto": "profundamente",
+  "chave": -1,
+  "ini": 85.63,
+  "fim": 86.77,
+  "igual": true
+ },
+ {
+  "texto": "e",
+  "chave": -1,
+  "ini": 86.77,
+  "fim": 86.84,
+  "igual": true
+ },
+ {
+  "texto": "que",
+  "chave": -1,
+  "ini": 86.84,
+  "fim": 87.1,
+  "igual": true
+ },
+ {
+  "texto": "procuro",
+  "chave": -1,
+  "ini": 87.1,
+  "fim": 88.02,
+  "igual": true
+ },
+ {
+  "texto": "praticar",
+  "chave": -1,
+  "ini": 88.02,
+  "fim": 88.39,
+  "igual": true
+ },
+ {
+  "texto": "todos",
+  "chave": -1,
+  "ini": 88.39,
+  "fim": 88.82,
+  "igual": true
+ },
+ {
+  "texto": "os",
+  "chave": -1,
+  "ini": 88.82,
+  "fim": 88.99,
+  "igual": true
+ },
+ {
+  "texto": "dias:",
+  "chave": -1,
+  "ini": 88.99,
+  "fim": 89.5,
+  "igual": true
+ },
+ {
+  "texto": "cuidar",
+  "chave": -1,
+  "ini": 89.5,
+  "fim": 90.12,
+  "igual": true
+ },
+ {
+  "texto": "de",
+  "chave": -1,
+  "ini": 90.12,
+  "fim": 90.28,
+  "igual": true
+ },
+ {
+  "texto": "quem",
+  "chave": -1,
+  "ini": 90.28,
+  "fim": 90.62,
+  "igual": true
+ },
+ {
+  "texto": "cuida",
+  "chave": -1,
+  "ini": 90.62,
+  "fim": 90.97,
+  "igual": true
+ },
+ {
+  "texto": "dos",
+  "chave": -1,
+  "ini": 90.97,
+  "fim": 91.49,
+  "igual": true
+ },
+ {
+  "texto": "nossos",
+  "chave": -1,
+  "ini": 91.49,
+  "fim": 91.8,
+  "igual": true
+ },
+ {
+  "texto": "empreendedores.",
+  "chave": -1,
+  "ini": 91.8,
+  "fim": 93.3,
+  "igual": true
+ },
+ {
+  "texto": "E",
+  "chave": -1,
+  "ini": 93.3,
+  "fim": 93.44,
+  "igual": true
+ },
+ {
+  "texto": "é",
+  "chave": -1,
+  "ini": 93.44,
+  "fim": 93.46,
+  "igual": true
+ },
+ {
+  "texto": "justamente",
+  "chave": -1,
+  "ini": 93.46,
+  "fim": 94.5,
+  "igual": true
+ },
+ {
+  "texto": "por",
+  "chave": -1,
+  "ini": 94.5,
+  "fim": 94.51,
+  "igual": true
+ },
+ {
+  "texto": "acreditar",
+  "chave": -1,
+  "ini": 94.51,
+  "fim": 95.22,
+  "igual": true
+ },
+ {
+  "texto": "nisso",
+  "chave": -1,
+  "ini": 95.22,
+  "fim": 95.63,
+  "igual": true
+ },
+ {
+  "texto": "que",
+  "chave": -1,
+  "ini": 95.63,
+  "fim": 95.87,
+  "igual": true
+ },
+ {
+  "texto": "faço",
+  "chave": -1,
+  "ini": 95.87,
+  "fim": 96.19,
+  "igual": true
+ },
+ {
+  "texto": "questão",
+  "chave": -1,
+  "ini": 96.19,
+  "fim": 96.75,
+  "igual": true
+ },
+ {
+  "texto": "de",
+  "chave": -1,
+  "ini": 96.75,
+  "fim": 96.88,
+  "igual": true
+ },
+ {
+  "texto": "registrar",
+  "chave": -1,
+  "ini": 96.88,
+  "fim": 97.63,
+  "igual": true
+ },
+ {
+  "texto": "aqui",
+  "chave": -1,
+  "ini": 97.63,
+  "fim": 97.95,
+  "igual": true
+ },
+ {
+  "texto": "um",
+  "chave": -1,
+  "ini": 97.95,
+  "fim": 98.11,
+  "igual": true
+ },
+ {
+  "texto": "reconhecimento",
+  "chave": -1,
+  "ini": 98.11,
+  "fim": 99.32,
+  "igual": true
+ },
+ {
+  "texto": "muito",
+  "chave": -1,
+  "ini": 99.32,
+  "fim": 100.53,
+  "igual": true
+ },
+ {
+  "texto": "especial",
+  "chave": -1,
+  "ini": 100.53,
+  "fim": 101.22,
+  "igual": true
+ },
+ {
+  "texto": "à",
+  "chave": -1,
+  "ini": 101.22,
+  "fim": 101.37,
+  "igual": true
+ },
+ {
+  "texto": "Débora",
+  "chave": -1,
+  "ini": 101.37,
+  "fim": 102.23,
+  "igual": true
+ },
+ {
+  "texto": "Medeiros",
+  "chave": -1,
+  "ini": 102.23,
+  "fim": 102.38000000000001,
+  "igual": false
+ },
+ {
+  "texto": "e",
+  "chave": -1,
+  "ini": 102.23,
+  "fim": 102.37,
+  "igual": true
+ },
+ {
+  "texto": "à",
+  "chave": -1,
+  "ini": 102.37,
+  "fim": 102.51,
+  "igual": true
+ },
+ {
+  "texto": "Fátima",
+  "chave": -1,
+  "ini": 102.51,
+  "fim": 103.88,
+  "igual": true
+ },
+ {
+  "texto": "Aguiar.",
+  "chave": -1,
+  "ini": 103.94999999999999,
+  "fim": 104.1,
+  "igual": false
+ },
+ {
+  "texto": "Em",
+  "chave": -1,
+  "ini": 104.02,
+  "fim": 104.02,
+  "igual": true
+ },
+ {
+  "texto": "nome",
+  "chave": -1,
+  "ini": 104.02,
+  "fim": 104.31,
+  "igual": true
+ },
+ {
+  "texto": "das",
+  "chave": -1,
+  "ini": 104.31,
+  "fim": 104.53,
+  "igual": true
+ },
+ {
+  "texto": "duas,",
+  "chave": -1,
+  "ini": 104.53,
+  "fim": 105.09,
+  "igual": true
+ },
+ {
+  "texto": "quero",
+  "chave": -1,
+  "ini": 105.09,
+  "fim": 105.33,
+  "igual": true
+ },
+ {
+  "texto": "homenagear",
+  "chave": -1,
+  "ini": 105.33,
+  "fim": 106.05,
+  "igual": true
+ },
+ {
+  "texto": "todos",
+  "chave": -1,
+  "ini": 106.12,
+  "fim": 106.49,
+  "igual": true
+ },
+ {
+  "texto": "aqueles",
+  "chave": -1,
+  "ini": 106.49,
+  "fim": 107,
+  "igual": true
+ },
+ {
+  "texto": "que",
+  "chave": -1,
+  "ini": 107,
+  "fim": 107.22,
+  "igual": true
+ },
+ {
+  "texto": "fazem",
+  "chave": -1,
+  "ini": 107.22,
+  "fim": 107.57,
+  "igual": true
+ },
+ {
+  "texto": "o",
+  "chave": -1,
+  "ini": 107.57,
+  "fim": 107.69,
+  "igual": true
+ },
+ {
+  "texto": "atendimento",
+  "chave": -1,
+  "ini": 107.69,
+  "fim": 108.46,
+  "igual": true
+ },
+ {
+  "texto": "do",
+  "chave": -1,
+  "ini": 108.46,
+  "fim": 108.6,
+  "igual": true
+ },
+ {
+  "texto": "Sebrae",
+  "chave": -1,
+  "ini": 108.6,
+  "fim": 109.22,
+  "igual": false
+ },
+ {
+  "texto": "Alagoas",
+  "chave": -1,
+  "ini": 109.22,
+  "fim": 110.43,
+  "igual": false
+ },
+ {
+  "texto": "acontecer",
+  "chave": -1,
+  "ini": 110.43,
+  "fim": 110.93,
+  "igual": true
+ },
+ {
+  "texto": "diariamente.",
+  "chave": -1,
+  "ini": 110.93,
+  "fim": 112.56,
+  "igual": true
+ },
+ {
+  "texto": "Reconheço",
+  "chave": -1,
+  "ini": 112.56,
+  "fim": 113.26,
+  "igual": false
+ },
+ {
+  "texto": "a",
+  "chave": -1,
+  "ini": 113.26,
+  "fim": 113.34,
+  "igual": true
+ },
+ {
+  "texto": "dedicação",
+  "chave": 9,
+  "ini": 113.34,
+  "fim": 114.08,
+  "igual": true
+ },
+ {
+  "texto": "incansável",
+  "chave": -1,
+  "ini": 114.08,
+  "fim": 114.88,
+  "igual": true
+ },
+ {
+  "texto": "de",
+  "chave": -1,
+  "ini": 114.88,
+  "fim": 115.1,
+  "igual": true
+ },
+ {
+  "texto": "ambas",
+  "chave": -1,
+  "ini": 115.1,
+  "fim": 115.44,
+  "igual": true
+ },
+ {
+  "texto": "em",
+  "chave": -1,
+  "ini": 115.44,
+  "fim": 115.6,
+  "igual": true
+ },
+ {
+  "texto": "servir",
+  "chave": -1,
+  "ini": 115.6,
+  "fim": 116.08,
+  "igual": true
+ },
+ {
+  "texto": "aos",
+  "chave": -1,
+  "ini": 116.08,
+  "fim": 116.58,
+  "igual": true
+ },
+ {
+  "texto": "nossos",
+  "chave": -1,
+  "ini": 116.58,
+  "fim": 116.8,
+  "igual": true
+ },
+ {
+  "texto": "clientes,",
+  "chave": -1,
+  "ini": 116.8,
+  "fim": 117.6,
+  "igual": true
+ },
+ {
+  "texto": "em",
+  "chave": -1,
+  "ini": 117.6,
+  "fim": 117.76,
+  "igual": true
+ },
+ {
+  "texto": "compreender",
+  "chave": -1,
+  "ini": 117.76,
+  "fim": 118.72,
+  "igual": true
+ },
+ {
+  "texto": "suas",
+  "chave": -1,
+  "ini": 118.72,
+  "fim": 119.17,
+  "igual": true
+ },
+ {
+  "texto": "necessidades",
+  "chave": 10,
+  "ini": 119.17,
+  "fim": 120.53,
+  "igual": true
+ },
+ {
+  "texto": "e",
+  "chave": -1,
+  "ini": 120.53,
+  "fim": 120.64,
+  "igual": true
+ },
+ {
+  "texto": "em",
+  "chave": -1,
+  "ini": 120.64,
+  "fim": 120.86,
+  "igual": true
+ },
+ {
+  "texto": "buscar,",
+  "chave": -1,
+  "ini": 120.86,
+  "fim": 121.54,
+  "igual": true
+ },
+ {
+  "texto": "todos",
+  "chave": -1,
+  "ini": 121.54,
+  "fim": 122.11,
+  "igual": true
+ },
+ {
+  "texto": "os",
+  "chave": -1,
+  "ini": 122.11,
+  "fim": 122.3,
+  "igual": true
+ },
+ {
+  "texto": "dias,",
+  "chave": -1,
+  "ini": 122.3,
+  "fim": 122.78,
+  "igual": true
+ },
+ {
+  "texto": "formas",
+  "chave": -1,
+  "ini": 122.78,
+  "fim": 123.46,
+  "igual": true
+ },
+ {
+  "texto": "de",
+  "chave": -1,
+  "ini": 123.46,
+  "fim": 123.68,
+  "igual": true
+ },
+ {
+  "texto": "entregar",
+  "chave": -1,
+  "ini": 123.68,
+  "fim": 124.59,
+  "igual": true
+ },
+ {
+  "texto": "mais",
+  "chave": -1,
+  "ini": 124.59,
+  "fim": 125.04,
+  "igual": true
+ },
+ {
+  "texto": "e",
+  "chave": -1,
+  "ini": 125.04,
+  "fim": 125.15,
+  "igual": true
+ },
+ {
+  "texto": "melhor.",
+  "chave": -1,
+  "ini": 125.15,
+  "fim": 126.28,
+  "igual": true
+ },
+ {
+  "texto": "Mas",
+  "chave": -1,
+  "ini": 126.28,
+  "fim": 126.52,
+  "igual": true
+ },
+ {
+  "texto": "quero",
+  "chave": -1,
+  "ini": 126.52,
+  "fim": 126.88,
+  "igual": true
+ },
+ {
+  "texto": "destacar",
+  "chave": -1,
+  "ini": 126.88,
+  "fim": 127.56,
+  "igual": true
+ },
+ {
+  "texto": "algo",
+  "chave": -1,
+  "ini": 127.56,
+  "fim": 127.88,
+  "igual": true
+ },
+ {
+  "texto": "que",
+  "chave": -1,
+  "ini": 127.88,
+  "fim": 128.11,
+  "igual": true
+ },
+ {
+  "texto": "considero",
+  "chave": -1,
+  "ini": 128.11,
+  "fim": 128.84,
+  "igual": true
+ },
+ {
+  "texto": "ainda",
+  "chave": -1,
+  "ini": 128.84,
+  "fim": 129.24,
+  "igual": true
+ },
+ {
+  "texto": "mais",
+  "chave": -1,
+  "ini": 129.24,
+  "fim": 129.56,
+  "igual": true
+ },
+ {
+  "texto": "importante:",
+  "chave": -1,
+  "ini": 129.56,
+  "fim": 130.52,
+  "igual": true
+ },
+ {
+  "texto": "o",
+  "chave": -1,
+  "ini": 130.52,
+  "fim": 130.6,
+  "igual": true
+ },
+ {
+  "texto": "cuidado,",
+  "chave": 11,
+  "ini": 130.6,
+  "fim": 131.32,
+  "igual": true
+ },
+ {
+  "texto": "o",
+  "chave": -1,
+  "ini": 131.32,
+  "fim": 131.4,
+  "igual": true
+ },
+ {
+  "texto": "respeito",
+  "chave": 12,
+  "ini": 131.4,
+  "fim": 132.04,
+  "igual": true
+ },
+ {
+  "texto": "e",
+  "chave": -1,
+  "ini": 132.04,
+  "fim": 132.12,
+  "igual": true
+ },
+ {
+  "texto": "o",
+  "chave": -1,
+  "ini": 132.12,
+  "fim": 132.28,
+  "igual": true
+ },
+ {
+  "texto": "reconhecimento",
+  "chave": 13,
+  "ini": 132.42,
+  "fim": 133.48,
+  "igual": true
+ },
+ {
+  "texto": "que",
+  "chave": -1,
+  "ini": 133.48,
+  "fim": 133.71,
+  "igual": true
+ },
+ {
+  "texto": "dedicam",
+  "chave": -1,
+  "ini": 133.71,
+  "fim": 134.1,
+  "igual": true
+ },
+ {
+  "texto": "ao",
+  "chave": -1,
+  "ini": 134.1,
+  "fim": 134.33,
+  "igual": true
+ },
+ {
+  "texto": "nosso",
+  "chave": -1,
+  "ini": 134.33,
+  "fim": 134.64,
+  "igual": true
+ },
+ {
+  "texto": "próprio",
+  "chave": -1,
+  "ini": 134.64,
+  "fim": 135.18,
+  "igual": true
+ },
+ {
+  "texto": "time.",
+  "chave": 14,
+  "ini": 135.18,
+  "fim": 135.63,
+  "igual": true
+ },
+ {
+  "texto": "Porque",
+  "chave": -1,
+  "ini": 135.63,
+  "fim": 136.09,
+  "igual": true
+ },
+ {
+  "texto": "quem",
+  "chave": -1,
+  "ini": 136.09,
+  "fim": 136.39,
+  "igual": true
+ },
+ {
+  "texto": "lidera",
+  "chave": -1,
+  "ini": 136.39,
+  "fim": 136.84,
+  "igual": true
+ },
+ {
+  "texto": "pessoas",
+  "chave": -1,
+  "ini": 136.84,
+  "fim": 137.38,
+  "igual": true
+ },
+ {
+  "texto": "precisa",
+  "chave": -1,
+  "ini": 137.38,
+  "fim": 137.99,
+  "igual": true
+ },
+ {
+  "texto": "compreender",
+  "chave": -1,
+  "ini": 137.99,
+  "fim": 139.28,
+  "igual": true
+ },
+ {
+  "texto": "que",
+  "chave": -1,
+  "ini": 139.28,
+  "fim": 139.54,
+  "igual": true
+ },
+ {
+  "texto": "valorizar",
+  "chave": 15,
+  "ini": 139.54,
+  "fim": 140.48,
+  "igual": true
+ },
+ {
+  "texto": "quem",
+  "chave": -1,
+  "ini": 140.48,
+  "fim": 140.71,
+  "igual": true
+ },
+ {
+  "texto": "atende",
+  "chave": -1,
+  "ini": 140.71,
+  "fim": 141.12,
+  "igual": true
+ },
+ {
+  "texto": "é",
+  "chave": -1,
+  "ini": 141.12,
+  "fim": 141.33,
+  "igual": true
+ },
+ {
+  "texto": "tão",
+  "chave": -1,
+  "ini": 141.33,
+  "fim": 141.5,
+  "igual": true
+ },
+ {
+  "texto": "importante",
+  "chave": -1,
+  "ini": 141.5,
+  "fim": 142.36,
+  "igual": true
+ },
+ {
+  "texto": "quanto",
+  "chave": -1,
+  "ini": 142.36,
+  "fim": 142.86,
+  "igual": true
+ },
+ {
+  "texto": "valorizar",
+  "chave": -1,
+  "ini": 142.86,
+  "fim": 143.64,
+  "igual": true
+ },
+ {
+  "texto": "quem",
+  "chave": -1,
+  "ini": 143.64,
+  "fim": 143.98,
+  "igual": true
+ },
+ {
+  "texto": "é",
+  "chave": -1,
+  "ini": 143.98,
+  "fim": 144.06,
+  "igual": true
+ },
+ {
+  "texto": "atendido.",
+  "chave": -1,
+  "ini": 144.06,
+  "fim": 145.08,
+  "igual": true
+ },
+ {
+  "texto": "E",
+  "chave": -1,
+  "ini": 145.08,
+  "fim": 145.22,
+  "igual": true
+ },
+ {
+  "texto": "Débora",
+  "chave": -1,
+  "ini": 145.22,
+  "fim": 145.74,
+  "igual": true
+ },
+ {
+  "texto": "e",
+  "chave": -1,
+  "ini": 145.74,
+  "fim": 145.79,
+  "igual": true
+ },
+ {
+  "texto": "Fátima",
+  "chave": -1,
+  "ini": 145.79,
+  "fim": 146.51,
+  "igual": true
+ },
+ {
+  "texto": "representam",
+  "chave": -1,
+  "ini": 146.51,
+  "fim": 147.47,
+  "igual": true
+ },
+ {
+  "texto": "muito",
+  "chave": -1,
+  "ini": 147.47,
+  "fim": 147.97,
+  "igual": true
+ },
+ {
+  "texto": "bem",
+  "chave": -1,
+  "ini": 147.97,
+  "fim": 148.26,
+  "igual": true
+ },
+ {
+  "texto": "esse",
+  "chave": -1,
+  "ini": 148.26,
+  "fim": 148.66,
+  "igual": true
+ },
+ {
+  "texto": "compromisso.",
+  "chave": 16,
+  "ini": 148.66,
+  "fim": 150.12,
+  "igual": true
+ },
+ {
+  "texto": "Quero",
+  "chave": -1,
+  "ini": 150.12,
+  "fim": 150.48,
+  "igual": true
+ },
+ {
+  "texto": "também",
+  "chave": -1,
+  "ini": 150.48,
+  "fim": 150.93,
+  "igual": true
+ },
+ {
+  "texto": "aproveitar",
+  "chave": -1,
+  "ini": 150.93,
+  "fim": 151.69,
+  "igual": true
+ },
+ {
+  "texto": "este",
+  "chave": -1,
+  "ini": 151.69,
+  "fim": 151.98,
+  "igual": true
+ },
+ {
+  "texto": "momento",
+  "chave": -1,
+  "ini": 151.98,
+  "fim": 152.52,
+  "igual": true
+ },
+ {
+  "texto": "para",
+  "chave": -1,
+  "ini": 152.52,
+  "fim": 152.89,
+  "igual": true
+ },
+ {
+  "texto": "deixar",
+  "chave": -1,
+  "ini": 152.89,
+  "fim": 153.27,
+  "igual": true
+ },
+ {
+  "texto": "um",
+  "chave": -1,
+  "ini": 153.27,
+  "fim": 153.42,
+  "igual": true
+ },
+ {
+  "texto": "recado",
+  "chave": -1,
+  "ini": 153.42,
+  "fim": 153.93,
+  "igual": true
+ },
+ {
+  "texto": "carinhoso",
+  "chave": -1,
+  "ini": 153.93,
+  "fim": 154.52,
+  "igual": true
+ },
+ {
+  "texto": "aos",
+  "chave": -1,
+  "ini": 154.52,
+  "fim": 154.74,
+  "igual": true
+ },
+ {
+  "texto": "meus",
+  "chave": -1,
+  "ini": 154.74,
+  "fim": 155.04,
+  "igual": true
+ },
+ {
+  "texto": "colegas",
+  "chave": -1,
+  "ini": 155.04,
+  "fim": 155.68,
+  "igual": true
+ },
+ {
+  "texto": "diretores",
+  "chave": -1,
+  "ini": 155.68,
+  "fim": 156.38,
+  "igual": true
+ },
+ {
+  "texto": "do",
+  "chave": -1,
+  "ini": 157.2,
+  "fim": 157.35,
+  "igual": true
+ },
+ {
+  "texto": "Sistema",
+  "chave": 17,
+  "ini": 157.35,
+  "fim": 157.92,
+  "igual": true
+ },
+ {
+  "texto": "Sebrae,",
+  "chave": 17,
+  "ini": 157.92,
+  "fim": 158.64,
+  "igual": false
+ },
+ {
+  "texto": "aos",
+  "chave": -1,
+  "ini": 158.64,
+  "fim": 158.88,
+  "igual": true
+ },
+ {
+  "texto": "gerentes",
+  "chave": -1,
+  "ini": 158.88,
+  "fim": 159.58,
+  "igual": true
+ },
+ {
+  "texto": "das",
+  "chave": -1,
+  "ini": 159.58,
+  "fim": 159.76,
+  "igual": true
+ },
+ {
+  "texto": "agências",
+  "chave": -1,
+  "ini": 159.76,
+  "fim": 160.4,
+  "igual": true
+ },
+ {
+  "texto": "espalhadas",
+  "chave": -1,
+  "ini": 160.4,
+  "fim": 161.2,
+  "igual": true
+ },
+ {
+  "texto": "por",
+  "chave": -1,
+  "ini": 161.2,
+  "fim": 161.48,
+  "igual": true
+ },
+ {
+  "texto": "este",
+  "chave": -1,
+  "ini": 161.62,
+  "fim": 161.88,
+  "igual": true
+ },
+ {
+  "texto": "imenso",
+  "chave": -1,
+  "ini": 161.88,
+  "fim": 162.69,
+  "igual": true
+ },
+ {
+  "texto": "Brasil",
+  "chave": -1,
+  "ini": 162.69,
+  "fim": 163.08,
+  "igual": true
+ },
+ {
+  "texto": "e",
+  "chave": -1,
+  "ini": 163.08,
+  "fim": 163.18,
+  "igual": true
+ },
+ {
+  "texto": "aos",
+  "chave": -1,
+  "ini": 163.18,
+  "fim": 163.53,
+  "igual": true
+ },
+ {
+  "texto": "nossos",
+  "chave": -1,
+  "ini": 163.53,
+  "fim": 164.08,
+  "igual": true
+ },
+ {
+  "texto": "parceiros,",
+  "chave": -1,
+  "ini": 164.08,
+  "fim": 164.98,
+  "igual": true
+ },
+ {
+  "texto": "que",
+  "chave": -1,
+  "ini": 164.98,
+  "fim": 165.5,
+  "igual": true
+ },
+ {
+  "texto": "fazem",
+  "chave": -1,
+  "ini": 165.5,
+  "fim": 165.78,
+  "igual": true
+ },
+ {
+  "texto": "parte",
+  "chave": -1,
+  "ini": 165.78,
+  "fim": 166.28,
+  "igual": true
+ },
+ {
+  "texto": "dessa",
+  "chave": -1,
+  "ini": 166.28,
+  "fim": 166.78,
+  "igual": true
+ },
+ {
+  "texto": "grande",
+  "chave": -1,
+  "ini": 166.78,
+  "fim": 167.38,
+  "igual": true
+ },
+ {
+  "texto": "rede.",
+  "chave": -1,
+  "ini": 167.38,
+  "fim": 168.16,
+  "igual": true
+ },
+ {
+  "texto": "Precisamos",
+  "chave": -1,
+  "ini": 168.16,
+  "fim": 169,
+  "igual": true
+ },
+ {
+  "texto": "olhar",
+  "chave": 18,
+  "ini": 169,
+  "fim": 169.44,
+  "igual": true
+ },
+ {
+  "texto": "cada",
+  "chave": -1,
+  "ini": 169.44,
+  "fim": 169.78,
+  "igual": true
+ },
+ {
+  "texto": "vez",
+  "chave": -1,
+  "ini": 169.78,
+  "fim": 170.03,
+  "igual": true
+ },
+ {
+  "texto": "mais",
+  "chave": -1,
+  "ini": 170.03,
+  "fim": 170.38,
+  "igual": true
+ },
+ {
+  "texto": "para",
+  "chave": -1,
+  "ini": 170.38,
+  "fim": 170.72,
+  "igual": true
+ },
+ {
+  "texto": "as",
+  "chave": -1,
+  "ini": 170.72,
+  "fim": 170.93,
+  "igual": true
+ },
+ {
+  "texto": "pessoas",
+  "chave": 19,
+  "ini": 170.93,
+  "fim": 171.49,
+  "igual": true
+ },
+ {
+  "texto": "que",
+  "chave": -1,
+  "ini": 171.49,
+  "fim": 171.74,
+  "igual": true
+ },
+ {
+  "texto": "tornam",
+  "chave": -1,
+  "ini": 171.74,
+  "fim": 172.26,
+  "igual": true
+ },
+ {
+  "texto": "possíveis",
+  "chave": -1,
+  "ini": 172.26,
+  "fim": 173.04,
+  "igual": true
+ },
+ {
+  "texto": "os",
+  "chave": -1,
+  "ini": 173.04,
+  "fim": 173.2,
+  "igual": true
+ },
+ {
+  "texto": "nossos",
+  "chave": -1,
+  "ini": 173.2,
+  "fim": 173.71,
+  "igual": true
+ },
+ {
+  "texto": "resultados.",
+  "chave": 20,
+  "ini": 173.71,
+  "fim": 174.92,
+  "igual": true
+ },
+ {
+  "texto": "Por",
+  "chave": -1,
+  "ini": 174.92,
+  "fim": 175.14,
+  "igual": true
+ },
+ {
+  "texto": "trás",
+  "chave": -1,
+  "ini": 175.14,
+  "fim": 175.43,
+  "igual": true
+ },
+ {
+  "texto": "dos",
+  "chave": -1,
+  "ini": 175.43,
+  "fim": 175.62,
+  "igual": true
+ },
+ {
+  "texto": "grandes",
+  "chave": -1,
+  "ini": 175.62,
+  "fim": 176.16,
+  "igual": true
+ },
+ {
+  "texto": "números",
+  "chave": -1,
+  "ini": 176.16,
+  "fim": 176.67,
+  "igual": true
+ },
+ {
+  "texto": "de",
+  "chave": -1,
+  "ini": 176.67,
+  "fim": 176.81,
+  "igual": true
+ },
+ {
+  "texto": "atendimentos",
+  "chave": -1,
+  "ini": 176.81,
+  "fim": 177.6,
+  "igual": false
+ },
+ {
+  "texto": "que",
+  "chave": -1,
+  "ini": 177.6,
+  "fim": 177.83,
+  "igual": true
+ },
+ {
+  "texto": "apresentamos",
+  "chave": -1,
+  "ini": 177.83,
+  "fim": 178.73,
+  "igual": true
+ },
+ {
+  "texto": "ao",
+  "chave": -1,
+  "ini": 178.73,
+  "fim": 178.94,
+  "igual": true
+ },
+ {
+  "texto": "país,",
+  "chave": -1,
+  "ini": 178.94,
+  "fim": 179.28,
+  "igual": true
+ },
+ {
+  "texto": "existem",
+  "chave": -1,
+  "ini": 179.28,
+  "fim": 179.8,
+  "igual": true
+ },
+ {
+  "texto": "histórias",
+  "chave": 21,
+  "ini": 179.8,
+  "fim": 180.56,
+  "igual": true
+ },
+ {
+  "texto": "que",
+  "chave": -1,
+  "ini": 180.56,
+  "fim": 180.83,
+  "igual": true
+ },
+ {
+  "texto": "não",
+  "chave": -1,
+  "ini": 180.83,
+  "fim": 181.1,
+  "igual": true
+ },
+ {
+  "texto": "cabem",
+  "chave": -1,
+  "ini": 181.1,
+  "fim": 181.76,
+  "igual": true
+ },
+ {
+  "texto": "em",
+  "chave": -1,
+  "ini": 181.76,
+  "fim": 181.91,
+  "igual": false
+ },
+ {
+  "texto": "relatórios,",
+  "chave": -1,
+  "ini": 181.76,
+  "fim": 182.64,
+  "igual": true
+ },
+ {
+  "texto": "planilhas",
+  "chave": -1,
+  "ini": 182.64,
+  "fim": 183.46,
+  "igual": true
+ },
+ {
+  "texto": "ou",
+  "chave": -1,
+  "ini": 183.46,
+  "fim": 183.64,
+  "igual": true
+ },
+ {
+  "texto": "indicadores.",
+  "chave": -1,
+  "ini": 183.64,
+  "fim": 185,
+  "igual": true
+ },
+ {
+  "texto": "Existem",
+  "chave": -1,
+  "ini": 185.14,
+  "fim": 185.6,
+  "igual": true
+ },
+ {
+  "texto": "vidas",
+  "chave": -1,
+  "ini": 185.6,
+  "fim": 186.21,
+  "igual": true
+ },
+ {
+  "texto": "sendo",
+  "chave": -1,
+  "ini": 186.21,
+  "fim": 186.46,
+  "igual": true
+ },
+ {
+  "texto": "transformadas,",
+  "chave": 22,
+  "ini": 186.46,
+  "fim": 187.77,
+  "igual": true
+ },
+ {
+  "texto": "famílias",
+  "chave": -1,
+  "ini": 187.77,
+  "fim": 188.43,
+  "igual": true
+ },
+ {
+  "texto": "recuperando",
+  "chave": -1,
+  "ini": 188.43,
+  "fim": 189.37,
+  "igual": true
+ },
+ {
+  "texto": "a",
+  "chave": -1,
+  "ini": 189.37,
+  "fim": 189.45,
+  "igual": true
+ },
+ {
+  "texto": "esperança,",
+  "chave": 23,
+  "ini": 189.45,
+  "fim": 190.38,
+  "igual": true
+ },
+ {
+  "texto": "sonhos",
+  "chave": 24,
+  "ini": 190.38,
+  "fim": 190.9,
+  "igual": true
+ },
+ {
+  "texto": "saindo",
+  "chave": -1,
+  "ini": 190.9,
+  "fim": 191.41,
+  "igual": true
+ },
+ {
+  "texto": "do",
+  "chave": -1,
+  "ini": 191.41,
+  "fim": 191.68,
+  "igual": true
+ },
+ {
+  "texto": "papel",
+  "chave": -1,
+  "ini": 191.68,
+  "fim": 192.19,
+  "igual": true
+ },
+ {
+  "texto": "e",
+  "chave": -1,
+  "ini": 192.19,
+  "fim": 192.28,
+  "igual": true
+ },
+ {
+  "texto": "empreendedores",
+  "chave": -1,
+  "ini": 192.28,
+  "fim": 193.73,
+  "igual": true
+ },
+ {
+  "texto": "descobrindo",
+  "chave": -1,
+  "ini": 193.73,
+  "fim": 194.84,
+  "igual": true
+ },
+ {
+  "texto": "que",
+  "chave": -1,
+  "ini": 194.84,
+  "fim": 195.15,
+  "igual": true
+ },
+ {
+  "texto": "estão",
+  "chave": -1,
+  "ini": 195.15,
+  "fim": 195.7,
+  "igual": true
+ },
+ {
+  "texto": "sendo",
+  "chave": -1,
+  "ini": 195.7,
+  "fim": 196.17,
+  "igual": true
+ },
+ {
+  "texto": "capazes",
+  "chave": -1,
+  "ini": 196.17,
+  "fim": 196.88,
+  "igual": true
+ },
+ {
+  "texto": "de",
+  "chave": -1,
+  "ini": 196.88,
+  "fim": 197.08,
+  "igual": true
+ },
+ {
+  "texto": "ir",
+  "chave": -1,
+  "ini": 197.08,
+  "fim": 197.28,
+  "igual": true
+ },
+ {
+  "texto": "muito",
+  "chave": -1,
+  "ini": 197.28,
+  "fim": 197.79,
+  "igual": true
+ },
+ {
+  "texto": "além",
+  "chave": -1,
+  "ini": 197.79,
+  "fim": 198.2,
+  "igual": true
+ },
+ {
+  "texto": "do",
+  "chave": -1,
+  "ini": 198.2,
+  "fim": 198.4,
+  "igual": true
+ },
+ {
+  "texto": "que",
+  "chave": -1,
+  "ini": 198.4,
+  "fim": 198.66,
+  "igual": true
+ },
+ {
+  "texto": "imaginavam.",
+  "chave": -1,
+  "ini": 198.66,
+  "fim": 199.84,
+  "igual": true
+ },
+ {
+  "texto": "E",
+  "chave": -1,
+  "ini": 199.84,
+  "fim": 199.98,
+  "igual": true
+ },
+ {
+  "texto": "essas",
+  "chave": -1,
+  "ini": 199.98,
+  "fim": 200.22,
+  "igual": true
+ },
+ {
+  "texto": "transformações",
+  "chave": -1,
+  "ini": 200.22,
+  "fim": 201.27,
+  "igual": true
+ },
+ {
+  "texto": "não",
+  "chave": -1,
+  "ini": 201.27,
+  "fim": 201.37,
+  "igual": true
+ },
+ {
+  "texto": "podem",
+  "chave": -1,
+  "ini": 201.37,
+  "fim": 201.68,
+  "igual": true
+ },
+ {
+  "texto": "depender",
+  "chave": -1,
+  "ini": 201.68,
+  "fim": 202.22,
+  "igual": true
+ },
+ {
+  "texto": "da",
+  "chave": -1,
+  "ini": 202.22,
+  "fim": 202.38,
+  "igual": true
+ },
+ {
+  "texto": "vontade",
+  "chave": -1,
+  "ini": 202.38,
+  "fim": 202.83,
+  "igual": true
+ },
+ {
+  "texto": "de",
+  "chave": -1,
+  "ini": 202.83,
+  "fim": 202.96,
+  "igual": true
+ },
+ {
+  "texto": "governos",
+  "chave": -1,
+  "ini": 202.96,
+  "fim": 203.42,
+  "igual": false
+ },
+ {
+  "texto": "ou",
+  "chave": -1,
+  "ini": 203.42,
+  "fim": 203.65,
+  "igual": true
+ },
+ {
+  "texto": "das",
+  "chave": -1,
+  "ini": 203.65,
+  "fim": 203.86,
+  "igual": true
+ },
+ {
+  "texto": "circunstâncias",
+  "chave": -1,
+  "ini": 203.86,
+  "fim": 204.8,
+  "igual": true
+ },
+ {
+  "texto": "políticas.",
+  "chave": -1,
+  "ini": 204.8,
+  "fim": 206.01,
+  "igual": true
+ },
+ {
+  "texto": "Elas",
+  "chave": -1,
+  "ini": 206.01,
+  "fim": 206.25,
+  "igual": true
+ },
+ {
+  "texto": "dependem",
+  "chave": -1,
+  "ini": 206.25,
+  "fim": 207.02,
+  "igual": true
+ },
+ {
+  "texto": "de",
+  "chave": -1,
+  "ini": 207.02,
+  "fim": 207.2,
+  "igual": true
+ },
+ {
+  "texto": "instituições",
+  "chave": -1,
+  "ini": 207.2,
+  "fim": 208.36,
+  "igual": true
+ },
+ {
+  "texto": "comprometidas,",
+  "chave": -1,
+  "ini": 208.36,
+  "fim": 209.79,
+  "igual": true
+ },
+ {
+  "texto": "mas,",
+  "chave": -1,
+  "ini": 209.79,
+  "fim": 210.08,
+  "igual": true
+ },
+ {
+  "texto": "acima",
+  "chave": -1,
+  "ini": 210.08,
+  "fim": 210.56,
+  "igual": true
+ },
+ {
+  "texto": "de",
+  "chave": -1,
+  "ini": 210.56,
+  "fim": 210.75,
+  "igual": true
+ },
+ {
+  "texto": "tudo,",
+  "chave": -1,
+  "ini": 210.75,
+  "fim": 211.33,
+  "igual": true
+ },
+ {
+  "texto": "de",
+  "chave": -1,
+  "ini": 211.33,
+  "fim": 211.52,
+  "igual": true
+ },
+ {
+  "texto": "gente.",
+  "chave": -1,
+  "ini": 211.52,
+  "fim": 212.64,
+  "igual": true
+ },
+ {
+  "texto": "Gente",
+  "chave": -1,
+  "ini": 212.78,
+  "fim": 213.13,
+  "igual": true
+ },
+ {
+  "texto": "que",
+  "chave": -1,
+  "ini": 213.13,
+  "fim": 213.33,
+  "igual": true
+ },
+ {
+  "texto": "olha",
+  "chave": -1,
+  "ini": 213.33,
+  "fim": 213.84,
+  "igual": true
+ },
+ {
+  "texto": "nos",
+  "chave": -1,
+  "ini": 213.84,
+  "fim": 213.93,
+  "igual": true
+ },
+ {
+  "texto": "olhos,",
+  "chave": -1,
+  "ini": 213.93,
+  "fim": 214.48,
+  "igual": true
+ },
+ {
+  "texto": "que",
+  "chave": -1,
+  "ini": 214.48,
+  "fim": 214.74,
+  "igual": true
+ },
+ {
+  "texto": "escuta",
+  "chave": -1,
+  "ini": 214.74,
+  "fim": 215.22,
+  "igual": true
+ },
+ {
+  "texto": "com",
+  "chave": -1,
+  "ini": 215.22,
+  "fim": 215.46,
+  "igual": true
+ },
+ {
+  "texto": "atenção,",
+  "chave": -1,
+  "ini": 215.46,
+  "fim": 216.19,
+  "igual": true
+ },
+ {
+  "texto": "que",
+  "chave": -1,
+  "ini": 216.19,
+  "fim": 216.66,
+  "igual": true
+ },
+ {
+  "texto": "sente",
+  "chave": -1,
+  "ini": 216.66,
+  "fim": 216.87,
+  "igual": true
+ },
+ {
+  "texto": "a",
+  "chave": -1,
+  "ini": 216.87,
+  "fim": 216.92,
+  "igual": true
+ },
+ {
+  "texto": "dor",
+  "chave": -1,
+  "ini": 216.92,
+  "fim": 217.17,
+  "igual": true
+ },
+ {
+  "texto": "do",
+  "chave": -1,
+  "ini": 217.17,
+  "fim": 217.32,
+  "igual": true
+ },
+ {
+  "texto": "empreendedor",
+  "chave": -1,
+  "ini": 217.32,
+  "fim": 218.4,
+  "igual": true
+ },
+ {
+  "texto": "e",
+  "chave": -1,
+  "ini": 218.4,
+  "fim": 218.54,
+  "igual": true
+ },
+ {
+  "texto": "que",
+  "chave": -1,
+  "ini": 218.54,
+  "fim": 218.76,
+  "igual": true
+ },
+ {
+  "texto": "não",
+  "chave": -1,
+  "ini": 218.76,
+  "fim": 219,
+  "igual": true
+ },
+ {
+  "texto": "mede",
+  "chave": -1,
+  "ini": 219,
+  "fim": 219.57,
+  "igual": true
+ },
+ {
+  "texto": "esforços",
+  "chave": -1,
+  "ini": 219.57,
+  "fim": 220.11,
+  "igual": true
+ },
+ {
+  "texto": "para",
+  "chave": -1,
+  "ini": 220.11,
+  "fim": 220.47,
+  "igual": true
+ },
+ {
+  "texto": "ajudá-lo.",
+  "chave": -1,
+  "ini": 220.47,
+  "fim": 221.52,
+  "igual": true
+ },
+ {
+  "texto": "Essa",
+  "chave": -1,
+  "ini": 221.66,
+  "fim": 222.02,
+  "igual": true
+ },
+ {
+  "texto": "gente",
+  "chave": -1,
+  "ini": 222.02,
+  "fim": 222.51,
+  "igual": true
+ },
+ {
+  "texto": "é",
+  "chave": -1,
+  "ini": 222.51,
+  "fim": 222.72,
+  "igual": true
+ },
+ {
+  "texto": "o",
+  "chave": -1,
+  "ini": 222.72,
+  "fim": 222.73,
+  "igual": true
+ },
+ {
+  "texto": "nosso",
+  "chave": -1,
+  "ini": 222.73,
+  "fim": 223.22,
+  "igual": true
+ },
+ {
+  "texto": "time",
+  "chave": -1,
+  "ini": 223.22,
+  "fim": 223.62,
+  "igual": true
+ },
+ {
+  "texto": "de",
+  "chave": -1,
+  "ini": 223.62,
+  "fim": 223.82,
+  "igual": true
+ },
+ {
+  "texto": "atendimento.",
+  "chave": -1,
+  "ini": 223.82,
+  "fim": 225.1,
+  "igual": true
+ },
+ {
+  "texto": "São",
+  "chave": -1,
+  "ini": 225.1,
+  "fim": 225.54,
+  "igual": true
+ },
+ {
+  "texto": "nossos",
+  "chave": -1,
+  "ini": 225.54,
+  "fim": 226.02,
+  "igual": true
+ },
+ {
+  "texto": "colaboradores,",
+  "chave": -1,
+  "ini": 226.02,
+  "fim": 227.52,
+  "igual": true
+ },
+ {
+  "texto": "agentes",
+  "chave": -1,
+  "ini": 227.52,
+  "fim": 228.22,
+  "igual": true
+ },
+ {
+  "texto": "e",
+  "chave": -1,
+  "ini": 228.22,
+  "fim": 228.32,
+  "igual": true
+ },
+ {
+  "texto": "parceiros.",
+  "chave": -1,
+  "ini": 228.32,
+  "fim": 229.36,
+  "igual": true
+ },
+ {
+  "texto": "Pessoas",
+  "chave": -1,
+  "ini": 229.36,
+  "fim": 229.95,
+  "igual": true
+ },
+ {
+  "texto": "que,",
+  "chave": -1,
+  "ini": 229.95,
+  "fim": 230.56,
+  "igual": true
+ },
+ {
+  "texto": "muitas",
+  "chave": -1,
+  "ini": 230.56,
+  "fim": 230.79,
+  "igual": true
+ },
+ {
+  "texto": "vezes",
+  "chave": -1,
+  "ini": 230.79,
+  "fim": 231.41,
+  "igual": true
+ },
+ {
+  "texto": "longe",
+  "chave": -1,
+  "ini": 231.41,
+  "fim": 231.76,
+  "igual": true
+ },
+ {
+  "texto": "dos",
+  "chave": -1,
+  "ini": 231.76,
+  "fim": 232.02,
+  "igual": true
+ },
+ {
+  "texto": "holofotes,",
+  "chave": -1,
+  "ini": 232.02,
+  "fim": 232.94,
+  "igual": true
+ },
+ {
+  "texto": "fazem",
+  "chave": -1,
+  "ini": 232.94,
+  "fim": 233.39,
+  "igual": true
+ },
+ {
+  "texto": "o",
+  "chave": -1,
+  "ini": 233.39,
+  "fim": 233.47,
+  "igual": true
+ },
+ {
+  "texto": "Sebrae",
+  "chave": -1,
+  "ini": 233.47,
+  "fim": 234.07,
+  "igual": false
+ },
+ {
+  "texto": "acontecer",
+  "chave": -1,
+  "ini": 234.07,
+  "fim": 234.85,
+  "igual": true
+ },
+ {
+  "texto": "de",
+  "chave": -1,
+  "ini": 234.85,
+  "fim": 235.02,
+  "igual": true
+ },
+ {
+  "texto": "verdade.",
+  "chave": -1,
+  "ini": 235.02,
+  "fim": 235.96,
+  "igual": true
+ },
+ {
+  "texto": "Por",
+  "chave": -1,
+  "ini": 235.96,
+  "fim": 236.18,
+  "igual": true
+ },
+ {
+  "texto": "isso,",
+  "chave": -1,
+  "ini": 236.18,
+  "fim": 236.61,
+  "igual": true
+ },
+ {
+  "texto": "meu",
+  "chave": -1,
+  "ini": 236.61,
+  "fim": 236.87,
+  "igual": true
+ },
+ {
+  "texto": "desejo",
+  "chave": -1,
+  "ini": 236.87,
+  "fim": 237.35,
+  "igual": true
+ },
+ {
+  "texto": "é",
+  "chave": -1,
+  "ini": 237.35,
+  "fim": 237.39,
+  "igual": true
+ },
+ {
+  "texto": "que,",
+  "chave": -1,
+  "ini": 237.39,
+  "fim": 237.57,
+  "igual": true
+ },
+ {
+  "texto": "nas",
+  "chave": -1,
+  "ini": 237.57,
+  "fim": 237.78,
+  "igual": true
+ },
+ {
+  "texto": "próximas",
+  "chave": -1,
+  "ini": 237.78,
+  "fim": 238.38,
+  "igual": true
+ },
+ {
+  "texto": "edições",
+  "chave": -1,
+  "ini": 238.38,
+  "fim": 238.9,
+  "igual": true
+ },
+ {
+  "texto": "do",
+  "chave": -1,
+  "ini": 238.9,
+  "fim": 239.12,
+  "igual": false
+ },
+ {
+  "texto": "Histórias",
+  "chave": -1,
+  "ini": 239.12,
+  "fim": 239.86,
+  "igual": true
+ },
+ {
+  "texto": "de",
+  "chave": -1,
+  "ini": 239.86,
+  "fim": 239.98,
+  "igual": true
+ },
+ {
+  "texto": "Quem",
+  "chave": -1,
+  "ini": 239.98,
+  "fim": 240.23,
+  "igual": true
+ },
+ {
+  "texto": "Atende,",
+  "chave": -1,
+  "ini": 240.23,
+  "fim": 240.92,
+  "igual": true
+ },
+ {
+  "texto": "possamos",
+  "chave": -1,
+  "ini": 240.92,
+  "fim": 241.47,
+  "igual": true
+ },
+ {
+  "texto": "contar",
+  "chave": -1,
+  "ini": 241.47,
+  "fim": 242.2,
+  "igual": true
+ },
+ {
+  "texto": "muito",
+  "chave": -1,
+  "ini": 242.34,
+  "fim": 242.73,
+  "igual": true
+ },
+ {
+  "texto": "mais",
+  "chave": -1,
+  "ini": 242.73,
+  "fim": 243.41,
+  "igual": true
+ },
+ {
+  "texto": "histórias.",
+  "chave": -1,
+  "ini": 243.41,
+  "fim": 244.44,
+  "igual": true
+ },
+ {
+  "texto": "Que",
+  "chave": -1,
+  "ini": 244.44,
+  "fim": 244.73,
+  "igual": true
+ },
+ {
+  "texto": "essa",
+  "chave": -1,
+  "ini": 244.73,
+  "fim": 245.08,
+  "igual": true
+ },
+ {
+  "texto": "telinha",
+  "chave": -1,
+  "ini": 245.08,
+  "fim": 245.87,
+  "igual": true
+ },
+ {
+  "texto": "mostre",
+  "chave": -1,
+  "ini": 245.87,
+  "fim": 246.49,
+  "igual": true
+ },
+ {
+  "texto": "cada",
+  "chave": -1,
+  "ini": 246.49,
+  "fim": 246.77,
+  "igual": true
+ },
+ {
+  "texto": "vez",
+  "chave": -1,
+  "ini": 246.77,
+  "fim": 247.06,
+  "igual": true
+ },
+ {
+  "texto": "mais",
+  "chave": -1,
+  "ini": 247.06,
+  "fim": 247.46,
+  "igual": true
+ },
+ {
+  "texto": "sorrisos",
+  "chave": -1,
+  "ini": 247.46,
+  "fim": 248.22,
+  "igual": true
+ },
+ {
+  "texto": "e",
+  "chave": -1,
+  "ini": 248.22,
+  "fim": 248.46,
+  "igual": true
+ },
+ {
+  "texto": "emoções",
+  "chave": -1,
+  "ini": 248.46,
+  "fim": 248.99,
+  "igual": true
+ },
+ {
+  "texto": "de",
+  "chave": -1,
+  "ini": 248.99,
+  "fim": 249.18,
+  "igual": true
+ },
+ {
+  "texto": "quem",
+  "chave": -1,
+  "ini": 249.18,
+  "fim": 249.47,
+  "igual": false
+ },
+ {
+  "texto": "faz",
+  "chave": -1,
+  "ini": 249.47,
+  "fim": 249.76,
+  "igual": true
+ },
+ {
+  "texto": "a",
+  "chave": -1,
+  "ini": 249.76,
+  "fim": 249.85,
+  "igual": true
+ },
+ {
+  "texto": "diferença",
+  "chave": -1,
+  "ini": 249.85,
+  "fim": 250.75,
+  "igual": true
+ },
+ {
+  "texto": "na",
+  "chave": -1,
+  "ini": 250.75,
+  "fim": 250.93,
+  "igual": true
+ },
+ {
+  "texto": "vida",
+  "chave": -1,
+  "ini": 250.93,
+  "fim": 251.48,
+  "igual": true
+ },
+ {
+  "texto": "dos",
+  "chave": -1,
+  "ini": 251.48,
+  "fim": 251.73,
+  "igual": true
+ },
+ {
+  "texto": "outros.",
+  "chave": -1,
+  "ini": 251.73,
+  "fim": 252.48,
+  "igual": true
+ },
+ {
+  "texto": "Porque",
+  "chave": -1,
+  "ini": 252.69,
+  "fim": 252.9,
+  "igual": false
+ },
+ {
+  "texto": "não",
+  "chave": -1,
+  "ini": 252.9,
+  "fim": 253.1,
+  "igual": true
+ },
+ {
+  "texto": "basta",
+  "chave": -1,
+  "ini": 253.1,
+  "fim": 253.68,
+  "igual": true
+ },
+ {
+  "texto": "reconhecer",
+  "chave": -1,
+  "ini": 253.68,
+  "fim": 254.18,
+  "igual": true
+ },
+ {
+  "texto": "os",
+  "chave": -1,
+  "ini": 254.18,
+  "fim": 254.31,
+  "igual": true
+ },
+ {
+  "texto": "grandes",
+  "chave": -1,
+  "ini": 254.31,
+  "fim": 254.83,
+  "igual": true
+ },
+ {
+  "texto": "resultados.",
+  "chave": -1,
+  "ini": 254.83,
+  "fim": 255.84,
+  "igual": true
+ },
+ {
+  "texto": "Precisamos",
+  "chave": -1,
+  "ini": 255.84,
+  "fim": 256.75,
+  "igual": true
+ },
+ {
+  "texto": "reconhecer",
+  "chave": -1,
+  "ini": 256.75,
+  "fim": 257.59,
+  "igual": true
+ },
+ {
+  "texto": "quem",
+  "chave": -1,
+  "ini": 257.59,
+  "fim": 257.94,
+  "igual": true
+ },
+ {
+  "texto": "os",
+  "chave": -1,
+  "ini": 257.94,
+  "fim": 258.11,
+  "igual": true
+ },
+ {
+  "texto": "torna",
+  "chave": -1,
+  "ini": 258.11,
+  "fim": 258.61,
+  "igual": true
+ },
+ {
+  "texto": "possíveis.",
+  "chave": -1,
+  "ini": 258.61,
+  "fim": 259.64,
+  "igual": true
+ },
+ {
+  "texto": "O",
+  "chave": -1,
+  "ini": 259.64,
+  "fim": 259.78,
+  "igual": true
+ },
+ {
+  "texto": "Sebrae",
+  "chave": -1,
+  "ini": 259.78,
+  "fim": 260.28,
+  "igual": false
+ },
+ {
+  "texto": "não",
+  "chave": -1,
+  "ini": 260.28,
+  "fim": 260.47,
+  "igual": true
+ },
+ {
+  "texto": "é",
+  "chave": -1,
+  "ini": 260.47,
+  "fim": 260.85,
+  "igual": true
+ },
+ {
+  "texto": "feito",
+  "chave": -1,
+  "ini": 260.85,
+  "fim": 261.1,
+  "igual": true
+ },
+ {
+  "texto": "apenas",
+  "chave": -1,
+  "ini": 261.1,
+  "fim": 261.69,
+  "igual": true
+ },
+ {
+  "texto": "de",
+  "chave": -1,
+  "ini": 261.69,
+  "fim": 261.8,
+  "igual": true
+ },
+ {
+  "texto": "programas,",
+  "chave": -1,
+  "ini": 261.8,
+  "fim": 262.76,
+  "igual": true
+ },
+ {
+  "texto": "projetos,",
+  "chave": -1,
+  "ini": 262.76,
+  "fim": 263.66,
+  "igual": true
+ },
+ {
+  "texto": "metas",
+  "chave": -1,
+  "ini": 263.66,
+  "fim": 264.06,
+  "igual": true
+ },
+ {
+  "texto": "e",
+  "chave": -1,
+  "ini": 264.06,
+  "fim": 264.14,
+  "igual": true
+ },
+ {
+  "texto": "números.",
+  "chave": -1,
+  "ini": 264.14,
+  "fim": 265.14,
+  "igual": true
+ },
+ {
+  "texto": "É",
+  "chave": -1,
+  "ini": 265.14,
+  "fim": 265.28,
+  "igual": true
+ },
+ {
+  "texto": "feito",
+  "chave": -1,
+  "ini": 265.28,
+  "fim": 265.71,
+  "igual": true
+ },
+ {
+  "texto": "de",
+  "chave": -1,
+  "ini": 265.71,
+  "fim": 266.34,
+  "igual": true
+ },
+ {
+  "texto": "pessoas",
+  "chave": -1,
+  "ini": 266.34,
+  "fim": 266.57,
+  "igual": true
+ },
+ {
+  "texto": "que",
+  "chave": -1,
+  "ini": 266.57,
+  "fim": 266.86,
+  "igual": true
+ },
+ {
+  "texto": "servem",
+  "chave": -1,
+  "ini": 266.86,
+  "fim": 267.43,
+  "igual": true
+ },
+ {
+  "texto": "a",
+  "chave": -1,
+  "ini": 267.43,
+  "fim": 267.51,
+  "igual": true
+ },
+ {
+  "texto": "outras",
+  "chave": -1,
+  "ini": 267.51,
+  "fim": 268.1,
+  "igual": true
+ },
+ {
+  "texto": "pessoas.",
+  "chave": -1,
+  "ini": 268.1,
+  "fim": 269.12,
+  "igual": true
+ },
+ {
+  "texto": "E",
+  "chave": -1,
+  "ini": 269.22,
+  "fim": 269.26,
+  "igual": true
+ },
+ {
+  "texto": "é",
+  "chave": -1,
+  "ini": 269.26,
+  "fim": 269.32,
+  "igual": true
+ },
+ {
+  "texto": "justamente",
+  "chave": -1,
+  "ini": 269.32,
+  "fim": 270.33,
+  "igual": true
+ },
+ {
+  "texto": "isso",
+  "chave": -1,
+  "ini": 270.33,
+  "fim": 270.7,
+  "igual": true
+ },
+ {
+  "texto": "que",
+  "chave": -1,
+  "ini": 270.7,
+  "fim": 270.98,
+  "igual": true
+ },
+ {
+  "texto": "dá",
+  "chave": -1,
+  "ini": 270.98,
+  "fim": 271.18,
+  "igual": true
+ },
+ {
+  "texto": "vida,",
+  "chave": -1,
+  "ini": 271.18,
+  "fim": 271.76,
+  "igual": true
+ },
+ {
+  "texto": "sentido",
+  "chave": -1,
+  "ini": 271.76,
+  "fim": 272.45,
+  "igual": true
+ },
+ {
+  "texto": "e",
+  "chave": -1,
+  "ini": 272.45,
+  "fim": 272.55,
+  "igual": true
+ },
+ {
+  "texto": "grandeza",
+  "chave": -1,
+  "ini": 272.55,
+  "fim": 273.35,
+  "igual": true
+ },
+ {
+  "texto": "a",
+  "chave": -1,
+  "ini": 273.35,
+  "fim": 273.43,
+  "igual": true
+ },
+ {
+  "texto": "esse",
+  "chave": -1,
+  "ini": 273.43,
+  "fim": 273.82,
+  "igual": true
+ },
+ {
+  "texto": "organismo",
+  "chave": -1,
+  "ini": 273.82,
+  "fim": 274.7,
+  "igual": true
+ },
+ {
+  "texto": "vivo",
+  "chave": -1,
+  "ini": 274.7,
+  "fim": 275.09,
+  "igual": true
+ },
+ {
+  "texto": "que",
+  "chave": -1,
+  "ini": 275.09,
+  "fim": 275.43,
+  "igual": true
+ },
+ {
+  "texto": "tenho",
+  "chave": -1,
+  "ini": 275.43,
+  "fim": 275.8,
+  "igual": false
+ },
+ {
+  "texto": "tanto",
+  "chave": -1,
+  "ini": 275.8,
+  "fim": 276.32,
+  "igual": true
+ },
+ {
+  "texto": "orgulho",
+  "chave": -1,
+  "ini": 276.32,
+  "fim": 276.88,
+  "igual": true
+ },
+ {
+  "texto": "de",
+  "chave": -1,
+  "ini": 276.88,
+  "fim": 277.02,
+  "igual": true
+ },
+ {
+  "texto": "integrar",
+  "chave": -1,
+  "ini": 277.02,
+  "fim": 277.75,
+  "igual": true
+ },
+ {
+  "texto": "e",
+  "chave": -1,
+  "ini": 277.75,
+  "fim": 277.77,
+  "igual": true
+ },
+ {
+  "texto": "que",
+  "chave": -1,
+  "ini": 277.77,
+  "fim": 278.01,
+  "igual": true
+ },
+ {
+  "texto": "conhecemos",
+  "chave": -1,
+  "ini": 278.01,
+  "fim": 278.86,
+  "igual": true
+ },
+ {
+  "texto": "como",
+  "chave": -1,
+  "ini": 278.86,
+  "fim": 279.15,
+  "igual": true
+ },
+ {
+  "texto": "a",
+  "chave": -1,
+  "ini": 279.15,
+  "fim": 279.23,
+  "igual": true
+ },
+ {
+  "texto": "casa",
+  "chave": -1,
+  "ini": 279.23,
+  "fim": 279.55,
+  "igual": true
+ },
+ {
+  "texto": "do",
+  "chave": -1,
+  "ini": 279.55,
+  "fim": 279.71,
+  "igual": true
+ },
+ {
+  "texto": "empreendedor",
+  "chave": -1,
+  "ini": 279.71,
+  "fim": 280.69,
+  "igual": true
+ },
+ {
+  "texto": "brasileiro.",
+  "chave": -1,
+  "ini": 280.69,
+  "fim": 281.84,
+  "igual": true
+ },
+ {
+  "texto": "Que",
+  "chave": -1,
+  "ini": 281.84,
+  "fim": 282.07,
+  "igual": true
+ },
+ {
+  "texto": "venham",
+  "chave": -1,
+  "ini": 282.07,
+  "fim": 282.3,
+  "igual": false
+ },
+ {
+  "texto": "muitas",
+  "chave": -1,
+  "ini": 282.3,
+  "fim": 283.04,
+  "igual": true
+ },
+ {
+  "texto": "outras",
+  "chave": -1,
+  "ini": 283.04,
+  "fim": 283.27,
+  "igual": true
+ },
+ {
+  "texto": "histórias.",
+  "chave": -1,
+  "ini": 283.27,
+  "fim": 284.2,
+  "igual": true
+ },
+ {
+  "texto": "E",
+  "chave": -1,
+  "ini": 284.2,
+  "fim": 284.34,
+  "igual": true
+ },
+ {
+  "texto": "que",
+  "chave": -1,
+  "ini": 284.34,
+  "fim": 284.56,
+  "igual": true
+ },
+ {
+  "texto": "seus",
+  "chave": -1,
+  "ini": 284.56,
+  "fim": 284.91,
+  "igual": true
+ },
+ {
+  "texto": "verdadeiros",
+  "chave": -1,
+  "ini": 284.91,
+  "fim": 285.92,
+  "igual": true
+ },
+ {
+  "texto": "protagonistas",
+  "chave": -1,
+  "ini": 285.92,
+  "fim": 287.1,
+  "igual": true
+ },
+ {
+  "texto": "sejam",
+  "chave": -1,
+  "ini": 287.1,
+  "fim": 287.55,
+  "igual": true
+ },
+ {
+  "texto": "sempre",
+  "chave": -1,
+  "ini": 287.55,
+  "fim": 288.22,
+  "igual": true
+ },
+ {
+  "texto": "aqueles",
+  "chave": -1,
+  "ini": 288.22,
+  "fim": 288.73,
+  "igual": true
+ },
+ {
+  "texto": "que",
+  "chave": -1,
+  "ini": 288.73,
+  "fim": 289,
+  "igual": true
+ },
+ {
+  "texto": "fazem",
+  "chave": -1,
+  "ini": 289,
+  "fim": 289.45,
+  "igual": true
+ },
+ {
+  "texto": "do",
+  "chave": -1,
+  "ini": 289.45,
+  "fim": 289.63,
+  "igual": true
+ },
+ {
+  "texto": "ato",
+  "chave": -1,
+  "ini": 289.63,
+  "fim": 289.99,
+  "igual": false
+ },
+ {
+  "texto": "de",
+  "chave": -1,
+  "ini": 289.99,
+  "fim": 290.17,
+  "igual": true
+ },
+ {
+  "texto": "atender",
+  "chave": -1,
+  "ini": 290.17,
+  "fim": 290.88,
+  "igual": true
+ },
+ {
+  "texto": "uma",
+  "chave": -1,
+  "ini": 290.88,
+  "fim": 291.21,
+  "igual": true
+ },
+ {
+  "texto": "oportunidade",
+  "chave": -1,
+  "ini": 291.21,
+  "fim": 292.55,
+  "igual": true
+ },
+ {
+  "texto": "de",
+  "chave": -1,
+  "ini": 292.55,
+  "fim": 292.75,
+  "igual": true
+ },
+ {
+  "texto": "transformar",
+  "chave": -1,
+  "ini": 292.75,
+  "fim": 293.99,
+  "igual": true
+ },
+ {
+  "texto": "vidas!",
+  "chave": -1,
+  "ini": 293.99,
+  "fim": 294.92,
+  "igual": true
+ }
+]

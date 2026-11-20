@@ -42,3 +42,32 @@ O design é feito **com código** (HTML/CSS) e exportado em **PNG de alta qualid
 - **Ícones grátis (Iconify)**: `https://api.iconify.design/<coleção>/<ícone>.svg?color=%23FC3B7F` (ex.: `ph/arrow-right-bold`). Preferir coleções de licença livre (Phosphor `ph`, Lucide `lucide`, Tabler `tabler`).
 - **Wikimedia Commons direto** (`commons.wikimedia.org/w/api.php`): mais fotos livres. Às vezes limita pedidos; esperar e tentar de novo.
 - **Pexels**: descartado. O Pexels não está liberando chaves novas (nov/2026). Não oferecer de novo; usar Openverse e Wikimedia.
+
+## Adesivos personalizados (um por pessoa) — pronto desde 19/11/2026
+- Modelo: `projetos/_modelos/adesivo-redondo/modelo.html`. É **só um teste técnico** (medidas, margens, encaixe do nome): visual, cores, fonte e posição NÃO estão decididos. Esperar a pessoa definir o design com o material do cliente.
+- Gerar: `node _tecnico/scripts/gerar-adesivos.mjs <modelo.html> <nomes.txt> <pasta> [--diametro 60] [--sangria 2] [--dpi 300]`
+  Sai: um PDF vetorial e um PNG 300 dpi (fundo transparente) por pessoa, `todos.pdf` (um por página) e `folha-de-conferencia.png` (todos lado a lado, com linha de corte vermelha e área segura azul).
+- Nome longo: o modelo diminui a letra e, se ficar abaixo de 6 mm, quebra em duas linhas. O script avisa se ficar abaixo de 5 mm.
+- Padrões de gráfica: 300 dpi; sangria de 2 mm (a cor passa da linha de corte); área segura de 3 mm (nada importante perto do corte); letra do nome com no mínimo ~4 mm de altura.
+- Para caneca: 5 a 7 cm de diâmetro costuma caber (caneca comum tem ~9,5 cm de altura). Confirmar com a gráfica: tamanho, se querem sangria, se aceitam PDF (preferir) e se o vinil é laminado/resistente a lavar.
+- O símbolo do cliente: pedir em vetor (PDF, SVG, AI ou EPS) ou PNG grande com fundo transparente. Se vier com fundo, recortar com rembg.
+- Cores: a tela mostra RGB; a gráfica imprime em CMYK. Cores muito vivas (neon) podem sair mais apagadas — avisar a pessoa.
+
+## Como a pessoa quer os ajustes (aprendido no adesivo Charlie, 19/11/2026)
+- Quando ela gostar de uma versão, **essa versão é a base e não muda**. "Melhorar" significa testar **uma coisa pequena por vez** em cima dela: tamanho da estrela, cor de um elemento, tamanho do "EQUIPE", posição do nome etc.
+- **Nunca** refazer o visual inteiro, trocar cores, fontes, fundo ou o desenho do logo sem ela pedir aquilo especificamente.
+- Mostrar os testes lado a lado com a base, cada um com só uma diferença.
+- Charlie: a base aprovada é `projetos/charlie/2026-11-19-adesivo-caneca/versao-b-redesenho.html`.
+
+## Jeito de trabalhar (pedido da pessoa)
+- Agir como **designer profissional**: receber o material do cliente, decidir e entregar pronto, com 1 linha de motivo por escolha ("fiz assim porque…").
+- Poucas perguntas: só quando faltar uma informação que não dá para decidir sozinho (ex.: lista de nomes).
+- Tratar a pessoa de igual para igual. Nada de explicação longa nem de listas de opções para ela escolher cada detalhe.
+
+## Entregas aprovadas
+- **Equipe Charlie — adesivo de caneca (20/11/2026, aprovado pelo cliente):** 17 adesivos redondos de 6 cm.
+  Modelo: `projetos/charlie/2026-11-19-adesivo-caneca/versao-logo-original.html`. Nomes em `nomes-equipe-charlie.txt`.
+  O que deu certo: usar o logo verdadeiro do cliente ocupando o adesivo, "EQUIPE" em arco na letra de estêncil e o nome da pessoa em letra lisa (Big Shoulders Display), sem enfeite.
+
+## Marca ianmour
+Padrão de cores e símbolos próprios em `marca-ianmour/LEIA-ME.md`. Usar em toda peça "pra mim".

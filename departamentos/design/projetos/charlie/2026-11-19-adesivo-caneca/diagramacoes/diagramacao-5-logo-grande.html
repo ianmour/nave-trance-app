@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<!-- Equipe Charlie — adesivo de caneca, diagramação 5-logo-grande (rascunho). Logo igual ao da versão B; só muda a posição das coisas. -->
+<link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap" rel="stylesheet">
+<style>
+  :root { --diametro:60mm; --sangria:2mm; --seguro:3mm;
+    --fundo:#17190F; --oliva:#6F7A2B; --amarelo:#F2DE45; --laranja:#EE5A12; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html, body { background:transparent; }
+  .adesivo { width:calc(var(--diametro) + 2*var(--sangria)); height:calc(var(--diametro) + 2*var(--sangria));
+    border-radius:50%; overflow:hidden; position:relative; background:var(--fundo); }
+  svg.arte { position:absolute; inset:0; width:100%; height:100%; }
+  .nome { position:absolute; display:flex; align-items:center; justify-content:center; text-align:center;
+    font-family:'Black Ops One', sans-serif; text-transform:uppercase; line-height:1; white-space:nowrap; letter-spacing:.02em;
+    left:21%; right:21%; top:72%; height:7.5mm; color:var(--amarelo); }
+  .guia-corte, .guia-seguro { display:none; position:absolute; border-radius:50%; }
+  .guias .guia-corte { display:block; inset:var(--sangria); border:.2mm dashed #ff2d55; }
+  .guias .guia-seguro { display:block; inset:calc(var(--sangria) + var(--seguro)); border:.2mm dotted #00e0ff; }
+</style>
+</head>
+<body>
+<div class="adesivo">
+  <svg class="arte" viewBox="0 0 64 64"><defs><filter id="desgaste" x="0" y="0" width="100%" height="100%">
+  <feTurbulence type="fractalNoise" baseFrequency="1.6" numOctaves="2" seed="4" result="ruido"/>
+  <feColorMatrix in="ruido" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -1.1 1.3" result="mascara"/>
+  <feComposite in="SourceGraphic" in2="mascara" operator="in"/></filter>
+<filter id="desgaste-anel" x="-20%" y="-20%" width="140%" height="140%">
+  <feTurbulence type="fractalNoise" baseFrequency="1.6" numOctaves="2" seed="4" result="ruido"/>
+  <feColorMatrix in="ruido" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -1.1 1.3" result="mascara"/>
+  <feComposite in="SourceGraphic" in2="mascara" operator="in"/></filter>
+<filter id="textura" x="0" y="0" width="100%" height="100%">
+  <feTurbulence type="fractalNoise" baseFrequency=".35" numOctaves="3" seed="9"/>
+  <feColorMatrix type="matrix" values="0 0 0 0 .55  0 0 0 0 .6  0 0 0 0 .4  0 0 0 .12 0"/></filter>
+<linearGradient id="fogo" x1="0" y1="1" x2="0" y2="0">
+  <stop offset="0" stop-color="#B3170E"/><stop offset=".45" stop-color="#EE5A12"/><stop offset="1" stop-color="#FFC233"/></linearGradient></defs><rect width="64" height="64" fill="var(--fundo)"/><rect width="64" height="64" filter="url(#textura)"/>
+<text x="32" y="10.6" text-anchor="middle" font-family="Black Ops One" font-size="3.8" letter-spacing="1.2" fill="var(--amarelo)">EQUIPE</text>
+<g transform="translate(32 28.6) scale(0.98) translate(-32 -26.5)">
+<polygon filter="url(#desgaste)" fill="var(--oliva)" points="32.00,10.70 36.11,22.54 48.64,22.79 38.66,30.36 42.29,42.36 32.00,35.20 21.71,42.36 25.34,30.36 15.36,22.79 27.89,22.54"/>
+<text x="32" y="39" text-anchor="middle" font-family="Black Ops One" font-size="25" fill="url(#fogo)" stroke="#2A0A04" stroke-width=".55" paint-order="stroke">C</text>
+<text x="32" y="31.4" text-anchor="middle" font-family="Black Ops One" font-size="7.2" letter-spacing=".25" fill="var(--amarelo)" stroke="var(--fundo)" stroke-width=".9" paint-order="stroke">CHARLIE</text>
+</g>
+<line x1="19" y1="45" x2="45" y2="45" stroke="var(--amarelo)" stroke-width=".35"/></svg>
+  <div class="nome"><span data-campo="nome">NOME</span></div>
+  <div class="guia-corte"></div><div class="guia-seguro"></div>
+</div>
+<script>
+  window.ajustarTexto = () => {
+    document.querySelectorAll('.nome').forEach(caixa => {
+      const span = caixa.querySelector('[data-campo=nome]');
+      const encaixar = (inicio, minimo) => { let t = inicio; caixa.style.fontSize = t + 'mm';
+        while ((span.scrollWidth > caixa.clientWidth || span.scrollHeight > caixa.clientHeight || caixa.scrollWidth > caixa.clientWidth) && t > minimo) { t -= .25; caixa.style.fontSize = t + 'mm'; }
+        return t; };
+      caixa.style.whiteSpace = 'nowrap'; span.style.display = '';
+      let t = encaixar(7.5, 3);
+      if (t < 4.5 && span.textContent.trim().includes(' ')) { caixa.style.whiteSpace = 'normal'; span.style.display = 'block'; caixa.style.lineHeight = '.95'; t = encaixar(6.5, 3); }
+      caixa.dataset.tamanho = t;
+    });
+  };
+  const ajustarDiv = window.ajustarTexto;
+  window.ajustarTexto = () => {
+    ajustarDiv();
+    document.querySelectorAll('text.nome-arco').forEach(t => {
+      const tp = t.querySelector('textPath'); tp.textContent = tp.textContent.toUpperCase();
+      const caminho = document.querySelector(t.querySelector('textPath').getAttribute('href'));
+      const limite = caminho.getTotalLength() * 0.92;
+      let tam = Number(t.dataset.max); t.setAttribute('font-size', tam);
+      while (t.getComputedTextLength() > limite && tam > 2.6) { tam -= .1; t.setAttribute('font-size', tam.toFixed(2)); }
+      t.dataset.tamanho = tam;
+    });
+  };
+  document.fonts.ready.then(window.ajustarTexto);
+</script>
+</body>
+</html>

@@ -71,3 +71,4 @@ O design é feito **com código** (HTML/CSS) e exportado em **PNG de alta qualid
 
 ## Marca ianmour
 Padrão de cores e símbolos próprios em `marca-ianmour/LEIA-ME.md`. Usar em toda peça "pra mim".
+- **Cargo embaixo do nome (Charlie, 20/11/2026):** na lista, escrever `Nome | COMANDO` ou `Nome | ADM`. O nome sobe um pouco e o cargo entra embaixo, em estêncil, entre dois traços. Quem não tem cargo continua idêntico ao aprovado (testado: 0 pixel de diferença).

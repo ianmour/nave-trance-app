@@ -5,6 +5,7 @@
 //   node _tecnico/scripts/gerar-adesivos.mjs <modelo.html> <nomes.txt> <pasta-de-saida> [--diametro 60] [--sangria 2] [--dpi 300]
 //
 // nomes.txt: um nome por linha (linhas vazias e linhas começando com # são ignoradas).
+//   Segunda linha opcional (cargo): "Nome | CARGO" → preenche [data-campo=cargo] e põe a classe .com-cargo no .adesivo.
 // Medidas em milímetros. O modelo precisa ter um elemento .adesivo e o texto variável em [data-campo=nome].
 //
 // Sai, para cada pessoa:
@@ -38,7 +39,9 @@ if (!modelo || !listaArq || !saida) {
 }
 for (const f of [modelo, listaArq]) if (!existsSync(f)) { console.error('Não achei: ' + f); process.exit(1); }
 
-const nomes = readFileSync(listaArq, 'utf8').split(/\r?\n/).map(s => s.trim()).filter(s => s && !s.startsWith('#'));
+const linhas = readFileSync(listaArq, 'utf8').split(/\r?\n/).map(s => s.trim()).filter(s => s && !s.startsWith('#'));
+const pessoas = linhas.map(l => { const [nome, cargo = ''] = l.split('|').map(x => x.trim()); return { nome, cargo }; });
+const nomes = pessoas.map(p => p.nome);
 if (!nomes.length) { console.error('A lista de nomes está vazia.'); process.exit(1); }
 
 const total = opc.diametro + 2 * opc.sangria;           // mm
@@ -70,15 +73,18 @@ try {
 
   for (let n = 0; n < nomes.length; n++) {
     const nome = nomes[n];
-    const tam = await page.evaluate(nome => {
+    const cargo = pessoas[n].cargo;
+    const tam = await page.evaluate(({ nome, cargo }) => {
       document.querySelectorAll('[data-campo=nome]').forEach(e => { e.textContent = nome; });
+      document.querySelectorAll('[data-campo=cargo]').forEach(e => { e.textContent = cargo; });
+      document.querySelectorAll('.adesivo').forEach(a => a.classList.toggle('com-cargo', !!cargo));
       window.ajustarTexto && window.ajustarTexto();
       const c = document.querySelector('.nome');
       return c ? Number(c.dataset.tamanho || 0) : 0;
-    }, nome);
+    }, { nome, cargo });
     if (tam && tam < 5) avisos.push(`"${nome}": nome longo, a letra ficou com ${tam} mm (confira se está legível)`);
 
-    const base = `${String(n + 1).padStart(2, '0')}-${slug(nome) || 'sem-nome'}`;
+    const base = `${String(n + 1).padStart(2, '0')}-${slug(nome) || 'sem-nome'}${cargo ? '-' + slug(cargo) : ''}`;
     const png = path.join(saida, 'png', base + '.png');
     await page.locator('.adesivo').screenshot({ path: png, omitBackground: true });
     try { execFileSync('convert', [png, '-units', 'PixelsPerInch', '-density', String(opc.dpi), png]); } catch { /* sem ImageMagick: PNG fica sem a marcação de dpi */ }
@@ -92,19 +98,21 @@ try {
   // PDF único com todos (um por página)
   const todos = await ctx.newPage();
   await todos.goto(url, { waitUntil: 'networkidle' });
-  await todos.evaluate(({ nomes, d, s }) => {
+  await todos.evaluate(({ pessoas, d, s }) => {
     document.documentElement.style.setProperty('--diametro', d + 'mm');
     document.documentElement.style.setProperty('--sangria', s + 'mm');
     const orig = document.querySelector('.adesivo');
-    for (const nome of nomes) {
+    for (const { nome, cargo } of pessoas) {
       const c = orig.cloneNode(true);
       c.removeAttribute('id');
       c.querySelectorAll('[data-campo=nome]').forEach(e => { e.textContent = nome; });
+      c.querySelectorAll('[data-campo=cargo]').forEach(e => { e.textContent = cargo; });
+      c.classList.toggle('com-cargo', !!cargo);
       c.style.breakAfter = 'page';
       document.body.appendChild(c);
     }
     orig.remove();
-  }, { nomes, d: opc.diametro, s: opc.sangria });
+  }, { pessoas, d: opc.diametro, s: opc.sangria });
   await todos.evaluate(() => document.fonts.ready);
   await todos.evaluate(() => window.ajustarTexto && window.ajustarTexto());
   await todos.pdf({ path: path.join(saida, 'todos.pdf'), width: total + 'mm', height: total + 'mm', printBackground: true, margin: { top: 0, right: 0, bottom: 0, left: 0 } });

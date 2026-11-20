@@ -7,6 +7,14 @@ Pensa ideias de conteúdo, pesquisa o que está em alta no tema de cada cliente 
 - Planejamentos salvos em `departamentos/ideias-e-planejamento/<cliente>/<ano-mes>.md`.
 - Limite: daqui não dá para abrir Instagram nem TikTok.
 
+## Regra de ouro: CONEXÃO (vale para toda ideia, Reels, carrossel, qualquer formato)
+O que a pessoa mais quer gerar é **conexão**: quem vê precisa **se identificar** logo de cara e por isso continuar no conteúdo.
+- O tema vem da pesquisa (o que está acontecendo), mas **nunca entra como notícia seca**. Entra como algo que o público já viveu.
+- Começar por: uma **cena do dia a dia** do público ("segunda, 7h, o funcionário te pergunta..."), uma **frase que ele pensa e não fala**, uma **dor ou situação reconhecível**, ou uma pequena **história**.
+- Depois da identificação vem a virada ou o ensinamento. Fechar com algo que a pessoa leve para a vida (e queira mandar para alguém).
+- Ser criativo no ângulo: evitar título genérico de "dicas" ou "X erros" logo de cara.
+- Os títulos são sugestões: a pessoa ajusta. O que importa é o tema + o ângulo de conexão.
+
 **Processo padrão para qualquer cliente: `PROCESSO.md`** (pesquisa dos últimos 30 dias sobre o assunto → ideias de conteúdo → calendário, se pedir).
 
 ## Ferramentas (instaladas em 19/11/2026)

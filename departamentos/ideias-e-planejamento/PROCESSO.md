@@ -18,9 +18,9 @@ Ler `estilo/clientes/<cliente>.md`. Se não existir, perguntar só o essencial (
 ## 3. Entregar as ideias de conteúdo
 Ler a pesquisa, jogar fora o ruído (política, notícias de outros países, coisas sem relação) e responder em linguagem simples:
 1. **Os assuntos do mês:** o que mais apareceu ou está crescendo sobre o tema (resumo curto, com link).
-2. **Ideias de conteúdo** em cima disso: gancho + formato (reels educativo, carrossel, animado...) + de qual assunto do mês ela veio.
+2. **Ideias de conteúdo** em cima disso, seguindo a **regra de ouro da CONEXÃO** (`INSTRUCOES.md`): cada ideia tem a **cena ou frase com que o público se identifica**, a virada (o que ensinar), o formato (a maioria em Reels) e de qual assunto do mês ela veio.
 
 Salvar em `<cliente>/pesquisas/<aaaa-mm-dd>-ideias.md`. Números e estatísticas só com fonte conferida (abrir o link).
 
 ## 4. (Se a pessoa quiser) Calendário
-Com as ideias aprovadas, montar `<cliente>/<aaaa-mm>.md` com o modelo `_modelos/calendario-do-mes.md`.
+Ritmo padrão: um dia sim, um dia não. Com as ideias aprovadas, montar `<cliente>/<aaaa-mm>.md` com o modelo `_modelos/calendario-do-mes.md`.

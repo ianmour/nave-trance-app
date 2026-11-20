@@ -63,3 +63,8 @@ O design é feito **com código** (HTML/CSS) e exportado em **PNG de alta qualid
 - Agir como **designer profissional**: receber o material do cliente, decidir e entregar pronto, com 1 linha de motivo por escolha ("fiz assim porque…").
 - Poucas perguntas: só quando faltar uma informação que não dá para decidir sozinho (ex.: lista de nomes).
 - Tratar a pessoa de igual para igual. Nada de explicação longa nem de listas de opções para ela escolher cada detalhe.
+
+## Entregas aprovadas
+- **Equipe Charlie — adesivo de caneca (20/11/2026, aprovado pelo cliente):** 17 adesivos redondos de 6 cm.
+  Modelo: `projetos/charlie/2026-11-19-adesivo-caneca/versao-logo-original.html`. Nomes em `nomes-equipe-charlie.txt`.
+  O que deu certo: usar o logo verdadeiro do cliente ocupando o adesivo, "EQUIPE" em arco na letra de estêncil e o nome da pessoa em letra lisa (Big Shoulders Display), sem enfeite.

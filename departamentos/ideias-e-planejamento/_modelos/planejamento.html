@@ -1,0 +1,342 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Planejamento de conteúdo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cor:#1E4FA3; --cor-escura:#0E2A5C; --cor-clara:#EAF0FA; --cor-media:#C9D8F2;
+  --fundo:#F6F8FC; --papel:#FFFFFF; --texto:#111A2E; --suave:#5B6780; --linha:#E1E6F0;
+  --reels:#1E4FA3; --reels-animado:#5B86E5; --reels-curto:#8FB0EE; --carrossel:#E3A23B;
+  --sombra:0 1px 2px rgba(14,42,92,.06),0 8px 24px rgba(14,42,92,.08);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){--fundo:#0B1220;--papel:#121B2E;--texto:#E8EDF7;--suave:#9AA8C3;--linha:#22304A;--cor-clara:#16264A;--cor-media:#24407A;--sombra:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.35)}
+}
+:root[data-theme="dark"]{--fundo:#0B1220;--papel:#121B2E;--texto:#E8EDF7;--suave:#9AA8C3;--linha:#22304A;--cor-clara:#16264A;--cor-media:#24407A;--sombra:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.35)}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--fundo);color:var(--texto);font:15px/1.5 "Plus Jakarta Sans",system-ui,-apple-system,Segoe UI,Roboto,sans-serif;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1180px;margin:0 auto;padding:0 16px 64px}
+/* topo */
+.hero{background:linear-gradient(135deg,var(--cor-escura),var(--cor));color:#fff;padding:36px 0 84px}
+.hero .wrap{padding-bottom:0}
+.eyebrow{font-size:12px;letter-spacing:.14em;text-transform:uppercase;opacity:.8;font-weight:600}
+.hero h1{font-size:clamp(28px,5vw,46px);line-height:1.05;margin:8px 0 6px;font-weight:800;letter-spacing:-.02em}
+.hero .cliente{font-size:18px;opacity:.92;font-weight:500}
+.tema{margin-top:18px;max-width:720px;font-size:16px;opacity:.95}
+.numeros{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+.numero{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);border-radius:14px;padding:10px 16px;min-width:110px}
+.numero b{display:block;font-size:24px;line-height:1.1}
+.numero span{font-size:12px;opacity:.85}
+/* barra */
+.barra{margin-top:-56px;background:var(--papel);border-radius:18px;box-shadow:var(--sombra);padding:14px;display:flex;gap:10px;flex-wrap:wrap;align-items:center;justify-content:space-between;position:sticky;top:8px;z-index:5}
+.abas{display:flex;background:var(--cor-clara);border-radius:12px;padding:4px}
+.aba{border:0;background:transparent;color:var(--texto);font:inherit;font-weight:600;padding:8px 14px;border-radius:9px;cursor:pointer}
+.aba[aria-selected="true"]{background:var(--papel);color:var(--cor);box-shadow:0 1px 3px rgba(0,0,0,.08)}
+.filtros{display:flex;gap:6px;flex-wrap:wrap}
+.chip{border:1px solid var(--linha);background:var(--papel);color:var(--texto);font:inherit;font-size:13px;font-weight:600;padding:6px 12px;border-radius:999px;cursor:pointer;display:inline-flex;align-items:center;gap:6px}
+.chip .bola{width:9px;height:9px;border-radius:50%}
+select.chip{width:auto;padding-right:8px}
+.chip[aria-pressed="true"]{background:var(--cor);border-color:var(--cor);color:#fff}
+.acoes{display:flex;gap:8px}
+.btn{border:0;background:var(--cor);color:#fff;font:inherit;font-weight:700;font-size:13px;padding:9px 14px;border-radius:10px;cursor:pointer}
+.btn.sec{background:var(--cor-clara);color:var(--cor)}
+/* calendário */
+.secao{margin-top:28px}
+.secao h2{font-size:20px;margin:0 0 12px;letter-spacing:-.01em}
+.grade{display:grid;grid-template-columns:repeat(7,1fr);gap:8px}
+.sem{font-size:12px;font-weight:700;color:var(--suave);text-transform:uppercase;letter-spacing:.08em;padding:0 4px}
+.dia{background:var(--papel);border:1px solid var(--linha);border-radius:14px;min-height:118px;padding:8px;display:flex;flex-direction:column;gap:6px}
+.dia.vazio{background:transparent;border-style:dashed;opacity:.55}
+.dia.fora{visibility:hidden}
+.dia .n{font-size:13px;font-weight:700;color:var(--suave)}
+.post{all:unset;cursor:pointer;display:block;border-radius:10px;padding:8px 9px;color:#fff;font-size:13px;line-height:1.3;font-weight:600;transition:transform .15s ease,box-shadow .15s ease}
+.post:hover,.post:focus-visible{transform:translateY(-2px);box-shadow:0 6px 16px rgba(14,42,92,.25)}
+.post:focus-visible{outline:3px solid var(--cor-media)}
+.post small{display:block;font-size:11px;font-weight:600;opacity:.88;margin-bottom:2px;text-transform:uppercase;letter-spacing:.04em}
+.post .st{display:inline-block;margin-top:6px;font-size:11px;background:rgba(255,255,255,.22);padding:2px 8px;border-radius:999px}
+.post.carrossel{color:#2B1D05}
+.post.carrossel .st{background:rgba(0,0,0,.12)}
+.esmaecido{opacity:.18;pointer-events:none}
+/* lista */
+.lista{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px}
+.card{all:unset;cursor:pointer;background:var(--papel);border:1px solid var(--linha);border-radius:16px;padding:16px;display:flex;flex-direction:column;gap:8px;box-shadow:var(--sombra);transition:transform .15s ease}
+.card:hover,.card:focus-visible{transform:translateY(-3px)}
+.card .topo{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.data{font-weight:800;font-size:14px}
+.tag{font-size:12px;font-weight:700;padding:3px 10px;border-radius:999px;color:#fff}
+.tag.carrossel{color:#2B1D05}
+.card h3{margin:0;font-size:17px;letter-spacing:-.01em}
+.abertura{font-size:15px;color:var(--texto);border-left:3px solid var(--cor);padding-left:10px;font-style:normal}
+.virada{font-size:13px;color:var(--suave)}
+.status{font-size:12px;font-weight:700;color:var(--suave)}
+/* em alta */
+.alta{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px}
+.alta .item{background:var(--papel);border:1px solid var(--linha);border-radius:14px;padding:14px}
+.alta .item b{display:block;margin-bottom:6px;line-height:1.35}
+.alta .item span{font-size:12px;color:var(--suave)}
+details{background:var(--papel);border:1px solid var(--linha);border-radius:14px;padding:12px 16px;margin-top:12px}
+summary{cursor:pointer;font-weight:700}
+details ul{margin:10px 0 0;padding-left:18px}
+details a{color:var(--cor)}
+.reserva li{margin-bottom:6px}
+/* janela do post */
+.fundo-modal{position:fixed;inset:0;background:rgba(8,18,40,.45);display:none;align-items:flex-end;justify-content:center;z-index:20;padding:16px}
+.fundo-modal.aberto{display:flex}
+@media (min-width:720px){.fundo-modal{align-items:center}}
+.modal{background:var(--papel);color:var(--texto);border-radius:20px;max-width:620px;width:100%;max-height:90vh;overflow:auto;box-shadow:0 24px 60px rgba(0,0,0,.3)}
+.modal .cab{padding:18px 20px;color:#fff;border-radius:20px 20px 0 0}
+.modal .cab.carrossel{color:#2B1D05}
+.modal .cab small{font-weight:700;text-transform:uppercase;letter-spacing:.06em;font-size:12px;opacity:.9}
+.modal .cab h3{margin:4px 0 0;font-size:22px}
+.modal .corpo{padding:18px 20px;display:grid;gap:14px}
+.campo label{display:block;font-size:12px;font-weight:700;color:var(--suave);text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px}
+.editavel{border:1px solid var(--linha);border-radius:10px;padding:10px 12px;min-height:44px;outline:none;background:var(--fundo)}
+.editavel:focus{border-color:var(--cor);box-shadow:0 0 0 3px var(--cor-clara)}
+select{font:inherit;border:1px solid var(--linha);border-radius:10px;padding:9px 10px;background:var(--fundo);color:var(--texto);width:100%}
+.linha2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.modal .pe{display:flex;justify-content:space-between;align-items:center;padding:0 20px 18px;gap:10px}
+.dica{font-size:12px;color:var(--suave)}
+.aviso{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);background:var(--cor-escura);color:#fff;padding:10px 16px;border-radius:999px;font-size:13px;font-weight:600;opacity:0;transition:opacity .2s;pointer-events:none;z-index:30}
+.aviso.on{opacity:1}
+/* celular: calendário vira lista por dia */
+@media (max-width:760px){
+  .grade{grid-template-columns:1fr}
+  .sem,.dia.fora,.dia.vazio{display:none}
+  .dia{min-height:auto;flex-direction:row;align-items:stretch}
+  .dia .n{min-width:46px;font-size:15px;color:var(--texto)}
+  .post{flex:1}
+  .barra{position:static}
+  .acoes{width:100%}
+  .acoes .btn{flex:1}
+}
+@media print{
+  .barra,.fundo-modal,.aviso{display:none!important}
+  body{background:#fff}
+  .hero{padding:24px 0 24px;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .post,.tag,.modal .cab{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  #vista-lista{display:grid!important}
+  .card{break-inside:avoid;box-shadow:none}
+}
+</style>
+</head>
+<body>
+<script id="dados" type="application/json">/*DADOS*/</script>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Planejamento de conteúdo</div>
+    <h1 id="titulo"></h1>
+    <div class="cliente" id="cliente"></div>
+    <p class="tema" id="tema"></p>
+    <div class="numeros" id="numeros"></div>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="barra">
+    <div class="abas" role="tablist">
+      <button class="aba" role="tab" aria-selected="true" data-vista="cal">Calendário</button>
+      <button class="aba" role="tab" aria-selected="false" data-vista="lista">Lista</button>
+    </div>
+    <div class="filtros" id="filtros"></div>
+    <div class="acoes">
+      <button class="btn sec" id="imprimir">PDF</button>
+      <button class="btn" id="baixar">Baixar versão editada</button>
+    </div>
+  </div>
+
+  <section class="secao" id="vista-cal">
+    <h2>Calendário</h2>
+    <div class="grade" id="grade"></div>
+  </section>
+
+  <section class="secao" id="vista-lista" hidden>
+    <h2>Todos os posts</h2>
+    <div class="lista" id="lista"></div>
+  </section>
+
+  <section class="secao">
+    <h2>O que está em alta</h2>
+    <div class="alta" id="alta"></div>
+  </section>
+
+  <section class="secao" id="sec-reserva">
+    <h2>Ideias de reserva</h2>
+    <ul class="reserva" id="reserva"></ul>
+    <details>
+      <summary>Fontes da pesquisa</summary>
+      <ul id="fontes"></ul>
+    </details>
+  </section>
+</main>
+
+<div class="fundo-modal" id="fundo-modal">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="m-tema">
+    <div class="cab" id="m-cab"><small id="m-data"></small><h3 id="m-tema"></h3></div>
+    <div class="corpo">
+      <div class="campo"><label>Tema</label><div class="editavel" contenteditable="true" data-campo="tema"></div></div>
+      <div class="campo"><label>Abertura (conexão)</label><div class="editavel" contenteditable="true" data-campo="abertura"></div></div>
+      <div class="campo"><label>Virada (o que ensina)</label><div class="editavel" contenteditable="true" data-campo="virada"></div></div>
+      <div class="linha2">
+        <div class="campo"><label>Formato</label><select data-campo="formato" id="m-formato"></select></div>
+        <div class="campo"><label>Status</label><select data-campo="status" id="m-status"></select></div>
+      </div>
+      <div class="campo"><label>Anotações</label><div class="editavel" contenteditable="true" data-campo="notas"></div></div>
+    </div>
+    <div class="pe"><span class="dica">Tudo que você muda aqui fica salvo neste aparelho.</span><button class="btn" id="fechar">Pronto</button></div>
+  </div>
+</div>
+<div class="aviso" id="aviso"></div>
+
+<script>
+(function(){
+  var D = JSON.parse(document.getElementById('dados').textContent);
+  var CHAVE = 'planejamento:' + D.id;
+  try { var salvo = localStorage.getItem(CHAVE); if (salvo) { var s = JSON.parse(salvo); if (s && s.posts) D.posts = s.posts; } } catch(e){}
+  if (D.cor) {
+    var r = document.documentElement.style;
+    r.setProperty('--cor', D.cor); r.setProperty('--reels', D.cor);
+    if (D.corEscura) r.setProperty('--cor-escura', D.corEscura);
+  }
+  var FORMATOS = ['Reels','Reels animado','Reels curto','Carrossel'];
+  var STATUS = ['Ideia','Aprovado','Roteiro','Gravado','Editado','Postado'];
+  var SEMANA = ['Seg','Ter','Qua','Qui','Sex','Sáb','Dom'];
+  var filtro = {formato:null,status:null};
+  var $ = function(id){return document.getElementById(id)};
+  function classe(f){return (f||'').toLowerCase().replace(/\s+/g,'-')}
+  function corFormato(f){return getComputedStyle(document.documentElement).getPropertyValue('--'+classe(f)).trim() || 'var(--cor)'}
+  function esc(t){var d=document.createElement('div');d.textContent=t==null?'':t;return d.innerHTML}
+  function salvar(){ try{ localStorage.setItem(CHAVE, JSON.stringify({posts:D.posts})); }catch(e){} }
+  function aviso(t){var a=$('aviso');a.textContent=t;a.classList.add('on');clearTimeout(aviso.t);aviso.t=setTimeout(function(){a.classList.remove('on')},1800)}
+  function passa(p){return (!filtro.formato||p.formato===filtro.formato)&&(!filtro.status||p.status===filtro.status)}
+
+  // topo
+  $('titulo').textContent = D.mesNome + ' ' + D.ano;
+  $('cliente').textContent = D.cliente;
+  $('tema').textContent = D.tema;
+  document.title = 'Planejamento ' + D.mesNome + ' ' + D.ano + ' — ' + D.cliente;
+
+  function numeros(){
+    var cont = {}; D.posts.forEach(function(p){var g=/reels/i.test(p.formato)?'Reels':p.formato;cont[g]=(cont[g]||0)+1});
+    var post = D.posts.filter(function(p){return p.status==='Postado'}).length;
+    var h = '<div class="numero"><b>'+D.posts.length+'</b><span>posts no mês</span></div>';
+    Object.keys(cont).forEach(function(k){h+='<div class="numero"><b>'+cont[k]+'</b><span>'+esc(k)+'</span></div>'});
+    h += '<div class="numero"><b>'+post+'/'+D.posts.length+'</b><span>já postados</span></div>';
+    $('numeros').innerHTML = h;
+  }
+
+  function filtros(){
+    var h = '';
+    FORMATOS.forEach(function(f){ if(!D.posts.some(function(p){return p.formato===f}))return;
+      h+='<button class="chip" data-tipo="formato" data-valor="'+esc(f)+'" aria-pressed="'+(filtro.formato===f)+'"><span class="bola" style="background:'+corFormato(f)+'"></span>'+esc(f)+'</button>'});
+    h += '<select id="filtro-status" class="chip" aria-label="Filtrar por status"><option value="">Todos os status</option>'+STATUS.map(function(s){return '<option'+(filtro.status===s?' selected':'')+'>'+s+'</option>'}).join('')+'</select>';
+    $('filtros').innerHTML = h;
+    Array.prototype.forEach.call(document.querySelectorAll('.chip[data-tipo]'),function(b){
+      b.onclick=function(){var v=b.getAttribute('data-valor');filtro.formato=filtro.formato===v?null:v;desenhar()}});
+    $('filtro-status').onchange=function(){filtro.status=this.value||null;desenhar()};
+  }
+
+  function botaoPost(p,i){
+    return '<button class="post '+classe(p.formato)+(passa(p)?'':' esmaecido')+'" data-i="'+i+'" style="background:'+corFormato(p.formato)+'"><small>'+esc(p.formato)+'</small>'+esc(p.tema)+'<br><span class="st">'+esc(p.status)+'</span></button>';
+  }
+
+  function calendario(){
+    var ano = D.ano, mes = D.mes - 1;
+    var primeiro = new Date(ano, mes, 1), dias = new Date(ano, mes+1, 0).getDate();
+    var inicio = (primeiro.getDay()+6)%7;
+    var h = SEMANA.map(function(s){return '<div class="sem">'+s+'</div>'}).join('');
+    for (var k=0;k<inicio;k++) h+='<div class="dia fora"></div>';
+    for (var d=1; d<=dias; d++){
+      var doDia = [];
+      D.posts.forEach(function(p,i){ if (p.dia===d) doDia.push(botaoPost(p,i)) });
+      var nomeDia = SEMANA[(inicio+d-1)%7];
+      h += '<div class="dia'+(doDia.length?'':' vazio')+'"><div class="n">'+d+' <span class="m-sem" style="font-weight:500">'+nomeDia+'</span></div>'+doDia.join('')+'</div>';
+    }
+    $('grade').innerHTML = h;
+  }
+
+  function lista(){
+    $('lista').innerHTML = D.posts.map(function(p,i){
+      if(!passa(p)) return '';
+      return '<button class="card" data-i="'+i+'"><div class="topo"><span class="data">'+String(p.dia).padStart(2,'0')+' de '+D.mesNome.toLowerCase()+' · '+esc(SEMANA[(new Date(D.ano,D.mes-1,p.dia).getDay()+6)%7])+'</span><span class="tag '+classe(p.formato)+'" style="background:'+corFormato(p.formato)+'">'+esc(p.formato)+'</span></div>'+
+        '<h3>'+esc(p.tema)+'</h3><div class="abertura">'+esc(p.abertura)+'</div><div class="virada">'+esc(p.virada)+'</div><div class="status">● '+esc(p.status)+'</div></button>';
+    }).join('');
+  }
+
+  function extras(){
+    $('alta').innerHTML = (D.alta||[]).map(function(a){return '<div class="item"><b>'+esc(a.assunto)+'</b><span>'+esc(a.onde)+' · '+esc(a.quando)+'</span></div>'}).join('');
+    $('reserva').innerHTML = (D.reserva||[]).map(function(r){return '<li>'+esc(r)+'</li>'}).join('');
+    $('fontes').innerHTML = (D.fontes||[]).map(function(f){return '<li><a href="'+esc(f.url)+'" target="_blank" rel="noopener">'+esc(f.nome)+'</a></li>'}).join('');
+    if(!(D.reserva||[]).length && !(D.fontes||[]).length) $('sec-reserva').hidden = true;
+  }
+
+  function ligar(){
+    Array.prototype.forEach.call(document.querySelectorAll('[data-i]'),function(b){b.onclick=function(){abrir(+b.getAttribute('data-i'))}});
+  }
+  function desenhar(){ numeros(); filtros(); calendario(); lista(); ligar(); }
+
+  // janela do post
+  var atual = null;
+  $('m-formato').innerHTML = FORMATOS.map(function(f){return '<option>'+f+'</option>'}).join('');
+  $('m-status').innerHTML = STATUS.map(function(s){return '<option>'+s+'</option>'}).join('');
+  function abrir(i){
+    atual = i; var p = D.posts[i];
+    $('m-data').textContent = String(p.dia).padStart(2,'0') + ' de ' + D.mesNome.toLowerCase() + ' · ' + p.formato;
+    $('m-tema').textContent = p.tema;
+    var cab = $('m-cab'); cab.className = 'cab ' + classe(p.formato); cab.style.background = corFormato(p.formato);
+    Array.prototype.forEach.call(document.querySelectorAll('.modal [data-campo]'),function(el){
+      var c = el.getAttribute('data-campo');
+      if (el.tagName==='SELECT') el.value = p[c]; else el.textContent = p[c]||'';
+    });
+    $('fundo-modal').classList.add('aberto');
+    setTimeout(function(){document.querySelector('.modal [data-campo="abertura"]').focus()},50);
+  }
+  function fechar(){ $('fundo-modal').classList.remove('aberto'); atual=null; desenhar(); }
+  Array.prototype.forEach.call(document.querySelectorAll('.modal [data-campo]'),function(el){
+    var ev = el.tagName==='SELECT' ? 'change' : 'input';
+    el.addEventListener(ev,function(){
+      if(atual===null) return;
+      var c = el.getAttribute('data-campo');
+      D.posts[atual][c] = el.tagName==='SELECT' ? el.value : el.textContent.trim();
+      if (c==='tema') $('m-tema').textContent = D.posts[atual].tema;
+      if (c==='formato'){ var cab=$('m-cab'); cab.className='cab '+classe(el.value); cab.style.background=corFormato(el.value); }
+      salvar();
+    });
+  });
+  $('fechar').onclick = fechar;
+  $('fundo-modal').onclick = function(e){ if(e.target===this) fechar(); };
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape' && atual!==null) fechar(); });
+
+  // abas
+  Array.prototype.forEach.call(document.querySelectorAll('.aba'),function(b){
+    b.onclick=function(){
+      Array.prototype.forEach.call(document.querySelectorAll('.aba'),function(x){x.setAttribute('aria-selected', x===b)});
+      var v=b.getAttribute('data-vista'); $('vista-cal').hidden = v!=='cal'; $('vista-lista').hidden = v!=='lista';
+    };
+  });
+
+  // baixar versão editada (um arquivo só, para mandar ao cliente)
+  $('baixar').onclick = function(){
+    var copia = document.documentElement.cloneNode(true);
+    copia.querySelector('#dados').textContent = JSON.stringify(D);
+    ['grade','lista','alta','reserva','fontes','numeros','filtros'].forEach(function(id){var el=copia.querySelector('#'+id); if(el) el.innerHTML='';});
+    var m = copia.querySelector('#fundo-modal'); if (m) m.classList.remove('aberto');
+    var html = '<!doctype html>\n' + copia.outerHTML;
+    var a = document.createElement('a');
+    a.href = URL.createObjectURL(new Blob([html],{type:'text/html'}));
+    a.download = 'Planejamento ' + D.mesNome + ' ' + D.ano + ' - ' + D.cliente + '.html';
+    document.body.appendChild(a); a.click(); a.remove();
+    aviso('Arquivo baixado: é só mandar para o cliente');
+  };
+  $('imprimir').onclick = function(){ window.print(); };
+
+  extras(); desenhar();
+})();
+</script>
+</body>
+</html>

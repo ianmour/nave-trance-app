@@ -11,8 +11,8 @@ Patrícia
 Ewerton
 Jorge
 João Espedito
-Yara
-Yasmim
-Erivaldo
-Marciano
-Henrique
+Yara | ADM
+Yasmim | COMANDO
+Erivaldo | COMANDO
+Marciano | COMANDO
+Henrique | COP

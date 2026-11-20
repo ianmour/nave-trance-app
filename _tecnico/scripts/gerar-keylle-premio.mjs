@@ -85,8 +85,8 @@ chaves.forEach((c, i) => {
 fs.writeFileSync(path.join(P, "compositions/legendas.html"), `<template>
   <style>
     #root { position: absolute; inset: 0; }
-    .grupo { position: absolute; left: 110px; width: 640px; top: 600px; }
-    .cx { font-family: "Inter"; font-weight: 500; font-size: 50px; line-height: 1.16; letter-spacing: -0.03em; color: #fff;
+    .grupo { position: absolute; left: 110px; width: 700px; top: 596px; }
+    .cx { font-family: "Inter"; font-weight: 500; font-size: 66px; line-height: 1.12; letter-spacing: -0.03em; color: #fff;
       text-shadow: 0 2px 14px rgba(0,0,0,0.45); }
     .pw { display: inline-block; } .pw.ch { font-weight: 700; }
     .chave { position: absolute; left: 106px; width: 660px; bottom: 500px; }

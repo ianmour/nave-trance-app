@@ -2,7 +2,13 @@
 
 Vale para tudo que é **"pra mim"** (ianmour): posts, carrosséis, documentos, propostas, vídeos. Folha visual: `folha-da-marca.html` (PNG em `departamentos/design/entregas/ianmour/marca/`).
 
-## Cores
+## O conceito: o real virando jogo (definido pela pessoa em 20/11/2026)
+A foto de perfil mostra a ideia da marca: **metade real, metade pixel**. Lado rosa = mundo do jogo (pixel art, contorno preto, cores chapadas); lado azul = foto real. Roupa nas cores da marca (polo azul com detalhes creme).
+Referências (fora do GitHub): `departamentos/design/entregas/ianmour/marca/referencias/foto-perfil-real.jpg` e `foto-perfil-metade-pixel.jpg`.
+- Em peças e vídeos, buscar essa mistura: coisa real que "vira" pixel, ou elementos de jogo entrando no mundo real.
+- Os símbolos em pixel fazem parte desse mundo do jogo.
+- Vídeos futuros: assuntos reais (ex.: drone) contados de forma gamificada — pixel art, movimento em degraus, sons de jogo, pontuação/fases.
+
 | Nome | Código | Uso | Quanto aparece numa peça |
 |---|---|---|---|
 | Noite | `#0A0A14` | fundo escuro de base | ~50% |

@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<!-- Capas dos destaques de clientes (estilo JOBS): fundo escuro, raio rosa e uma palavra curta em letra de jogo. 1080x1920. -->
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+<script src="../../../marca-ianmour/simbolos.js"></script>
+<style>
+  :root { --rosa:#FC3B7F; --creme:#FEF1CF; --azul:#0032A8; --noite:#0A0A14; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:#222; }
+  .lamina { width:1080px; height:1920px; position:relative; background:var(--noite); display:flex; flex-direction:column; align-items:center; justify-content:center; gap:70px; }
+  .s { width:260px; height:260px; }
+  .s svg { width:100%; height:100%; display:block; overflow:visible; }
+  .p { font-family:'Press Start 2P'; font-size:118px; color:var(--creme); line-height:1; }
+</style>
+</head>
+<body>
+  <section class="lamina"><div class="s" data-s="raio:rosa"></div><div class="p">NEON</div></section>
+  <section class="lamina"><div class="s" data-s="raio:rosa"></div><div class="p">RT</div></section>
+  <section class="lamina"><div class="s" data-s="raio:rosa"></div><div class="p">AGRO</div></section>
+  <section class="lamina"><div class="s" data-s="raio:rosa"></div><div class="p">STORY</div></section>
+<script>document.querySelectorAll('[data-s]').forEach(e => { const [n, c] = e.dataset.s.split(':'); e.innerHTML = window.SIMBOLOS[n].svg[c]; });</script>
+</body>
+</html>

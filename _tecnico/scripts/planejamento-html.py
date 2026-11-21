@@ -80,6 +80,9 @@ def main():
 
     alta = [{"assunto": limpar(r.get("assunto", "")), "onde": limpar(r.get("onde vi", r.get("onde apareceu", ""))),
              "quando": limpar(r.get("data", r.get("quando", "")))} for r in tabela(achar(sec, "o que está em alta"))]
+    trocas = [{"formato": limpar(r.get("formato", "Reels")), "tema": limpar(r.get("tema", "")),
+               "abertura": limpar(r.get("abertura (conexão)", "")), "virada": limpar(r.get("virada (o que ensina)", "")),
+               "origem": re.sub(r"[“”\"]", "", limpar(r.get("de onde veio", "")))} for r in tabela(achar(sec, "ideias para trocar"))]
     reserva = [re.sub(r"[“”\"]", "", limpar(l[2:])) for l in achar(sec, "ideias de reserva") if l.startswith("- ")]
     fontes = []
     for l in achar(sec, "fontes"):
@@ -88,7 +91,7 @@ def main():
             fontes.append({"nome": f.group(1), "url": f.group(2)})
 
     dados = {"id": f"{a.cliente}-{ano}-{mes:02d}", "cliente": a.cliente, "ano": ano, "mes": mes, "mesNome": MESES[mes - 1],
-             "tema": tema, "cor": a.cor, "corEscura": a.cor_escura, "posts": posts, "alta": alta, "reserva": reserva, "fontes": fontes}
+             "tema": tema, "cor": a.cor, "corEscura": a.cor_escura, "posts": posts, "alta": alta, "reserva": reserva, "trocas": trocas, "fontes": fontes}
     html = MODELO.read_text(encoding="utf-8").replace("/*DADOS*/", json.dumps(dados, ensure_ascii=False).replace("</", "<\\/"))
     Path(a.saida).parent.mkdir(parents=True, exist_ok=True)
     Path(a.saida).write_text(html, encoding="utf-8")

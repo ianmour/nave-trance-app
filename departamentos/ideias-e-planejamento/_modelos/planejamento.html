@@ -84,6 +84,11 @@ summary{cursor:pointer;font-weight:700}
 details ul{margin:10px 0 0;padding-left:18px}
 details a{color:var(--cor)}
 .reserva li{margin-bottom:6px}
+.trocas{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px}
+.troca{background:var(--papel);border:1px dashed var(--cor-media);border-radius:16px;padding:16px;display:flex;flex-direction:column;gap:8px}
+.troca .origem{font-size:12px;color:var(--suave)}
+.troca select{margin-top:auto;background:var(--cor-clara);border-color:transparent;color:var(--cor);font-weight:700;cursor:pointer}
+.sub{color:var(--suave);margin:-4px 0 14px;font-size:14px}
 /* janela do post */
 .fundo-modal{position:fixed;inset:0;background:rgba(8,18,40,.45);display:none;align-items:flex-end;justify-content:center;z-index:20;padding:16px}
 .fundo-modal.aberto{display:flex}
@@ -165,8 +170,13 @@ select{font:inherit;border:1px solid var(--linha);border-radius:10px;padding:9px
     <div class="alta" id="alta"></div>
   </section>
 
+  <section class="secao" id="sec-trocas">
+    <h2>Ideias para trocar</h2>
+    <p class="sub">Não gostou de algum post? Escolha uma ideia daqui e diga qual post ela substitui. O post que sair vem para esta lista, para você poder voltar atrás.</p>
+    <div class="trocas" id="trocas"></div>
+  </section>
+
   <section class="secao" id="sec-reserva">
-    <h2>Ideias de reserva</h2>
     <ul class="reserva" id="reserva"></ul>
     <details>
       <summary>Fontes da pesquisa</summary>
@@ -197,7 +207,7 @@ select{font:inherit;border:1px solid var(--linha);border-radius:10px;padding:9px
 (function(){
   var D = JSON.parse(document.getElementById('dados').textContent);
   var CHAVE = 'planejamento:' + D.id;
-  try { var salvo = localStorage.getItem(CHAVE); if (salvo) { var s = JSON.parse(salvo); if (s && s.posts) D.posts = s.posts; } } catch(e){}
+  try { var salvo = localStorage.getItem(CHAVE); if (salvo) { var s = JSON.parse(salvo); if (s && s.posts) D.posts = s.posts; if (s && s.trocas) D.trocas = s.trocas; } } catch(e){}
   if (D.cor) {
     var r = document.documentElement.style;
     r.setProperty('--cor', D.cor); r.setProperty('--reels', D.cor);
@@ -211,7 +221,7 @@ select{font:inherit;border:1px solid var(--linha);border-radius:10px;padding:9px
   function classe(f){return (f||'').toLowerCase().replace(/\s+/g,'-')}
   function corFormato(f){return getComputedStyle(document.documentElement).getPropertyValue('--'+classe(f)).trim() || 'var(--cor)'}
   function esc(t){var d=document.createElement('div');d.textContent=t==null?'':t;return d.innerHTML}
-  function salvar(){ try{ localStorage.setItem(CHAVE, JSON.stringify({posts:D.posts})); }catch(e){} }
+  function salvar(){ try{ localStorage.setItem(CHAVE, JSON.stringify({posts:D.posts, trocas:D.trocas})); }catch(e){} }
   function aviso(t){var a=$('aviso');a.textContent=t;a.classList.add('on');clearTimeout(aviso.t);aviso.t=setTimeout(function(){a.classList.remove('on')},1800)}
   function passa(p){return (!filtro.formato||p.formato===filtro.formato)&&(!filtro.status||p.status===filtro.status)}
 
@@ -272,13 +282,36 @@ select{font:inherit;border:1px solid var(--linha);border-radius:10px;padding:9px
     $('alta').innerHTML = (D.alta||[]).map(function(a){return '<div class="item"><b>'+esc(a.assunto)+'</b><span>'+esc(a.onde)+' · '+esc(a.quando)+'</span></div>'}).join('');
     $('reserva').innerHTML = (D.reserva||[]).map(function(r){return '<li>'+esc(r)+'</li>'}).join('');
     $('fontes').innerHTML = (D.fontes||[]).map(function(f){return '<li><a href="'+esc(f.url)+'" target="_blank" rel="noopener">'+esc(f.nome)+'</a></li>'}).join('');
-    if(!(D.reserva||[]).length && !(D.fontes||[]).length) $('sec-reserva').hidden = true;
+    if(!(D.fontes||[]).length) $('sec-reserva').hidden = true;
+  }
+
+  function trocas(){
+    D.trocas = D.trocas || [];
+    $('sec-trocas').hidden = !D.trocas.length;
+    var opcoes = '<option value="">Trocar pelo post de…</option>' + D.posts.map(function(p,i){
+      return '<option value="'+i+'">'+String(p.dia).padStart(2,'0')+' · '+esc(p.tema)+'</option>'}).join('');
+    $('trocas').innerHTML = D.trocas.map(function(t,k){
+      return '<div class="troca"><div class="topo" style="display:flex;justify-content:space-between;gap:8px;align-items:center"><span class="tag '+classe(t.formato)+'" style="background:'+corFormato(t.formato)+'">'+esc(t.formato)+'</span></div>'+
+        '<h3 style="margin:0;font-size:17px">'+esc(t.tema)+'</h3><div class="abertura">'+esc(t.abertura)+'</div><div class="virada">'+esc(t.virada)+'</div>'+
+        (t.origem?'<div class="origem">De onde veio: '+esc(t.origem)+'</div>':'')+
+        '<select data-k="'+k+'" aria-label="Trocar pelo post">'+opcoes+'</select></div>';
+    }).join('');
+    Array.prototype.forEach.call(document.querySelectorAll('#trocas select'),function(sel){
+      sel.onchange=function(){
+        if(this.value==='') return;
+        var k=+this.getAttribute('data-k'), i=+this.value, velho=D.posts[i], nova=D.trocas[k];
+        D.posts[i] = {dia:velho.dia, formato:nova.formato, tema:nova.tema, abertura:nova.abertura, virada:nova.virada, status:'Ideia', notas:''};
+        D.trocas[k] = {formato:velho.formato, tema:velho.tema, abertura:velho.abertura, virada:velho.virada, origem:'Estava no dia '+velho.dia};
+        salvar(); desenhar();
+        aviso('Trocado! O post antigo foi para as ideias para trocar');
+      };
+    });
   }
 
   function ligar(){
     Array.prototype.forEach.call(document.querySelectorAll('[data-i]'),function(b){b.onclick=function(){abrir(+b.getAttribute('data-i'))}});
   }
-  function desenhar(){ numeros(); filtros(); calendario(); lista(); ligar(); }
+  function desenhar(){ numeros(); filtros(); calendario(); lista(); trocas(); ligar(); }
 
   // janela do post
   var atual = null;
@@ -324,7 +357,7 @@ select{font:inherit;border:1px solid var(--linha);border-radius:10px;padding:9px
   $('baixar').onclick = function(){
     var copia = document.documentElement.cloneNode(true);
     copia.querySelector('#dados').textContent = JSON.stringify(D);
-    ['grade','lista','alta','reserva','fontes','numeros','filtros'].forEach(function(id){var el=copia.querySelector('#'+id); if(el) el.innerHTML='';});
+    ['grade','lista','alta','reserva','fontes','numeros','filtros','trocas'].forEach(function(id){var el=copia.querySelector('#'+id); if(el) el.innerHTML='';});
     var m = copia.querySelector('#fundo-modal'); if (m) m.classList.remove('aberto');
     var html = '<!doctype html>\n' + copia.outerHTML;
     var a = document.createElement('a');

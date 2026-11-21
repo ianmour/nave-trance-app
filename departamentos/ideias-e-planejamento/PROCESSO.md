@@ -23,4 +23,4 @@ Ler a pesquisa, jogar fora o ruído (política, notícias de outros países, coi
 Salvar em `<cliente>/pesquisas/<aaaa-mm-dd>-ideias.md`. Números e estatísticas só com fonte conferida (abrir o link).
 
 ## 4. (Se a pessoa quiser) Calendário
-Ritmo padrão: um dia sim, um dia não. Com as ideias aprovadas, montar `<cliente>/<aaaa-mm>.md` com o modelo `_modelos/calendario-do-mes.md`.
+Ritmo padrão: um dia sim, um dia não. Sempre incluir a seção **"Ideias para trocar"** (8 a 10 ideias extras do mesmo mês, com tema, abertura, virada e de onde veio), que aparece na página abaixo do "Em alta". Com as ideias aprovadas, montar `<cliente>/<aaaa-mm>.md` com o modelo `_modelos/calendario-do-mes.md`.

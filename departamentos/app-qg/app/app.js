@@ -18,13 +18,15 @@
   Array.prototype.forEach.call(document.querySelectorAll('[data-simbolo]'), function (el) { el.innerHTML = sim(el.getAttribute('data-simbolo'), 'creme'); });
 
   // ENTRADA
-  function entrar() { $('tela-entrada').hidden = true; $('app').hidden = false; ir(location.hash.slice(1) || 'mundos'); }
+  function rotaInicial() { try { return location.hash.slice(1) || 'mundos'; } catch (e) { return 'mundos'; } }
+  function entrar() { $('tela-entrada').hidden = true; $('app').hidden = false; ir(rotaInicial()); }
   if (ler('qg:entrou') === Q.senha) entrar();
-  $('form-senha').onsubmit = function (e) {
-    e.preventDefault();
+  function tentar() {
     if (cyrb53($('senha').value.trim().toLowerCase()) === Q.senha) { gravar('qg:entrou', Q.senha); $('erro-senha').hidden = true; entrar(); }
     else { var er = $('erro-senha'); er.hidden = true; void er.offsetWidth; er.hidden = false; $('senha').select(); }
-  };
+  }
+  $('entrar').onclick = tentar;
+  $('senha').addEventListener('keydown', function (e) { if (e.key === 'Enter') tentar(); });
   $('sair').onclick = function () { apagar('qg:entrou'); $('app').hidden = true; $('tela-entrada').hidden = false; $('senha').value = ''; };
 
   // progresso de um mês, lido do que foi marcado na página do planejamento (mesmo aparelho)
@@ -47,14 +49,14 @@
     else if (tela === 'clientes') c.innerHTML = telaClientes();
     else if (tela === 'sobre') c.innerHTML = telaSobre();
     else c.innerHTML = telaMundos();
-    if (location.hash.slice(1) !== rota) history.replaceState(null, '', '#' + rota);
+    try { if (location.hash.slice(1) !== rota) history.replaceState(null, '', '#' + rota); } catch (e) {}
     window.scrollTo(0, 0); ligar(); desenharMapa();
   }
-  window.addEventListener('hashchange', function () { if (!$('app').hidden) ir(location.hash.slice(1) || 'mundos'); });
+  window.addEventListener('hashchange', function () { if (!$('app').hidden) ir(rotaInicial()); });
   Array.prototype.forEach.call(document.querySelectorAll('.barra-baixo button'), function (b) { b.onclick = function () { ir(b.getAttribute('data-tela')); }; });
 
   function ligar() {
-    Array.prototype.forEach.call(document.querySelectorAll('[data-ir]'), function (el) { el.onclick = function () { location.hash = el.getAttribute('data-ir'); }; });
+    Array.prototype.forEach.call(document.querySelectorAll('[data-ir]'), function (el) { el.onclick = function () { ir(el.getAttribute('data-ir')); }; });
     Array.prototype.forEach.call(document.querySelectorAll('[data-abrir]'), function (el) { el.onclick = function () { abrirEntrega(el.getAttribute('data-abrir'), el.getAttribute('data-titulo')); }; });
     Array.prototype.forEach.call(document.querySelectorAll('[data-copiar]'), function (el) { el.onclick = function () {
       var t = el.getAttribute('data-copiar'); try { navigator.clipboard.writeText(t); el.textContent = 'Copiado ✓'; } catch (e) {} }; });
@@ -161,7 +163,7 @@
 
   // VISOR
   function abrirEntrega(arq, titulo) { $('visor-titulo').textContent = (titulo || '').toUpperCase(); $('visor-frame').src = arq; $('visor').hidden = false; }
-  $('fechar-visor').onclick = function () { $('visor').hidden = true; $('visor-frame').src = 'about:blank'; ir(location.hash.slice(1) || 'mundos'); };
+  $('fechar-visor').onclick = function () { $('visor').hidden = true; $('visor-frame').src = 'about:blank'; ir(rotaInicial()); };
 
   if ('serviceWorker' in navigator && location.protocol.indexOf('http') === 0) { navigator.serviceWorker.register('sw.js').catch(function () {}); }
 })();

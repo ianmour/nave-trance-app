@@ -28,4 +28,6 @@ Aprendido no trabalho real (adesivo da Equipe Charlie, 19–20/11/2026). Cada ab
 - Um app próprio no **estilo game da marca ianmour** (ver `departamentos/design/marca-ianmour/LEIA-ME.md`): cada departamento vira um "mundo"/"fase"; lista de clientes com ficha, mês atual, status dos posts (placar/XP) e pedidos; as entregas (ex.: página do planejamento) abrem dentro dele; "Sobre mim" com a foto só no final, não como cara do app; instalável no celular.
 - **Decisão da pessoa:** o "cérebro" continua sendo o Claude nas abas. O app só organiza, mostra e guarda; tudo que ela fizer lá, o Claude lê e ajusta. Sem ligar o app a serviços pagos.
 - Começar uma base simples e ir melhorando conforme cada departamento amadurece, numa aba própria ("QG").
+- **Instalação:** primeiro como app de Tela de Início (iPhone/iPad pelo Safari, Android pelo Chrome), hospedado num link grátis, com **senha simples na entrada** (pedido da pessoa).
+- **Futuro (não agora):** a pessoa quer publicar na **App Store e na Play Store**. Por isso, construir o app desde o início de um jeito que dê para "empacotar" depois para as lojas, sem refazer. As contas de desenvolvedor são pagas; só tratar disso quando ela decidir.
 

@@ -21,6 +21,6 @@ for arq in re.findall(r'arquivo:\s*"([^"]+)"', dados_js):
 ico = "data:image/png;base64," + base64.b64encode((A / "icones/icon-192.png").read_bytes()).decode()
 html = re.sub(r'<link rel="manifest"[^>]*>\n', "", html)
 html = html.replace('href="icones/apple-touch-icon.png"', f'href="{ico}"').replace('href="icones/icon-192.png"', f'href="{ico}"')
-saida = A.parent / "QG ianmour - previa.html"
+saida = A.parent / "ianmour - previa.html"
 saida.write_text(html, encoding="utf-8")
 print("salvo em", saida)

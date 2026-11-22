@@ -3,12 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>QG ianmour</title>
+<title>ianmour</title>
 <meta name="theme-color" content="#0A0A14">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="QG ianmour">
+<meta name="apple-mobile-web-app-title" content="ianmour">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="apple-touch-icon" href="icones/apple-touch-icon.png">
 <link rel="icon" type="image/png" href="icones/icon-192.png">
@@ -22,8 +22,8 @@
 <section id="tela-entrada" class="entrada">
   <div class="entrada-caixa">
     <div class="logo-pixel" id="logo-entrada"></div>
-    <div class="px pequeno rosa">ianmour</div>
-    <h1 class="titulo-grande">QG</h1>
+    <div class="px pequeno rosa">agência</div>
+    <h1 class="titulo-grande">ianmour</h1>
     <p class="px piscando">PRESS START</p>
     <form id="form-senha" autocomplete="off">
       <input id="senha" type="password" inputmode="text" placeholder="senha" aria-label="Senha" autocomplete="current-password">
@@ -36,22 +36,22 @@
 <!-- APP -->
 <div id="app" hidden>
   <header class="topo">
-    <div class="marca"><span class="logo-mini" id="logo-mini"></span><span class="px">QG IANMOUR</span></div>
-    <button class="sair px" id="sair" aria-label="Sair">SAIR</button>
+    <div class="marca"><span class="logo-mini" id="logo-mini"></span><span class="nome-app">ianmour</span></div>
+    <button class="sair px" id="sair">Sair</button>
   </header>
 
   <main id="conteudo" class="conteudo"></main>
 
   <nav class="barra-baixo" aria-label="Navegação">
-    <button data-tela="mundos" class="ativo"><span class="ic" data-simbolo="controle"></span><span class="px">MUNDOS</span></button>
-    <button data-tela="clientes"><span class="ic" data-simbolo="mira"></span><span class="px">CLIENTES</span></button>
-    <button data-tela="sobre"><span class="ic" data-simbolo="faisca"></span><span class="px">SOBRE</span></button>
+    <button data-tela="mundos" class="ativo"><span class="ic" data-simbolo="controle"></span><span class="px">Mapa</span></button>
+    <button data-tela="clientes"><span class="ic" data-simbolo="mira"></span><span class="px">Clientes</span></button>
+    <button data-tela="sobre"><span class="ic" data-simbolo="faisca"></span><span class="px">Sobre</span></button>
   </nav>
 </div>
 
 <!-- VISOR DE ENTREGAS (abre as páginas dentro do app) -->
 <div id="visor" class="visor" hidden>
-  <div class="visor-topo"><button class="botao-jogo pequeno" id="fechar-visor">◀ VOLTAR</button><span class="px" id="visor-titulo"></span></div>
+  <div class="visor-topo"><button class="botao-jogo pequeno" id="fechar-visor">◀ Voltar</button><span class="px" id="visor-titulo"></span></div>
   <iframe id="visor-frame" title="Entrega"></iframe>
 </div>
 

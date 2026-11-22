@@ -1,7 +1,7 @@
 {
-  "name": "QG ianmour",
-  "short_name": "QG ianmour",
-  "description": "O QG da agência ianmour: mundos, clientes e entregas.",
+  "name": "ianmour",
+  "short_name": "ianmour",
+  "description": "A agência ianmour: mundos, clientes e entregas.",
   "lang": "pt-BR",
   "start_url": "./index.html",
   "scope": "./",

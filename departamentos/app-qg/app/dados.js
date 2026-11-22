@@ -1,6 +1,6 @@
 // Dados do QG. O Claude atualiza este arquivo quando um departamento ou cliente muda.
 window.QG = {
-  versao: "0.1 (base)",
+  versao: "0.2",
   // Senha simples da entrada (guardada embaralhada). Para trocar, peça ao Claude.
   senha: "1962ed32eb6e6a",
 

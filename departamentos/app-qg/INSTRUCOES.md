@@ -28,5 +28,5 @@ O **cérebro é o Claude** nas abas: o app organiza, mostra e guarda. Nada pago 
 - `simbolos.js` (cópia de `design/marca-ianmour/simbolos.js`), `icones/` (gerados do símbolo controle), `manifest.webmanifest` e `sw.js` (instalável e abre sem internet).
 - `entregas/`: cópias das páginas entregues (ex.: planejamento do Keylle). Ao gerar uma entrega nova, copiar para cá e acrescentar no `dados.js`.
 - O placar (aprovados, postados, gravações) lê o que foi marcado na página do planejamento **no mesmo aparelho**.
-- Prévia num arquivo só (para mandar na conversa): `python3 _tecnico/scripts/app-previa.py` → `departamentos/app-qg/QG ianmour - previa.html`.
+- Prévia num arquivo só (para mandar na conversa): `python3 _tecnico/scripts/app-previa.py` → `departamentos/app-qg/ianmour - previa.html`.
 - Falta: foto do "Sobre" (a pessoa manda o arquivo), publicar num link grátis (pedir autorização), senha definitiva.

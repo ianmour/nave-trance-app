@@ -38,6 +38,7 @@ svg{display:block;width:100%;height:100%}
   background:radial-gradient(circle at 50% 30%,rgba(252,59,127,.22),transparent 55%),radial-gradient(circle at 50% 100%,rgba(0,50,168,.35),transparent 60%)}
 .entrada-caixa{width:100%;max-width:360px;text-align:center}
 .logo-pixel{width:84px;height:84px;margin:0 auto 14px;background:var(--azul);padding:14px;box-shadow:var(--sombra-rosa)}
+.nome-entrada{font-weight:400;margin:0 0 26px;font-size:13px}
 .piscando{animation:piscar 1.1s steps(2,end) infinite;color:var(--creme);margin:6px 0 22px}
 @keyframes piscar{50%{opacity:0}}
 #form-senha{display:grid;gap:12px}
@@ -177,8 +178,7 @@ svg{display:block;width:100%;height:100%}
 <section id="tela-entrada" class="entrada">
   <div class="entrada-caixa">
     <div class="logo-pixel" id="logo-entrada"></div>
-    <div class="px pequeno rosa">agência</div>
-    <h1 class="titulo-grande">ianmour</h1>
+    <h1 class="px pequeno rosa nome-entrada">agência</h1>
     <p class="px piscando">PRESS START</p>
     <div id="form-senha">
       <input id="senha" type="password" inputmode="text" placeholder="senha" aria-label="Senha" autocomplete="current-password">

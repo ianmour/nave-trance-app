@@ -22,4 +22,11 @@ O **cérebro é o Claude** nas abas: o app organiza, mostra e guarda. Nada pago 
 - Testar no tamanho de celular e de iPad antes de dizer que funciona.
 
 ## Situação
-Pasta criada em 22/11/2026. Nada construído ainda.
+**Base 0.1 pronta em 22/11/2026** (feita na aba de Ideias, a pedido da pessoa), em `app/`:
+- `index.html`, `app.css`, `app.js` (telas: entrada com senha, Mundos, Mundo, Clientes, Cliente, Sobre; visor que abre as entregas dentro do app).
+- `dados.js`: **é aqui que se atualiza** mundos (nível/status), clientes, meses e o "Sobre". Senha atual: `ianmour` (guardada embaralhada com cyrb53; para trocar, gerar o novo código e trocar `senha`).
+- `simbolos.js` (cópia de `design/marca-ianmour/simbolos.js`), `icones/` (gerados do símbolo controle), `manifest.webmanifest` e `sw.js` (instalável e abre sem internet).
+- `entregas/`: cópias das páginas entregues (ex.: planejamento do Keylle). Ao gerar uma entrega nova, copiar para cá e acrescentar no `dados.js`.
+- O placar (aprovados, postados, gravações) lê o que foi marcado na página do planejamento **no mesmo aparelho**.
+- Prévia num arquivo só (para mandar na conversa): `python3 _tecnico/scripts/app-previa.py` → `departamentos/app-qg/QG ianmour - previa.html`.
+- Falta: foto do "Sobre" (a pessoa manda o arquivo), publicar num link grátis (pedir autorização), senha definitiva.

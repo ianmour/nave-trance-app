@@ -2,7 +2,7 @@
 window.QG = {
   versao: "0.3",
   // Senha simples da entrada (guardada embaralhada). Para trocar, peça ao Claude.
-  senha: "1962ed32eb6e6a",
+  senha: "e34bce135d3a7",
 
   mundos: [
     { id: "ideias", claude: "https://claude.ai/code/session_01BZJteRTunbV8hy4MfvfJyG", nome: "Ideias e planejamento", simbolo: "faisca", nivel: 3, max: 3, status: "pronto",

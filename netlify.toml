@@ -1,0 +1,10 @@
+# Publicação do app ianmour no Netlify (só a pasta do app vai para o link; o resto do repositório não é publicado).
+[build]
+  base = "departamentos/app-qg/app"
+  publish = "."
+  command = ""
+
+[[headers]]
+  for = "/sw.js"
+  [headers.values]
+    Cache-Control = "no-cache"

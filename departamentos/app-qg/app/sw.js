@@ -1,5 +1,5 @@
 // Guarda os arquivos do app para abrir rápido e até sem internet.
-var CACHE = 'ianmour-v3';
+var CACHE = 'ianmour-v4';
 var ARQUIVOS = ['./', 'index.html', 'app.css', 'app.js', 'dados.js', 'simbolos.js', 'manifest.webmanifest',
   'icones/icon-192.png', 'icones/icon-512.png', 'icones/apple-touch-icon.png', 'entregas/keylle-lima-2026-12.html'];
 self.addEventListener('install', function (e) { e.waitUntil(caches.open(CACHE).then(function (c) { return c.addAll(ARQUIVOS); })); self.skipWaiting(); });

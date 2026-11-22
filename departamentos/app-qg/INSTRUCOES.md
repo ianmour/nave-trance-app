@@ -26,9 +26,11 @@ O **cérebro é o Claude** nas abas: o app organiza, mostra e guarda. Nada pago 
 - `index.html`, `app.css`, `app.js` (versão 0.3: entrada com senha; **menu lateral** como no app do Claude — fixo no iPad, abre no ☰ no iPhone — com Início, Departamentos, Clientes e Sobre mim/Sair no fim; cada departamento tem o botão **"Falar com o Claude"**, que abre a aba certa do Claude; visor que abre as entregas dentro do app).
 - A navegação **não depende do endereço** (funciona dentro do visualizador da conversa). Entregas na prévia entram por `srcdoc` (links data: ficam brancos no visualizador).
 - Links das abas do Claude ficam no campo `claude` de cada departamento em `dados.js`.
-- `dados.js`: **é aqui que se atualiza** mundos (nível/status), clientes, meses e o "Sobre". Senha atual: `ianmour` (guardada embaralhada com cyrb53; para trocar, gerar o novo código e trocar `senha`).
+- `dados.js`: **é aqui que se atualiza** mundos (nível/status), clientes, meses e o "Sobre". Senha atual: números (definida pela pessoa em 22/11/2026; não escrever a senha em arquivos) (guardada embaralhada com cyrb53; para trocar, gerar o novo código e trocar `senha`).
 - `simbolos.js` (cópia de `design/marca-ianmour/simbolos.js`), `icones/` (gerados do símbolo controle), `manifest.webmanifest` e `sw.js` (instalável e abre sem internet).
 - `entregas/`: cópias das páginas entregues (ex.: planejamento do Keylle). Ao gerar uma entrega nova, copiar para cá e acrescentar no `dados.js`.
 - O placar (aprovados, postados, gravações) lê o que foi marcado na página do planejamento **no mesmo aparelho**.
 - Prévia num arquivo só (para mandar na conversa): `python3 _tecnico/scripts/app-previa.py` → `departamentos/app-qg/ianmour - previa.html`.
 - Falta: foto do "Sobre" (a pessoa manda o arquivo), publicar num link grátis (pedir autorização), senha definitiva.
+
+- **Publicação:** `netlify.toml` na raiz do repositório publica só `departamentos/app-qg/app` no Netlify (conta grátis da pessoa, ligada ao GitHub, branch `claude/video-editor-setup-mkodfr`). Cada push atualiza o app sozinho.

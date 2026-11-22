@@ -25,7 +25,7 @@
     <h1 class="px pequeno rosa nome-entrada">agência</h1>
     <p class="px piscando">PRESS START</p>
     <div id="form-senha">
-      <input id="senha" type="password" inputmode="text" placeholder="senha" aria-label="Senha" autocomplete="current-password">
+      <input id="senha" type="password" placeholder="senha" aria-label="Senha" autocomplete="current-password">
       <button class="botao-jogo" type="button" id="entrar">ENTRAR ▶</button>
     </div>
     <p class="erro px" id="erro-senha" hidden>SENHA ERRADA · TENTE DE NOVO</p>
@@ -33,19 +33,21 @@
 </section>
 
 <!-- APP -->
-<div id="app" hidden>
-  <header class="topo">
-    <div class="marca"><span class="logo-mini" id="logo-mini"></span><span class="nome-app">ianmour</span></div>
-    <button class="sair px" id="sair">Sair</button>
-  </header>
+<div id="app" class="casca" hidden>
+  <aside class="menu" id="menu" aria-label="Menu">
+    <div class="menu-topo"><span class="logo-mini" id="logo-mini"></span><span class="nome-app">ianmour</span>
+      <button class="fechar-menu" id="fechar-menu" aria-label="Fechar menu">✕</button></div>
+    <nav id="menu-itens"></nav>
+  </aside>
+  <div class="fundo-menu" id="fundo-menu"></div>
 
-  <main id="conteudo" class="conteudo"></main>
-
-  <nav class="barra-baixo" aria-label="Navegação">
-    <button data-tela="mundos" class="ativo"><span class="ic" data-simbolo="controle"></span><span class="px">Mapa</span></button>
-    <button data-tela="clientes"><span class="ic" data-simbolo="mira"></span><span class="px">Clientes</span></button>
-    <button data-tela="sobre"><span class="ic" data-simbolo="faisca"></span><span class="px">Sobre</span></button>
-  </nav>
+  <div class="principal">
+    <header class="topo">
+      <button class="abrir-menu" id="abrir-menu" aria-label="Abrir menu"><span></span><span></span><span></span></button>
+      <span class="titulo-topo" id="titulo-topo"></span>
+    </header>
+    <main id="conteudo" class="conteudo"></main>
+  </div>
 </div>
 
 <!-- VISOR DE ENTREGAS (abre as páginas dentro do app) -->

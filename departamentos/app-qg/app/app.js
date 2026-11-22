@@ -162,8 +162,18 @@
   }
 
   // VISOR
-  function abrirEntrega(arq, titulo) { $('visor-titulo').textContent = (titulo || '').toUpperCase(); $('visor-frame').src = arq; $('visor').hidden = false; }
-  $('fechar-visor').onclick = function () { $('visor').hidden = true; $('visor-frame').src = 'about:blank'; ir(rotaInicial()); };
+  function abrirEntrega(arq, titulo) {
+    $('visor-titulo').textContent = (titulo || '').toUpperCase();
+    var fr = $('visor-frame'), pre = 'data:text/html;base64,';
+    if (arq.indexOf(pre) === 0) {
+      // versão de prévia (arquivo único): a página vem embutida e entra direto, sem link
+      var bin = atob(arq.slice(pre.length)), bytes = new Uint8Array(bin.length);
+      for (var i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i);
+      fr.removeAttribute('src'); fr.srcdoc = new TextDecoder('utf-8').decode(bytes);
+    } else { fr.removeAttribute('srcdoc'); fr.src = arq; }
+    $('visor').hidden = false;
+  }
+  $('fechar-visor').onclick = function () { $('visor').hidden = true; $('visor-frame').removeAttribute('srcdoc'); $('visor-frame').src = 'about:blank'; ir(rotaInicial()); };
 
   if ('serviceWorker' in navigator && location.protocol.indexOf('http') === 0) { navigator.serviceWorker.register('sw.js').catch(function () {}); }
 })();

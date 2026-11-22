@@ -23,3 +23,9 @@ Aprendido no trabalho real (adesivo da Equipe Charlie, 19–20/11/2026). Cada ab
 5. **Material do cliente vem primeiro.** Logo, cores e fotos do cliente valem mais do que qualquer coisa que a gente invente. Se o material for ruim, pedir o original antes de redesenhar.
 6. **Conversa direta e de igual para igual.** Frases curtas, sem explicação longa, sem tratar como iniciante.
 7. **Conferir antes de entregar** (olhar o resultado, nomes, acentos) e entregar cada arquivo separado quando for para baixar.
+
+## App da agência (ideia aprovada em 22/11/2026, ainda não começado)
+- Um app próprio no **estilo game da marca ianmour** (ver `departamentos/design/marca-ianmour/LEIA-ME.md`): cada departamento vira um "mundo"/"fase"; lista de clientes com ficha, mês atual, status dos posts (placar/XP) e pedidos; as entregas (ex.: página do planejamento) abrem dentro dele; "Sobre mim" com a foto só no final, não como cara do app; instalável no celular.
+- **Decisão da pessoa:** o "cérebro" continua sendo o Claude nas abas. O app só organiza, mostra e guarda; tudo que ela fizer lá, o Claude lê e ajusta. Sem ligar o app a serviços pagos.
+- Começar uma base simples e ir melhorando conforme cada departamento amadurece, numa aba própria ("QG").
+

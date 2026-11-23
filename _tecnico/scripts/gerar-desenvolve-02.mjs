@@ -92,18 +92,26 @@ tw(`tl.to("#chip", { scale: 0.92, duration: 0.08, yoyo: true, repeat: 1 }, ${f(p
 tw(`tl.to("#portal .mao", { opacity: 0, duration: 0.2 }, ${f(pc + 0.5)});`); som("click", pc, 0.09);
 tw(`tl.to("#portal .janela", { opacity: 0, y: -20, duration: 0.2, ease: "power2.in" }, ${f(p1 - 0.2)});`);
 
-// 7) endereço (cartão marinho embaixo, como na arte)
-const e0 = T("O endereço") - 0.05, e1 = T("E aí") - 0.08;
-el("end", e0, e1, `<div class="local"><svg viewBox="0 0 24 24" width="70" height="70"><path d="M12 22s7-6.4 7-12a7 7 0 10-14 0c0 5.6 7 12 7 12z" fill="none" stroke="#fff" stroke-width="2"/><circle cx="12" cy="10" r="2.6" fill="none" stroke="#fff" stroke-width="2"/></svg><div><b>Desenvolve Já · Maceió</b><span>Av. Presidente Getúlio Vargas, 590 – Serraria</span><span>Em frente à Igreja Quadrangular</span></div></div>`, "left:70px;width:940px;top:1110px");
-sobe("#end .local", e0); som("pop", e0, 0.07);
-tw(`tl.to("#end .local", { opacity: 0, y: 30, duration: 0.22, ease: "power2.in" }, ${f(e1 - 0.22)});`);
-esconde(e0, e1);
+// (sem cartão de endereço: o vídeo vale para três cidades e o endereço vai na legenda do post)
 
-// 8) fim: "BORA INDICAR?" + perfil
+// 8) fim: "BORA INDICAR?" no rosto e, depois da fala, uma tela final da marca com o resumo; depois some
 const b0 = T("E aí") - 0.05;
-el("bora", b0, DUR, `<div class="bora">BORA INDICAR?</div><div class="perfil"><span class="av"><img src="assets/avatar.png" alt=""></span><span class="pn"><b>Desenvolve Já</b><small>@desenvolveja</small></span></div>`, TOPO);
-pop("#bora .bora", T("bora") - 0.05); sobe("#bora .perfil", T("bora") + 0.25);
-som("whoosh", b0 - 0.1, 0.05); som("impact-bass-1", T("bora") - 0.05, 0.06);
+const CF = Math.min(DUR - 0.05, Tf("indicar") + 0.3), FIM = +(CF + 3.6).toFixed(3);
+el("bora", b0, CF + 0.2, `<div class="bora">BORA INDICAR?</div>`, TOPO);
+pop("#bora .bora", T("bora") - 0.05);
+som("impact-bass-1", T("bora") - 0.05, 0.06);
+// tela final só com o que já fechava o vídeo: "BORA INDICAR?" + perfil (logo e @)
+const itens = [
+  ["fn-b", `<div class="fn-bora">BORA INDICAR?</div>`],
+  ["fn-a", `<div class="fn-logo"><span class="av"><img src="assets/avatar.png" alt=""></span><span class="pn"><b>Desenvolve Já</b><small>@desenvolveja</small></span></div>`],
+];
+el("final", CF, FIM, `<div class="fn"><i class="onda o1"></i><i class="onda o2"></i><div class="fn-in">${itens.map(([id, h]) => `<div id="${id}">${h}</div>`).join("")}</div></div>`, "left:0;top:0;width:1080px;height:1920px");
+itens.forEach(([id], i) => tw(`tl.fromTo("#${id}", { opacity: 0, y: 34 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, ${f(CF + 0.25 + i * 0.16)});`));
+tw(`tl.fromTo("#final .o1", { scale: 0.6, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.6, ease: "power3.out" }, ${f(CF + 0.1)}); tl.fromTo("#final .o2", { scale: 0.6, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.6, ease: "power3.out" }, ${f(CF + 0.2)});`);
+tw(`tl.fromTo("#fn-b .fn-bora", { scale: 1 }, { scale: 1.05, duration: 0.5, yoyo: true, repeat: 3, ease: "sine.inOut" }, ${f(CF + 1.0)});`);
+tw(`tl.to("#final .fn", { opacity: 0, duration: 0.6, ease: "power1.in" }, ${f(FIM - 0.6)});`);
+itens.forEach(([], i) => som("pop", CF + 0.25 + i * 0.16, 0.06));
+esconde(CF, FIM);
 
 // ---- câmera: jump cuts alternam aberto/fechado; trocas de cena com faixa da marca ----
 const cenasOrig = [6.54, 20.08, 39.29];
@@ -117,6 +125,9 @@ cenas.forEach((t) => {
   cam.push(`tl.fromTo("#camera", { scale: 1.16 }, { scale: 1, duration: 0.45, ease: "expo.out", immediateRender: false }, ${f(t)});`);
   som("whoosh", t - 0.2, 0.06);
 });
+cam.push(`tl.fromTo("#fx1", { xPercent: -110 }, { xPercent: 110, duration: 0.42, ease: "power2.inOut", immediateRender: false }, ${f(CF - 0.21)});`);
+cam.push(`tl.fromTo("#fx2", { xPercent: -110 }, { xPercent: 110, duration: 0.42, ease: "power2.inOut", immediateRender: false }, ${f(CF - 0.15)});`);
+som("whoosh", CF - 0.2, 0.06);
 
 // ---- legenda "mago" (maior, aprovada no vídeo anterior) ----
 const CHAVES = new Set(["emprego", "r200", "almaviva", "60", "2027", "presencial", "novembro", "colaborador", "amigo", "indicar"]);
@@ -180,8 +191,24 @@ fs.writeFileSync(path.join(P, "compositions/app.html"), `<template>
     .perfil { display: inline-flex; align-items: center; gap: 20px; margin-top: 30px; padding: 14px 30px 14px 14px; border-radius: 999px; background: #fff; color: ${MA}; box-shadow: 0 16px 40px rgba(0,0,0,0.25); }
     .av { width: 84px; height: 84px; border-radius: 50%; overflow: hidden; } .av img { width: 100%; height: 100%; display: block; }
     .pn { text-align: left; } .pn b { display: block; font-size: 38px; font-weight: 800; } .pn small { display: block; font-size: 28px; font-weight: 600; color: #5b6380; }
+    .fn { position: absolute; inset: 0; background: ${TQ}; overflow: hidden; }
+    .onda { position: absolute; border-radius: 50%; border: 70px solid ${RS}; }
+    .onda.o1 { width: 640px; height: 640px; left: -360px; top: -300px; } .onda.o2 { width: 700px; height: 700px; right: -400px; bottom: -330px; }
+    .fn-in { position: absolute; left: 90px; right: 90px; top: 0; bottom: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 46px; text-align: center; }
+    .fn-bora { display: inline-block; padding: 22px 52px 14px; border-radius: 30px; background: ${RS}; color: #fff; font-family: "Anton"; font-size: 140px; line-height: 1; box-shadow: 0 0 0 9px #fff, 0 24px 60px rgba(0,0,0,0.25); }
+    .fn-logo { display: inline-flex; align-items: center; gap: 18px; padding: 12px 28px 12px 12px; border-radius: 999px; background: #fff; color: ${MA}; }
+    .fn-logo { padding: 16px 40px 16px 16px; text-align: left; } .fn-logo .av { width: 120px; height: 120px; } .fn-logo .pn b { font-size: 52px; } .fn-logo .pn small { font-size: 36px; }
+    .fn-tit { display: inline-block; padding: 16px 34px 10px; border-radius: 22px; background: #fff; color: ${MA}; font-family: "Anton"; font-size: 92px; line-height: 1; }
+    .fn-cifra { display: inline-flex; align-items: baseline; gap: 18px; padding: 10px 40px 14px; border-radius: 30px; background: ${RS}; color: #fff; box-shadow: 0 16px 40px rgba(249,5,127,0.35); }
+    .fn-cifra b { font-family: "Anton"; font-weight: 400; font-size: 120px; line-height: 1; } .fn-cifra span { font-size: 44px; font-weight: 700; }
+    .fn-box { width: 900px; padding: 26px 36px 0; border-radius: 30px; background: ${MA}; color: #fff; overflow: hidden; }
+    .fn-l { font-size: 38px; font-weight: 700; line-height: 1.2; margin-bottom: 18px; } .fn-l small { display: block; font-size: 24px; font-weight: 800; letter-spacing: 0.06em; color: ${TQ}; margin-bottom: 4px; }
+    .fn-pag { margin: 4px -36px 0; padding: 16px; background: ${RS}; font-size: 40px; font-weight: 800; }
+    .fn-req { display: flex; flex-direction: column; gap: 4px; color: ${MA}; font-size: 38px; font-weight: 700; } .fn-req b { font-family: "Anton"; font-weight: 400; font-size: 56px; line-height: 1.1; }
+    .fn-sel { padding: 16px 34px; border-radius: 999px; background: ${RS}; color: #fff; font-size: 40px; font-weight: 800; }
+    .fn-rod { color: ${MA}; font-size: 30px; font-weight: 500; line-height: 1.35; } .fn-rod b { font-weight: 800; white-space: nowrap; }
   </style>
-  <div id="root" data-composition-id="app" data-width="${W}" data-height="${H}">
+  <div id="root" data-composition-id="app" data-duration="${FIM}" data-width="${W}" data-height="${H}">
 ${els.join("\n")}
   </div>
   <script>
@@ -221,7 +248,7 @@ sons.forEach(([nome, t, v], i) => {
   const arq = path.basename(man[nome].file || `${nome}.mp3`);
   fs.copyFileSync(path.join(SFX, arq), path.join(P, "assets/sfx", arq));
   const t0 = Math.max(0, t);
-  audios += `      <audio id="som${i}" class="clip" src="assets/sfx/${arq}" data-start="${f(t0)}" data-duration="${f(Math.min(man[nome].duration, DUR - t0 - 0.01))}" data-track-index="${5 + (i % 4)}" data-volume="${v}"></audio>\n`;
+  audios += `      <audio id="som${i}" class="clip" src="assets/sfx/${arq}" data-start="${f(t0)}" data-duration="${f(Math.min(man[nome].duration, FIM - t0 - 0.01))}" data-track-index="${5 + (i % 4)}" data-volume="${v}"></audio>\n`;
 });
 
 let grade_ = "";
@@ -246,14 +273,14 @@ fs.writeFileSync(idx, `<!doctype html>
     </style>
   </head>
   <body>
-    <div id="main" data-composition-id="main" data-start="0" data-duration="${DUR}" data-width="${W}" data-height="${H}">
+    <div id="main" data-composition-id="main" data-start="0" data-duration="${FIM}" data-width="${W}" data-height="${H}">
       <div id="camera">
         <video id="fundo"${grade_} class="clip" src="assets/corte.mp4" data-start="0" data-duration="${DUR}" data-track-index="0" data-has-audio="true"></video>
       </div>
-      <div id="app" data-composition-id="app" data-composition-src="compositions/app.html" data-start="0" data-duration="${DUR}" data-track-index="1" data-track-kind="graphics" data-width="${W}" data-height="${H}"></div>
+      <div id="app" data-composition-id="app" data-composition-src="compositions/app.html" data-start="0" data-duration="${FIM}" data-track-index="1" data-track-kind="graphics" data-width="${W}" data-height="${H}"></div>
       <div id="legendas" data-composition-id="legendas" data-composition-src="compositions/legendas.html" data-start="0" data-duration="${DUR}" data-track-index="2" data-track-kind="captions" data-width="${W}" data-height="${H}"></div>
-      <div id="fx1" class="clip faixa" data-start="0" data-duration="${DUR}" data-track-index="3" data-layout-allow-occlusion data-layout-allow-overflow></div>
-      <div id="fx2" class="clip faixa" data-start="0" data-duration="${DUR}" data-track-index="4" data-layout-allow-occlusion data-layout-allow-overflow></div>
+      <div id="fx1" class="clip faixa" data-start="0" data-duration="${FIM}" data-track-index="3" data-layout-allow-occlusion data-layout-allow-overflow></div>
+      <div id="fx2" class="clip faixa" data-start="0" data-duration="${FIM}" data-track-index="4" data-layout-allow-occlusion data-layout-allow-overflow></div>
 ${audios}    </div>
     <script>
       const tl = gsap.timeline({ paused: true });
@@ -263,4 +290,4 @@ ${audios}    </div>
   </body>
 </html>
 `);
-console.log(`ok: ${els.length} elementos, ${grupos.length} blocos de legenda, ${sons.length} efeitos, cenas em ${cenas.map((c) => c.toFixed(2)).join(", ")}, pulos em ${pulos.map((c) => c.toFixed(2)).join(", ")}, ${DUR}s`);
+console.log(`fim da fala ${CF}s, tela final até ${FIM}s; ok: ${els.length} elementos, ${grupos.length} blocos de legenda, ${sons.length} efeitos, cenas em ${cenas.map((c) => c.toFixed(2)).join(", ")}, pulos em ${pulos.map((c) => c.toFixed(2)).join(", ")}, ${DUR}s`);

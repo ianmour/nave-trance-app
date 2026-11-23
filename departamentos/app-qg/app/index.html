@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ianmour</title>
+<meta name="theme-color" content="#0A0A14">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="ianmour">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icones/apple-touch-icon.png">
+<link rel="icon" type="image/png" href="icones/icon-192.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Silkscreen:wght@400;700&family=Archivo:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+
+<!-- ENTRADA -->
+<section id="tela-entrada" class="entrada">
+  <div class="entrada-caixa">
+    <div class="logo-pixel" id="logo-entrada"></div>
+    <h1 class="px pequeno rosa nome-entrada">agência</h1>
+    <p class="px piscando">PRESS START</p>
+    <div id="form-senha">
+      <input id="senha" type="password" inputmode="numeric" pattern="[0-9]*" maxlength="12" placeholder="senha" aria-label="Senha" autocomplete="current-password">
+      <button class="botao-jogo" type="button" id="entrar">ENTRAR ▶</button>
+    </div>
+    <p class="erro px" id="erro-senha" hidden>SENHA ERRADA · TENTE DE NOVO</p>
+  </div>
+</section>
+
+<!-- APP -->
+<div id="app" class="casca" hidden>
+  <aside class="menu" id="menu" aria-label="Menu">
+    <div class="menu-topo"><span class="logo-mini" id="logo-mini"></span><span class="nome-app">ianmour</span>
+      <button class="fechar-menu" id="fechar-menu" aria-label="Fechar menu">✕</button></div>
+    <nav id="menu-itens"></nav>
+  </aside>
+  <div class="fundo-menu" id="fundo-menu"></div>
+
+  <div class="principal">
+    <header class="topo">
+      <button class="abrir-menu" id="abrir-menu" aria-label="Abrir menu"><span></span><span></span><span></span></button>
+      <span class="titulo-topo" id="titulo-topo"></span>
+    </header>
+    <main id="conteudo" class="conteudo"></main>
+  </div>
+</div>
+
+<!-- VISOR DE ENTREGAS (abre as páginas dentro do app) -->
+<div id="visor" class="visor" hidden>
+  <div class="visor-topo"><button class="botao-jogo pequeno" id="fechar-visor">◀ Voltar</button><span class="px" id="visor-titulo"></span></div>
+  <iframe id="visor-frame" title="Entrega"></iframe>
+</div>
+
+<script src="simbolos.js"></script>
+<script src="dados.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

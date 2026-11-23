@@ -34,7 +34,7 @@ O feed é dividido em 3 colunas, cada uma um mundo:
 Legenda de vídeo continua **branca** (regra do `estilo/meu-estilo.md`).
 
 ## Símbolos (desenho próprio, em pixel)
-Pasta `simbolos/`: 8 símbolos × 4 cores (`<nome>-rosa|creme|azul|noite.svg`), em vetor (não perdem qualidade).
+Pasta `simbolos/`: 9 símbolos × 4 cores (`<nome>-rosa|creme|azul|noite.svg`), em vetor (não perdem qualidade).
 
 | Símbolo | Quando usar |
 |---|---|
@@ -46,6 +46,7 @@ Pasta `simbolos/`: 8 símbolos × 4 cores (`<nome>-rosa|creme|azul|noite.svg`), 
 | fala | conversa, opinião, comentário |
 | mira | foco, objetivo, meta |
 | play | vídeo, assistir, começar |
+| controle | jogo, mundo GAME, diversão |
 
 **Regras**
 - **Assinatura:** todo símbolo tem o **pixel solto** no canto de cima à direita, na cor de destaque (rosa; azul quando o símbolo é rosa). Nunca tirar.

@@ -1,0 +1,483 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Planejamento de conteúdo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cor:#1E4FA3; --cor-escura:#0E2A5C; --cor-clara:#EAF0FA; --cor-media:#C9D8F2;
+  --fundo:#F6F8FC; --papel:#FFFFFF; --texto:#111A2E; --suave:#5B6780; --linha:#E1E6F0;
+  --reels:#1E4FA3; --reels-animado:#5B86E5; --reels-curto:#8FB0EE; --carrossel:#E3A23B;
+  --sombra:0 1px 2px rgba(14,42,92,.06),0 8px 24px rgba(14,42,92,.08);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){--fundo:#0B1220;--papel:#121B2E;--texto:#E8EDF7;--suave:#9AA8C3;--linha:#22304A;--cor-clara:#16264A;--cor-media:#24407A;--sombra:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.35)}
+}
+:root[data-theme="dark"]{--fundo:#0B1220;--papel:#121B2E;--texto:#E8EDF7;--suave:#9AA8C3;--linha:#22304A;--cor-clara:#16264A;--cor-media:#24407A;--sombra:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.35)}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--fundo);color:var(--texto);font:15px/1.5 "Plus Jakarta Sans",system-ui,-apple-system,Segoe UI,Roboto,sans-serif;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1180px;margin:0 auto;padding:0 16px 64px}
+/* topo */
+.hero{background:linear-gradient(135deg,var(--cor-escura),var(--cor));color:#fff;padding:36px 0 84px}
+.hero .wrap{padding-bottom:0}
+.eyebrow{font-size:12px;letter-spacing:.14em;text-transform:uppercase;opacity:.8;font-weight:600}
+.hero h1{font-size:clamp(28px,5vw,46px);line-height:1.05;margin:8px 0 6px;font-weight:800;letter-spacing:-.02em}
+.hero .cliente{font-size:18px;opacity:.92;font-weight:500}
+.tema{margin-top:18px;max-width:720px;font-size:16px;opacity:.95}
+.numeros{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+.numero{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);border-radius:14px;padding:10px 16px;min-width:110px}
+.numero b{display:block;font-size:24px;line-height:1.1}
+.numero span{font-size:12px;opacity:.85}
+/* barra */
+.barra{margin-top:-56px;background:var(--papel);border-radius:18px;box-shadow:var(--sombra);padding:14px;display:flex;gap:10px;flex-wrap:wrap;align-items:center;justify-content:space-between;position:sticky;top:8px;z-index:5}
+.abas{display:flex;background:var(--cor-clara);border-radius:12px;padding:4px}
+.aba{border:0;background:transparent;color:var(--texto);font:inherit;font-weight:600;padding:8px 14px;border-radius:9px;cursor:pointer}
+.aba[aria-selected="true"]{background:var(--papel);color:var(--cor);box-shadow:0 1px 3px rgba(0,0,0,.08)}
+.filtros{display:flex;gap:6px;flex-wrap:wrap}
+.chip{border:1px solid var(--linha);background:var(--papel);color:var(--texto);font:inherit;font-size:13px;font-weight:600;padding:6px 12px;border-radius:999px;cursor:pointer;display:inline-flex;align-items:center;gap:6px}
+.chip .bola{width:9px;height:9px;border-radius:50%}
+select.chip{width:auto;padding-right:8px}
+.chip[aria-pressed="true"]{background:var(--cor);border-color:var(--cor);color:#fff}
+.acoes{display:flex;gap:8px}
+.btn{border:0;background:var(--cor);color:#fff;font:inherit;font-weight:700;font-size:13px;padding:9px 14px;border-radius:10px;cursor:pointer}
+.btn.sec{background:var(--cor-clara);color:var(--cor)}
+/* calendário */
+.secao{margin-top:28px}
+.secao h2{font-size:20px;margin:0 0 12px;letter-spacing:-.01em}
+.grade{display:grid;grid-template-columns:repeat(7,1fr);gap:8px}
+.sem{font-size:12px;font-weight:700;color:var(--suave);text-transform:uppercase;letter-spacing:.08em;padding:0 4px}
+.dia{background:var(--papel);border:1px solid var(--linha);border-radius:14px;min-height:118px;padding:8px;display:flex;flex-direction:column;gap:6px}
+.dia.vazio{background:transparent;border-style:dashed;opacity:.55}
+.dia.fora{visibility:hidden}
+.dia .n{font-size:13px;font-weight:700;color:var(--suave)}
+.post{all:unset;cursor:pointer;display:block;border-radius:10px;padding:8px 9px;color:#fff;font-size:13px;line-height:1.3;font-weight:600;transition:transform .15s ease,box-shadow .15s ease}
+.post:hover,.post:focus-visible{transform:translateY(-2px);box-shadow:0 6px 16px rgba(14,42,92,.25)}
+.post:focus-visible{outline:3px solid var(--cor-media)}
+.post small{display:block;font-size:11px;font-weight:600;opacity:.88;margin-bottom:2px;text-transform:uppercase;letter-spacing:.04em}
+.post .st{display:inline-block;margin-top:6px;font-size:11px;background:rgba(255,255,255,.22);padding:2px 8px;border-radius:999px}
+.post.carrossel{color:#2B1D05}
+.post.carrossel .st{background:rgba(0,0,0,.12)}
+.esmaecido{opacity:.18;pointer-events:none}
+/* lista */
+.lista{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px}
+.card{all:unset;cursor:pointer;background:var(--papel);border:1px solid var(--linha);border-radius:16px;padding:16px;display:flex;flex-direction:column;gap:8px;box-shadow:var(--sombra);transition:transform .15s ease}
+.card:hover,.card:focus-visible{transform:translateY(-3px)}
+.card .topo{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.data{font-weight:800;font-size:14px}
+.tag{font-size:12px;font-weight:700;padding:3px 10px;border-radius:999px;color:#fff}
+.tag.carrossel{color:#2B1D05}
+.card h3{margin:0;font-size:17px;letter-spacing:-.01em}
+.abertura{font-size:15px;color:var(--texto);border-left:3px solid var(--cor);padding-left:10px;font-style:normal}
+.virada{font-size:13px;color:var(--suave)}
+.status{font-size:12px;font-weight:700;color:var(--suave)}
+/* em alta */
+.alta{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px}
+.alta .item{background:var(--papel);border:1px solid var(--linha);border-radius:14px;padding:14px}
+.alta .item b{display:block;margin-bottom:6px;line-height:1.35}
+.alta .item span{font-size:12px;color:var(--suave)}
+details{background:var(--papel);border:1px solid var(--linha);border-radius:14px;padding:12px 16px;margin-top:12px}
+summary{cursor:pointer;font-weight:700}
+details ul{margin:10px 0 0;padding-left:18px}
+details a{color:var(--cor)}
+.reserva li{margin-bottom:6px}
+.trocas{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px}
+.troca{background:var(--papel);border:1px dashed var(--cor-media);border-radius:16px;padding:16px;display:flex;flex-direction:column;gap:8px}
+.troca .origem{font-size:12px;color:var(--suave)}
+.troca select{margin-top:auto;background:var(--cor-clara);border-color:transparent;color:var(--cor);font-weight:700;cursor:pointer}
+.sub{color:var(--suave);margin:-4px 0 14px;font-size:14px}
+/* aprovação, legenda e pedidos */
+.editavel:empty:before{content:attr(data-ph);color:var(--suave)}
+.selo{display:inline-block;margin-left:4px;font-size:11px;padding:2px 7px;border-radius:999px;background:#fff;color:#14803C;font-weight:800}
+.selo.ajustar{color:#B45309}
+.objetivo{display:inline-block;font-size:12px;font-weight:700;color:var(--cor);background:var(--cor-clara);padding:3px 10px;border-radius:999px}
+.legenda{white-space:pre-wrap}
+.aprovar{border:1px solid var(--linha);border-radius:14px;padding:14px;background:var(--cor-clara);display:grid;gap:10px}
+.aprovar .botoes{display:flex;gap:8px;flex-wrap:wrap}
+.opcao{border:2px solid transparent;background:var(--papel);color:var(--texto);font:inherit;font-weight:700;padding:9px 14px;border-radius:10px;cursor:pointer;flex:1}
+.opcao.ok[aria-pressed="true"]{border-color:#16A34A;color:#14803C}
+.opcao.aj[aria-pressed="true"]{border-color:#D97706;color:#B45309}
+.mini{border:0;background:transparent;color:var(--cor);font:inherit;font-weight:700;font-size:12px;cursor:pointer;padding:0}
+.grupo-prazo{margin-bottom:18px}
+.grupo-prazo h3{font-size:15px;margin:0 0 8px;color:var(--suave);font-weight:700}
+.pedido{display:flex;gap:12px;align-items:flex-start;background:var(--papel);border:1px solid var(--linha);border-radius:14px;padding:14px;margin-bottom:8px}
+.pedido input{width:22px;height:22px;margin-top:2px;accent-color:var(--cor);flex:none}
+.pedido.feito{opacity:.5}
+.pedido.feito .ped-titulo{text-decoration:line-through}
+.ped-titulo{font-weight:700}
+.ped-info{font-size:13px;color:var(--suave);margin-top:4px}
+.aguardando{color:#B45309;font-weight:700}
+.titulo-sec{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:12px}
+.titulo-sec h2{margin:0}
+/* janela do post */
+.fundo-modal{position:fixed;inset:0;background:rgba(8,18,40,.45);display:none;align-items:flex-end;justify-content:center;z-index:20;padding:16px}
+.fundo-modal.aberto{display:flex}
+@media (min-width:720px){.fundo-modal{align-items:center}}
+.modal{background:var(--papel);color:var(--texto);border-radius:20px;max-width:620px;width:100%;max-height:90vh;overflow:auto;box-shadow:0 24px 60px rgba(0,0,0,.3)}
+.modal .cab{padding:18px 20px;color:#fff;border-radius:20px 20px 0 0}
+.modal .cab.carrossel{color:#2B1D05}
+.modal .cab small{font-weight:700;text-transform:uppercase;letter-spacing:.06em;font-size:12px;opacity:.9}
+.modal .cab h3{margin:4px 0 0;font-size:22px}
+.modal .corpo{padding:18px 20px;display:grid;gap:14px}
+.campo label{display:block;font-size:12px;font-weight:700;color:var(--suave);text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px}
+.editavel{border:1px solid var(--linha);border-radius:10px;padding:10px 12px;min-height:44px;outline:none;background:var(--fundo)}
+.editavel:focus{border-color:var(--cor);box-shadow:0 0 0 3px var(--cor-clara)}
+select{font:inherit;border:1px solid var(--linha);border-radius:10px;padding:9px 10px;background:var(--fundo);color:var(--texto);width:100%}
+.linha2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.modal .pe{display:flex;justify-content:space-between;align-items:center;padding:0 20px 18px;gap:10px}
+.dica{font-size:12px;color:var(--suave)}
+.aviso{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);background:var(--cor-escura);color:#fff;padding:10px 16px;border-radius:999px;font-size:13px;font-weight:600;opacity:0;transition:opacity .2s;pointer-events:none;z-index:30}
+.aviso.on{opacity:1}
+/* celular: calendário vira lista por dia */
+@media (max-width:760px){
+  .grade{grid-template-columns:1fr}
+  .sem,.dia.fora,.dia.vazio{display:none}
+  .dia{min-height:auto;flex-direction:row;align-items:stretch}
+  .dia .n{min-width:46px;font-size:15px;color:var(--texto)}
+  .post{flex:1}
+  .barra{position:static}
+  .acoes{width:100%}
+  .acoes .btn{flex:1}
+}
+@media print{
+  .barra,.fundo-modal,.aviso{display:none!important}
+  body{background:#fff}
+  .hero{padding:24px 0 24px;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .post,.tag,.modal .cab{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  #vista-lista{display:grid!important}
+  .card{break-inside:avoid;box-shadow:none}
+}
+</style>
+</head>
+<body>
+<script id="dados" type="application/json">{"id": "Keylle Lima-2026-12", "cliente": "Keylle Lima", "ano": 2026, "mes": 12, "mesNome": "Dezembro", "tema": "A virada da jornada (fim da escala 6x1) e o fechamento do ano na pequena empresa.", "cor": "#1E4FA3", "corEscura": "#0E2A5C", "posts": [{"dia": 1, "formato": "Reels", "tema": "Fim da 6x1", "abertura": "Segunda, 7h. Seu melhor funcionário chega e pergunta: 'e a minha escala, como fica?' Você sabe responder?", "virada": "O que o dono precisa decidir antes do dia 16", "status": "Ideia", "notas": "", "objetivo": "Comentários + seguidores", "chamada": "Comenta ESCALA que eu te mando o checklist da transição.", "preparar": "Preparar o checklist para mandar (pode ser o próprio carrossel do dia 3).", "legenda": "Segunda, 7h. Seu melhor funcionário te pergunta: \"e a minha escala, como fica?\"\nSe você ainda não sabe responder, este vídeo é para você.\nA escala vai mudar, e quem lidera uma pequena empresa não pode deixar para decidir no último dia.\nAntes de qualquer planilha, decida três coisas: quem trabalha em quais dias, como o ponto vai ser controlado e como você vai contar isso para a equipe.\nComenta ESCALA que eu te mando o checklist da transição. E me segue para atravessar essa mudança com a equipe do seu lado."}, {"dia": 3, "formato": "Carrossel", "tema": "Checklist da 5x2", "abertura": "Você está mais preparado para a nova escala do que pensa. Ou menos. Arrasta e marca.", "virada": "Teste de marcar: escala, ponto, conversa com a equipe", "status": "Ideia", "notas": "", "objetivo": "Salvar + compartilhar", "chamada": "Salva para marcar depois e manda para o seu sócio.", "preparar": "", "legenda": "Você está mais preparado para a nova escala do que pensa. Ou menos.\nArrasta e marca o que você já fez.\nSe marcou menos de três, não entra em pânico: comece pelo primeiro item hoje.\nSalva para marcar depois e manda para o seu sócio."}, {"dia": 5, "formato": "Reels", "tema": "Comunicar mudança", "abertura": "O jeito errado de anunciar uma mudança: no grupo do WhatsApp, às 22h.", "virada": "Como contar à equipe sem gerar medo nem boato", "status": "Ideia", "notas": "", "objetivo": "Conexão + compartilhar", "chamada": "Manda para aquele amigo que anuncia tudo no grupo.", "preparar": "", "legenda": "O jeito errado de anunciar uma mudança: no grupo do WhatsApp, às 22h.\nA equipe não tem medo da mudança. Tem medo do que não entende.\nReúna todo mundo, explique o porquê, mostre como fica a rotina de cada um e deixe espaço para pergunta.\nMudança bem contada vira confiança. Mal contada, vira boato.\nManda para aquele amigo que anuncia tudo no grupo."}, {"dia": 7, "formato": "Reels", "tema": "Temporário de fim de ano", "abertura": "Ele foi ótimo em dezembro. Em março, chegou o processo.", "virada": "Os cuidados que evitam essa história", "status": "Ideia", "notas": "", "objetivo": "Informação + salvar", "chamada": "Salva antes de contratar.", "preparar": "", "legenda": "Ele foi ótimo em dezembro. Em março, chegou o processo.\nTemporário de fim de ano ajuda muito, mas tem regra.\nCombinado por escrito, ponto registrado e pagamento certinho no final. Na dúvida, fale com o seu contador antes de contratar, não depois.\nSalva antes de contratar."}, {"dia": 9, "formato": "Carrossel", "tema": "Férias coletivas", "abertura": "Você deu férias para todo mundo… e ainda pode pagar duas vezes.", "virada": "O erro que faz pagar em dobro, explicado", "status": "Ideia", "notas": "", "objetivo": "Salvar", "chamada": "Salva e confere com o seu contador.", "preparar": "Conferir com o contador qual erro gera o pagamento em dobro antes de postar.", "legenda": "Você deu férias para todo mundo… e ainda pode pagar duas vezes.\nArrasta para ver o erro que mais faz pequena empresa pagar férias em dobro.\nFérias coletivas são ótimas para fechar o ano, desde que sigam o prazo e o combinado.\nSalva e confere com o seu contador."}, {"dia": 11, "formato": "Reels", "tema": "Promover o melhor vendedor", "abertura": "No mesmo dia, você perdeu um ótimo vendedor e ganhou um péssimo gerente.", "virada": "Por que o melhor técnico nem sempre é o melhor líder", "status": "Ideia", "notas": "", "objetivo": "Comentários", "chamada": "Você já viu isso acontecer? Me conta aqui.", "preparar": "", "legenda": "No mesmo dia, você perdeu um ótimo vendedor e ganhou um péssimo gerente.\nVender bem e liderar bem são coisas diferentes.\nAntes de promover, pergunte: essa pessoa gosta de fazer, ou gosta de fazer os outros crescerem?\nVocê já viu isso acontecer? Me conta aqui."}, {"dia": 13, "formato": "Reels", "tema": "Contratar certo", "abertura": "Contratou pelo currículo. Demitiu pelo comportamento.", "virada": "O que perguntar na entrevista da pequena empresa", "status": "Ideia", "notas": "", "objetivo": "Seguidores + comentários", "chamada": "Comenta ENTREVISTA que eu te mando as 5 perguntas que eu faço.", "preparar": "Preparar a lista com as 5 perguntas de entrevista para mandar.", "legenda": "Contratou pelo currículo. Demitiu pelo comportamento.\nO currículo mostra o que a pessoa fez. A entrevista precisa mostrar como ela age.\nPergunte sobre situações reais: um cliente difícil, um erro que ela cometeu, um colega com quem não se deu bem.\nComenta ENTREVISTA que eu te mando as 5 perguntas que eu faço. E me segue para contratar melhor em 2027."}, {"dia": 15, "formato": "Reels", "tema": "Véspera da nova jornada", "abertura": "Amanhã muda tudo. Hoje à noite você vai dormir tranquilo?", "virada": "As 3 últimas checagens", "status": "Ideia", "notas": "", "objetivo": "Informação + compartilhar", "chamada": "Manda para quem ainda não se preparou.", "preparar": "", "legenda": "Amanhã muda tudo. Hoje à noite você vai dormir tranquilo?\nTrês checagens rápidas: a escala de cada pessoa está escrita? Todo mundo sabe qual é a sua nova folga? O controle de ponto está ajustado?\nSe respondeu sim para as três, pode dormir.\nManda para quem ainda não se preparou."}, {"dia": 17, "formato": "Reels animado", "tema": "Primeira semana da 5x2", "abertura": "Primeira semana da escala nova: o que a sua equipe está sentindo e não te contou.", "virada": "Como ouvir e ajustar logo no começo", "status": "Ideia", "notas": "", "objetivo": "Conexão + comentários", "chamada": "Como está sendo aí? Me conta nos comentários.", "preparar": "", "legenda": "Primeira semana da escala nova: o que a sua equipe está sentindo e não te contou.\nPergunte a cada pessoa, sem plateia: o que ficou mais difícil? O que ficou melhor?\nAjustar cedo é muito mais barato do que perder alguém em fevereiro.\nComo está sendo aí? Me conta nos comentários."}, {"dia": 19, "formato": "Reels curto", "tema": "2ª parcela do 13º", "abertura": "Tem um dia de dezembro que todo dono de pequena empresa sente no bolso.", "virada": "O prazo e como se organizar", "status": "Ideia", "notas": "", "objetivo": "Informação + salvar", "chamada": "Salva e coloca um lembrete no celular.", "preparar": "Confirmar o prazo da 2ª parcela antes de postar.", "legenda": "Tem um dia de dezembro que todo dono de pequena empresa sente no bolso.\nA segunda parcela do 13º tem prazo: até o dia 20.\nSepare o valor antes, para não ter que escolher entre pagar a equipe e pagar o fornecedor.\nSalva e coloca um lembrete no celular."}, {"dia": 21, "formato": "Carrossel", "tema": "Reconhecer a equipe", "abertura": "Seu funcionário não vai lembrar do panetone. Vai lembrar do que você disse para ele.", "virada": "3 jeitos de reconhecer sem gastar muito", "status": "Ideia", "notas": "", "objetivo": "Salvar + compartilhar", "chamada": "Salva para usar na confraternização.", "preparar": "", "legenda": "Seu funcionário não vai lembrar do panetone. Vai lembrar do que você disse para ele.\nArrasta para ver três jeitos de reconhecer a equipe no fim do ano, sem gastar muito.\nReconhecimento bom tem nome, tem exemplo e é sincero.\nSalva para usar na confraternização."}, {"dia": 23, "formato": "Reels", "tema": "Equipe que não discorda", "abertura": "Na reunião, todo mundo concorda. No corredor, ninguém.", "virada": "Como criar espaço para a equipe falar a verdade", "status": "Ideia", "notas": "", "objetivo": "Comentários", "chamada": "Na sua empresa as pessoas falam ou se calam? Comenta aqui.", "preparar": "", "legenda": "Na reunião, todo mundo concorda. No corredor, ninguém.\nSilêncio não é concordância. Muitas vezes é medo.\nSe ninguém nunca discorda de você, o problema pode estar no jeito de perguntar.\nNa sua empresa as pessoas falam ou se calam? Comenta aqui."}, {"dia": 25, "formato": "Reels curto", "tema": "Natal (opcional)", "abertura": "Este ano você foi chefe, RH, financeiro e ainda abriu a loja. Este vídeo é para você.", "virada": "Reconhecer quem lidera uma pequena empresa", "status": "Ideia", "notas": "", "objetivo": "Conexão", "chamada": "Marca um dono de pequena empresa que precisa ouvir isso.", "preparar": "", "legenda": "Este ano você foi chefe, RH, financeiro e ainda abriu a loja.\nTeve dia que deu tudo certo, e teve dia que você segurou tudo sozinho e ninguém viu.\nEste vídeo é para você. Feliz Natal. Você merece descansar.\nMarca um dono de pequena empresa que precisa ouvir isso."}, {"dia": 27, "formato": "Reels", "tema": "Sair do operacional", "abertura": "Você tirou um dia de folga e o celular não parou um minuto?", "virada": "O primeiro passo para a empresa rodar sem você", "status": "Ideia", "notas": "", "objetivo": "Seguidores", "chamada": "Me segue: em janeiro eu mostro o passo a passo.", "preparar": "Combinar com o cliente a série de janeiro, já que o post promete.", "legenda": "Você tirou um dia de folga e o celular não parou um minuto?\nIsso não é dedicação. É uma empresa que só funciona com você dentro.\nPrimeiro passo: escreva o que só você sabe fazer e ensine uma coisa por semana para alguém da equipe.\nMe segue: em janeiro eu mostro o passo a passo."}, {"dia": 29, "formato": "Reels animado", "tema": "NR-01 e saúde mental", "abertura": "Ele não faltou por preguiça.", "virada": "O que o líder precisa enxergar (e o que a NR-01 pede)", "status": "Ideia", "notas": "", "objetivo": "Informação + compartilhar", "chamada": "Manda para o seu sócio ou gerente.", "preparar": "Confirmar o que a NR-01 exige de empresas pequenas antes de postar.", "legenda": "Ele não faltou por preguiça.\nCansaço, medo, pressão e conflito também adoecem, e o líder costuma ser o último a perceber.\nCuidar disso agora é obrigação das empresas, e o primeiro passo é simples: conversar e observar.\nManda para o seu sócio ou gerente."}, {"dia": 31, "formato": "Reels", "tema": "Planejar 2027", "abertura": "Antes de fazer as metas de 2027, faça esta pergunta para a sua equipe.", "virada": "3 perguntas que mudam o planejamento", "status": "Ideia", "notas": "", "objetivo": "Comentários + seguidores", "chamada": "Comenta 2027 se você vai fazer essa pergunta.", "preparar": "", "legenda": "Antes de fazer as metas de 2027, faça esta pergunta para a sua equipe:\n\"O que te atrapalhou a fazer um bom trabalho este ano?\"\nA resposta vale mais do que qualquer planilha de metas.\nComenta 2027 se você vai fazer essa pergunta. E me segue para começar o ano liderando melhor."}], "alta": [{"assunto": "Fim da escala 6x1: nova jornada começa em 16/12, com regras de transição e regras específicas para pequenas empresas", "onde": "O Globo, Omie, Jornal Opção; vídeos do SBT News com +80 mil views", "quando": "12–13/11"}, {"assunto": "Empresas ainda contestam os prazos no STF; o RH precisa se reorganizar antes de dezembro", "onde": "O Paraná, StartSe, Brasil Inovador", "quando": "07–18/11"}, {"assunto": "13º salário: prazos, cálculo e novas regras do IR", "onde": "G1, InvestNews e vários outros", "quando": "19/11"}, {"assunto": "Temporários de fim de ano e erros de folha e ponto que levam pequenas empresas à Justiça", "onde": "Jornal Tribuna, Exame", "quando": "17–20/11"}, {"assunto": "Férias coletivas: erros que fazem a empresa pagar em dobro", "onde": "vídeos de advogados trabalhistas", "quando": "último mês"}, {"assunto": "Riscos psicossociais e NR-01 cobrando os líderes", "onde": "Estância Velha Notícias; vídeo \"7 erros que todo líder comete e a NR-01 agora cobra", "quando": "18/11"}, {"assunto": "Muita gente buscando cursos de liderança gratuitos e pós em gestão de pessoas", "onde": "Google Trends", "quando": "último mês"}], "reserva": [], "trocas": [{"formato": "Reels", "tema": "Quem cobre o sábado", "abertura": "Escala nova, cliente de sempre: quem vai abrir a loja no sábado?", "virada": "Como montar o revezamento sem sobrecarregar ninguém", "origem": "Fim da 6x1 (notícias de novembro)"}, {"formato": "Reels", "tema": "Retenção no fim de ano", "abertura": "O funcionário que pede demissão em janeiro decidiu em dezembro.", "virada": "Os sinais de que alguém está indo embora e o que fazer", "origem": "Fechamento do ano"}, {"formato": "Reels", "tema": "Liderar sem diploma", "abertura": "Você não precisa de pós para liderar.", "virada": "3 hábitos de quem lidera bem no dia a dia", "origem": "Google Trends: busca por cursos de liderança em alta"}, {"formato": "Reels animado", "tema": "IA e liderança", "abertura": "A IA organiza a escala. Mas quem segura a equipe numa semana ruim é você.", "virada": "O que a tecnologia não faz pelo líder", "origem": "Gazeta da Semana e Portal ERP, 19/11"}, {"formato": "Carrossel", "tema": "Riscos psicossociais", "abertura": "O balcão, o chão de fábrica e o escritório têm algo em comum.", "virada": "O que cansa a equipe por dentro, em cada tipo de negócio", "origem": "Estância Velha Notícias, 18/11"}, {"formato": "Reels", "tema": "O peso de crescer", "abertura": "Você abriu a empresa por paixão. Hoje só apaga incêndio.", "virada": "Como voltar a ter prazer em liderar", "origem": "Vídeo Crescer tirou o prazer de liderar sua empresa?"}, {"formato": "Reels", "tema": "Novo líder", "abertura": "Promovido ontem. Chefe dos amigos hoje.", "virada": "Como liderar quem era seu colega", "origem": "Assunto forte em podcasts do mês"}, {"formato": "Reels", "tema": "Feedback de fim de ano", "abertura": "Uma conversa de 10 minutos vale mais que a confraternização.", "virada": "Como fazer a conversa de fim de ano com cada pessoa", "origem": "Fim de ano e reconhecimento (Gazeta do Povo, 19/11)"}, {"formato": "Reels", "tema": "Ego do dono", "abertura": "Você é o melhor da sua empresa em tudo? Esse é o problema.", "virada": "Por que centralizar trava o crescimento", "origem": "Vídeo O ego é o inimigo do lucro"}, {"formato": "Reels", "tema": "Demitir conhecido", "abertura": "Demitir é difícil. Demitir o primo do seu melhor amigo é pior.", "virada": "Como demitir com respeito numa empresa onde todos se conhecem", "origem": "Vídeo Demitir na empresa pequena, onde todo mundo se conhece"}], "pedidos": [{"prazo": "2026-11-27", "post": 1, "tipo": "Áudio", "pedido": "Áudio com a fala do Reels: Fim da 6x1", "texto": "aguardando roteiro", "como": "Celular perto da boca, lugar sem barulho, pode ler do papel. Se errar, é só repetir a frase.", "feito": false}, {"prazo": "2026-11-27", "post": 5, "tipo": "Áudio", "pedido": "Áudio com a fala do Reels: Comunicar mudança", "texto": "aguardando roteiro", "como": "Celular perto da boca, lugar sem barulho, pode ler do papel. Se errar, é só repetir a frase.", "feito": false}, {"prazo": "2026-11-27", "post": 7, "tipo": "Áudio", "pedido": "Áudio com a fala do Reels: Temporário de fim de ano", "texto": "aguardando roteiro", "como": "Celular perto da boca, lugar sem barulho, pode ler do papel. Se errar, é só repetir a frase.", "feito": false}, {"prazo": "2026-12-04", "post": 11, "tipo": "Áudio", "pedido": "Áudio com a fala do Reels: Promover o melhor vendedor", "texto": "aguardando roteiro", "como": "Celular perto da boca, lugar sem barulho, pode ler do papel. Se errar, é só repetir a frase.", "feito": false}, {"prazo": "2026-12-04", "post": 13, "tipo": "Áudio", "pedido": "Áudio com a fala do Reels: Contratar certo", "texto": "aguardando roteiro", "como": "Celular perto da boca, lugar sem barulho, pode ler do papel. Se errar, é só repetir a frase.", "feito": false}, {"prazo": "2026-12-04", "post": 15, "tipo": "Áudio", "pedido": "Áudio com a fala do Reels: Véspera da nova jornada", "texto": "aguardando roteiro", "como": "Celular perto da boca, lugar sem barulho, pode ler do papel. Se errar, é só repetir a frase.", "feito": false}, {"prazo": "2026-12-11", "post": 17, "tipo": "Áudio", "pedido": "Áudio com a fala do Reels: Primeira semana da 5x2", "texto": "aguardando roteiro", "como": "Celular perto da boca, lugar sem barulho, pode ler do papel. Se errar, é só repetir a frase.", "feito": false}, {"prazo": "2026-12-11", "post": 19, "tipo": "Áudio", "pedido": "Áudio com a fala do Reels: 2ª parcela do 13º", "texto": "aguardando roteiro", "como": "Celular perto da boca, lugar sem barulho, pode ler do papel. Se errar, é só repetir a frase.", "feito": false}, {"prazo": "2026-12-11", "post": 23, "tipo": "Áudio", "pedido": "Áudio com a fala do Reels: Equipe que não discorda", "texto": "aguardando roteiro", "como": "Celular perto da boca, lugar sem barulho, pode ler do papel. Se errar, é só repetir a frase.", "feito": false}, {"prazo": "2026-12-18", "post": 25, "tipo": "Vídeo", "pedido": "Vídeo dele falando para a câmera (mensagem de Natal)", "texto": "aguardando roteiro", "como": "Celular em pé, na altura dos olhos, luz de frente (janela), lugar sem barulho. Pode gravar em partes.", "feito": false}, {"prazo": "2026-12-18", "post": 27, "tipo": "Áudio", "pedido": "Áudio com a fala do Reels: Sair do operacional", "texto": "aguardando roteiro", "como": "Celular perto da boca, lugar sem barulho, pode ler do papel. Se errar, é só repetir a frase.", "feito": false}, {"prazo": "2026-12-18", "post": 29, "tipo": "Áudio", "pedido": "Áudio com a fala do Reels: NR-01 e saúde mental", "texto": "aguardando roteiro", "como": "Celular perto da boca, lugar sem barulho, pode ler do papel. Se errar, é só repetir a frase.", "feito": false}, {"prazo": "2026-12-18", "post": 31, "tipo": "Áudio", "pedido": "Áudio com a fala do Reels: Planejar 2027", "texto": "aguardando roteiro", "como": "Celular perto da boca, lugar sem barulho, pode ler do papel. Se errar, é só repetir a frase.", "feito": false}], "fontes": [{"nome": "Dino mantém 16/12 (Omie)", "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE1QdWp4OWIyMEdtU0NkeEdhZURKamNvbnZZbXk0dmVWdUllZ3FtM0RrU2lrZTVTUS1Hb2hNTl9UcVhzdDhWRG9sSVdXTDVQd3JMQUtYd0JqdC1WODJfUmJSTGwtVmt3c19vQW50T0YycmdwTm15?oc=5"}, {"nome": "Dino nega adiamento (O Globo)", "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxPemZEbk1UM1BIYVZOSXh6VUVlSTlxeW5YeUFJamJJMGROODBNdGVvWFdVY1MwcWYwTFRSYURIYlZralF5dGJXMHI0WDZodHkySjI1VmxHenhpYUR6SWxXZGtLdlNHNU1JdnpRWUNQajlMNkllNDZudW5aM0N2R01fOU1rUmU0UngtWjlyYkQzUzVNX3PSAaIBQVVfeXFMUGxBaTcxcHg1MjA3MHplTHJxVTdlYldPSUdSRlktS1dxX3VjVW1YX2FnRG5BOEhrT2xNSzJYdldCR3lkc0J1c2VIOXRyaEg0Y0hUck1XcE1xeWZ5eFl3c19vbU9KM2N1bFk1MG95YkRMTUJZSjFCRTY1ZkYyaW5Gc1ZRdjhhdDZ6ZFJTTjhxN2J6bU10dWktX2hXR2F3QkRxTHBn?oc=5"}, {"nome": "Regras para pequenas empresas (Jornal Opção)", "url": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxPS3BZcTNELS13S3RWd2I4eVlTR2ZaaXhWbjdINF9UU2lYbTlxV2lhb3pWR0RMdFFTNDQ4RFFPd2w5WFd3QTFidGE5RndzTHVKQ1N2QXQwWndEZUVNRXpqS0pjR3pJWVg0MDBkMDQ1S3FBN21tSzhfbWFrOUk5YTEwcG1ZZl9oZ1BfN1J1ZHQxMVdXY1l6T0djb0RiZWk1VUZER0U3ZUpjNTJYdmttS2FwWEstT1FsczZBVE5LOHY5Q2R2T3paaFJjamppWi1JOE1PbXhvcERSamlxbGhu?oc=5"}, {"nome": "RH antes de dezembro (StartSe)", "url": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxOdGxCQ1ZqUFl1aFNSbHdmbmFxMEZLVFNLSGMzc2VobE1jd0xLTExPWUxadWZ5RnFyeGVUSjdObm1OYkl3SnpCRzBGSENoZ2FvWjZCOW84cXZONXRBM3FscEl4U1U3cHQ0VXdqNVctOEIwZVdIWmFmc1N4ek9DVjVzdmZXR2pFZ3h6M09MT0J2VmJmQjRVMGV3c2twdy1PRHRmMFJHVDdHVTVXQ3lYb1B1c2JhaWx0dVlaRmFvZkhJLUVNczRwU29fOE56SmpOUWxuTEVz?oc=5"}, {"nome": "6x1 na pequena empresa (Brasil Inovador)", "url": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxNUXFHWUtPWUNTQWFRcU5sRl82cnRuUGZCUFpWY1d1MHkxQzNjOEM3M0MzS2F3djRWQTJUeVA4MlR6Wm9QYmVwV3V5WTltYU5IVkdraW8zZnJ3OU5vblgwaFMtLXpFaDlZOG9kb1BBZDYwZE1qR1c1VTE4WmJVTXpRVTNYUnBDWnRxZ21uc0RGWmg4QXdDU0FIY0FBdVl6YXRzS2JuamtJOEV6bnBmbU1LRjVYU2Rmcm0tc0NHcHhnWjBueWxXdVA1MDBZbDZUVzR4ZDRn?oc=5"}, {"nome": "Duas folgas semanais (SBT News)", "url": "https://www.youtube.com/watch?v=CBxTKmj25nE"}, {"nome": "Temporários de fim de ano", "url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxORGpjaHNvdE02MzlaZTJ1TEhZVTVRd3E3NWFqWWlMb0EwdGZ2cHVRQkllbTlGaGlWdHRUeWRGWTkxNnpCWVlwV2JzSEY4SFVoWEVGZ1RxWFB4dW5VQWNMSFNXU0RYa1V3X21qdzNEOGloVmVjMGpmdWlyeEhGRjFZYnRjc2ZpWDZ3ekFSMk5Ua2dGYUZBUG9mUWpiSmlaRjFMRjhVQnh4eE9TUHVHLTZpbFh1Y00zcC05a1JfYnpnejVMYUlYV05rbWNUakJpR3c0?oc=5"}, {"nome": "Erros de ponto e folha (Exame)", "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE5BOWlBNVNVbDg4b2ZMTzBiTXFkV2tZTFpPRHkwY2FaNVY3MkpPRUxka3VUQXQ0R05ud0pnUE9lMXRKX196bjgtcmxBbXBnU1F1a2ZmVnhFd2tLNlhJVnVIZGZVOHZZaUFoMWtnZzRYa1FtbWpIT1hzZg?oc=5"}, {"nome": "Férias coletivas, pagar em dobro", "url": "https://www.youtube.com/watch?v=UCrnTwsFZeM"}, {"nome": "12 erros nas férias coletivas", "url": "https://www.youtube.com/watch?v=Rlclll6GFbQ"}, {"nome": "Promover o melhor vendedor (Podize)", "url": "https://www.youtube.com/watch?v=BiQYKuEBQIk"}, {"nome": "Equipe que nunca discorda (Administradores)", "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxNdzJfU1JQMnZlUkxfRDhfTXRrb2o2Y0R0alB2QVdWbDBTU3lHX0wzbmp5S0c3Y2xnRnlqM1lfTGtsYzJyMVJVelVxSDZCcmVSSGhiQzVRRXZrSDJSallGRFZpcHRIYzN6UlNBdTdNNFI3TVM0dHVEd1VjeFhyWERqWlhJRFVTVWZzaHA0MVRPUHZ0WjBPcWIyOXhlMnR2QUFreWJJ?oc=5"}, {"nome": "Riscos psicossociais", "url": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxNbkZ5QmRZWkREQVk5eHZ6V2pqOXcxUGxoa0VkMnp3eTlJSVZxNTB1SEoxYTY4QzA0NERZbU9tRDlMbFNSMmFRdERpTV8wbUdPMDBTNEVUaElCWjJLLWtjS0Z5dGpnZHUzdTJURmNVa1FEMEhQU04wQmozZkZkRlh1d2Q5eTFOdzlkcHJlbG9OcnRNX25kS3ByRDNxLVBGSUlmMG1uUUFTTFFzTVpyU1pEcmJLNFk2WDQwb3MyTDlQLVI4aTNwZk9vUUMtLU9TQWxjZ2FkQzZB?oc=5"}, {"nome": "NR-01 e líderes", "url": "https://www.youtube.com/watch?v=JZtnYD-xq94"}, {"nome": "Reconhecimento da equipe (Gazeta do Povo)", "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxPR3I3djViNW5qZjhWRzlLLXNGX1RxQm80UGZrcTVoUHFVckJsUWg1YzVNV0ZadUFQTkN5RWVBcHMxakxLMjFxeEJMclQzbkFMTEN6U2RtbmtVNW9tN2F2QmhUcUtHNkMwTHJKb3AtaGxxalE4MV8tTmR3WVowWlM3UGxfQ3MtUFdUWV9XQmhoUFZveE9jSy1UWndTSF95aklsbVE1YnBQZDU?oc=5"}, {"nome": "13º prazos (InvestNews)", "url": "https://news.google.com/rss/articles/CBMickFVX3lxTFB4aHh0SlptYlNYTnZaYWt5V2VISW5QLUFlN3lHbEt1R1h6Zm9fOW82a243UEZDWEI4M2ZXS3JDUGF2YUxFXzI1cXAzeWpfUVU1QUR1SlNzUjExazZhZ3Zua1A3VERFWWllRU4zYWlJbVBJQdIBd0FVX3lxTE1nQ3Fya1dZa2pHb1ZWUzNoWHZQZlhqUkF1OG16eXZDWnprbG1FaG9oYzBOdkRFbDNGQUVSRkFVMzhBUjNsUnZoWEE5SXZfaXlKNnJQQjBwUGpVWGNhS0gyV2pOTXExZ0VNRXV1MmttNjdNUUtsUVRZ?oc=5"}]}</script>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Planejamento de conteúdo</div>
+    <h1 id="titulo"></h1>
+    <div class="cliente" id="cliente"></div>
+    <p class="tema" id="tema"></p>
+    <div class="numeros" id="numeros"></div>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="barra">
+    <div class="abas" role="tablist">
+      <button class="aba" role="tab" aria-selected="true" data-vista="cal">Calendário</button>
+      <button class="aba" role="tab" aria-selected="false" data-vista="lista">Lista</button>
+    </div>
+    <div class="filtros" id="filtros"></div>
+    <div class="acoes">
+      <button class="btn sec" id="imprimir">PDF</button>
+      <button class="btn sec" id="respostas">Enviar respostas</button>
+      <button class="btn" id="baixar">Baixar versão editada</button>
+    </div>
+  </div>
+
+  <section class="secao" id="vista-cal">
+    <h2>Calendário</h2>
+    <div class="grade" id="grade"></div>
+  </section>
+
+  <section class="secao" id="vista-lista" hidden>
+    <h2>Todos os posts</h2>
+    <div class="lista" id="lista"></div>
+  </section>
+
+  <section class="secao" id="sec-pedidos">
+    <div class="titulo-sec"><h2 id="ped-titulo">Pedidos</h2><button class="btn" id="mandar-pedidos">Mandar pedidos pelo WhatsApp</button></div>
+    <p class="sub">O que precisamos receber para deixar os posts prontos. Marque quando chegar.</p>
+    <div id="pedidos"></div>
+  </section>
+
+  <section class="secao">
+    <h2>O que está em alta</h2>
+    <div class="alta" id="alta"></div>
+  </section>
+
+  <section class="secao" id="sec-trocas">
+    <h2>Ideias para trocar</h2>
+    <p class="sub">Não gostou de algum post? Escolha uma ideia daqui e diga qual post ela substitui. O post que sair vem para esta lista, para você poder voltar atrás.</p>
+    <div class="trocas" id="trocas"></div>
+  </section>
+
+  <section class="secao" id="sec-reserva">
+    <ul class="reserva" id="reserva"></ul>
+    <details>
+      <summary>Fontes da pesquisa</summary>
+      <ul id="fontes"></ul>
+    </details>
+  </section>
+</main>
+
+<div class="fundo-modal" id="fundo-modal">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="m-tema">
+    <div class="cab" id="m-cab"><small id="m-data"></small><h3 id="m-tema"></h3></div>
+    <div class="corpo">
+      <div class="aprovar">
+        <label style="margin:0">Aprovação do cliente</label>
+        <div class="botoes"><button class="opcao ok" type="button" data-aprov="aprovado">✓ Aprovado</button><button class="opcao aj" type="button" data-aprov="ajustar">✎ Quero ajustar</button></div>
+        <div class="editavel" contenteditable="true" data-campo="comentario" data-ph="O que você mudaria?"></div>
+      </div>
+      <div class="campo"><label>Tema</label><div class="editavel" contenteditable="true" data-campo="tema"></div></div>
+      <div class="campo"><label>Abertura (conexão)</label><div class="editavel" contenteditable="true" data-campo="abertura"></div></div>
+      <div class="campo"><label>Virada (o que ensina)</label><div class="editavel" contenteditable="true" data-campo="virada"></div></div>
+      <div class="linha2">
+        <div class="campo"><label>Formato</label><select data-campo="formato" id="m-formato"></select></div>
+        <div class="campo"><label>Status</label><select data-campo="status" id="m-status"></select></div>
+      </div>
+      <div class="campo"><label>Objetivo do post</label><div class="editavel" contenteditable="true" data-campo="objetivo"></div></div>
+      <div class="campo"><label>Chamada (o que pedimos para quem vê)</label><div class="editavel" contenteditable="true" data-campo="chamada"></div></div>
+      <div class="campo"><label style="display:flex;justify-content:space-between">Legenda <button class="mini" id="copiar" type="button">Copiar legenda</button></label><div class="editavel legenda" contenteditable="true" data-campo="legenda"></div></div>
+      <div class="campo" id="campo-preparar"><label>Preparar antes de postar</label><div class="editavel" contenteditable="true" data-campo="preparar"></div></div>
+      <div class="campo"><label>Anotações</label><div class="editavel" contenteditable="true" data-campo="notas"></div></div>
+    </div>
+    <div class="pe"><span class="dica">Tudo que você muda aqui fica salvo neste aparelho.</span><button class="btn" id="fechar">Pronto</button></div>
+  </div>
+</div>
+<div class="aviso" id="aviso"></div>
+
+<script>
+(function(){
+  var D = JSON.parse(document.getElementById('dados').textContent);
+  var CHAVE = 'planejamento:' + D.id;
+  try { var salvo = localStorage.getItem(CHAVE); if (salvo) { var s = JSON.parse(salvo); if (s && s.posts) { var porDia={}; s.posts.forEach(function(x){porDia[x.dia]=x});
+        D.posts.forEach(function(p){ var x=porDia[p.dia]; if(x) Object.keys(x).forEach(function(k){ if(x[k]!==undefined) p[k]=x[k]; }); }); }
+      if (s && s.trocas) D.trocas = s.trocas;
+      if (s && s.feitos && D.pedidos) D.pedidos.forEach(function(q,i){ q.feito = !!s.feitos[i]; }); } } catch(e){}
+  if (D.cor) {
+    var r = document.documentElement.style;
+    r.setProperty('--cor', D.cor); r.setProperty('--reels', D.cor);
+    if (D.corEscura) r.setProperty('--cor-escura', D.corEscura);
+  }
+  var FORMATOS = ['Reels','Reels animado','Reels curto','Carrossel'];
+  var STATUS = ['Ideia','Aprovado','Roteiro','Gravado','Editado','Postado'];
+  var SEMANA = ['Seg','Ter','Qua','Qui','Sex','Sáb','Dom'];
+  var filtro = {formato:null,status:null};
+  var $ = function(id){return document.getElementById(id)};
+  function classe(f){return (f||'').toLowerCase().replace(/\s+/g,'-')}
+  function corFormato(f){return getComputedStyle(document.documentElement).getPropertyValue('--'+classe(f)).trim() || 'var(--cor)'}
+  function esc(t){var d=document.createElement('div');d.textContent=t==null?'':t;return d.innerHTML}
+  function salvar(){ try{ localStorage.setItem(CHAVE, JSON.stringify({posts:D.posts, trocas:D.trocas, feitos:(D.pedidos||[]).map(function(q){return q.feito})})); }catch(e){} }
+  function aviso(t){var a=$('aviso');a.textContent=t;a.classList.add('on');clearTimeout(aviso.t);aviso.t=setTimeout(function(){a.classList.remove('on')},1800)}
+  function passa(p){return (!filtro.formato||p.formato===filtro.formato)&&(!filtro.status||p.status===filtro.status)}
+
+  // topo
+  $('titulo').textContent = D.mesNome + ' ' + D.ano;
+  $('cliente').textContent = D.cliente;
+  $('tema').textContent = D.tema;
+  document.title = 'Planejamento ' + D.mesNome + ' ' + D.ano + ' — ' + D.cliente;
+
+  function numeros(){
+    var cont = {}; D.posts.forEach(function(p){var g=/reels/i.test(p.formato)?'Reels':p.formato;cont[g]=(cont[g]||0)+1});
+    var post = D.posts.filter(function(p){return p.status==='Postado'}).length;
+    var h = '<div class="numero"><b>'+D.posts.length+'</b><span>posts no mês</span></div>';
+    Object.keys(cont).forEach(function(k){h+='<div class="numero"><b>'+cont[k]+'</b><span>'+esc(k)+'</span></div>'});
+    h += '<div class="numero"><b>'+post+'/'+D.posts.length+'</b><span>já postados</span></div>';
+    $('numeros').innerHTML = h;
+  }
+
+  function filtros(){
+    var h = '';
+    FORMATOS.forEach(function(f){ if(!D.posts.some(function(p){return p.formato===f}))return;
+      h+='<button class="chip" data-tipo="formato" data-valor="'+esc(f)+'" aria-pressed="'+(filtro.formato===f)+'"><span class="bola" style="background:'+corFormato(f)+'"></span>'+esc(f)+'</button>'});
+    h += '<select id="filtro-status" class="chip" aria-label="Filtrar por status"><option value="">Todos os status</option>'+STATUS.map(function(s){return '<option'+(filtro.status===s?' selected':'')+'>'+s+'</option>'}).join('')+'</select>';
+    $('filtros').innerHTML = h;
+    Array.prototype.forEach.call(document.querySelectorAll('.chip[data-tipo]'),function(b){
+      b.onclick=function(){var v=b.getAttribute('data-valor');filtro.formato=filtro.formato===v?null:v;desenhar()}});
+    $('filtro-status').onchange=function(){filtro.status=this.value||null;desenhar()};
+  }
+
+  function selo(p){ return p.aprovacao==='aprovado' ? '<span class="selo">✓ aprovado</span>' : p.aprovacao==='ajustar' ? '<span class="selo ajustar">✎ ajustar</span>' : ''; }
+  function botaoPost(p,i){
+    return '<button class="post '+classe(p.formato)+(passa(p)?'':' esmaecido')+'" data-i="'+i+'" style="background:'+corFormato(p.formato)+'"><small>'+esc(p.formato)+'</small>'+esc(p.tema)+'<br><span class="st">'+esc(p.status)+'</span>'+selo(p)+'</button>';
+  }
+
+  function calendario(){
+    var ano = D.ano, mes = D.mes - 1;
+    var primeiro = new Date(ano, mes, 1), dias = new Date(ano, mes+1, 0).getDate();
+    var inicio = (primeiro.getDay()+6)%7;
+    var h = SEMANA.map(function(s){return '<div class="sem">'+s+'</div>'}).join('');
+    for (var k=0;k<inicio;k++) h+='<div class="dia fora"></div>';
+    for (var d=1; d<=dias; d++){
+      var doDia = [];
+      D.posts.forEach(function(p,i){ if (p.dia===d) doDia.push(botaoPost(p,i)) });
+      var nomeDia = SEMANA[(inicio+d-1)%7];
+      h += '<div class="dia'+(doDia.length?'':' vazio')+'"><div class="n">'+d+' <span class="m-sem" style="font-weight:500">'+nomeDia+'</span></div>'+doDia.join('')+'</div>';
+    }
+    $('grade').innerHTML = h;
+  }
+
+  function lista(){
+    $('lista').innerHTML = D.posts.map(function(p,i){
+      if(!passa(p)) return '';
+      return '<button class="card" data-i="'+i+'"><div class="topo"><span class="data">'+String(p.dia).padStart(2,'0')+' de '+D.mesNome.toLowerCase()+' · '+esc(SEMANA[(new Date(D.ano,D.mes-1,p.dia).getDay()+6)%7])+'</span><span class="tag '+classe(p.formato)+'" style="background:'+corFormato(p.formato)+'">'+esc(p.formato)+'</span></div>'+
+        '<h3>'+esc(p.tema)+'</h3><div class="abertura">'+esc(p.abertura)+'</div><div class="virada">'+esc(p.virada)+'</div>'+(p.objetivo?'<div><span class="objetivo">'+esc(p.objetivo)+'</span></div>':'')+'<div class="status">● '+esc(p.status)+(p.aprovacao==='aprovado'?' · ✓ aprovado':p.aprovacao==='ajustar'?' · ✎ ajustar':'')+'</div></button>';
+    }).join('');
+  }
+
+  function extras(){
+    $('alta').innerHTML = (D.alta||[]).map(function(a){return '<div class="item"><b>'+esc(a.assunto)+'</b><span>'+esc(a.onde)+' · '+esc(a.quando)+'</span></div>'}).join('');
+    $('reserva').innerHTML = (D.reserva||[]).map(function(r){return '<li>'+esc(r)+'</li>'}).join('');
+    $('fontes').innerHTML = (D.fontes||[]).map(function(f){return '<li><a href="'+esc(f.url)+'" target="_blank" rel="noopener">'+esc(f.nome)+'</a></li>'}).join('');
+    if(!(D.fontes||[]).length) $('sec-reserva').hidden = true;
+  }
+
+  function trocas(){
+    D.trocas = D.trocas || [];
+    $('sec-trocas').hidden = !D.trocas.length;
+    var opcoes = '<option value="">Trocar pelo post de…</option>' + D.posts.map(function(p,i){
+      return '<option value="'+i+'">'+String(p.dia).padStart(2,'0')+' · '+esc(p.tema)+'</option>'}).join('');
+    $('trocas').innerHTML = D.trocas.map(function(t,k){
+      return '<div class="troca"><div class="topo" style="display:flex;justify-content:space-between;gap:8px;align-items:center"><span class="tag '+classe(t.formato)+'" style="background:'+corFormato(t.formato)+'">'+esc(t.formato)+'</span></div>'+
+        '<h3 style="margin:0;font-size:17px">'+esc(t.tema)+'</h3><div class="abertura">'+esc(t.abertura)+'</div><div class="virada">'+esc(t.virada)+'</div>'+
+        (t.origem?'<div class="origem">De onde veio: '+esc(t.origem)+'</div>':'')+
+        '<select data-k="'+k+'" aria-label="Trocar pelo post">'+opcoes+'</select></div>';
+    }).join('');
+    Array.prototype.forEach.call(document.querySelectorAll('#trocas select'),function(sel){
+      sel.onchange=function(){
+        if(this.value==='') return;
+        var k=+this.getAttribute('data-k'), i=+this.value, velho=D.posts[i], nova=D.trocas[k];
+        var novo = {objetivo:'', chamada:'', legenda:'', preparar:'', notas:''};
+        Object.keys(nova).forEach(function(c){ if(c!=='origem') novo[c]=nova[c]; });
+        novo.dia = velho.dia; novo.status = 'Ideia'; novo.aprovacao = ''; novo.comentario = '';
+        D.posts[i] = novo;
+        var guardado = {}; Object.keys(velho).forEach(function(c){ if(c!=='dia') guardado[c]=velho[c]; });
+        guardado.origem = 'Estava no dia ' + velho.dia;
+        D.trocas[k] = guardado;
+        salvar(); desenhar();
+        aviso('Trocado! O post antigo foi para as ideias para trocar');
+      };
+    });
+  }
+
+  function ligar(){
+    Array.prototype.forEach.call(document.querySelectorAll('[data-i]'),function(b){b.onclick=function(){abrir(+b.getAttribute('data-i'))}});
+  }
+  function desenhar(){ numeros(); filtros(); calendario(); lista(); trocas(); pedidos(); ligar(); }
+
+  // janela do post
+  var atual = null;
+  $('m-formato').innerHTML = FORMATOS.map(function(f){return '<option>'+f+'</option>'}).join('');
+  $('m-status').innerHTML = STATUS.map(function(s){return '<option>'+s+'</option>'}).join('');
+  function abrir(i){
+    atual = i; var p = D.posts[i];
+    $('m-data').textContent = String(p.dia).padStart(2,'0') + ' de ' + D.mesNome.toLowerCase() + ' · ' + p.formato;
+    $('m-tema').textContent = p.tema;
+    var cab = $('m-cab'); cab.className = 'cab ' + classe(p.formato); cab.style.background = corFormato(p.formato);
+    Array.prototype.forEach.call(document.querySelectorAll('.modal [data-campo]'),function(el){
+      var c = el.getAttribute('data-campo');
+      if (el.tagName==='SELECT') el.value = p[c]; else el.textContent = p[c]||'';
+    });
+    marcarAprov(p.aprovacao);
+    $('fundo-modal').classList.add('aberto');
+    setTimeout(function(){document.querySelector('.modal [data-campo="abertura"]').focus()},50);
+  }
+  function fechar(){ $('fundo-modal').classList.remove('aberto'); atual=null; desenhar(); }
+  Array.prototype.forEach.call(document.querySelectorAll('.modal [data-campo]'),function(el){
+    var ev = el.tagName==='SELECT' ? 'change' : 'input';
+    el.addEventListener(ev,function(){
+      if(atual===null) return;
+      var c = el.getAttribute('data-campo');
+      D.posts[atual][c] = el.tagName==='SELECT' ? el.value : el.textContent.trim();
+      if (c==='tema') $('m-tema').textContent = D.posts[atual].tema;
+      if (c==='formato'){ var cab=$('m-cab'); cab.className='cab '+classe(el.value); cab.style.background=corFormato(el.value); }
+      salvar();
+    });
+  });
+  $('fechar').onclick = fechar;
+  $('fundo-modal').onclick = function(e){ if(e.target===this) fechar(); };
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape' && atual!==null) fechar(); });
+
+  // aprovação do cliente
+  function marcarAprov(v){ Array.prototype.forEach.call(document.querySelectorAll('[data-aprov]'),function(b){ b.setAttribute('aria-pressed', b.getAttribute('data-aprov')===v); }); }
+  Array.prototype.forEach.call(document.querySelectorAll('[data-aprov]'),function(b){
+    b.onclick=function(){ if(atual===null) return; var v=b.getAttribute('data-aprov'); var p=D.posts[atual];
+      p.aprovacao = p.aprovacao===v ? '' : v; if(p.aprovacao==='aprovado' && p.status==='Ideia') { p.status='Aprovado'; $('m-status').value='Aprovado'; }
+      marcarAprov(p.aprovacao); salvar(); };
+  });
+  $('copiar').onclick=function(){ if(atual===null) return; var t=D.posts[atual].legenda||'';
+    try{ navigator.clipboard.writeText(t).then(function(){aviso('Legenda copiada')},function(){aviso('Não deu para copiar: selecione o texto')}); }catch(e){ aviso('Não deu para copiar: selecione o texto'); } };
+
+  function dataBR(iso){ var d=iso.split('-'); return d[2]+'/'+d[1]; }
+  function abrirWhats(texto){ window.open('https://wa.me/?text='+encodeURIComponent(texto),'_blank'); }
+
+  // pedidos
+  function pedidos(){
+    var P = D.pedidos||[];
+    $('sec-pedidos').hidden = !P.length;
+    $('ped-titulo').textContent = 'Pedidos para o ' + D.cliente.split(' ')[0];
+    var grupos = {}; P.forEach(function(q,i){ (grupos[q.prazo]=grupos[q.prazo]||[]).push(i); });
+    $('pedidos').innerHTML = Object.keys(grupos).sort().map(function(pz){
+      var itens = grupos[pz], feitos = itens.filter(function(i){return P[i].feito}).length;
+      return '<div class="grupo-prazo"><h3>Até '+dataBR(pz)+' · '+feitos+' de '+itens.length+' recebidos</h3>'+itens.map(function(i){
+        var q=P[i], post=D.posts.filter(function(x){return x.dia===q.post})[0];
+        return '<label class="pedido'+(q.feito?' feito':'')+'"><input type="checkbox" data-ped="'+i+'"'+(q.feito?' checked':'')+'><div>'+
+          '<div class="ped-titulo">'+esc(q.tipo)+' · post do dia '+String(q.post).padStart(2,'0')+(post?' ('+esc(post.tema)+')':'')+'</div>'+
+          '<div class="ped-info">'+esc(q.pedido)+'</div>'+
+          '<div class="ped-info">Texto: '+(/aguardando/i.test(q.texto)?'<span class="aguardando">aguardando roteiro</span>':esc(q.texto))+'</div>'+
+          '<div class="ped-info">Como gravar: '+esc(q.como)+'</div></div></label>';
+      }).join('')+'</div>';
+    }).join('');
+    Array.prototype.forEach.call(document.querySelectorAll('[data-ped]'),function(c){
+      c.onchange=function(){ D.pedidos[+c.getAttribute('data-ped')].feito = c.checked; salvar(); pedidos(); };
+    });
+  }
+  $('mandar-pedidos').onclick=function(){
+    var abertos=(D.pedidos||[]).filter(function(q){return !q.feito});
+    if(!abertos.length){ aviso('Nenhum pedido pendente'); return; }
+    var t='Oi! Seguem as gravações que precisamos para os posts de '+D.mesNome.toLowerCase()+':\n';
+    var pz=null;
+    abertos.sort(function(a,b){return a.prazo<b.prazo?-1:1}).forEach(function(q){
+      if(q.prazo!==pz){ pz=q.prazo; t+='\n*Até '+dataBR(pz)+'*\n'; }
+      t+='• '+q.tipo+' (post do dia '+String(q.post).padStart(2,'0')+'): '+q.pedido+'\n';
+      t+= /aguardando/i.test(q.texto) ? '  Texto: mando assim que o roteiro ficar pronto\n' : '  Texto: '+q.texto+'\n';
+      t+='  Como gravar: '+q.como+'\n';
+    });
+    abrirWhats(t);
+  };
+  $('respostas').onclick=function(){
+    var t='Respostas do planejamento de '+D.mesNome.toLowerCase()+':\n\n', n=0;
+    D.posts.forEach(function(p){
+      if(!p.aprovacao) return; n++;
+      t+=(p.aprovacao==='aprovado'?'✅ ':'✏️ ')+String(p.dia).padStart(2,'0')+'/'+String(D.mes).padStart(2,'0')+' · '+p.tema+(p.aprovacao==='aprovado'?' · aprovado':' · ajustar')+'\n';
+      if(p.comentario) t+='   '+p.comentario+'\n';
+    });
+    var falta=D.posts.length-n; if(falta) t+='\nAinda sem resposta: '+falta+' post(s).';
+    if(!n){ aviso('Marque Aprovado ou Quero ajustar em algum post primeiro'); return; }
+    abrirWhats(t);
+  };
+
+  // abas
+  Array.prototype.forEach.call(document.querySelectorAll('.aba'),function(b){
+    b.onclick=function(){
+      Array.prototype.forEach.call(document.querySelectorAll('.aba'),function(x){x.setAttribute('aria-selected', x===b)});
+      var v=b.getAttribute('data-vista'); $('vista-cal').hidden = v!=='cal'; $('vista-lista').hidden = v!=='lista';
+    };
+  });
+
+  // baixar versão editada (um arquivo só, para mandar ao cliente)
+  $('baixar').onclick = function(){
+    var copia = document.documentElement.cloneNode(true);
+    copia.querySelector('#dados').textContent = JSON.stringify(D);
+    ['grade','lista','alta','reserva','fontes','numeros','filtros','trocas','pedidos'].forEach(function(id){var el=copia.querySelector('#'+id); if(el) el.innerHTML='';});
+    var m = copia.querySelector('#fundo-modal'); if (m) m.classList.remove('aberto');
+    var html = '<!doctype html>\n' + copia.outerHTML;
+    var a = document.createElement('a');
+    a.href = URL.createObjectURL(new Blob([html],{type:'text/html'}));
+    a.download = 'Planejamento ' + D.mesNome + ' ' + D.ano + ' - ' + D.cliente + '.html';
+    document.body.appendChild(a); a.click(); a.remove();
+    aviso('Arquivo baixado: é só mandar para o cliente');
+  };
+  $('imprimir').onclick = function(){ window.print(); };
+
+  extras(); desenhar();
+})();
+</script>
+</body>
+</html>

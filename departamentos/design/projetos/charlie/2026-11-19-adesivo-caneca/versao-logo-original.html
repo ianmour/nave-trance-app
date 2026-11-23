@@ -16,6 +16,14 @@
     text-align:center; font-family:'Big Shoulders Display', sans-serif; font-weight:800; text-transform:uppercase;
     line-height:1; white-space:nowrap; letter-spacing:.06em; color:var(--amarelo);
     text-shadow: .25mm .25mm 0 #0d0f0a, -.15mm -.15mm 0 #0d0f0a, .15mm -.15mm 0 #0d0f0a, -.15mm .15mm 0 #0d0f0a; }
+  /* cargo (opcional), embaixo do nome: "Nome | COMANDO" na lista */
+  .cargo { display:none; position:absolute; left:30%; right:30%; top:calc(69.5% + 8.5mm); height:4mm; align-items:center; justify-content:center; gap:1.2mm;
+    font-family:'Big Shoulders Stencil Display', sans-serif; font-weight:900; font-size:3.3mm; letter-spacing:.22em; color:var(--amarelo); white-space:nowrap;
+    text-shadow: .2mm .2mm 0 #0d0f0a, -.12mm -.12mm 0 #0d0f0a, .12mm -.12mm 0 #0d0f0a, -.12mm .12mm 0 #0d0f0a; }
+  .cargo::before, .cargo::after { content:''; flex:none; width:3mm; height:.35mm; background:var(--amarelo); box-shadow:.15mm .15mm 0 #0d0f0a; }
+  .cargo span { padding-left:.22em; }
+  .com-cargo .cargo { display:flex; }
+  .com-cargo .nome { top:69.5%; }
   .guia-corte, .guia-seguro { display:none; position:absolute; border-radius:50%; }
   .guias .guia-corte { display:block; inset:var(--sangria); border:.2mm dashed #ff2d55; }
   .guias .guia-seguro { display:block; inset:calc(var(--sangria) + var(--seguro)); border:.2mm dotted #00e0ff; }
@@ -40,6 +48,7 @@
       stroke="#0d0f0a" stroke-width=".5" paint-order="stroke" text-anchor="middle"><textPath href="#arco" startOffset="50%">EQUIPE</textPath></text>
   </svg>
   <div class="nome"><span data-campo="nome">NOME</span></div>
+  <div class="cargo"><span data-campo="cargo"></span></div>
   <div class="guia-corte"></div><div class="guia-seguro"></div>
 </div>
 <script>

@@ -12,3 +12,5 @@
   - Formas: cartões arredondados azul-marinho, pílulas rosa, ondas rosa nos cantos, foto em círculo com borda.
 - **Vídeos já feitos:** `final/tiktok-01-para-tiktok.mp4` e `final/tiktok-01-para-instagram.mp4` (esses dois usaram cores do TikTok — pedido do cliente para aquele vídeo).
 - Legenda: estilo "mago" aprovado, tamanho maior (76 px / destaque 94 px).
+- **Perfis por rede (não trocar!):** TikTok = **@desenvolveja** (nome "Desenvolve Já"). Instagram (Maceió) = **@desenvolvejamaceio**, nome "Desenvolve Já - Maceió", com selo azul de verificado. Vídeo para Instagram leva o @ do Instagram.
+- Vídeo "indique um amigo" vale para três cidades: **não colocar endereço de cidade** no vídeo (vai na legenda do post).

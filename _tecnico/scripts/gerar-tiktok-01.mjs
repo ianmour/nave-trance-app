@@ -44,8 +44,8 @@ const some = (s, t) => tw(`tl.to("${s}", { scale: 0.9, opacity: 0, duration: 0.2
 const sons = []; const som = (nome, t, v) => sons.push([nome, t, v]);
 
 // 1) busca "vagas de emprego" sendo digitada (gancho)
-const b0 = 0.08, b1 = T("Então") - 0.1, busca = "vagas de emprego";
-el("busca", b0, b1, `<div class="busca"><svg viewBox="0 0 24 24" width="44" height="44"><circle cx="10.5" cy="10.5" r="6.5" fill="none" stroke="#6e6e73" stroke-width="2.4"/><path d="M15.5 15.5L21 21" stroke="#6e6e73" stroke-width="2.4" stroke-linecap="round"/></svg><span class="bt">${busca.split("").map((c, i) => `<i id="bc${i}">${c === " " ? "&nbsp;" : c}</i>`).join("")}</span><b class="cursor"></b></div>`, "left:140px;top:330px;width:800px");
+const b0 = 0.08, b1 = T("Então") - 0.1, busca = "vagas home office 5x2";
+el("busca", b0, b1, `<div class="busca"><svg viewBox="0 0 24 24" width="44" height="44"><circle cx="10.5" cy="10.5" r="6.5" fill="none" stroke="#8A3FFC" stroke-width="2.6"/><path d="M15.5 15.5L21 21" stroke="#8A3FFC" stroke-width="2.4" stroke-linecap="round"/></svg><span class="bt">${busca.split("").map((c, i) => `<i id="bc${i}">${c === " " ? "&nbsp;" : c}</i>`).join("")}</span><b class="cursor"></b><span class="pesq">Pesquisar</span></div>`, "left:110px;top:330px;width:840px");
 pop("#busca .busca", b0);
 busca.split("").forEach((c, i) => tw(`tl.fromTo("#bc${i}", { opacity: 0 }, { opacity: 1, duration: 0.01 }, ${f(T("procurando") + i * 0.055)});`));
 tw(`tl.fromTo("#busca .cursor", { opacity: 1 }, { opacity: 0, duration: 0.4, repeat: ${Math.floor((b1 - b0) / 0.8)}, yoyo: true, ease: "steps(1)" }, ${f(b0)});`);
@@ -59,6 +59,9 @@ const lv = (id, t0, t1, topo) => {
   tw(`tl.fromTo("#${id} .live i", { opacity: 1 }, { opacity: 0.25, duration: 0.45, repeat: ${Math.floor((t1 - t0) / 0.9) * 2}, yoyo: true, ease: "sine.inOut" }, ${f(t0 + 0.3)});`);
   some(`#${id} .live`, t1 - 0.2);
   som("pop", t0, 0.08);
+  const cores = ["#FE2C55", "#8A3FFC", "#25F4EE", "#FF6FA0", "#B07CFF"], n = Math.min(9, Math.floor((t1 - t0) / 0.22));
+  el(id + "c", t0, t1, Array.from({ length: n }, (_, k) => `<svg id="${id}h${k}" class="cor" viewBox="0 0 24 24" width="${54 + (k % 3) * 10}" height="${54 + (k % 3) * 10}" style="left:${(k * 37) % 90}px"><path d="M12 21s-7.5-4.6-9.6-9.1C.9 8.6 3 5 6.6 5c2.1 0 3.6 1.2 5.4 3.1C13.8 6.2 15.3 5 17.4 5 21 5 23.1 8.6 21.6 11.9 19.5 16.4 12 21 12 21z" fill="${cores[k % cores.length]}"/></svg>`).join(""), "left:820px;top:1420px;width:140px;height:10px");
+  for (let k = 0; k < n; k++) tw(`tl.fromTo("#${id}h${k}", { y: 0, opacity: 0, scale: 0.4 }, { y: -560, opacity: 0, scale: 1.1, duration: 1.6, ease: "power1.out", keyframes: { opacity: [0, 1, 1, 0] } }, ${f(t0 + 0.1 + k * 0.2)});`);
 };
 lv("lv1", T("ao vivo") - 0.05, T("Na live") - 0.05, 300);
 
@@ -73,14 +76,14 @@ som("pop", e0, 0.07); som("click-soft", e0 + 0.3, 0.05);
 // 4) perguntas chegando no chat da live
 const q0 = T("mandar") - 0.05, q1 = T("Atente-se") - 0.1;
 const perg = [["Precisa de experiência?", q0 + 0.05], ["Como é a entrevista?", q0 + 0.6], ["Qual o horário?", q0 + 1.15]];
-el("chat", q0, q1, perg.map(([q], i) => `<div id="q${i}" class="msg"><b>@${["ana", "joao", "bia"][i]}</b> ${q}</div>`).join(""), "left:90px;top:1250px;width:640px");
+el("chat", q0, q1, perg.map(([q], i) => `<div id="q${i}" class="msg"><i class="u u${i}"></i><span><b class="n${i}">${["ana", "joao", "bia"][i]}</b> ${q}</span></div>`).join(""), "left:90px;top:1250px;width:640px");
 perg.forEach(([, t], i) => { tw(`tl.fromTo("#q${i}", { opacity: 0, x: -40 }, { opacity: 1, x: 0, duration: 0.28, ease: "power3.out" }, ${f(t)});`); som("notification", t, 0.05); });
 tw(`tl.to("#chat .msg", { opacity: 0, x: -30, duration: 0.2, stagger: 0.04, ease: "power2.in" }, ${f(q1 - 0.25)});`);
 
 // 5) programação das lives (card) — legenda some enquanto o card fala por ela
 const c0 = T("dia 25") - 0.25, c1 = T("Fique") - 0.12;
 const cidades = [["25", "Maceió", T("dia 25")], ["26", "Teresina", T("dia 26")], ["27", "Socorro e região", T("dia 27")]];
-el("agenda", c0, c1, `<div class="agenda"><div class="ag-t">Lives no TikTok</div>${cidades.map(([d, c], i) => `<div id="ag${i}" class="ag-l"><span class="ag-d">${d}</span><span class="ag-c">${c}</span><span id="ah${i}" class="ag-h">12h</span></div>`).join("")}</div>`, "left:150px;top:1040px;width:760px");
+el("agenda", c0, c1, `<div class="agenda"><div class="ag-t"><i class="ag-dot"></i>Lives no TikTok</div>${cidades.map(([d, c], i) => `<div id="ag${i}" class="ag-l"><span class="ag-d">${d}</span><span class="ag-c">${c}</span><span id="ah${i}" class="ag-h">12h</span></div>`).join("")}</div>`, "left:150px;top:1040px;width:760px");
 tw(`tl.fromTo("#agenda .agenda", { opacity: 0, y: 60 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, ${f(c0)});`);
 tw(`tl.set("#agenda .agenda", { clipPath: "inset(0 0 53% 0 round 40px)" }, ${f(c0)});`);
 cidades.forEach(([, , t], i) => { if (i) tw(`tl.to("#agenda .agenda", { clipPath: "inset(0 0 ${i === 1 ? 26 : 0}% 0 round 40px)", duration: 0.3, ease: "power3.out" }, ${f(t - 0.08)});`); tw(`tl.fromTo("#ag${i}", { opacity: 0, x: 40 }, { opacity: 1, x: 0, duration: 0.3, ease: "power3.out" }, ${f(t - 0.05)});`); som("pop", t - 0.05, 0.06); });
@@ -148,24 +151,25 @@ fs.writeFileSync(path.join(P, "compositions/app.html"), `<template>
   <style>
     #root { position: absolute; inset: 0; font-family: "Inter"; letter-spacing: -0.02em; }
     .ui { position: absolute; }
-    .busca { display: flex; align-items: center; gap: 22px; padding: 26px 36px; border-radius: 999px; background: rgba(255,255,255,0.96); box-shadow: 0 18px 50px rgba(0,0,0,0.28); color: #1c1c1e; font-size: 46px; font-weight: 500; }
-    .bt i { font-style: normal; } .cursor { display: inline-block; width: 3px; height: 50px; background: #1c1c1e; margin-left: -12px; }
-    .live { display: inline-flex; align-items: center; gap: 16px; padding: 16px 32px; border-radius: 14px; background: #FE2C55; color: #fff; font-size: 44px; font-weight: 800; letter-spacing: 0.02em; box-shadow: 0 12px 34px rgba(254,44,85,0.35); }
+    .busca { display: flex; align-items: center; gap: 18px; padding: 22px 30px; border-radius: 999px; background: rgba(255,255,255,0.97); box-shadow: -6px 6px 0 rgba(37,244,238,0.9), 6px -6px 0 rgba(254,44,85,0.9), 0 18px 50px rgba(0,0,0,0.28); color: #161823; font-size: 42px; font-weight: 600; }
+    .bt { flex: 1; } .bt i { font-style: normal; } .pesq { font-size: 34px; font-weight: 800; color: #FE2C55; } .cursor { display: inline-block; width: 3px; height: 50px; background: #1c1c1e; margin-left: -12px; }
+    .live { display: inline-flex; align-items: center; gap: 16px; padding: 16px 32px; border-radius: 14px; background: linear-gradient(90deg, #FE2C55, #8A3FFC); color: #fff; font-size: 44px; font-weight: 800; letter-spacing: 0.02em; box-shadow: -5px 4px 0 #25F4EE, 0 12px 34px rgba(138,63,252,0.4); }
     .live i { width: 18px; height: 18px; border-radius: 50%; background: #fff; display: block; }
-    .pilula { display: inline-flex; align-items: center; gap: 26px; padding: 22px 36px; border-radius: 999px; background: rgba(20,20,24,0.78); color: #fff; font-size: 48px; font-weight: 800; box-shadow: 0 14px 34px rgba(0,0,0,0.3); }
+    .pilula { display: inline-flex; align-items: center; gap: 26px; padding: 22px 36px; border-radius: 999px; background: linear-gradient(90deg, #6A2BE0, #8A3FFC); color: #fff; font-size: 48px; font-weight: 800; box-shadow: -5px 5px 0 #25F4EE, 5px -5px 0 #FE2C55, 0 14px 34px rgba(0,0,0,0.3); }
     .dias { display: inline-flex; gap: 10px; } .dias i { width: 26px; height: 26px; border-radius: 8px; background: rgba(255,255,255,0.22); display: block; } .dias i.on { background: #fff; }
-    .msg { display: block; width: fit-content; margin-top: 14px; padding: 16px 26px; border-radius: 26px; background: rgba(20,20,24,0.62); color: #fff; font-size: 38px; font-weight: 500; }
-    .msg b { font-weight: 700; opacity: 0.7; margin-right: 8px; }
+    .msg { display: block; width: fit-content; margin-top: 14px; padding: 14px 26px 14px 14px; border-radius: 999px; background: rgba(22,24,35,0.6); color: #fff; font-size: 38px; font-weight: 500; display: flex; align-items: center; gap: 14px; }
+    .msg b { font-weight: 700; margin-right: 4px; } .msg .u { width: 54px; height: 54px; border-radius: 50%; flex: none; } .msg .u0 { background: linear-gradient(135deg, #25F4EE, #8A3FFC); } .msg .u1 { background: linear-gradient(135deg, #FE2C55, #8A3FFC); } .msg .u2 { background: linear-gradient(135deg, #8A3FFC, #25F4EE); } .msg .n0 { color: #7FFBF7; } .msg .n1 { color: #FF8AA3; } .msg .n2 { color: #C5A3FF; }
     .agenda { padding: 34px 38px 26px; border-radius: 40px; background: rgba(255,255,255,0.96); color: #1c1c1e; box-shadow: 0 24px 60px rgba(0,0,0,0.3); }
-    .ag-t { font-size: 34px; font-weight: 700; color: #6e6e73; letter-spacing: 0.01em; margin-bottom: 14px; }
+    .ag-t { display: flex; align-items: center; gap: 14px; font-size: 34px; font-weight: 800; color: #8A3FFC; letter-spacing: 0.01em; margin-bottom: 14px; } .ag-dot { width: 18px; height: 18px; border-radius: 50%; background: #FE2C55; box-shadow: -3px 2px 0 #25F4EE; display: block; } .agenda { box-shadow: -8px 8px 0 rgba(37,244,238,0.9), 8px -8px 0 rgba(254,44,85,0.9), 0 24px 60px rgba(0,0,0,0.3) !important; }
     .ag-l { display: flex; align-items: center; gap: 26px; padding: 12px 0; border-top: 2px solid #ececf0; }
     .ag-d { width: 108px; text-align: center; font-size: 60px; font-weight: 800; line-height: 0.9; letter-spacing: -0.04em; } .ag-d small { display: block; font-size: 22px; font-weight: 700; color: #FE2C55; letter-spacing: 0.06em; margin-top: 6px; }
     .ag-c { flex: 1; font-size: 50px; font-weight: 700; letter-spacing: -0.03em; }
-    .ag-h { padding: 10px 22px; border-radius: 999px; background: #1c1c1e; color: #fff; font-size: 36px; font-weight: 800; }
+    .ag-h { padding: 10px 22px; border-radius: 999px; background: linear-gradient(90deg, #FE2C55, #8A3FFC); color: #fff; font-size: 36px; font-weight: 800; }
     .perfil { display: flex; align-items: center; gap: 24px; padding: 24px 28px; border-radius: 34px; background: rgba(255,255,255,0.96); color: #1c1c1e; box-shadow: 0 18px 50px rgba(0,0,0,0.28); }
-    .av { width: 96px; height: 96px; border-radius: 50%; background: #1c1c1e; color: #fff; display: flex; align-items: center; justify-content: center; font-size: 48px; font-weight: 800; }
+    .av { width: 96px; height: 96px; border-radius: 50%; background: #161823; color: #fff; display: flex; align-items: center; justify-content: center; font-size: 48px; font-weight: 800; box-shadow: 0 0 0 5px #fff, 0 0 0 10px #8A3FFC, -4px 3px 0 10px #25F4EE; }
     .pn { flex: 1; } .pn b { display: block; font-size: 46px; font-weight: 800; letter-spacing: -0.03em; } .pn small { display: block; font-size: 30px; color: #6e6e73; font-weight: 500; }
     .btn { padding: 20px 38px; border-radius: 18px; background: #FE2C55; color: #fff; font-size: 38px; font-weight: 800; } #bt-b { display: none; }
+    .cor { position: absolute; top: 0; opacity: 0; filter: drop-shadow(0 4px 8px rgba(0,0,0,0.25)); }
     .dedo { position: absolute; right: 70px; top: 100px; width: 64px; height: 64px; border-radius: 50%; background: rgba(255,255,255,0.85); border: 4px solid rgba(0,0,0,0.25); box-shadow: 0 8px 20px rgba(0,0,0,0.3); }
   </style>
   <div id="root" data-composition-id="app" data-width="${W}" data-height="${H}">
@@ -183,9 +187,9 @@ ${js.join("\n")}
 fs.writeFileSync(path.join(P, "compositions/legendas.html"), `<template>
   <style>
     #root { position: absolute; inset: 0; }
-    .grupo { position: absolute; left: 140px; width: 780px; top: 1150px; text-align: center; }
-    .cx { display: inline-block; font-family: "Inter"; font-weight: 500; font-size: 64px; line-height: 1.15; letter-spacing: -0.035em; color: #fff; text-shadow: 0 0 26px rgba(0,0,0,0.55), 0 2px 8px rgba(0,0,0,0.55), 0 0 2px rgba(0,0,0,0.35); }
-    .cx.ch { font-weight: 700; font-size: 80px; letter-spacing: -0.04em; }
+    .grupo { position: absolute; left: 120px; width: 800px; top: 1130px; text-align: center; }
+    .cx { display: inline-block; font-family: "Inter"; font-weight: 500; font-size: 76px; line-height: 1.12; letter-spacing: -0.035em; color: #fff; text-shadow: 0 0 26px rgba(0,0,0,0.55), 0 2px 8px rgba(0,0,0,0.55), 0 0 2px rgba(0,0,0,0.35); }
+    .cx.ch { font-weight: 700; font-size: 94px; letter-spacing: -0.04em; }
     .pw { display: inline-block; }
   </style>
   <div id="root" data-composition-id="legendas" data-width="${W}" data-height="${H}">

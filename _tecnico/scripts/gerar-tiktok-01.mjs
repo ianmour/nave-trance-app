@@ -32,6 +32,7 @@ pal.forEach((p, i) => {
   if (p.texto === "de" && /^adesenvolv/i.test(pal[i + 1]?.texto || "")) { p.texto = "da"; pal[i + 1].texto = "Desenvolve" + (pal[i + 1].texto.match(/[?.,!]$/)?.[0] || ""); }
   if (p.texto === "Tik" && /^Tok/.test(pal[i + 1]?.texto)) { p.texto = "TikTok" + pal[i + 1].texto.slice(3); p.fim = pal[i + 1].fim; pal[i + 1].fora = true; }
 });
+pal.forEach((p) => { if (/^desenvolve/i.test(p.texto)) p.texto = "Desenvolve Já" + (p.texto.match(/[?.,!]$/)?.[0] || ""); });
 const PAL = pal.filter((p) => !p.fora);
 const T = (frag, desde = 0) => { const ws = frag.split(" ").map(nrm); for (let i = 0; i < PAL.length; i++) if (PAL[i].ini >= desde && ws.every((w, k) => nrm(PAL[i + k]?.texto || "") === w)) return PAL[i].ini; throw new Error("não achei: " + frag); };
 
@@ -96,9 +97,9 @@ const escondeLeg = (t) => t >= c0 && t < c1;
 
 // 6) botão Seguir sendo apertado
 const s0 = T("segue") - 0.15, s1 = T("A gente te") - 0.05;
-el("seguir", s0, s1, `<div class="perfil"><span class="av">D</span><span class="pn"><b>Desenvolve</b><small>Vagas e lives</small></span><span class="btn"><span id="bt-a">Seguir</span><span id="bt-b">Seguindo ✓</span></span></div><div class="dedo"></div>`, "left:150px;top:1290px;width:760px");
+el("seguir", s0, s1, `<div class="perfil"><span class="av"><img src="assets/avatar.png" alt=""></span><span class="pn"><b>Desenvolve Já</b><small>@desenvolveja</small></span><span class="btn"><span id="bt-a">Seguir</span><span id="bt-b">Seguindo ✓</span></span></div><div class="dedo"></div>`, "left:120px;top:1290px;width:820px");
 pop("#seguir .perfil", s0);
-const tClique = T("Desenvolve", s0) + 0.15;
+const tClique = T("DesenvolveJa", s0) + 0.15;
 tw(`tl.fromTo("#seguir .dedo", { opacity: 0, x: 80, y: 80 }, { opacity: 1, x: 0, y: 0, duration: 0.3, ease: "power2.out" }, ${f(tClique - 0.35)});`);
 tw(`tl.to("#seguir .btn", { scale: 0.9, duration: 0.08, yoyo: true, repeat: 1 }, ${f(tClique)});`);
 tw(`tl.set("#bt-a", { display: "none" }, ${f(tClique + 0.08)}); tl.set("#bt-b", { display: "inline" }, ${f(tClique + 0.08)}); tl.set("#seguir .btn", { backgroundColor: "#2c2c2e" }, ${f(tClique + 0.08)});`);
@@ -124,7 +125,7 @@ cenas.forEach((t, i) => {
 });
 
 // ---- legenda "mago" ----
-const CHAVES = new Set(["emprego", "desenvolve", "vivo", "5x2", "pergunta", "programacao", "oportunidade"]);
+const CHAVES = new Set(["emprego", "desenvolve", "desenvolveja", "vivo", "5x2", "pergunta", "programacao", "oportunidade"]);
 const ehChave = (p) => p && CHAVES.has(nrm(p.texto));
 const grupos = []; let g = [];
 PAL.forEach((p, i) => {
@@ -166,9 +167,9 @@ fs.writeFileSync(path.join(P, "compositions/app.html"), `<template>
     .ag-c { flex: 1; font-size: 50px; font-weight: 700; letter-spacing: -0.03em; }
     .ag-h { padding: 10px 22px; border-radius: 999px; background: linear-gradient(90deg, #FE2C55, #8A3FFC); color: #fff; font-size: 36px; font-weight: 800; }
     .perfil { display: flex; align-items: center; gap: 24px; padding: 24px 28px; border-radius: 34px; background: rgba(255,255,255,0.96); color: #1c1c1e; box-shadow: 0 18px 50px rgba(0,0,0,0.28); }
-    .av { width: 96px; height: 96px; border-radius: 50%; background: #161823; color: #fff; display: flex; align-items: center; justify-content: center; font-size: 48px; font-weight: 800; box-shadow: 0 0 0 5px #fff, 0 0 0 10px #8A3FFC, -4px 3px 0 10px #25F4EE; }
-    .pn { flex: 1; } .pn b { display: block; font-size: 46px; font-weight: 800; letter-spacing: -0.03em; } .pn small { display: block; font-size: 30px; color: #6e6e73; font-weight: 500; }
-    .btn { padding: 20px 38px; border-radius: 18px; background: #FE2C55; color: #fff; font-size: 38px; font-weight: 800; } #bt-b { display: none; }
+    .av img { width: 100%; height: 100%; display: block; } .av { overflow: hidden; width: 96px; height: 96px; border-radius: 50%; background: #fff; color: #fff; display: flex; align-items: center; justify-content: center; font-size: 48px; font-weight: 800; box-shadow: 0 0 0 5px #fff, 0 0 0 10px #8A3FFC, -4px 3px 0 10px #25F4EE; }
+    .pn { flex: 1; white-space: nowrap; } .pn b { display: block; font-size: 42px; font-weight: 800; letter-spacing: -0.03em; } .pn small { display: block; font-size: 30px; color: #6e6e73; font-weight: 500; }
+    .btn { white-space: nowrap; padding: 18px 30px; border-radius: 18px; background: #FE2C55; color: #fff; font-size: 38px; font-weight: 800; } #bt-b { display: none; }
     .cor { position: absolute; top: 0; opacity: 0; filter: drop-shadow(0 4px 8px rgba(0,0,0,0.25)); }
     .dedo { position: absolute; right: 70px; top: 100px; width: 64px; height: 64px; border-radius: 50%; background: rgba(255,255,255,0.85); border: 4px solid rgba(0,0,0,0.25); box-shadow: 0 8px 20px rgba(0,0,0,0.3); }
   </style>

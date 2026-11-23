@@ -30,6 +30,8 @@ pal.forEach((p, i) => {
   if (p.texto === "em" && q?.texto === "sino") { p.texto = "ensino"; p.fim = q.fim; q.fora = true; }
   if (p.texto === "R$" && /^200/.test(q?.texto || "")) { p.texto = "R$" + q.texto; p.fim = q.fim; q.fora = true; }
   if (p.texto === "Envi") p.texto = "Envie";
+  if (p.texto === "vaga" && q?.texto === "de") p.texto = "vagas";
+  if (p.texto === "office," && q?.texto === "se") { p.texto = "office."; q.texto = "Se"; }
   if (p.texto === "indique") p.texto = "Indique";
   if (/^Desenvolve$/.test(p.texto) && /^já/i.test(q?.texto || "")) { p.texto = "Desenvolve Já" + (q.texto.match(/[?.,!]$/)?.[0] || ""); p.fim = q.fim; q.fora = true; }
 });
@@ -56,9 +58,9 @@ some("#ganho .cifra", g1 - 0.2); som("impact-bass-1", g0, 0.07); som("sparkle", 
 
 // 2) Almaviva: vagas home office e presenciais
 const a0 = T("Almaviva") - 0.05, a1 = T("Se o seu") - 0.1;
-el("vagas", a0, a1, `<div class="titulo">VAGAS ALMAVIVA</div><div class="pils"><span id="pl1" class="pil">HOME OFFICE</span><span id="pl2" class="pil">PRESENCIAL</span></div>`, TOPO);
-sobe("#vagas .titulo", a0); pop("#pl1", T("home") - 0.05); pop("#pl2", T("presenciais") - 0.05);
-som("whoosh-short", a0 - 0.05, 0.05); som("pop", T("home") - 0.05, 0.07); som("pop", T("presenciais") - 0.05, 0.07);
+el("vagas", a0, a1, `<div class="titulo">VAGAS ALMAVIVA</div><div class="pils"><span id="pl1" class="pil">HOME OFFICE</span></div>`, TOPO);
+sobe("#vagas .titulo", a0); pop("#pl1", T("home") - 0.05);
+som("whoosh-short", a0 - 0.05, 0.05); som("pop", T("home") - 0.05, 0.07);
 tw(`tl.to("#vagas > *", { opacity: 0, y: -20, duration: 0.2, ease: "power2.in" }, ${f(a1 - 0.2)});`);
 
 // 3) linha do tempo: contratado em dezembro → 60 dias → R$200 em março de 2027
@@ -103,7 +105,6 @@ som("impact-bass-1", T("bora") - 0.05, 0.06);
 // tela final só com o que já fechava o vídeo: "BORA INDICAR?" + perfil (logo e @)
 const itens = [
   ["fn-b", `<div class="fn-bora">BORA INDICAR?</div>`],
-  ["fn-a", `<div class="fn-logo"><span class="av"><img src="assets/avatar.png" alt=""></span><span class="pn"><b>desenvolvejamaceio <svg viewBox="0 0 24 24" width="40" height="40" style="vertical-align:-6px"><path d="M12 1.5l2.6 1.9 3.2-.1 1 3 2.6 1.9-1 3.1 1 3.1-2.6 1.9-1 3-3.2-.1L12 22.5l-2.6-1.9-3.2.1-1-3-2.6-1.9 1-3.1-1-3.1 2.6-1.9 1-3 3.2.1z" fill="#3897F0"/><path d="M7.8 12.2l2.8 2.8 5.6-5.6" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></b><small>Desenvolve Já - Maceió</small></span></div>`],
 ];
 el("final", CF, FIM, `<div class="fn"><i class="onda o1"></i><i class="onda o2"></i><div class="fn-in">${itens.map(([id, h]) => `<div id="${id}">${h}</div>`).join("")}</div></div>`, "left:0;top:0;width:1080px;height:1920px");
 itens.forEach(([id], i) => tw(`tl.fromTo("#${id}", { opacity: 0, y: 34 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, ${f(CF + 0.25 + i * 0.16)});`));

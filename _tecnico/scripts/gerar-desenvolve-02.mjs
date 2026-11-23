@@ -58,8 +58,8 @@ some("#ganho .cifra", g1 - 0.2); som("impact-bass-1", g0, 0.07); som("sparkle", 
 
 // 2) Almaviva: vagas home office e presenciais
 const a0 = T("Almaviva") - 0.05, a1 = T("Se o seu") - 0.1;
-el("vagas", a0, a1, `<div class="titulo">VAGAS ALMAVIVA</div><div class="pils"><span id="pl1" class="pil">HOME OFFICE</span></div>`, TOPO);
-sobe("#vagas .titulo", a0); pop("#pl1", T("home") - 0.05);
+el("vagas", a0, a1, `<div class="titulo">VAGAS ALMAVIVA</div><div class="pils"><span id="pl1" class="pil">HOME OFFICE</span>${process.env.PRESENCIAL ? `<span id="pl2" class="pil">PRESENCIAL</span>` : ""}</div>`, TOPO);
+sobe("#vagas .titulo", a0); pop("#pl1", T("home") - 0.05); if (process.env.PRESENCIAL) { pop("#pl2", T("presenciais") - 0.05); som("pop", T("presenciais") - 0.05, 0.07); }
 som("whoosh-short", a0 - 0.05, 0.05); som("pop", T("home") - 0.05, 0.07);
 tw(`tl.to("#vagas > *", { opacity: 0, y: -20, duration: 0.2, ease: "power2.in" }, ${f(a1 - 0.2)});`);
 

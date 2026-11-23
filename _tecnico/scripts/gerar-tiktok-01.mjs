@@ -15,9 +15,11 @@ const nrm = (s) => s.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "").repl
 const cortes = JSON.parse(fs.readFileSync(CORTES, "utf8"));
 const fr = (t) => Math.round(t * 30);
 const segs = []; let acc = 0;
-for (const [s, e] of cortes) { const d = (fr(e) - fr(s)) / 30; segs.push({ s, e, ini: acc, fim: acc + d }); acc += d; }
+// trecho com 3º item (ex.: "take") vem de outro arquivo: não conta para achar as cenas do original
+for (const [s, e, fonte] of cortes) { const d = (fr(e) - fr(s)) / 30; segs.push({ s, e, fonte, ini: acc, fim: acc + d }); acc += d; }
+const orig = segs.filter((g) => !g.fonte);
 const DUR = +acc.toFixed(4);
-const deOriginal = (t) => { const g = segs.find((x) => t >= x.s && t <= x.e); return g.ini + (t - g.s); };
+const deOriginal = (t) => { const g = orig.find((x) => t >= x.s && t <= x.e); return g.ini + (t - g.s); };
 
 // ---- palavras (texto corrigido onde o whisper errou) ----
 const CORRIGE = { "desenvolve?": "Desenvolve?", macio: "Maceió", "macio,": "Maceió,", terezina: "Teresina", socorro: "Socorro", desenvolver: "Desenvolve", "5x2.": "5x2." };
@@ -26,6 +28,8 @@ const pal = JSON.parse(fs.readFileSync(TJ, "utf8")).transcription
 pal.forEach((p, i) => {
   p.texto = CORRIGE[p.texto.toLowerCase()] ?? p.texto;
   if (p.texto === "de" && pal[i + 1]?.texto === "a" && /desenvolve/i.test(pal[i + 2]?.texto)) { p.texto = "da"; pal[i + 1].fora = true; }
+  if (p.texto === "de" && /^ades$/i.test(pal[i + 1]?.texto || "") && /^envolv/i.test(pal[i + 2]?.texto || "")) { p.texto = "da"; pal[i + 1].texto = "Desenvolve" + (pal[i + 2].texto.match(/[?.,!]$/)?.[0] || ""); pal[i + 1].fim = pal[i + 2].fim; pal[i + 2].fora = true; }
+  if (p.texto === "de" && /^adesenvolv/i.test(pal[i + 1]?.texto || "")) { p.texto = "da"; pal[i + 1].texto = "Desenvolve" + (pal[i + 1].texto.match(/[?.,!]$/)?.[0] || ""); }
   if (p.texto === "Tik" && /^Tok/.test(pal[i + 1]?.texto)) { p.texto = "TikTok" + pal[i + 1].texto.slice(3); p.fim = pal[i + 1].fim; pal[i + 1].fora = true; }
 });
 const PAL = pal.filter((p) => !p.fora);
@@ -104,7 +108,7 @@ lv("lv2", T("A gente te") - 0.05, DUR, 300);
 
 // ---- câmera: jump cuts alternam aberto/fechado; cortes de cena ganham transição ----
 const cenaOrig = [8.867, 19.133, 23.1, 36.6];
-const cenas = cenaOrig.map((t) => { const j = segs.findIndex((g) => g.s >= t); return segs.find((g) => t > g.s && t < g.e) ? deOriginal(t) : segs[j].ini; });
+const cenas = cenaOrig.map((t) => { const j = orig.findIndex((g) => g.s >= t); return orig.find((g) => t > g.s && t < g.e) ? deOriginal(t) : orig[j].ini; });
 const pulos = segs.slice(1).map((g) => g.ini).filter((t) => !cenas.some((c) => Math.abs(c - t) < 0.02));
 const cam = [];
 cam.push(`tl.set("#camera", { scale: 1 }, 0); tl.set("#flash", { opacity: 0 }, 0);`);

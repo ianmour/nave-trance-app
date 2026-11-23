@@ -1,0 +1,95 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; font-family: "Inter"; letter-spacing: -0.02em; }
+    .ui { position: absolute; }
+    .busca { display: flex; align-items: center; gap: 22px; padding: 26px 36px; border-radius: 999px; background: rgba(255,255,255,0.96); box-shadow: 0 18px 50px rgba(0,0,0,0.28); color: #1c1c1e; font-size: 46px; font-weight: 500; }
+    .bt i { font-style: normal; } .cursor { display: inline-block; width: 3px; height: 50px; background: #1c1c1e; margin-left: -12px; }
+    .live { display: inline-flex; align-items: center; gap: 16px; padding: 16px 32px; border-radius: 14px; background: #FE2C55; color: #fff; font-size: 44px; font-weight: 800; letter-spacing: 0.02em; box-shadow: 0 12px 34px rgba(254,44,85,0.35); }
+    .live i { width: 18px; height: 18px; border-radius: 50%; background: #fff; display: block; }
+    .pilula { display: inline-flex; align-items: center; gap: 26px; padding: 22px 36px; border-radius: 999px; background: rgba(20,20,24,0.78); color: #fff; font-size: 48px; font-weight: 800; box-shadow: 0 14px 34px rgba(0,0,0,0.3); }
+    .dias { display: inline-flex; gap: 10px; } .dias i { width: 26px; height: 26px; border-radius: 8px; background: rgba(255,255,255,0.22); display: block; } .dias i.on { background: #fff; }
+    .msg { display: block; width: fit-content; margin-top: 14px; padding: 16px 26px; border-radius: 26px; background: rgba(20,20,24,0.62); color: #fff; font-size: 38px; font-weight: 500; }
+    .msg b { font-weight: 700; opacity: 0.7; margin-right: 8px; }
+    .agenda { padding: 34px 38px 26px; border-radius: 40px; background: rgba(255,255,255,0.96); color: #1c1c1e; box-shadow: 0 24px 60px rgba(0,0,0,0.3); }
+    .ag-t { font-size: 34px; font-weight: 700; color: #6e6e73; letter-spacing: 0.01em; margin-bottom: 14px; }
+    .ag-l { display: flex; align-items: center; gap: 26px; padding: 12px 0; border-top: 2px solid #ececf0; }
+    .ag-d { width: 108px; text-align: center; font-size: 60px; font-weight: 800; line-height: 0.9; letter-spacing: -0.04em; } .ag-d small { display: block; font-size: 22px; font-weight: 700; color: #FE2C55; letter-spacing: 0.06em; margin-top: 6px; }
+    .ag-c { flex: 1; font-size: 50px; font-weight: 700; letter-spacing: -0.03em; }
+    .ag-h { padding: 10px 22px; border-radius: 999px; background: #1c1c1e; color: #fff; font-size: 36px; font-weight: 800; }
+    .perfil { display: flex; align-items: center; gap: 24px; padding: 24px 28px; border-radius: 34px; background: rgba(255,255,255,0.96); color: #1c1c1e; box-shadow: 0 18px 50px rgba(0,0,0,0.28); }
+    .av { width: 96px; height: 96px; border-radius: 50%; background: #1c1c1e; color: #fff; display: flex; align-items: center; justify-content: center; font-size: 48px; font-weight: 800; }
+    .pn { flex: 1; } .pn b { display: block; font-size: 46px; font-weight: 800; letter-spacing: -0.03em; } .pn small { display: block; font-size: 30px; color: #6e6e73; font-weight: 500; }
+    .btn { padding: 20px 38px; border-radius: 18px; background: #FE2C55; color: #fff; font-size: 38px; font-weight: 800; } #bt-b { display: none; }
+    .dedo { position: absolute; right: 70px; top: 100px; width: 64px; height: 64px; border-radius: 50%; background: rgba(255,255,255,0.85); border: 4px solid rgba(0,0,0,0.25); box-shadow: 0 8px 20px rgba(0,0,0,0.3); }
+  </style>
+  <div id="root" data-composition-id="app" data-width="1080" data-height="1920">
+      <div id="busca" class="clip ui" data-start="0.080" data-duration="3.960" data-track-index="0" style="left:140px;top:330px;width:800px" data-layout-allow-overlap><div class="busca"><svg viewBox="0 0 24 24" width="44" height="44"><circle cx="10.5" cy="10.5" r="6.5" fill="none" stroke="#6e6e73" stroke-width="2.4"/><path d="M15.5 15.5L21 21" stroke="#6e6e73" stroke-width="2.4" stroke-linecap="round"/></svg><span class="bt"><i id="bc0">v</i><i id="bc1">a</i><i id="bc2">g</i><i id="bc3">a</i><i id="bc4">s</i><i id="bc5">&nbsp;</i><i id="bc6">d</i><i id="bc7">e</i><i id="bc8">&nbsp;</i><i id="bc9">e</i><i id="bc10">m</i><i id="bc11">p</i><i id="bc12">r</i><i id="bc13">e</i><i id="bc14">g</i><i id="bc15">o</i></span><b class="cursor"></b></div></div>
+      <div id="lv1" class="clip ui" data-start="6.730" data-duration="1.580" data-track-index="0" style="left:0;width:1080px;top:300px;text-align:center" data-layout-allow-overlap><div class="live"><i></i>AO VIVO</div></div>
+      <div id="escala" class="clip ui" data-start="15.770" data-duration="1.480" data-track-index="0" style="left:0;width:1080px;top:300px;text-align:center" data-layout-allow-overlap><div class="pilula"><span>Escala 5x2</span><span class="dias"><i id="d0" class="on"></i><i id="d1" class="on"></i><i id="d2" class="on"></i><i id="d3" class="on"></i><i id="d4" class="on"></i><i id="d5" class=""></i><i id="d6" class=""></i></span></div></div>
+      <div id="chat" class="clip ui" data-start="18.710" data-duration="2.030" data-track-index="0" style="left:90px;top:1250px;width:640px" data-layout-allow-overlap><div id="q0" class="msg"><b>@ana</b> Precisa de experiência?</div><div id="q1" class="msg"><b>@joao</b> Como é a entrevista?</div><div id="q2" class="msg"><b>@bia</b> Qual o horário?</div></div>
+      <div id="agenda" class="clip ui" data-start="24.690" data-duration="7.510" data-track-index="0" style="left:150px;top:1040px;width:760px" data-layout-allow-overlap><div class="agenda"><div class="ag-t">Lives no TikTok</div><div id="ag0" class="ag-l"><span class="ag-d">25</span><span class="ag-c">Maceió</span><span id="ah0" class="ag-h">12h</span></div><div id="ag1" class="ag-l"><span class="ag-d">26</span><span class="ag-c">Teresina</span><span id="ah1" class="ag-h">12h</span></div><div id="ag2" class="ag-l"><span class="ag-d">27</span><span class="ag-c">Socorro e região</span><span id="ah2" class="ag-h">12h</span></div></div></div>
+      <div id="seguir" class="clip ui" data-start="33.960" data-duration="2.310" data-track-index="0" style="left:150px;top:1290px;width:760px" data-layout-allow-overlap><div class="perfil"><span class="av">D</span><span class="pn"><b>Desenvolve</b><small>Vagas e lives</small></span><span class="btn"><span id="bt-a">Seguir</span><span id="bt-b">Seguindo ✓</span></span></div><div class="dedo"></div></div>
+      <div id="lv2" class="clip ui" data-start="36.270" data-duration="2.297" data-track-index="0" style="left:0;width:1080px;top:300px;text-align:center" data-layout-allow-overlap><div class="live"><i></i>AO VIVO</div></div>
+  </div>
+  <script>
+    (function () {
+      const tl = gsap.timeline({ paused: true });
+      tl.fromTo("#busca .busca", { scale: 0.6, opacity: 0, y: 24 }, { scale: 1, opacity: 1, y: 0, duration: 0.32, ease: "back.out(1.8)" }, 0.080);
+      tl.fromTo("#bc0", { opacity: 0 }, { opacity: 1, duration: 0.01 }, 0.280);
+      tl.fromTo("#bc1", { opacity: 0 }, { opacity: 1, duration: 0.01 }, 0.335);
+      tl.fromTo("#bc2", { opacity: 0 }, { opacity: 1, duration: 0.01 }, 0.390);
+      tl.fromTo("#bc3", { opacity: 0 }, { opacity: 1, duration: 0.01 }, 0.445);
+      tl.fromTo("#bc4", { opacity: 0 }, { opacity: 1, duration: 0.01 }, 0.500);
+      tl.fromTo("#bc5", { opacity: 0 }, { opacity: 1, duration: 0.01 }, 0.555);
+      tl.fromTo("#bc6", { opacity: 0 }, { opacity: 1, duration: 0.01 }, 0.610);
+      tl.fromTo("#bc7", { opacity: 0 }, { opacity: 1, duration: 0.01 }, 0.665);
+      tl.fromTo("#bc8", { opacity: 0 }, { opacity: 1, duration: 0.01 }, 0.720);
+      tl.fromTo("#bc9", { opacity: 0 }, { opacity: 1, duration: 0.01 }, 0.775);
+      tl.fromTo("#bc10", { opacity: 0 }, { opacity: 1, duration: 0.01 }, 0.830);
+      tl.fromTo("#bc11", { opacity: 0 }, { opacity: 1, duration: 0.01 }, 0.885);
+      tl.fromTo("#bc12", { opacity: 0 }, { opacity: 1, duration: 0.01 }, 0.940);
+      tl.fromTo("#bc13", { opacity: 0 }, { opacity: 1, duration: 0.01 }, 0.995);
+      tl.fromTo("#bc14", { opacity: 0 }, { opacity: 1, duration: 0.01 }, 1.050);
+      tl.fromTo("#bc15", { opacity: 0 }, { opacity: 1, duration: 0.01 }, 1.105);
+      tl.fromTo("#busca .cursor", { opacity: 1 }, { opacity: 0, duration: 0.4, repeat: 4, yoyo: true, ease: "steps(1)" }, 0.080);
+      tl.to("#busca .busca", { scale: 0.9, opacity: 0, duration: 0.2, ease: "power2.in" }, 3.840);
+      tl.fromTo("#lv1 .live", { scale: 0.6, opacity: 0, y: 24 }, { scale: 1, opacity: 1, y: 0, duration: 0.32, ease: "back.out(1.8)" }, 6.730);
+      tl.fromTo("#lv1 .live i", { opacity: 1 }, { opacity: 0.25, duration: 0.45, repeat: 2, yoyo: true, ease: "sine.inOut" }, 7.030);
+      tl.to("#lv1 .live", { scale: 0.9, opacity: 0, duration: 0.2, ease: "power2.in" }, 8.110);
+      tl.fromTo("#escala .pilula", { scale: 0.6, opacity: 0, y: 24 }, { scale: 1, opacity: 1, y: 0, duration: 0.32, ease: "back.out(1.8)" }, 15.770);
+      tl.fromTo("#d0", { scale: 0 }, { scale: 1, duration: 0.18, ease: "back.out(2)" }, 16.020);
+      tl.fromTo("#d1", { scale: 0 }, { scale: 1, duration: 0.18, ease: "back.out(2)" }, 16.090);
+      tl.fromTo("#d2", { scale: 0 }, { scale: 1, duration: 0.18, ease: "back.out(2)" }, 16.160);
+      tl.fromTo("#d3", { scale: 0 }, { scale: 1, duration: 0.18, ease: "back.out(2)" }, 16.230);
+      tl.fromTo("#d4", { scale: 0 }, { scale: 1, duration: 0.18, ease: "back.out(2)" }, 16.300);
+      tl.fromTo("#d5", { scale: 0 }, { scale: 1, duration: 0.18, ease: "back.out(2)" }, 16.370);
+      tl.fromTo("#d6", { scale: 0 }, { scale: 1, duration: 0.18, ease: "back.out(2)" }, 16.440);
+      tl.to("#escala .pilula", { scale: 0.9, opacity: 0, duration: 0.2, ease: "power2.in" }, 17.050);
+      tl.fromTo("#q0", { opacity: 0, x: -40 }, { opacity: 1, x: 0, duration: 0.28, ease: "power3.out" }, 18.760);
+      tl.fromTo("#q1", { opacity: 0, x: -40 }, { opacity: 1, x: 0, duration: 0.28, ease: "power3.out" }, 19.310);
+      tl.fromTo("#q2", { opacity: 0, x: -40 }, { opacity: 1, x: 0, duration: 0.28, ease: "power3.out" }, 19.860);
+      tl.to("#chat .msg", { opacity: 0, x: -30, duration: 0.2, stagger: 0.04, ease: "power2.in" }, 20.490);
+      tl.fromTo("#agenda .agenda", { opacity: 0, y: 60 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, 24.690);
+      tl.set("#agenda .agenda", { clipPath: "inset(0 0 53% 0 round 40px)" }, 24.690);
+      tl.fromTo("#ag0", { opacity: 0, x: 40 }, { opacity: 1, x: 0, duration: 0.3, ease: "power3.out" }, 24.890);
+      tl.to("#agenda .agenda", { clipPath: "inset(0 0 26% 0 round 40px)", duration: 0.3, ease: "power3.out" }, 26.580);
+      tl.fromTo("#ag1", { opacity: 0, x: 40 }, { opacity: 1, x: 0, duration: 0.3, ease: "power3.out" }, 26.610);
+      tl.to("#agenda .agenda", { clipPath: "inset(0 0 0% 0 round 40px)", duration: 0.3, ease: "power3.out" }, 28.510);
+      tl.fromTo("#ag2", { opacity: 0, x: 40 }, { opacity: 1, x: 0, duration: 0.3, ease: "power3.out" }, 28.540);
+      tl.fromTo("#ah0", { opacity: 0, scale: 1.6 }, { opacity: 1, scale: 1, duration: 0.25, ease: "back.out(2)" }, 31.510);
+      tl.fromTo("#ah1", { opacity: 0, scale: 1.6 }, { opacity: 1, scale: 1, duration: 0.25, ease: "back.out(2)" }, 31.590);
+      tl.fromTo("#ah2", { opacity: 0, scale: 1.6 }, { opacity: 1, scale: 1, duration: 0.25, ease: "back.out(2)" }, 31.670);
+      tl.to("#agenda .agenda", { opacity: 0, y: 40, duration: 0.25, ease: "power2.in" }, 31.950);
+      tl.fromTo("#seguir .perfil", { scale: 0.6, opacity: 0, y: 24 }, { scale: 1, opacity: 1, y: 0, duration: 0.32, ease: "back.out(1.8)" }, 33.960);
+      tl.fromTo("#seguir .dedo", { opacity: 0, x: 80, y: 80 }, { opacity: 1, x: 0, y: 0, duration: 0.3, ease: "power2.out" }, 34.290);
+      tl.to("#seguir .btn", { scale: 0.9, duration: 0.08, yoyo: true, repeat: 1 }, 34.640);
+      tl.set("#bt-a", { display: "none" }, 34.720); tl.set("#bt-b", { display: "inline" }, 34.720); tl.set("#seguir .btn", { backgroundColor: "#2c2c2e" }, 34.720);
+      tl.to("#seguir .dedo", { opacity: 0, duration: 0.2 }, 35.040);
+      tl.to("#seguir .perfil", { scale: 0.9, opacity: 0, duration: 0.2, ease: "power2.in" }, 36.070);
+      tl.fromTo("#lv2 .live", { scale: 0.6, opacity: 0, y: 24 }, { scale: 1, opacity: 1, y: 0, duration: 0.32, ease: "back.out(1.8)" }, 36.270);
+      tl.fromTo("#lv2 .live i", { opacity: 1 }, { opacity: 0.25, duration: 0.45, repeat: 4, yoyo: true, ease: "sine.inOut" }, 36.570);
+      tl.to("#lv2 .live", { scale: 0.9, opacity: 0, duration: 0.2, ease: "power2.in" }, 38.367);
+      window.__timelines["app"] = tl;
+    })();
+  </script>
+</template>

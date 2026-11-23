@@ -27,7 +27,7 @@ const pal = JSON.parse(fs.readFileSync(TJ, "utf8")).transcription
 pal.forEach((p, i) => {
   const q = pal[i + 1];
   if (p.texto === "Alma" && /^Viva/.test(q?.texto)) { p.texto = "Almaviva"; p.fim = q.fim; q.fora = true; }
-  if (p.texto === "em" && q?.texto === "sino") { p.texto = "ensino"; p.fim = q.fim; q.fora = true; }
+  if (p.texto === "em" && (q?.texto === "sino" || q?.texto === "sendo") && /^m[eé]dio/.test(pal[i + 2]?.texto || "")) { p.texto = "ensino"; p.fim = q.fim; q.fora = true; }
   if (p.texto === "R$" && /^200/.test(q?.texto || "")) { p.texto = "R$" + q.texto; p.fim = q.fim; q.fora = true; }
   if (p.texto === "Envi") p.texto = "Envie";
   if (p.texto === "vaga" && q?.texto === "de") p.texto = "vagas";
@@ -119,7 +119,12 @@ const cenasOrig = [6.54, 20.08, 39.29];
 const cenas = cenasOrig.map((t) => { const g = segs.find((x) => t > x.s && t < x.e); return g ? deOriginal(t) : segs.find((x) => x.s >= t).ini; });
 const pulos = segs.slice(1).map((g) => g.ini).filter((t) => !cenas.some((c) => Math.abs(c - t) < 0.05));
 const cam = [`tl.set("#camera", { scale: 1 }, 0); tl.set(".faixa", { xPercent: -110 }, 0);`];
-pulos.forEach((t, i) => { cam.push(`tl.set("#camera", { scale: ${i % 2 ? 1 : 1.12} }, ${f(t)});`); });
+// emenda "home office, e | se o seu indicado" (onde saiu o "presenciais"): em vez de pulo seco, um empurrão suave de câmera
+const emenda = segs.find((g) => Math.abs(g.s - 11.34) < 0.01)?.ini;
+pulos.forEach((t, i) => {
+  if (emenda != null && Math.abs(t - emenda) < 0.02) { cam.push(`tl.fromTo("#camera", { scale: 1.14 }, { scale: 1.02, duration: 0.5, ease: "expo.out", immediateRender: false }, ${f(t)});`); som("whoosh-short", t - 0.08, 0.05); return; }
+  cam.push(`tl.set("#camera", { scale: ${i % 2 ? 1 : 1.12} }, ${f(t)});`);
+});
 cenas.forEach((t) => {
   cam.push(`tl.fromTo("#fx1", { xPercent: -110 }, { xPercent: 110, duration: 0.42, ease: "power2.inOut", immediateRender: false }, ${f(t - 0.21)});`);
   cam.push(`tl.fromTo("#fx2", { xPercent: -110 }, { xPercent: 110, duration: 0.42, ease: "power2.inOut", immediateRender: false }, ${f(t - 0.15)});`);

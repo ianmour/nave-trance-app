@@ -89,15 +89,17 @@ tw(`tl.to("#sel > *", { opacity: 0, y: -20, duration: 0.2, ease: "power2.in" }, 
 const p0 = T("portal") - 0.1, p1 = T("O endereço") - 0.08, pc = T("Indique") + 0.1;
 if (process.env.VERSAO === "site") {
   // cartão no estilo da arte do cliente: INDIQUE E GANHE · indicações até 30/11 · site de cadastro
-  el("portal", p0, p1, `<div class="ig"><div class="ig-t">INDIQUE E GANHE</div><div id="ig1" class="ig-l rs">indicações até 30/11</div><div id="ig2" class="ig-l ma">qualidade.almavivadobrasil.com.br</div></div>`, "left:0;width:1080px;top:170px;text-align:center");
+  // título acima da cabeça; data e site abaixo da legenda (nada na frente do rosto)
+  el("portal", p0, p1, `<div class="ig"><div class="ig-t">INDIQUE E GANHE</div></div>`, "left:0;width:1080px;top:150px;text-align:center");
+  el("portal2", p0, p1, `<div class="ig"><div id="ig1" class="ig-l rs">indicações até 30/11</div><div id="ig2" class="ig-l ma">qualidade.almavivadobrasil.com.br</div></div>`, "left:0;width:1080px;top:1250px;text-align:center");
   tw(`tl.fromTo("#portal .ig-t", { scale: 0.5, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.35, ease: "back.out(2)" }, ${f(p0)});`);
   sobe("#ig1", p0 + 0.35); sobe("#ig2", p0 + 0.6);
   som("pop", p0, 0.07); som("pop", p0 + 0.35, 0.06); som("pop", p0 + 0.6, 0.06);
-  tw(`tl.to("#portal .ig", { opacity: 0, y: -20, duration: 0.2, ease: "power2.in" }, ${f(p1 - 0.2)});`);
+  tw(`tl.to("#portal .ig, #portal2 .ig", { opacity: 0, y: -20, duration: 0.2, ease: "power2.in" }, ${f(p1 - 0.2)});`);
 } else {
   // Portal do Colaborador → Fale com RH → filtro "Indique um amigo" (o dedo clica nos dois passos)
   const pr = Math.min(pc - 0.9, T("colaborador") + 0.35);
-  el("portal", p0, p1, `<div class="janela"><div class="jt"><i></i><i></i><i></i><span>Portal do Colaborador</span></div><div class="jc"><span id="rh" class="chip">Fale com RH</span></div><div id="jf" class="jc jf"><span class="flt">Filtro:</span><span id="chip" class="chip">Indique um amigo</span></div></div><div class="mao"></div>`, "left:150px;width:780px;top:150px");
+  el("portal", p0, p1, `<div class="janela"><div class="jt"><i></i><i></i><i></i><span>Portal do Colaborador</span></div><div class="jc"><span id="rh" class="chip">Fale com RH</span></div><div id="jf" class="jc jf"><span class="flt">Filtro:</span><span id="chip" class="chip">Indique um amigo</span></div></div><div class="mao"></div>`, "left:150px;width:780px;top:1250px");
   sobe("#portal .janela", p0); som("whoosh-short", p0 - 0.05, 0.05);
   tw(`tl.set("#jf", { opacity: 0 }, ${f(p0)}); tl.set("#portal .mao", { opacity: 0 }, ${f(p0)});`);
   tw(`tl.fromTo("#portal .mao", { opacity: 0, x: 60, y: -60 }, { opacity: 1, x: -260, y: -110, duration: 0.3, ease: "power2.out" }, ${f(pr - 0.3)});`);

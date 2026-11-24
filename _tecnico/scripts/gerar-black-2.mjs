@@ -71,6 +71,7 @@ const atrasPal = (t0, t1, txt, trecho, extra = "") => {
   tw(`tl.fromTo("#${id} .gb", { opacity: 0, y: 60, scale: 0.85 }, { opacity: 1, y: 0, scale: 1, duration: 0.35, ease: "back.out(1.6)" }, ${f(t0)});`);
   tw(`tl.to("#${id} .gb", { opacity: 0, y: -30, duration: 0.18, ease: "power2.in" }, ${f(t1 - 0.18)});`);
   som("whoosh-short", t0 - 0.05, 0.045);
+  camPre.push(`tl.fromTo("#camera", { scale: 1.09 }, { scale: 1, duration: 0.32, ease: "power3.out", immediateRender: false }, ${f(t0)});`);
   return id;
 };
 const fimDe = (nome) => fimT(nome) - 0.02;
@@ -118,6 +119,58 @@ const g0 = ini("final");
 atrasPal(T("5x2", g0) - 0.06, T("Então", g0) - 0.05, "5X2?", "final");
 atrasPal(T("corre", g0) - 0.06, DUR, "CORRE!", "final"); som("impact-bass-1", T("corre", g0) - 0.06, 0.06);
 
+
+// ---- extras animados (ideias da referência: bolinhas de dias, ícones surgindo em volta da pessoa) ----
+const SVG = {
+  relogio: `<svg viewBox="0 0 24 24" width="64" height="64"><circle cx="12" cy="12" r="9" fill="none" stroke="${VM}" stroke-width="2.4"/><path d="M12 7v5l3.5 2" fill="none" stroke="${VM}" stroke-width="2.4" stroke-linecap="round"/></svg>`,
+  agenda: `<svg viewBox="0 0 24 24" width="64" height="64"><rect x="3.5" y="5" width="17" height="15" rx="3" fill="none" stroke="${VM}" stroke-width="2.4"/><path d="M3.5 10h17M8 3v4M16 3v4" stroke="${VM}" stroke-width="2.4" stroke-linecap="round"/></svg>`,
+  presente: `<svg viewBox="0 0 24 24" width="64" height="64"><rect x="4" y="10" width="16" height="10" rx="1.5" fill="none" stroke="${VM}" stroke-width="2.3"/><path d="M3 7h18v3H3zM12 7v13M12 7c-2-4-6-3-5 0M12 7c2-4 6-3 5 0" fill="none" stroke="${VM}" stroke-width="2.3" stroke-linejoin="round"/></svg>`,
+  estrela: `<svg viewBox="0 0 24 24" width="64" height="64"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z" fill="${VM}"/></svg>`,
+  coracao: `<svg viewBox="0 0 24 24" width="64" height="64"><path d="M12 20s-7.5-4.6-9.6-9.1C.9 7.6 3 4 6.6 4c2.1 0 3.6 1.2 5.4 3.1C13.8 5.2 15.3 4 17.4 4 21 4 23.1 7.6 21.6 10.9 19.5 15.4 12 20 12 20z" fill="${VM}"/></svg>`,
+  celular: `<svg viewBox="0 0 24 24" width="64" height="64"><rect x="6.5" y="2.5" width="11" height="19" rx="2.5" fill="none" stroke="${VM}" stroke-width="2.4"/><circle cx="12" cy="18" r="1.2" fill="${VM}"/></svg>`,
+  pino: `<svg viewBox="0 0 24 24" width="64" height="64"><path d="M12 22s7-6.4 7-12a7 7 0 10-14 0c0 5.6 7 12 7 12z" fill="${VM}"/><circle cx="12" cy="10" r="2.8" fill="#fff"/></svg>`,
+  check: `<svg viewBox="0 0 24 24" width="64" height="64"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="${VM}" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+};
+let ni = 0;
+const icone = (t0, t1, nome, x, y) => {
+  const id = `ic${ni++}`;
+  el(id, t0, t1, `<div class="bolha">${SVG[nome]}</div>`, `left:${x}px;top:${y}px;width:130px;height:130px`);
+  tw(`tl.fromTo("#${id} .bolha", { scale: 0, rotation: -25 }, { scale: 1, rotation: 0, duration: 0.35, ease: "back.out(2.4)" }, ${f(t0)});`);
+  tw(`tl.to("#${id} .bolha", { y: -14, duration: 0.6, yoyo: true, repeat: ${Math.max(0, Math.floor((t1 - t0 - 0.6) / 0.6))}, ease: "sine.inOut" }, ${f(t0 + 0.35)});`);
+  tw(`tl.to("#${id} .bolha", { scale: 0, duration: 0.18, ease: "power2.in" }, ${f(t1 - 0.18)});`);
+  som("pop", t0, 0.06);
+};
+const bolinhas = (id, t0, t1, cores, top, intervalo = 0.08) => {
+  el(id, t0, t1, `<div class="dots">${cores.map((c, i) => c === "+" ? `<b class="mais">+</b>` : `<i id="${id}d${i}" class="dot ${c}"></i>`).join("")}</div>`, `left:0;width:${W}px;top:${top}px;text-align:center`);
+  cores.forEach((c, i) => { if (c !== "+") tw(`tl.fromTo("#${id}d${i}", { scale: 0 }, { scale: 1, duration: 0.2, ease: "back.out(3)" }, ${f(t0 + i * intervalo)});`); });
+  tw(`tl.to("#${id} .dots", { opacity: 0, duration: 0.18 }, ${f(t1 - 0.18)});`);
+  som("click-soft", t0, 0.05); som("click-soft", t0 + cores.length * intervalo * 0.6, 0.05);
+};
+// dados: 10 bolinhas, as preenchidas em vermelho
+{ const d0 = ini("dados"), n = Math.round(DADO.pct / 10), p0 = T(DADO.wp, d0) - 0.06;
+  bolinhas("dd", p0, T(DADO.wr, d0) - 0.06, Array.from({ length: 10 }, (_, i) => (i < n ? "vm" : "br")), 230, 0.06);
+  icone(T(DADO.w, d0) - 0.06, p0, "pino", 860, 820); }
+// 5x2: 5 dias brancos + 2 vermelhos (folgas); relógio no intervalo, agenda nas folgas
+{ const c0 = ini("5x2"); const t5 = T("5x2", c0) - 0.06;
+  bolinhas("cd", t5, fimT("5x2") - 0.05, ["br", "br", "br", "br", "br", "+", "vm", "vm"], 250, 0.1);
+  icone(T("intervalo", c0) - 0.1, fimT("5x2") - 0.05, "relogio", 850, 820);
+  icone(T("folgas", c0) - 0.1, fimT("5x2") - 0.05, "agenda", 100, 820); }
+// benefícios: ícones surgindo em volta do Vini
+{ const b0 = ini("beneficios"), b1 = fimT("beneficios");
+  icone(T("benefícios", b0) - 0.05, b1 - 0.1, "presente", 90, 760);
+  icone(T("facilitam", b0) - 0.05, b1 - 0.1, "estrela", 860, 720);
+  icone(T("rotina", b0) - 0.05, b1 - 0.1, "coracao", 120, 980);
+  icone(T("simples", b0) - 0.05, b1 - 0.1, "check", 850, 960); }
+// presencial: pino nos endereços
+{ const e0 = ini("presencial"); icone(T("endereços", e0) - 0.06, fimT("presencial") - 0.05, "pino", 850, 860);
+  icone(T("segunda", e0) - 0.06, fimT("presencial") - 0.05, "agenda", 100, 860); }
+// online: celular e relógio
+{ const o0 = ini("online"); icone(T("online", o0) - 0.06, T("print", o0), "celular", 860, 800);
+  icone(T("qualquer", o0) - 0.06, T("print", o0), "relogio", 90, 800); }
+// final: tremida no CORRE!
+{ const g0 = ini("final"), tc = T("corre", g0);
+  camPre.push(`tl.to("#camera", { keyframes: [{ x: -14 }, { x: 12 }, { x: -10 }, { x: 8 }, { x: 0 }], duration: 0.35, ease: "none" }, ${f(tc)});`); }
+
 // ---- trocas de cena ----
 const cam = [`tl.set("#camera", { scale: 1 }, 0); tl.set(".faixa", { xPercent: -110 }, 0);`, ...camPre];
 const faixa = (t) => {
@@ -126,7 +179,9 @@ const faixa = (t) => {
   cam.push(`tl.fromTo("#camera", { scale: 1.16 }, { scale: 1, duration: 0.45, ease: "expo.out", immediateRender: false }, ${f(t)});`);
   som("whoosh", t - 0.2, 0.06);
 };
-faixa(ini("dados")); faixa(ini("5x2")); faixa(ini("beneficios"));
+faixa(ini("dados")); faixa(ini("5x2"));
+cam.push(`tl.fromTo("#camera", { rotation: 180, scale: 1.9 }, { rotation: 0, scale: 1, duration: 0.45, ease: "power3.out", immediateRender: false }, ${f(ini("beneficios"))});`);
+som("whoosh", ini("beneficios") - 0.15, 0.07);
 // viradas de cadeira e mão na câmera: corte seco, só um whoosh acompanhando o movimento
 [ini("presencial"), ini("online"), ini("final")].forEach((t) => som("whoosh-short", t - 0.12, 0.05));
 // pausa cortada dentro do mesmo take (Teresina): pulo de câmera
@@ -187,7 +242,11 @@ const CSS = `
     .pil.vm { background: ${VM}; } .pil.bco { background: #fff; color: ${PR}; } .pil.grande { margin-top: 22px; font-size: 52px; }
     .selo { display: inline-flex; align-items: center; gap: 16px; padding: 12px 40px 12px 14px; border-radius: 999px; background: #fff; color: ${VM}; font-size: 70px; font-weight: 900; box-shadow: 0 14px 34px rgba(0,0,0,0.3); }
     .url { display: inline-block; padding: 18px 36px; border-radius: 18px; background: ${VM}; color: #fff; font-size: 50px; font-weight: 800; letter-spacing: -0.01em; box-shadow: 0 0 0 6px #fff, 0 16px 40px rgba(0,0,0,0.3); }
-    .flash { position: absolute; inset: 0; background: #fff; }`;
+    .flash { position: absolute; inset: 0; background: #fff; }
+    .bolha { width: 130px; height: 130px; border-radius: 50%; background: #fff; display: flex; align-items: center; justify-content: center; box-shadow: 0 12px 30px rgba(0,0,0,0.3), 0 0 0 5px ${VM}; }
+    .dots { display: inline-flex; align-items: center; gap: 14px; padding: 14px 22px; border-radius: 999px; background: rgba(17,17,17,0.55); }
+    .dot { width: 44px; height: 44px; border-radius: 50%; display: block; } .dot.br { background: #fff; } .dot.vm { background: ${VM}; box-shadow: 0 0 0 3px #fff; }
+    .mais { color: #fff; font-size: 44px; font-weight: 900; margin: 0 4px; }`;
 const CSS_ATRAS = `
     .gb { display: inline-block; font-weight: 900; line-height: 0.9; letter-spacing: -0.03em; color: ${VM}; -webkit-text-stroke: 12px #fff; paint-order: stroke fill; filter: drop-shadow(0 10px 22px rgba(0,0,0,0.25)); white-space: nowrap; }`;
 fs.mkdirSync(path.join(P, "compositions"), { recursive: true });
@@ -239,7 +298,7 @@ fs.writeFileSync(path.join(P, "index.html"), `<!doctype html>
       * { margin: 0; padding: 0; box-sizing: border-box; }
       html, body { width: ${W}px; height: ${H}px; overflow: hidden; background: #000; }
       #main { position: relative; width: 100%; height: 100%; overflow: hidden; }
-      #camera { position: absolute; inset: 0; overflow: hidden; transform-origin: 50% 34%; }
+      #camera { position: absolute; inset: 0; overflow: hidden; transform-origin: 50% 40%; }
       #fundo, .recorte { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
       #atras { position: absolute; inset: 0; z-index: 1; } .recorte { z-index: 2; }
       .faixa { position: absolute; top: -20%; bottom: -20%; width: 130%; left: -15%; transform: skewX(-12deg); z-index: 6; }

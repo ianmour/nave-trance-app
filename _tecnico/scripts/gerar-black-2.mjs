@@ -61,12 +61,13 @@ const TOPO = (top = 170) => `left:0;width:${W}px;top:${top}px;text-align:center`
 const grande = (id, t0, t1, txt, tam = 190, top = 170) => { el(id, t0, t1, `<div class="gr" style="font-size:${tam}px">${txt}</div>`, TOPO(top)); pop(`#${id} .gr`, t0); sai(`#${id} .gr`, t1 - 0.2); som("pop", t0, 0.07); };
 
 // Palavras GRANDES atrás da cabeça (como no vídeo 1): ficam na camada entre o vídeo e o recorte da pessoa.
-const topo = { abertura: 290, dados: 330, "5x2": 350, beneficios: 290, presencial: 280, online: 290, final: 330 };
+// altura do topo da cabeça em cada trecho (medida nos quadros); a palavra desce até cobrir o alto da cabeça
+const cabeca = { abertura: 490, dados: { teresina: 500, maceio: 575, socorro: 585 }[CIDADE], "5x2": 570, beneficios: 480, presencial: 450, online: 470, final: 570 };
 const tamanho = (txt) => Math.round(Math.min(250, 1000 / (txt.length * 0.74)));
 let nb = 0;
 const atrasPal = (t0, t1, txt, trecho, extra = "") => {
   const id = `gb${nb++}`;
-  el(id, t0, t1, `<div class="gb" style="font-size:${tamanho(txt)}px">${extra || txt}</div>`, `left:0;width:${W}px;top:${topo[trecho]}px;text-align:center`, atras);
+  el(id, t0, t1, `<div class="gb" style="font-size:${tamanho(txt)}px">${extra || txt}</div>`, `left:0;width:${W}px;top:${Math.round(cabeca[trecho] + 90 - tamanho(txt) * 0.9)}px;text-align:center`, atras);
   tw(`tl.fromTo("#${id} .gb", { opacity: 0, y: 60, scale: 0.85 }, { opacity: 1, y: 0, scale: 1, duration: 0.35, ease: "back.out(1.6)" }, ${f(t0)});`);
   tw(`tl.to("#${id} .gb", { opacity: 0, y: -30, duration: 0.18, ease: "power2.in" }, ${f(t1 - 0.18)});`);
   som("whoosh-short", t0 - 0.05, 0.045);

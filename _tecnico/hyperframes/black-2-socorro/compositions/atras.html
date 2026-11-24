@@ -4,22 +4,55 @@
     #root { position: absolute; inset: 0; font-family: "Poppins", "Inter"; }
     .ui { position: absolute; }
 
-    .bloco { position: absolute; left: 190px; width: 700px; top: 330px; height: 1200px; background: #E30613; transform-origin: bottom center; }
-    .moldura { position: absolute; left: 150px; width: 780px; top: 290px; height: 1280px; border: 12px solid #E30613; }
-    .circ { position: absolute; left: 140px; top: 360px; width: 800px; height: 800px; border-radius: 50%; background: #E30613; }
+    .gb { display: inline-block; font-weight: 900; line-height: 0.9; letter-spacing: -0.03em; color: #E30613; -webkit-text-stroke: 12px #fff; paint-order: stroke fill; filter: drop-shadow(0 10px 22px rgba(0,0,0,0.25)); white-space: nowrap; }
   </style>
   <div id="root" data-composition-id="atras" data-width="1080" data-height="1920">
-      <div id="bloco" class="clip ui" data-start="0.000" data-duration="5.800" data-track-index="0" style="left:0;top:0;width:1080px;height:1920px" data-layout-allow-overlap data-layout-allow-occlusion><div class="bloco"></div><div class="moldura"></div></div>
-      <div id="circ" class="clip ui" data-start="25.800" data-duration="7.400" data-track-index="0" style="left:0;top:0;width:1080px;height:1920px" data-layout-allow-overlap data-layout-allow-occlusion><div class="circ"></div></div>
+      <div id="gb0" class="clip ui" data-start="1.220" data-duration="2.750" data-track-index="0" style="left:0;width:1080px;top:355px;text-align:center" data-layout-allow-overlap data-layout-allow-occlusion><div class="gb" style="font-size:250px">BLACK</div></div>
+      <div id="gb1" class="clip ui" data-start="4.940" data-duration="0.840" data-track-index="0" style="left:0;width:1080px;top:428px;text-align:center" data-layout-allow-overlap data-layout-allow-occlusion><div class="gb" style="font-size:169px">ACABANDO</div></div>
+      <div id="gb2" class="clip ui" data-start="5.880" data-duration="1.690" data-track-index="0" style="left:0;width:1080px;top:501px;text-align:center" data-layout-allow-overlap data-layout-allow-occlusion><div class="gb" style="font-size:193px">SOCORRO</div></div>
+      <div id="gb3" class="clip ui" data-start="7.570" data-duration="4.710" data-track-index="0" style="left:0;width:1080px;top:450px;text-align:center" data-layout-allow-overlap data-layout-allow-occlusion><div class="gb" style="font-size:250px"><span id="pn">0</span>%</div></div>
+      <div id="gb4" class="clip ui" data-start="12.280" data-duration="1.767" data-track-index="0" style="left:0;width:1080px;top:450px;text-align:center" data-layout-allow-overlap data-layout-allow-occlusion><div class="gb" style="font-size:250px">180</div></div>
+      <div id="gb5" class="clip ui" data-start="16.507" data-duration="3.907" data-track-index="0" style="left:0;width:1080px;top:435px;text-align:center" data-layout-allow-overlap data-layout-allow-occlusion><div class="gb" style="font-size:250px">5X2</div></div>
+      <div id="gb6" class="clip ui" data-start="20.613" data-duration="3.030" data-track-index="0" style="left:0;width:1080px;top:449px;text-align:center" data-layout-allow-overlap data-layout-allow-occlusion><div class="gb" style="font-size:135px">BENEFÍCIOS</div></div>
+      <div id="gb7" class="clip ui" data-start="24.383" data-duration="0.763" data-track-index="0" style="left:0;width:1080px;top:396px;text-align:center" data-layout-allow-overlap data-layout-allow-occlusion><div class="gb" style="font-size:193px">SIMPLES</div></div>
+      <div id="gb8" class="clip ui" data-start="25.207" data-duration="2.900" data-track-index="0" style="left:0;width:1080px;top:419px;text-align:center" data-layout-allow-overlap data-layout-allow-occlusion><div class="gb" style="font-size:135px">PRESENCIAL</div></div>
+      <div id="gb9" class="clip ui" data-start="28.097" data-duration="3.350" data-track-index="0" style="left:0;width:1080px;top:405px;text-align:center" data-layout-allow-overlap data-layout-allow-occlusion><div class="gb" style="font-size:150px">9H ÀS 15H</div></div>
+      <div id="gb10" class="clip ui" data-start="31.427" data-duration="2.540" data-track-index="0" style="left:0;width:1080px;top:358px;text-align:center" data-layout-allow-overlap data-layout-allow-occlusion><div class="gb" style="font-size:225px">ONLINE</div></div>
+      <div id="gb11" class="clip ui" data-start="33.957" data-duration="4.623" data-track-index="0" style="left:0;width:1080px;top:335px;text-align:center" data-layout-allow-overlap data-layout-allow-occlusion><div class="gb" style="font-size:250px">24H</div></div>
+      <div id="gb12" class="clip ui" data-start="38.680" data-duration="2.030" data-track-index="0" style="left:0;width:1080px;top:435px;text-align:center" data-layout-allow-overlap data-layout-allow-occlusion><div class="gb" style="font-size:250px">5X2?</div></div>
+      <div id="gb13" class="clip ui" data-start="41.110" data-duration="2.323" data-track-index="0" style="left:0;width:1080px;top:458px;text-align:center" data-layout-allow-overlap data-layout-allow-occlusion><div class="gb" style="font-size:225px">CORRE!</div></div>
   </div>
   <script>
     (function () {
       const tl = gsap.timeline({ paused: true });
-      tl.fromTo("#bloco .bloco", { scaleY: 0 }, { scaleY: 1, duration: 0.45, ease: "power3.out" }, 1.180);
-      tl.fromTo("#bloco .moldura", { opacity: 0, scale: 1.08 }, { opacity: 1, scale: 1, duration: 0.4, ease: "power3.out" }, 1.330);
-      tl.to("#bloco .bloco, #bloco .moldura", { opacity: 0, duration: 0.25 }, 3.970);
-      tl.fromTo("#circ .circ", { scale: 0 }, { scale: 1, duration: 0.5, ease: "back.out(1.4)" }, 25.810);
-      tl.to("#circ .circ", { scale: 0, duration: 0.3, ease: "power2.in" }, 31.900);
+      tl.fromTo("#gb0 .gb", { opacity: 0, y: 60, scale: 0.85 }, { opacity: 1, y: 0, scale: 1, duration: 0.35, ease: "back.out(1.6)" }, 1.220);
+      tl.to("#gb0 .gb", { opacity: 0, y: -30, duration: 0.18, ease: "power2.in" }, 3.790);
+      tl.fromTo("#gb1 .gb", { opacity: 0, y: 60, scale: 0.85 }, { opacity: 1, y: 0, scale: 1, duration: 0.35, ease: "back.out(1.6)" }, 4.940);
+      tl.to("#gb1 .gb", { opacity: 0, y: -30, duration: 0.18, ease: "power2.in" }, 5.600);
+      tl.fromTo("#gb2 .gb", { opacity: 0, y: 60, scale: 0.85 }, { opacity: 1, y: 0, scale: 1, duration: 0.35, ease: "back.out(1.6)" }, 5.880);
+      tl.to("#gb2 .gb", { opacity: 0, y: -30, duration: 0.18, ease: "power2.in" }, 7.390);
+      tl.fromTo("#gb3 .gb", { opacity: 0, y: 60, scale: 0.85 }, { opacity: 1, y: 0, scale: 1, duration: 0.35, ease: "back.out(1.6)" }, 7.570);
+      tl.to("#gb3 .gb", { opacity: 0, y: -30, duration: 0.18, ease: "power2.in" }, 12.100);
+      tl.fromTo("#gb4 .gb", { opacity: 0, y: 60, scale: 0.85 }, { opacity: 1, y: 0, scale: 1, duration: 0.35, ease: "back.out(1.6)" }, 12.280);
+      tl.to("#gb4 .gb", { opacity: 0, y: -30, duration: 0.18, ease: "power2.in" }, 13.867);
+      tl.fromTo("#gb5 .gb", { opacity: 0, y: 60, scale: 0.85 }, { opacity: 1, y: 0, scale: 1, duration: 0.35, ease: "back.out(1.6)" }, 16.507);
+      tl.to("#gb5 .gb", { opacity: 0, y: -30, duration: 0.18, ease: "power2.in" }, 20.233);
+      tl.fromTo("#gb6 .gb", { opacity: 0, y: 60, scale: 0.85 }, { opacity: 1, y: 0, scale: 1, duration: 0.35, ease: "back.out(1.6)" }, 20.613);
+      tl.to("#gb6 .gb", { opacity: 0, y: -30, duration: 0.18, ease: "power2.in" }, 23.463);
+      tl.fromTo("#gb7 .gb", { opacity: 0, y: 60, scale: 0.85 }, { opacity: 1, y: 0, scale: 1, duration: 0.35, ease: "back.out(1.6)" }, 24.383);
+      tl.to("#gb7 .gb", { opacity: 0, y: -30, duration: 0.18, ease: "power2.in" }, 24.967);
+      tl.fromTo("#gb8 .gb", { opacity: 0, y: 60, scale: 0.85 }, { opacity: 1, y: 0, scale: 1, duration: 0.35, ease: "back.out(1.6)" }, 25.207);
+      tl.to("#gb8 .gb", { opacity: 0, y: -30, duration: 0.18, ease: "power2.in" }, 27.927);
+      tl.fromTo("#gb9 .gb", { opacity: 0, y: 60, scale: 0.85 }, { opacity: 1, y: 0, scale: 1, duration: 0.35, ease: "back.out(1.6)" }, 28.097);
+      tl.to("#gb9 .gb", { opacity: 0, y: -30, duration: 0.18, ease: "power2.in" }, 31.267);
+      tl.fromTo("#gb10 .gb", { opacity: 0, y: 60, scale: 0.85 }, { opacity: 1, y: 0, scale: 1, duration: 0.35, ease: "back.out(1.6)" }, 31.427);
+      tl.to("#gb10 .gb", { opacity: 0, y: -30, duration: 0.18, ease: "power2.in" }, 33.787);
+      tl.fromTo("#gb11 .gb", { opacity: 0, y: 60, scale: 0.85 }, { opacity: 1, y: 0, scale: 1, duration: 0.35, ease: "back.out(1.6)" }, 33.957);
+      tl.to("#gb11 .gb", { opacity: 0, y: -30, duration: 0.18, ease: "power2.in" }, 38.400);
+      tl.fromTo("#gb12 .gb", { opacity: 0, y: 60, scale: 0.85 }, { opacity: 1, y: 0, scale: 1, duration: 0.35, ease: "back.out(1.6)" }, 38.680);
+      tl.to("#gb12 .gb", { opacity: 0, y: -30, duration: 0.18, ease: "power2.in" }, 40.530);
+      tl.fromTo("#gb13 .gb", { opacity: 0, y: 60, scale: 0.85 }, { opacity: 1, y: 0, scale: 1, duration: 0.35, ease: "back.out(1.6)" }, 41.110);
+      tl.to("#gb13 .gb", { opacity: 0, y: -30, duration: 0.18, ease: "power2.in" }, 43.253);
       window.__timelines["atras"] = tl;
     })();
   </script>

@@ -85,14 +85,29 @@ sobe("#sel .titulo", s0); pop("#sd", T("até", s0) - 0.05); pop("#sh1", T("9h") 
 som("whoosh-short", s0 - 0.05, 0.05); som("pop", T("até", s0) - 0.05, 0.07); som("pop", T("9h") - 0.05, 0.06); som("pop", T("14h") - 0.05, 0.06);
 tw(`tl.to("#sel > *", { opacity: 0, y: -20, duration: 0.2, ease: "power2.in" }, ${f(s1 - 0.2)});`);
 
-// 6) portal do colaborador → filtro "Indique um amigo" (clique)
+// 6) onde indicar — duas versões pedidas pelo cliente (VERSAO=portal | site; padrão: portal)
 const p0 = T("portal") - 0.1, p1 = T("O endereço") - 0.08, pc = T("Indique") + 0.1;
-el("portal", p0, p1, `<div class="janela"><div class="jt"><i></i><i></i><i></i><span>Portal do Colaborador</span></div><div class="jc"><span class="flt">Filtro:</span><span id="chip" class="chip">Indique um amigo</span></div></div><div class="mao"></div>`, "left:150px;width:780px;top:230px");
-sobe("#portal .janela", p0); som("whoosh-short", p0 - 0.05, 0.05);
-tw(`tl.fromTo("#portal .mao", { opacity: 0, x: 90, y: 90 }, { opacity: 1, x: 0, y: 0, duration: 0.3, ease: "power2.out" }, ${f(pc - 0.35)});`);
-tw(`tl.to("#chip", { scale: 0.92, duration: 0.08, yoyo: true, repeat: 1 }, ${f(pc)}); tl.set("#chip", { backgroundColor: "${RS}", color: "#fff", borderColor: "${RS}" }, ${f(pc + 0.08)});`);
-tw(`tl.to("#portal .mao", { opacity: 0, duration: 0.2 }, ${f(pc + 0.5)});`); som("click", pc, 0.09);
-tw(`tl.to("#portal .janela", { opacity: 0, y: -20, duration: 0.2, ease: "power2.in" }, ${f(p1 - 0.2)});`);
+if (process.env.VERSAO === "site") {
+  // cartão no estilo da arte do cliente: INDIQUE E GANHE · indicações até 30/11 · site de cadastro
+  el("portal", p0, p1, `<div class="ig"><div class="ig-t">INDIQUE E GANHE</div><div id="ig1" class="ig-l rs">indicações até 30/11</div><div id="ig2" class="ig-l ma">qualidade.almavivadobrasil.com.br</div></div>`, "left:0;width:1080px;top:170px;text-align:center");
+  tw(`tl.fromTo("#portal .ig-t", { scale: 0.5, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.35, ease: "back.out(2)" }, ${f(p0)});`);
+  sobe("#ig1", p0 + 0.35); sobe("#ig2", p0 + 0.6);
+  som("pop", p0, 0.07); som("pop", p0 + 0.35, 0.06); som("pop", p0 + 0.6, 0.06);
+  tw(`tl.to("#portal .ig", { opacity: 0, y: -20, duration: 0.2, ease: "power2.in" }, ${f(p1 - 0.2)});`);
+} else {
+  // Portal do Colaborador → Fale com RH → filtro "Indique um amigo" (o dedo clica nos dois passos)
+  const pr = Math.min(pc - 0.9, T("colaborador") + 0.35);
+  el("portal", p0, p1, `<div class="janela"><div class="jt"><i></i><i></i><i></i><span>Portal do Colaborador</span></div><div class="jc"><span id="rh" class="chip">Fale com RH</span></div><div id="jf" class="jc jf"><span class="flt">Filtro:</span><span id="chip" class="chip">Indique um amigo</span></div></div><div class="mao"></div>`, "left:150px;width:780px;top:150px");
+  sobe("#portal .janela", p0); som("whoosh-short", p0 - 0.05, 0.05);
+  tw(`tl.set("#jf", { opacity: 0 }, ${f(p0)}); tl.set("#portal .mao", { opacity: 0 }, ${f(p0)});`);
+  tw(`tl.fromTo("#portal .mao", { opacity: 0, x: 60, y: -60 }, { opacity: 1, x: -260, y: -110, duration: 0.3, ease: "power2.out" }, ${f(pr - 0.3)});`);
+  tw(`tl.to("#rh", { scale: 0.92, duration: 0.08, yoyo: true, repeat: 1 }, ${f(pr)}); tl.set("#rh", { backgroundColor: "${RS}", color: "#fff", borderColor: "${RS}" }, ${f(pr + 0.08)});`);
+  tw(`tl.fromTo("#jf", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.25, ease: "power3.out" }, ${f(pr + 0.2)});`);
+  tw(`tl.to("#portal .mao", { x: 0, y: 0, duration: 0.3, ease: "power2.inOut" }, ${f(pc - 0.35)});`);
+  tw(`tl.to("#chip", { scale: 0.92, duration: 0.08, yoyo: true, repeat: 1 }, ${f(pc)}); tl.set("#chip", { backgroundColor: "${RS}", color: "#fff", borderColor: "${RS}" }, ${f(pc + 0.08)});`);
+  tw(`tl.to("#portal .mao", { opacity: 0, duration: 0.2 }, ${f(pc + 0.5)});`); som("click", pr, 0.09); som("pop", pr + 0.2, 0.05); som("click", pc, 0.09);
+  tw(`tl.to("#portal .janela", { opacity: 0, y: -20, duration: 0.2, ease: "power2.in" }, ${f(p1 - 0.2)});`);
+}
 
 // (sem cartão de endereço: o vídeo vale para três cidades e o endereço vai na legenda do post)
 
@@ -187,7 +202,9 @@ fs.writeFileSync(path.join(P, "compositions/app.html"), `<template>
     .janela { border-radius: 30px; overflow: hidden; background: #fff; box-shadow: 0 22px 50px rgba(0,0,0,0.3); }
     .jt { display: flex; align-items: center; gap: 10px; padding: 18px 26px; background: ${MA}; color: #fff; font-size: 36px; font-weight: 700; }
     .jt i { width: 16px; height: 16px; border-radius: 50%; background: ${TQ}; display: block; } .jt i:nth-child(2) { background: ${RS}; } .jt i:nth-child(3) { background: #fff; } .jt span { margin-left: 14px; }
-    .jc { display: flex; align-items: center; gap: 18px; padding: 26px 26px; }
+    .jc { display: flex; align-items: center; gap: 18px; padding: 20px 26px 0; } .jc.jf { padding-bottom: 22px; }
+    .ig-t { display: inline-block; padding: 16px 34px 10px; border-radius: 22px; background: #fff; color: ${MA}; font-family: "Anton"; font-size: 96px; line-height: 1; box-shadow: 0 0 0 7px ${RS}, 0 16px 40px rgba(0,0,0,0.25); }
+    .ig-l { display: block; width: fit-content; margin: 18px auto 0; padding: 12px 30px; border-radius: 16px; color: #fff; font-weight: 800; font-size: 44px; box-shadow: 0 12px 30px rgba(0,0,0,0.25); } .ig-l.rs { background: ${RS}; } .ig-l.ma { background: ${MA}; font-size: 38px; }
     .flt { font-size: 34px; font-weight: 600; color: #5b6380; }
     .chip { padding: 14px 28px; border-radius: 999px; border: 3px solid ${MA}; color: ${MA}; font-size: 38px; font-weight: 800; }
     .mao { position: absolute; left: 560px; top: 150px; width: 64px; height: 64px; border-radius: 50%; background: rgba(255,255,255,0.85); border: 4px solid rgba(0,0,0,0.25); box-shadow: 0 8px 20px rgba(0,0,0,0.3); }

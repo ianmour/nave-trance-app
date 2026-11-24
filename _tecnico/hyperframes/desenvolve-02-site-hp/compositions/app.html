@@ -1,0 +1,107 @@
+<template>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Anton&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    #root { position: absolute; inset: 0; font-family: "Poppins", "Inter"; }
+    .ui { position: absolute; }
+    .titulo { display: inline-block; padding: 14px 34px 10px; border-radius: 22px; background: #fff; color: #001459; font-family: "Anton"; font-size: 84px; line-height: 1; letter-spacing: 0.01em; box-shadow: 0 16px 40px rgba(0,0,0,0.25); }
+    .titulo.pq { font-size: 60px; } #sel .pils { margin-top: 12px; } #sel .pil { font-size: 38px; padding: 10px 24px; gap: 10px; } #sel .pils { gap: 12px; }
+    .pils { display: flex; justify-content: center; align-items: center; gap: 18px; margin-top: 18px; }
+    .pil { display: inline-flex; align-items: center; gap: 14px; padding: 14px 32px; border-radius: 999px; background: #F9057F; color: #fff; font-weight: 800; font-size: 46px; box-shadow: 0 12px 30px rgba(249,5,127,0.35); }
+    .pil.mar { background: #001459; box-shadow: 0 12px 30px rgba(0,20,89,0.35); }
+    .ou { font-weight: 700; font-size: 40px; color: #fff; text-shadow: 0 2px 10px rgba(0,0,0,0.5); }
+    .cifra { display: inline-flex; flex-direction: column; align-items: center; padding: 22px 56px 18px; border-radius: 40px; background: #F9057F; color: #fff; box-shadow: 0 0 0 8px #fff, 0 22px 50px rgba(0,0,0,0.3); }
+    .cf-p { font-weight: 700; font-size: 34px; letter-spacing: 0.04em; opacity: 0.95; } .cf-v { display: block; font-family: "Anton"; font-size: 170px; line-height: 1; }
+    .linha { display: flex; align-items: center; justify-content: center; gap: 12px; }
+    .linha > div { padding: 18px 22px 16px; border-radius: 26px; background: #001459; color: #fff; text-align: center; box-shadow: 0 14px 34px rgba(0,0,0,0.3); }
+    .linha small { display: block; font-size: 22px; font-weight: 700; letter-spacing: 0.05em; color: #5CE1E6; } .linha b { display: block; font-family: "Anton"; font-weight: 400; font-size: 60px; line-height: 1.05; }
+    .linha .ganha { background: #F9057F; } .linha .ganha small { color: #fff; } .linha em { display: block; font-style: normal; font-size: 22px; font-weight: 800; }
+    .seta { display: block; width: 46px; height: 8px; border-radius: 4px; background: #5CE1E6; transform-origin: left center; flex: none; }
+    .cartao { padding: 30px 40px 24px; border-radius: 36px; background: #001459; color: #fff; box-shadow: 0 22px 50px rgba(0,0,0,0.3); }
+    .ct-t { font-family: "Anton"; font-size: 64px; line-height: 1; color: #5CE1E6; margin-bottom: 14px; }
+    .rq { display: flex; align-items: center; gap: 20px; padding: 10px 0; font-size: 44px; font-weight: 700; }
+    .ck { width: 56px; height: 56px; border-radius: 50%; background: #F9057F; display: flex; align-items: center; justify-content: center; flex: none; }
+    .janela { border-radius: 30px; overflow: hidden; background: #fff; box-shadow: 0 22px 50px rgba(0,0,0,0.3); }
+    .jt { display: flex; align-items: center; gap: 10px; padding: 18px 26px; background: #001459; color: #fff; font-size: 36px; font-weight: 700; }
+    .jt i { width: 16px; height: 16px; border-radius: 50%; background: #5CE1E6; display: block; } .jt i:nth-child(2) { background: #F9057F; } .jt i:nth-child(3) { background: #fff; } .jt span { margin-left: 14px; }
+    .jc { display: flex; align-items: center; gap: 18px; padding: 20px 26px 0; } .jc.jf { padding-bottom: 22px; }
+    .ig-t { display: inline-block; padding: 16px 34px 10px; border-radius: 22px; background: #fff; color: #001459; font-family: "Anton"; font-size: 96px; line-height: 1; box-shadow: 0 0 0 7px #F9057F, 0 16px 40px rgba(0,0,0,0.25); }
+    .ig-l { display: block; width: fit-content; margin: 18px auto 0; padding: 12px 30px; border-radius: 16px; color: #fff; font-weight: 800; font-size: 44px; box-shadow: 0 12px 30px rgba(0,0,0,0.25); } .ig-l.rs { background: #F9057F; } .ig-l.ma { background: #001459; font-size: 38px; }
+    .flt { font-size: 34px; font-weight: 600; color: #5b6380; }
+    .chip { padding: 14px 28px; border-radius: 999px; border: 3px solid #001459; color: #001459; font-size: 38px; font-weight: 800; }
+    .mao { position: absolute; left: 560px; top: 150px; width: 64px; height: 64px; border-radius: 50%; background: rgba(255,255,255,0.85); border: 4px solid rgba(0,0,0,0.25); box-shadow: 0 8px 20px rgba(0,0,0,0.3); }
+    .local { display: flex; align-items: center; gap: 26px; padding: 30px 34px; border-radius: 34px; background: #001459; color: #fff; box-shadow: 0 22px 50px rgba(0,0,0,0.3); }
+    .local svg { flex: none; } .local b { display: block; font-size: 42px; font-weight: 800; } .local span { display: block; font-size: 32px; font-weight: 500; line-height: 1.3; }
+    .bora { display: inline-block; padding: 16px 42px 12px; border-radius: 26px; background: #F9057F; color: #fff; font-family: "Anton"; font-size: 104px; line-height: 1; box-shadow: 0 0 0 7px #fff, 0 20px 50px rgba(0,0,0,0.3); }
+    .perfil { display: inline-flex; align-items: center; gap: 20px; margin-top: 30px; padding: 14px 30px 14px 14px; border-radius: 999px; background: #fff; color: #001459; box-shadow: 0 16px 40px rgba(0,0,0,0.25); }
+    .av { width: 84px; height: 84px; border-radius: 50%; overflow: hidden; } .av img { width: 100%; height: 100%; display: block; }
+    .pn { text-align: left; } .pn b { display: block; font-size: 38px; font-weight: 800; } .pn small { display: block; font-size: 28px; font-weight: 600; color: #5b6380; }
+    .fn { position: absolute; inset: 0; background: #5CE1E6; overflow: hidden; }
+    .onda { position: absolute; border-radius: 50%; border: 70px solid #F9057F; }
+    .onda.o1 { width: 640px; height: 640px; left: -360px; top: -300px; } .onda.o2 { width: 700px; height: 700px; right: -400px; bottom: -330px; }
+    .fn-in { position: absolute; left: 90px; right: 90px; top: 0; bottom: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 46px; text-align: center; }
+    .fn-bora { display: inline-block; padding: 22px 52px 14px; border-radius: 30px; background: #F9057F; color: #fff; font-family: "Anton"; font-size: 140px; line-height: 1; box-shadow: 0 0 0 9px #fff, 0 24px 60px rgba(0,0,0,0.25); }
+    .fn-logo { display: inline-flex; align-items: center; gap: 18px; padding: 12px 28px 12px 12px; border-radius: 999px; background: #fff; color: #001459; }
+    .fn-logo { padding: 16px 40px 16px 16px; text-align: left; } .fn-logo .av { width: 120px; height: 120px; } .fn-logo .pn b { font-size: 52px; } .fn-logo .pn small { font-size: 36px; }
+    .fn-tit { display: inline-block; padding: 16px 34px 10px; border-radius: 22px; background: #fff; color: #001459; font-family: "Anton"; font-size: 92px; line-height: 1; }
+    .fn-cifra { display: inline-flex; align-items: baseline; gap: 18px; padding: 10px 40px 14px; border-radius: 30px; background: #F9057F; color: #fff; box-shadow: 0 16px 40px rgba(249,5,127,0.35); }
+    .fn-cifra b { font-family: "Anton"; font-weight: 400; font-size: 120px; line-height: 1; } .fn-cifra span { font-size: 44px; font-weight: 700; }
+    .fn-box { width: 900px; padding: 26px 36px 0; border-radius: 30px; background: #001459; color: #fff; overflow: hidden; }
+    .fn-l { font-size: 38px; font-weight: 700; line-height: 1.2; margin-bottom: 18px; } .fn-l small { display: block; font-size: 24px; font-weight: 800; letter-spacing: 0.06em; color: #5CE1E6; margin-bottom: 4px; }
+    .fn-pag { margin: 4px -36px 0; padding: 16px; background: #F9057F; font-size: 40px; font-weight: 800; }
+    .fn-req { display: flex; flex-direction: column; gap: 4px; color: #001459; font-size: 38px; font-weight: 700; } .fn-req b { font-family: "Anton"; font-weight: 400; font-size: 56px; line-height: 1.1; }
+    .fn-sel { padding: 16px 34px; border-radius: 999px; background: #F9057F; color: #fff; font-size: 40px; font-weight: 800; }
+    .fn-rod { color: #001459; font-size: 30px; font-weight: 500; line-height: 1.35; } .fn-rod b { font-weight: 800; white-space: nowrap; }
+  </style>
+  <div id="root" data-composition-id="app" data-duration="50.217" data-width="1080" data-height="1920">
+      <div id="ganho" class="clip ui" data-start="3.790" data-duration="1.200" data-track-index="0" style="left:0;width:1080px;top:250px;text-align:center" data-layout-allow-overlap><div class="cifra"><span class="cf-p">ELE PODE TE RENDER</span><span class="cf-v">R$200</span></div></div>
+      <div id="vagas" class="clip ui" data-start="6.490" data-duration="4.250" data-track-index="0" style="left:0;width:1080px;top:250px;text-align:center" data-layout-allow-overlap><div class="titulo">VAGAS ALMAVIVA</div><div class="pils"><span id="pl1" class="pil">HOME OFFICE</span><span id="pl2" class="pil">PRESENCIAL</span></div></div>
+      <div id="linha" class="clip ui" data-start="12.200" data-duration="7.320" data-track-index="0" style="left:60px;width:960px;top:240px" data-layout-allow-overlap><div class="linha"><div id="lp0" class="lp"><small>CONTRATADO</small><b>DEZ/2026</b></div><i id="la0" class="seta"></i><div id="lp1" class="lp"><small>FICA</small><b>60 DIAS</b></div><i id="la1" class="seta"></i><div id="lp2" class="lp ganha"><small>VOCÊ GANHA</small><b>R$200</b><em>MARÇO 2027</em></div></div></div>
+      <div id="req" class="clip ui" data-start="19.570" data-duration="5.670" data-track-index="0" style="left:110px;width:860px;top:1080px" data-layout-allow-overlap><div class="cartao"><div class="ct-t">REQUISITOS</div><div id="rq0" class="rq"><i class="ck"><svg viewBox="0 0 24 24" width="34" height="34"><path d="M5 12.5l4.2 4.2L19 7" fill="none" stroke="#fff" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/></svg></i>18 anos ou mais</div><div id="rq1" class="rq"><i class="ck"><svg viewBox="0 0 24 24" width="34" height="34"><path d="M5 12.5l4.2 4.2L19 7" fill="none" stroke="#fff" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/></svg></i>Ensino médio completo</div><div id="rq2" class="rq"><i class="ck"><svg viewBox="0 0 24 24" width="34" height="34"><path d="M5 12.5l4.2 4.2L19 7" fill="none" stroke="#fff" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/></svg></i>Informática básica</div></div></div>
+      <div id="sel" class="clip ui" data-start="28.670" data-duration="8.830" data-track-index="0" style="left:0;width:1080px;top:200px;text-align:center" data-layout-allow-overlap><div class="titulo pq">SELEÇÃO PRESENCIAL</div><div class="pils"><span id="sd" class="pil mar"><svg viewBox="0 0 24 24" width="40" height="40"><rect x="3" y="5" width="18" height="16" rx="3" fill="none" stroke="#fff" stroke-width="2.2"/><path d="M3 10h18M8 3v4M16 3v4" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/></svg>ATÉ 30/11</span><span id="sh1" class="pil">09H</span><span class="ou">ou</span><span id="sh2" class="pil">14H</span></div></div>
+      <div id="portal" class="clip ui" data-start="38.900" data-duration="3.560" data-track-index="0" style="left:0;width:1080px;top:170px;text-align:center" data-layout-allow-overlap><div class="ig"><div class="ig-t">INDIQUE E GANHE</div><div id="ig1" class="ig-l rs">indicações até 30/11</div><div id="ig2" class="ig-l ma">qualidade.almavivadobrasil.com.br</div></div></div>
+      <div id="bora" class="clip ui" data-start="45.090" data-duration="1.727" data-track-index="0" style="left:0;width:1080px;top:250px;text-align:center" data-layout-allow-overlap><div class="bora">BORA INDICAR?</div></div>
+      <div id="final" class="clip ui" data-start="46.617" data-duration="3.600" data-track-index="0" style="left:0;top:0;width:1080px;height:1920px" data-layout-allow-overlap><div class="fn"><i class="onda o1"></i><i class="onda o2"></i><div class="fn-in"><div id="fn-b"><div class="fn-bora">BORA INDICAR?</div></div></div></div></div>
+  </div>
+  <script>
+    (function () {
+      const tl = gsap.timeline({ paused: true });
+      tl.fromTo("#ganho .cifra", { scale: 0.6, opacity: 0, y: 24 }, { scale: 1, opacity: 1, y: 0, duration: 0.32, ease: "back.out(1.8)" }, 3.790);
+      tl.fromTo("#ganho .cf-v", { scale: 1.5 }, { scale: 1, duration: 0.35, ease: "back.out(2)" }, 3.840);
+      tl.to("#ganho .cifra", { scale: 0.92, opacity: 0, duration: 0.2, ease: "power2.in" }, 4.790);
+      tl.fromTo("#vagas .titulo", { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, 6.490);
+      tl.fromTo("#pl1", { scale: 0.6, opacity: 0, y: 24 }, { scale: 1, opacity: 1, y: 0, duration: 0.32, ease: "back.out(1.8)" }, 8.810);
+      tl.fromTo("#pl2", { scale: 0.6, opacity: 0, y: 24 }, { scale: 1, opacity: 1, y: 0, duration: 0.32, ease: "back.out(1.8)" }, 9.700);
+      tl.to("#vagas > *", { opacity: 0, y: -20, duration: 0.2, ease: "power2.in" }, 10.540);
+      tl.fromTo("#lp0", { scale: 0.6, opacity: 0, y: 24 }, { scale: 1, opacity: 1, y: 0, duration: 0.32, ease: "back.out(1.8)" }, 13.330);
+      tl.fromTo("#lp1", { scale: 0.6, opacity: 0, y: 24 }, { scale: 1, opacity: 1, y: 0, duration: 0.32, ease: "back.out(1.8)" }, 14.580);
+      tl.fromTo("#la0", { scaleX: 0 }, { scaleX: 1, duration: 0.25, ease: "power2.out" }, 14.330);
+      tl.fromTo("#lp2", { scale: 0.6, opacity: 0, y: 24 }, { scale: 1, opacity: 1, y: 0, duration: 0.32, ease: "back.out(1.8)" }, 17.760);
+      tl.fromTo("#la1", { scaleX: 0 }, { scaleX: 1, duration: 0.25, ease: "power2.out" }, 17.510);
+      tl.to("#linha .linha", { opacity: 0, y: -20, duration: 0.2, ease: "power2.in" }, 19.320);
+      tl.fromTo("#req .cartao", { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, 19.570);
+      tl.fromTo("#rq0", { opacity: 0, x: -30 }, { opacity: 1, x: 0, duration: 0.28, ease: "power3.out" }, 21.300);
+      tl.fromTo("#rq0 .ck", { scale: 0 }, { scale: 1, duration: 0.25, ease: "back.out(2.5)" }, 21.400);
+      tl.fromTo("#rq1", { opacity: 0, x: -30 }, { opacity: 1, x: 0, duration: 0.28, ease: "power3.out" }, 22.200);
+      tl.fromTo("#rq1 .ck", { scale: 0 }, { scale: 1, duration: 0.25, ease: "back.out(2.5)" }, 22.300);
+      tl.fromTo("#rq2", { opacity: 0, x: -30 }, { opacity: 1, x: 0, duration: 0.28, ease: "power3.out" }, 23.890);
+      tl.fromTo("#rq2 .ck", { scale: 0 }, { scale: 1, duration: 0.25, ease: "back.out(2.5)" }, 23.990);
+      tl.to("#req .cartao", { opacity: 0, y: 30, duration: 0.22, ease: "power2.in" }, 25.020);
+      tl.fromTo("#sel .titulo", { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, 28.670);
+      tl.fromTo("#sd", { scale: 0.6, opacity: 0, y: 24 }, { scale: 1, opacity: 1, y: 0, duration: 0.32, ease: "back.out(1.8)" }, 30.760);
+      tl.fromTo("#sh1", { scale: 0.6, opacity: 0, y: 24 }, { scale: 1, opacity: 1, y: 0, duration: 0.32, ease: "back.out(1.8)" }, 33.150);
+      tl.fromTo("#sel .ou", { opacity: 0 }, { opacity: 1, duration: 0.2 }, 33.810);
+      tl.fromTo("#sh2", { scale: 0.6, opacity: 0, y: 24 }, { scale: 1, opacity: 1, y: 0, duration: 0.32, ease: "back.out(1.8)" }, 34.200);
+      tl.to("#sel > *", { opacity: 0, y: -20, duration: 0.2, ease: "power2.in" }, 37.300);
+      tl.fromTo("#portal .ig-t", { scale: 0.5, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.35, ease: "back.out(2)" }, 38.900);
+      tl.fromTo("#ig1", { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, 39.250);
+      tl.fromTo("#ig2", { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, 39.500);
+      tl.to("#portal .ig", { opacity: 0, y: -20, duration: 0.2, ease: "power2.in" }, 42.260);
+      tl.fromTo("#bora .bora", { scale: 0.6, opacity: 0, y: 24 }, { scale: 1, opacity: 1, y: 0, duration: 0.32, ease: "back.out(1.8)" }, 45.410);
+      tl.fromTo("#fn-b", { opacity: 0, y: 34 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, 46.867);
+      tl.fromTo("#final .o1", { scale: 0.6, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.6, ease: "power3.out" }, 46.717); tl.fromTo("#final .o2", { scale: 0.6, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.6, ease: "power3.out" }, 46.817);
+      tl.fromTo("#fn-b .fn-bora", { scale: 1 }, { scale: 1.05, duration: 0.5, yoyo: true, repeat: 3, ease: "sine.inOut" }, 47.617);
+      tl.to("#final .fn", { opacity: 0, duration: 0.6, ease: "power1.in" }, 49.617);
+      window.__timelines["app"] = tl;
+    })();
+  </script>
+</template>

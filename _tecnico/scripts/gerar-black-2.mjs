@@ -86,8 +86,7 @@ const DADO = {
 }[CIDADE];
 const p0 = T(DADO.wp, d0) - 0.06, r0 = T(DADO.wr, d0) - 0.06;
 atrasPal(T(DADO.w, d0) - 0.06, p0, DADO.nome, "dados");
-const idp = atrasPal(p0, r0, "00%", "dados", `<span id="pn">0</span>%`);
-tw(`(function(){ const o = { v: 0 }; tl.to(o, { v: ${DADO.pct}, duration: 0.6, ease: "power2.out", onUpdate: () => { const e = document.querySelector("#pn"); if (e) e.textContent = Math.round(o.v); } }, ${f(p0)}); })();`);
+atrasPal(p0, r0, DADO.wp, "dados");
 atrasPal(r0, fimDe("dados"), DADO.resta, "dados");
 som("riser", p0 - 0.1, 0.035); som("impact-bass-1", r0, 0.05);
 // 5x2

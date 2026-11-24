@@ -27,7 +27,6 @@
   <script>
     (function () {
       const tl = gsap.timeline({ paused: true });
-      (function(){ const o = { v: 0 }; tl.to(o, { v: 55, duration: 0.6, ease: "power2.out", onUpdate: () => { const e = document.querySelector("#pn"); if (e) e.textContent = Math.round(o.v); } }, 6.690); })();
       tl.fromTo("#site .url", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out" }, 31.137);
       tl.fromTo("#flash .flash", { opacity: 0.95 }, { opacity: 0, duration: 0.4, ease: "power2.out" }, 35.477);
       window.__timelines["app"] = tl;

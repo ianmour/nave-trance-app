@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: #000; }
+      #main { position: relative; width: 100%; height: 100%; overflow: hidden; }
+      #camera { position: absolute; inset: 0; overflow: hidden; transform-origin: 50% 34%; }
+      #fundo, .recorte { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+      #atras { position: absolute; inset: 0; z-index: 1; } .recorte { z-index: 2; }
+      .faixa { position: absolute; top: -20%; bottom: -20%; width: 130%; left: -15%; transform: skewX(-12deg); z-index: 6; }
+      #fx1 { background: #E30613; } #fx2 { background: #111111; }
+      #app, #legendas { position: absolute; inset: 0; } #app { z-index: 3; } #legendas { z-index: 4; }
+    </style>
+  </head>
+  <body>
+    <div id="main" data-composition-id="main" data-start="0" data-duration="43.5" data-width="1080" data-height="1920">
+      <div id="camera">
+        <video id="fundo" class="clip" src="assets/corte.mp4" data-start="0" data-duration="43.5" data-track-index="0" data-has-audio="true"></video>
+        <div id="atras" data-composition-id="atras" data-composition-src="compositions/atras.html" data-start="0" data-duration="43.5" data-track-index="1" data-track-kind="graphics" data-width="1080" data-height="1920"></div>
+        <video id="rec1" class="clip recorte" src="assets/recorte-abertura.webm" data-start="0.000" data-duration="5.800" data-track-index="2" muted data-layout-allow-occlusion></video>
+        <video id="rec2" class="clip recorte" src="assets/recorte-presencial.webm" data-start="23.000" data-duration="7.400" data-track-index="3" muted data-layout-allow-occlusion></video>
+      </div>
+      <div id="app" data-composition-id="app" data-composition-src="compositions/app.html" data-start="0" data-duration="43.5" data-track-index="4" data-track-kind="graphics" data-width="1080" data-height="1920"></div>
+      <div id="legendas" data-composition-id="legendas" data-composition-src="compositions/legendas.html" data-start="0" data-duration="43.5" data-track-index="5" data-track-kind="captions" data-width="1080" data-height="1920"></div>
+      <div id="fx1" class="clip faixa" data-start="0" data-duration="43.5" data-track-index="6" data-layout-allow-occlusion data-layout-allow-overflow></div>
+      <div id="fx2" class="clip faixa" data-start="0" data-duration="43.5" data-track-index="7" data-layout-allow-occlusion data-layout-allow-overflow></div>
+      <audio id="som0" class="clip" src="assets/sfx/whoosh-short.mp3" data-start="1.160" data-duration="0.570" data-track-index="8" data-volume="0.06"></audio>
+      <audio id="som1" class="clip" src="assets/sfx/impact-bass-1.mp3" data-start="1.280" data-duration="2.120" data-track-index="9" data-volume="0.05"></audio>
+      <audio id="som2" class="clip" src="assets/sfx/riser.mp3" data-start="4.240" data-duration="10.030" data-track-index="10" data-volume="0.04"></audio>
+      <audio id="som3" class="clip" src="assets/sfx/pop.mp3" data-start="6.260" data-duration="0.720" data-track-index="11" data-volume="0.06"></audio>
+      <audio id="som4" class="clip" src="assets/sfx/riser.mp3" data-start="6.570" data-duration="10.030" data-track-index="8" data-volume="0.04"></audio>
+      <audio id="som5" class="clip" src="assets/sfx/click-soft.mp3" data-start="7.370" data-duration="0.370" data-track-index="9" data-volume="0.06"></audio>
+      <audio id="som6" class="clip" src="assets/sfx/impact-bass-1.mp3" data-start="9.330" data-duration="2.120" data-track-index="10" data-volume="0.06"></audio>
+      <audio id="som7" class="clip" src="assets/sfx/pop.mp3" data-start="13.707" data-duration="0.720" data-track-index="11" data-volume="0.07"></audio>
+      <audio id="som8" class="clip" src="assets/sfx/pop.mp3" data-start="14.777" data-duration="0.720" data-track-index="8" data-volume="0.06"></audio>
+      <audio id="som9" class="clip" src="assets/sfx/pop.mp3" data-start="16.017" data-duration="0.720" data-track-index="9" data-volume="0.06"></audio>
+      <audio id="som10" class="clip" src="assets/sfx/click.mp3" data-start="21.643" data-duration="0.370" data-track-index="10" data-volume="0.07"></audio>
+      <audio id="som11" class="clip" src="assets/sfx/whoosh-short.mp3" data-start="22.960" data-duration="0.570" data-track-index="11" data-volume="0.06"></audio>
+      <audio id="som12" class="clip" src="assets/sfx/pop.mp3" data-start="24.450" data-duration="0.720" data-track-index="8" data-volume="0.06"></audio>
+      <audio id="som13" class="clip" src="assets/sfx/pop.mp3" data-start="26.150" data-duration="0.720" data-track-index="9" data-volume="0.06"></audio>
+      <audio id="som14" class="clip" src="assets/sfx/pop.mp3" data-start="27.310" data-duration="0.720" data-track-index="10" data-volume="0.05"></audio>
+      <audio id="som15" class="clip" src="assets/sfx/pop.mp3" data-start="30.360" data-duration="0.720" data-track-index="11" data-volume="0.06"></audio>
+      <audio id="som16" class="clip" src="assets/sfx/whoosh-short.mp3" data-start="32.820" data-duration="0.570" data-track-index="8" data-volume="0.05"></audio>
+      <audio id="som17" class="clip" src="assets/sfx/pop.mp3" data-start="32.920" data-duration="0.720" data-track-index="9" data-volume="0.06"></audio>
+      <audio id="som18" class="clip" src="assets/sfx/click.mp3" data-start="37.210" data-duration="0.370" data-track-index="10" data-volume="0.12"></audio>
+      <audio id="som19" class="clip" src="assets/sfx/sparkle.mp3" data-start="37.260" data-duration="1.800" data-track-index="11" data-volume="0.04"></audio>
+      <audio id="som20" class="clip" src="assets/sfx/pop.mp3" data-start="38.733" data-duration="0.720" data-track-index="8" data-volume="0.07"></audio>
+      <audio id="som21" class="clip" src="assets/sfx/impact-bass-1.mp3" data-start="41.243" data-duration="2.120" data-track-index="9" data-volume="0.07"></audio>
+      <audio id="som22" class="clip" src="assets/sfx/pop.mp3" data-start="42.743" data-duration="0.720" data-track-index="10" data-volume="0.06"></audio>
+      <audio id="som23" class="clip" src="assets/sfx/whoosh.mp3" data-start="5.600" data-duration="0.570" data-track-index="11" data-volume="0.06"></audio>
+      <audio id="som24" class="clip" src="assets/sfx/whoosh.mp3" data-start="11.067" data-duration="0.570" data-track-index="8" data-volume="0.06"></audio>
+      <audio id="som25" class="clip" src="assets/sfx/whoosh.mp3" data-start="17.433" data-duration="0.570" data-track-index="9" data-volume="0.06"></audio>
+      <audio id="som26" class="clip" src="assets/sfx/whoosh-short.mp3" data-start="22.880" data-duration="0.570" data-track-index="10" data-volume="0.05"></audio>
+      <audio id="som27" class="clip" src="assets/sfx/whoosh-short.mp3" data-start="30.280" data-duration="0.570" data-track-index="11" data-volume="0.05"></audio>
+      <audio id="som28" class="clip" src="assets/sfx/whoosh-short.mp3" data-start="37.813" data-duration="0.570" data-track-index="8" data-volume="0.05"></audio>
+    </div>
+    <script>
+      const tl = gsap.timeline({ paused: true });
+      tl.set("#camera", { scale: 1 }, 0); tl.set(".faixa", { xPercent: -110 }, 0);
+      tl.fromTo("#camera", { scale: 0.9 }, { scale: 1, duration: 0.45, ease: "power3.out", immediateRender: false }, 37.210);
+      tl.fromTo("#fx1", { xPercent: -110 }, { xPercent: 110, duration: 0.42, ease: "power2.inOut", immediateRender: false }, 5.590);
+      tl.fromTo("#fx2", { xPercent: -110 }, { xPercent: 110, duration: 0.42, ease: "power2.inOut", immediateRender: false }, 5.650);
+      tl.fromTo("#camera", { scale: 1.16 }, { scale: 1, duration: 0.45, ease: "expo.out", immediateRender: false }, 5.800);
+      tl.fromTo("#fx1", { xPercent: -110 }, { xPercent: 110, duration: 0.42, ease: "power2.inOut", immediateRender: false }, 11.057);
+      tl.fromTo("#fx2", { xPercent: -110 }, { xPercent: 110, duration: 0.42, ease: "power2.inOut", immediateRender: false }, 11.117);
+      tl.fromTo("#camera", { scale: 1.16 }, { scale: 1, duration: 0.45, ease: "expo.out", immediateRender: false }, 11.267);
+      tl.fromTo("#fx1", { xPercent: -110 }, { xPercent: 110, duration: 0.42, ease: "power2.inOut", immediateRender: false }, 17.423);
+      tl.fromTo("#fx2", { xPercent: -110 }, { xPercent: 110, duration: 0.42, ease: "power2.inOut", immediateRender: false }, 17.483);
+      tl.fromTo("#camera", { scale: 1.16 }, { scale: 1, duration: 0.45, ease: "expo.out", immediateRender: false }, 17.633);
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>

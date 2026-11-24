@@ -44,6 +44,11 @@ Os vídeos são para a marca **ianmour** e para os clientes dela. (O nome da pas
 
 Ferramenta pronta para os passos 2 a 8: `_tecnico/scripts/editor.mjs` (rode sem argumentos para ver o uso).
 
+## Vídeos grandes (Google Drive)
+
+A pessoa coloca os vídeos novos nesta pasta do Drive (compartilhada por link): https://drive.google.com/drive/folders/18edG5UgfCqTGkmD_R4SkpFAsml74uQ7j
+Quando ela disser "mandei", listar a pasta (`https://drive.google.com/embeddedfolderview?id=<id>`, inclusive subpastas) e baixar com `https://drive.usercontent.google.com/download?id=<id>&export=download&confirm=t` para `originais/<projeto>/`. Só leitura: nunca mexer no Drive.
+
 ## Imagens, músicas e efeitos (grátis, sem conta)
 
 - **Imagens:** `_tecnico/scripts/buscar-imagem.mjs "<busca em inglês>" <pasta> [qtd] [vertical|horizontal]`. Rodar com `NODE_USE_ENV_PROXY=1 NODE_EXTRA_CA_CERTS=/root/.ccr/ca-bundle.crt NODE_NO_WARNINGS=1` (senão o Node não sai para a internet). Fotos reais de licença livre (Openverse/Flickr/Wikimedia). **Sempre abrir e olhar cada imagem antes de usar** — a busca às vezes traz coisa errada. Créditos ficam em `CREDITOS.md` na pasta; passar para a pessoa colocar no post.

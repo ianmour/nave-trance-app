@@ -16,11 +16,11 @@ DADOS = {
 }
 COMUM_FIM = [
     ("IMG_0248.mov", 0.62, 6.99, -0.1, 0, "5x2"),
-    ("IMG_0230.mov", 1.55, 6.90, 0.9, 0, "beneficios"),      # termina virando a cadeira
-    ("IMG_0244.mov", 1.00, 8.40, 7.2, 0, "presencial"),      # começa e termina virando a cadeira
+    ("IMG_0230.mov", 1.55, 6.30, 0.9, 0, "beneficios"),      # corta no começo da virada
+    ("IMG_0244.mov", 1.25, 7.55, 7.2, 0, "presencial"),      # começa e termina virando a cadeira
     ("IMG_0240.mov", 6.85, 12.25, -1.3, 0, "online"),        # começa virando a cadeira
-    ("IMG_0240.mov", 12.42, 14.55, -1.3, 0, "online"),       # termina com a mão na câmera
-    ("IMG_0259.MOV", 2.40, 7.98, 1.0, 0.85, "final"),        # começa com a mão na câmera (contagem de fundo silenciada)
+    ("IMG_0240.mov", 12.42, 14.15, -1.3, 0, "online"),       # termina com a mão na câmera
+    ("IMG_0259.MOV", 3.15, 7.98, 1.0, 0.12, "final"),        # começa com a mão na câmera (contagem de fundo silenciada)
 ]
 segs = COMUM_INI + DADOS[cidade] + COMUM_FIM
 v = a = c = ""

@@ -6,34 +6,36 @@
 import json, subprocess, sys
 
 cidade, saida, trechos_json = sys.argv[1:4]
+VEL = 1.1  # fala 10% mais rápida (pedido: vídeo mais ágil)
 O = "originais/black-2/"
 # (arquivo, início, fim, ganho dB, silenciar áudio até X s do começo do trecho, nome)
-COMUM_INI = [("IMG_0212.mov", 2.17, 7.98, 0.5, 0, "abertura")]
+COMUM_INI = [("IMG_0212.mov", 2.20, 7.97, 0.5, 0, "abertura")]
 DADOS = {
-    "teresina": [("IMG_0218.mov", 5.27, 9.55, 6.6, 0, "dados"), ("IMG_0218.mov", 9.80, 11.05, 6.6, 0, "dados")],
-    "maceio": [("IMG_0246.mov", 1.01, 6.46, 1.8, 0, "dados")],
-    "socorro": [("IMG_0224.mov", 8.03, 16.29, 1.4, 0, "dados")],
+    "teresina": [("IMG_0218.mov", 5.30, 9.55, 6.6, 0, "dados"), ("IMG_0218.mov", 9.80, 11.02, 6.6, 0, "dados")],
+    "maceio": [("IMG_0246.mov", 1.05, 6.42, 1.8, 0, "dados")],
+    "socorro": [("IMG_0224.mov", 8.06, 16.25, 1.4, 0, "dados")],
 }
 COMUM_FIM = [
-    ("IMG_0248.mov", 0.62, 6.99, -0.1, 0, "5x2"),
-    ("IMG_0230.mov", 1.55, 6.30, 0.9, 0, "beneficios"),      # corta no começo da virada
-    ("IMG_0244.mov", 1.25, 7.55, 7.2, 0, "presencial"),      # começa e termina virando a cadeira
-    ("IMG_0240.mov", 6.85, 12.25, -1.3, 0, "online"),        # começa virando a cadeira
-    ("IMG_0240.mov", 12.42, 14.15, -1.3, 0, "online"),       # termina com a mão na câmera
-    ("IMG_0259.MOV", 3.15, 7.98, 1.0, 0.12, "final"),        # começa com a mão na câmera (contagem de fundo silenciada)
+    ("IMG_0248.mov", 0.66, 6.95, -0.1, 0, "5x2"),
+    ("IMG_0230.mov", 1.58, 6.22, 0.9, 0, "beneficios"),      # corta no começo da virada
+    ("IMG_0244.mov", 1.55, 7.50, 7.2, 0, "presencial"),      # começa e termina virando a cadeira
+    ("IMG_0240.mov", 7.05, 12.25, -1.3, 0, "online"),        # começa virando a cadeira
+    ("IMG_0240.mov", 12.42, 14.05, -1.3, 0, "online"),       # termina com a mão na câmera
+    ("IMG_0259.MOV", 3.20, 7.92, 1.0, 0.07, "final"),        # começa com a mão na câmera (contagem de fundo silenciada)
 ]
 segs = COMUM_INI + DADOS[cidade] + COMUM_FIM
 v = a = c = ""
 acc = 0.0; tre = []
 for i, (arq, s, e, g, mute, nome) in enumerate(segs):
     d = round((e - s) * 30) / 30
-    v += f"[{i}:v]trim=duration={d:.4f},setpts=PTS-STARTPTS,fps=30,scale=1080:1920:flags=lanczos,setsar=1,format=yuv420p[v{i}];"
+    dv = round(d / VEL * 30) / 30
+    v += f"[{i}:v]trim=duration={d:.4f},setpts=(PTS-STARTPTS)/{VEL},fps=30,trim=duration={dv:.4f},scale=1080:1920:flags=lanczos,setsar=1,format=yuv420p[v{i}];"
     vol = f"volume={g}dB" + (f",volume=0:enable='lt(t,{mute})',afade=t=in:st={mute}:d=0.05" if mute else "")
     a += (f"[{i}:a]aresample=48000,atrim=duration={d:.4f},asetpts=PTS-STARTPTS,highpass=f=80,afftdn=nr=10:nf=-45:tn=1,{vol},"
-          f"afade=t=in:d=0.012,afade=t=out:st={d - 0.012:.4f}:d=0.012[a{i}];")
+          f"atempo={VEL},atrim=duration={dv:.4f},afade=t=in:d=0.012,afade=t=out:st={dv - 0.012:.4f}:d=0.012[a{i}];")
     c += f"[v{i}][a{i}]"
-    tre.append({"arquivo": arq, "s": s, "e": e, "ini": round(acc, 4), "fim": round(acc + d, 4), "nome": nome})
-    acc += d
+    tre.append({"arquivo": arq, "s": s, "e": e, "ini": round(acc, 4), "fim": round(acc + dv, 4), "nome": nome, "vel": VEL})
+    acc += dv
 filtro = v + a + c + f"concat=n={len(segs)}:v=1:a=1[v][a]"
 ins = []
 for arq, s, e, *_ in segs: ins += ["-ss", str(s), "-t", f"{e - s + 0.2:.3f}", "-i", O + arq]

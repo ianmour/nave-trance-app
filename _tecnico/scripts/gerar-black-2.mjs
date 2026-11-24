@@ -20,21 +20,21 @@ const ini = (nome) => tr(nome)[0].ini, fimT = (nome) => tr(nome).at(-1).fim;
 
 // ---- texto certo de cada trecho (do roteiro/fala) + tempos do whisper por alinhamento ----
 const TEXTO = {
-  "IMG_0212-2.17": "Que a Desenvolve está na Black de Oportunidades, você já sabe, mas as vagas estão acabando.",
-  "IMG_0218-5.27": "Em Teresina, 60% das vagas já foram preenchidas,",
-  "IMG_0218-9.8": "restam apenas 200.",
-  "IMG_0246-1.01": "Em Maceió, 55% dessas vagas já fecharam, restam apenas 135.",
-  "IMG_0224-8.03": "Em Nossa Senhora do Socorro, 40% das vagas já estão fechadas, mas ainda dá tempo: são 180 vagas disponíveis.",
-  "IMG_0248-0.62": "Agora imagina começar o ano na escala 5x2, 1 hora de intervalo e 2 folgas na semana.",
-  "IMG_0230-1.55": "Com benefícios que facilitam a sua rotina. E o processo é simples.",
-  "IMG_0244-1.25": "Presencial, de segunda a sexta, das 9h às 15h, e os endereços estão aqui na legenda.",
-  "IMG_0240-6.85": "Ou online, a qualquer hora, pelo site que está aparecendo aqui na tela.",
-  "IMG_0240-12.42": "Já prepara o print.",
-  "IMG_0259-3.15": "É 5x2 que você queria? Então corre, que as nossas vagas estão acabando.",
+  "IMG_0212_0": "Que a Desenvolve está na Black de Oportunidades, você já sabe, mas as vagas estão acabando.",
+  "IMG_0218_0": "Em Teresina, 60% das vagas já foram preenchidas,",
+  "IMG_0218_1": "restam apenas 200.",
+  "IMG_0246_0": "Em Maceió, 55% dessas vagas já fecharam, restam apenas 135.",
+  "IMG_0224_0": "Em Nossa Senhora do Socorro, 40% das vagas já estão fechadas, mas ainda dá tempo: são 180 vagas disponíveis.",
+  "IMG_0248_0": "Agora imagina começar o ano na escala 5x2, 1 hora de intervalo e 2 folgas na semana.",
+  "IMG_0230_0": "Com benefícios que facilitam a sua rotina. E o processo é simples.",
+  "IMG_0244_0": "Presencial, de segunda a sexta, das 9h às 15h, e os endereços estão aqui na legenda.",
+  "IMG_0240_0": "Ou online, a qualquer hora, pelo site que está aparecendo aqui na tela.",
+  "IMG_0240_1": "Já prepara o print.",
+  "IMG_0259_0": "É 5x2 que você queria? Então corre, que as nossas vagas estão acabando.",
 };
-const PAL = [];
+const PAL = [], parte = {};
 for (const t of trechos) {
-  const key = `${t.arquivo.split(".")[0]}-${Number.isInteger(t.s) ? t.s + ".0" : t.s}`;
+  const base = t.arquivo.split(".")[0]; parte[base] = (parte[base] ?? -1) + 1; const key = `${base}_${parte[base]}`;
   const txt = TEXTO[key].split(/\s+/);
   const wsp = JSON.parse(fs.readFileSync(path.join(SEG, key + ".json"), "utf8")).transcription
     .map((x) => ({ t: x.text.trim(), a: x.offsets.from / 1000, b: x.offsets.to / 1000 })).filter((x) => nrm(x.t));

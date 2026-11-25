@@ -17,3 +17,7 @@
 5. **Corte "polêmico"/frase forte:** começa direto na frase mais forte (gancho), depois volta ao contexto; socos de zoom e efeitos sonoros.
 
 **Regras de corte viral:** começar na frase mais forte (sem "então", sem pergunta longa), 30–75 s, uma ideia por corte, terminar numa conclusão (não no meio), legenda sempre, sem música por cima da fala (a pessoa não gosta de música), efeitos sonoros discretos.
+
+## Regras combinadas (pedido da pessoa)
+- **O Virgílio é o dono do perfil:** ele aparece em TODOS os cortes. Pergunta dele = rosto dele na tela (com o nome "VIRGÍLIO"); durante as respostas do convidado, entram cortes rápidos com a reação dele.
+- **Não fazer corte sobre a escala 5x2** (tema que a pessoa não quer).

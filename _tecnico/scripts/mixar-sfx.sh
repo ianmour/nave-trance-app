@@ -13,6 +13,10 @@ while((m=re.exec(s))){ins.push("-i",P+"/"+m[1]);fl.push(`[${i+1}:a]aresample=480
 fl.push(`${Array.from({length:i},(_,k)=>`[s${k}]`).join("")}amix=inputs=${i}:normalize=0[sfx]`);
 fs.writeFileSync(T+"/ins.txt",ins.join("\n"));fs.writeFileSync(T+"/f.txt",fl.join(";"));' "$P" $T
 mapfile -t INS < $T/ins.txt
+if [ ! -s $T/ins.txt ]; then  # sem efeitos: só junta a voz com a imagem
+  ffmpeg -v error -y -i "$R" -i $T/voz.wav -map 0:v -map 1:a -c:v copy -c:a aac -b:a 192k -ac 2 -movflags +faststart -shortest "$O"; rm -rf $T
+  ffmpeg -hide_banner -i "$O" -af ebur128 -f null - 2>&1 | grep -A1 Integrated | tail -1; exit 0
+fi
 ffmpeg -v error -y -f lavfi -i anullsrc=r=48000:cl=mono -t $DUR "${INS[@]}" -filter_complex "$(cat $T/f.txt);[0:a][sfx]amix=inputs=2:normalize=0,atrim=0:$DUR[o]" -map "[o]" $T/sfx.wav
 ffmpeg -v error -y -i $T/voz.wav -i $T/sfx.wav -filter_complex "[0:a]apad=whole_dur=$DUR[v];[1:a]volume=${G}dB[s];[v][s]amix=inputs=2:normalize=0:duration=first[o]" -map "[o]" $T/mix.wav
 J=$(ffmpeg -hide_banner -i $T/mix.wav -af loudnorm=I=-14:TP=-1.5:LRA=11:print_format=json -f null - 2>&1 | sed -n '/^{/,/^}/p')

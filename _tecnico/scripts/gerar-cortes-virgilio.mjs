@@ -4,7 +4,9 @@
 import fs from "node:fs";
 import path from "node:path";
 
-const [N, P, TJ] = process.argv.slice(2);
+const [N, P, TJ, CJ] = process.argv.slice(2);
+const TRE = CJ ? JSON.parse(fs.readFileSync(CJ, "utf8")).trechos : [];
+const PERG = TRE.find((t) => t.quem === "a"); // primeiro trecho do Virgílio = a pergunta dele
 const W = 1080, H = 1920, LJ = "#FF8A00";
 const f = (n) => (+n).toFixed(3);
 const esc = (s) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
@@ -12,10 +14,10 @@ const nrm = (s) => s.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "").repl
 
 // texto certo de cada corte (o whisper erra nomes e números); os tempos vêm do whisper por alinhamento
 const TEXTO = {
-  1: "E quem vai pagar por isso? A gente vai aumentar o preço para que você pague por isso? Quem é que vai pagar por isso? E o mais sensível de tudo é a escala 5x2. Eu sou a favor que o trabalhador tenha o seu descanso. Mas como é que paga esse descanso? Como é que a gente consegue ter um restaurante amanhã que vai precisar contratar, vai cobrar o mesmo valor naquele prato, vai cobrar o mesmo valor pelo serviço, mas em contrapartida ele tem que contratar mais duas ou três pessoas? Mas a gente sabe quem vai pagar a conta. A conta não fecha, a conta não fecha.",
-  2: "A gente dormiu setembro, ali no final de setembro, início de outubro, com o dólar a cinco, e hoje ele está beirando os seis. Então a gente fica de cabelo em pé. A gente fabrica a espuma, fabrica o colchão, fabrica a mola, fabrica o box. E 60% do material que uma fábrica de colchão manuseia é espuma. 60%! E todos os produtos químicos para fabricar a espuma são dolarizados. Preocupado não só com o meu negócio, preocupado com o negócio de todo mundo, porque isso vai impactar no medicamento, vai impactar no preço do combustível, vai impactar no pãozinho. Então os impactos são muito severos, eu diria, para a economia agora e mais preocupantes no próximo ano.",
+  1: "E eu gostaria de saber: o quanto que tem da secretaria hoje do Júnior empreendedor? Tem tudo, né? A minha essência é de empreendedor. Eu estou aqui há um ano e eu tenho buscado no meu dia a dia me dividir, tanto no meu negócio e estar aqui na secretaria, fazendo a minha agenda. Às vezes eu estou aqui pela manhã, às vezes eu preciso ir na empresa à tarde, e às vezes é o contrário. Às vezes eu tenho que passar o dia todo aqui, como é costumeiro, mas eu sempre estou, às vezes, um pouco mais tarde na empresa, dando conta dos dois. E sendo pai, sendo irmão. E sendo amigo, né? Às vezes eu sou amigo também, puxam um pouco para chamar atenção.",
+  2: "A gente dormiu setembro, ali no final de setembro, início de outubro, com o dólar a cinco, e hoje ele está beirando os seis. Então a gente fica de cabelo em pé. Eu queria escutar agora um pouquinho do empreendedor. Eu queria saber como é que anda a vida do empreendedor do Júnior nesse cenário agora de... A gente fabrica a espuma, fabrica o colchão, fabrica a mola, fabrica o box. E 60% do material que uma fábrica de colchão manuseia é espuma. 60%! E todos os produtos químicos para fabricar a espuma são dolarizados. Preocupado não só com o meu negócio, preocupado com o negócio de todo mundo, porque isso vai impactar no medicamento, vai impactar no preço do combustível, vai impactar no pãozinho. Então os impactos são muito severos, eu diria, para a economia agora e mais preocupantes no próximo ano.",
   3: "Eu nunca passei tanto tempo na planilha do Excel, mais uma vez, como eu estou passando esse final de ano, porque a gente já está planejando como é que vai ser no ano que vem. A minha empresa cresceu esse ano, graças a Deus, a gente teve um crescimento significativo, como a gente tem tido nos últimos 17 anos. A nossa vai completar 18 anos agora no próximo ano, mas eu nunca vivi um momento tão desafiador como agora. Mas a gente tem que focar no malabarismo, focar na conta. A gente não pode sair do negócio para fazer a venda enganada, achando que dá para comercializar por X quando não pode ser por X. Toda empresa precisa ser rentável. Então tem que fazer muita conta. E depois de fazer a conta, se animar, ser bem motivado pelos desafios. A gente que se motiva pelos desafios... então desafio esse ano agora não vai faltar.",
-  4: "O número de restaurantes que tem lá não vai atender. Daqui no segundo semestre, nós vamos inaugurar o complexo administrativo. São 1.500 pessoas que vão todos os dias ao centro da cidade. Vai transformar aquele lugar, que vai pulsar ainda mais o desenvolvimento econômico. O centro é a grande locomotiva do desenvolvimento econômico de Maceió. A gente já sabe que, com o fluxo que o centro de Maceió vai ter com a chegada do complexo administrativo, o número de restaurantes que tem lá não vai atender. Não vai. Eu estou falando de uma oportunidade, né? Tem que entender que vão surgir muitas oportunidades com essa nova fotografia que vai ter o centro da cidade.",
+  4: "O número de restaurantes que tem lá não vai atender. E o que é que a Prefeitura tem elaborado, trabalhado para receber esse novo momento para o comércio de Maceió? Daqui no segundo semestre, nós vamos inaugurar o complexo administrativo. São 1.500 pessoas que vão todos os dias ao centro da cidade. Vai transformar aquele lugar, que vai pulsar ainda mais o desenvolvimento econômico. O centro é a grande locomotiva do desenvolvimento econômico de Maceió. A gente já sabe que, com o fluxo que o centro de Maceió vai ter com a chegada do complexo administrativo, o número de restaurantes que tem lá não vai atender. Então eu estou falando de uma oportunidade, né? Tem que entender que vão surgir muitas oportunidades com essa nova fotografia que vai ter o centro da cidade.",
   5: "Quando penso: secretário, empreendedor e o pai de família... Eu tenho três filhos, e aí eles cobram pra caramba a presença. Qual a hora que eles estão vendo o pai chegar em casa? Acho que às vezes nem veem. Enfim, eu tento buscar ali no final de semana, fazer uma compensação. Eu estou abrindo uma fábrica lá em Natal, e quando eu falo: “pô, vamo lá comigo conhecer a fábrica”, aí um vai comigo, outra vez o outro vai também. Busco até no trabalho puxar a companhia deles, que é muito importante, estar perto, né? Mas no final de semana tá sempre junto e misturado. No final de semana a gente dá aquela blindada ali pra poder estar junto e descansar um pouco também, né?",
 }[N];
 const wsp = JSON.parse(fs.readFileSync(TJ, "utf8")).transcription.map((x) => ({ t: x.text.trim(), a: x.offsets.from / 1000, b: x.offsets.to / 1000 })).filter((x) => nrm(x.t));
@@ -43,11 +45,13 @@ const zseco = (t, s) => cam.push(`tl.set("#camera", { scale: ${s} }, ${f(t)});`)
 const grupos = (max, quebraPausa = 0.3) => { const g = []; let c = []; PAL.forEach((p, i) => { const q = PAL[i + 1]; c.push(p); if (!q || /[.,!?;:…]$/.test(p.texto) || q.ini - p.fim >= quebraPausa || c.length >= max) { g.push(c); c = []; } }); return g; };
 let CSS = "", leg = "", legjs = "", origem = "50% 40%";
 
+const etiqueta = (id, t0, t1, nome, topo = 1180, esq = 70) => { el(id, t0, t1, `<div class="tag">${nome}</div>`, `left:${esq}px;top:${topo}px`); tw(`tl.fromTo("#${id} .tag", { opacity: 0, x: -20 }, { opacity: 1, x: 0, duration: 0.3 }, ${f(t0)});`); tw(`tl.to("#${id} .tag", { opacity: 0, duration: 0.2 }, ${f(t1 - 0.2)});`); };
+const CSS_TAG = `.tag { display: inline-block; padding: 8px 18px; border-radius: 8px; background: rgba(255,255,255,0.94); color: #111; font-family: "Montserrat"; font-weight: 900; font-size: 32px; letter-spacing: 0.08em; }`;
 // ===== estilos por corte =====
 if (N === "1") {
   // TELA DIVIDIDA (cima: Júnior falando; baixo: Virgílio reagindo) + legenda da referência: maiúscula condensada branca,
   // palavra-chave em LARANJA, na linha da divisão. Objetivo: debate nos comentários.
-  const CH = new Set(["pagar", "preco", "5x2", "descanso", "restaurante", "contratar", "conta", "fecha", "prato", "pessoas", "sensivel"]);
+  const CH = new Set(["junior", "empreendedor", "tudo", "essencia", "dividir", "negocio", "secretaria", "manha", "tarde", "pai", "irmao", "amigo", "dois"]);
   grupos(3, 0.25).forEach((g, i, all) => {
     const a = Math.max(0, g[0].ini - 0.03), b = Math.min(all[i + 1] ? all[i + 1][0].ini - 0.02 : DUR, g.at(-1).fim + 0.3);
     leg += `      <div id="g${i}" class="clip gp" data-start="${f(a)}" data-duration="${f(Math.max(0.12, b - a))}" data-track-index="0"><span class="tx">${g.map((p) => `<b class="${CH.has(nrm(p.texto)) ? "lj" : ""}">${esc(limpa(p.texto))}</b>`).join(" ")}</span></div>\n`;
@@ -57,10 +61,11 @@ if (N === "1") {
     .tx { display: inline-block; font-family: "Anton"; font-size: 84px; line-height: 1; text-transform: uppercase; color: #fff; letter-spacing: 0.01em; -webkit-text-stroke: 9px #000; paint-order: stroke fill; text-shadow: 0 6px 18px rgba(0,0,0,0.5); }
     .tx b { font-weight: 400; } .tx b.lj { color: ${LJ}; }`;
   // gancho: pergunta no topo nos 3 primeiros segundos
-  el("hook", 0.1, Math.min(4.2, T("E o mais") - 0.1), `<div class="hk">QUEM PAGA A CONTA<br>DA <span>ESCALA 5X2</span>?</div>`, "left:0;width:1080px;top:110px;text-align:center");
-  pop("#hook .hk", 0.1); sai("#hook .hk", Math.min(4.2, T("E o mais") - 0.1) - 0.2);
+  el("hook", 0.1, T("Tem tudo") + 1.5, `<div class="hk">QUANTO DO <span>EMPREENDEDOR</span><br>TEM NO SECRETÁRIO?</div>`, "left:0;width:1080px;top:110px;text-align:center");
+  pop("#hook .hk", 0.1); sai("#hook .hk", T("Tem tudo") + 1.3);
+  etiqueta("tv", 0.1, T("Tem tudo") - 0.1, "VIRGÍLIO", 1810, 60); etiqueta("tj", T("Tem tudo"), T("Tem tudo") + 4, "JÚNIOR · SECRETÁRIO", 850, 60);
   CSS += `\n    .hk { display: inline-block; padding: 18px 34px; border-radius: 18px; background: rgba(0,0,0,0.78); font-family: "Anton"; font-size: 70px; line-height: 1.05; color: #fff; } .hk span { color: ${LJ}; }`;
-  som("whoosh", 0.05, 0.05); som("impact-bass-1", T("conta não fecha"), 0.05);
+  som("whoosh", 0.05, 0.05); som("impact-bass-1", T("Tem tudo"), 0.05);
 } else if (N === "2") {
   // CLOSE NO ROSTO + legenda UMA PALAVRA POR VEZ (estilo da ref 02) + socos de zoom + números/ícones. Objetivo: identificação/compartilhar.
   PAL.forEach((p, i) => {
@@ -84,6 +89,7 @@ if (N === "1") {
     .lst { display: inline-flex; flex-direction: column; gap: 14px; align-items: center; } .it { padding: 12px 30px; border-radius: 999px; background: rgba(0,0,0,0.78); color: #fff; font-family: "Montserrat"; font-weight: 900; font-size: 58px; } .it span { color: #ff4d4d; }`;
   // socos de zoom nas frases fortes + alternância
   [T("dólar"), T("cabelo"), T("60%"), T("preocupado"), T("severos")].forEach((t) => zoom(t - 0.05, 1.12));
+  if (PERG) etiqueta("tv", PERG.ini + 0.05, PERG.fim, "VIRGÍLIO", 1180);
 } else if (N === "3") {
   // MANCHETE FIXA no topo + vídeo 4:5 + legenda karaokê (palavra atual em laranja) na faixa de baixo. Objetivo: salvar/seguir.
   el("manchete", 0, DUR, `<div class="mc">O CONSELHO DE QUEM TEM<br><span>17 ANOS DE EMPRESA</span></div>`, "left:0;width:1080px;top:70px;text-align:center");
@@ -119,6 +125,7 @@ if (N === "1") {
   CSS += `\n    .bx { display: inline-block; padding: 18px 34px; border-radius: 20px; background: #fff; color: #111; font-family: "Poppins"; font-weight: 900; font-size: 64px; line-height: 1.08; box-shadow: 0 14px 34px rgba(0,0,0,0.3); } .bx span { color: #E4572E; }
     .num { font-family: "Poppins"; font-weight: 900; font-size: 190px; line-height: 1; color: #FFD23F; -webkit-text-stroke: 10px #111; paint-order: stroke fill; } .lb { display: inline-block; margin-top: 6px; padding: 10px 24px; border-radius: 999px; background: #111; color: #fff; font-family: "Poppins"; font-weight: 800; font-size: 40px; }`;
   som("impact-bass-1", T("1.500"), 0.06); som("riser", T("restaurantes", 8) - 0.4, 0.04);
+  if (PERG) etiqueta("tv", PERG.ini + 0.05, PERG.fim, "VIRGÍLIO", 1180);
 } else if (N === "5") {
   // PLANO ABERTO CINEMATOGRÁFICO (os dois no meio, fundo desfocado), legenda limpa de frase, nome de quem fala. Objetivo: conexão.
   el("ttl", 0.2, DUR, `<div class="tt">PAI, EMPRESÁRIO<br>E SECRETÁRIO</div><div class="st">como o Júnior equilibra a família</div>`, "left:0;width:1080px;top:230px;text-align:center");
@@ -157,6 +164,7 @@ fs.writeFileSync(path.join(P, "compositions/camadas.html"), `<template>
   <style>
     #root { position: absolute; inset: 0; } .ui { position: absolute; }
     ${CSS}
+    ${CSS_TAG}
   </style>
   <div id="root" data-composition-id="camadas" data-width="${W}" data-height="${H}">
 ${els.join("\n")}

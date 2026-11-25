@@ -9,29 +9,32 @@ import json, subprocess, sys
 ORIG = "originais/virgilio/IMG_0359.MOV"
 n, saida, trechos_json = sys.argv[1:4]
 # recortes no quadro 4K (x, y, largura, altura) — medidos nos quadros do vídeo
-CONV_CLOSE = (2076, 80, 990, 1760)      # convidado, 9:16
+CONV_CLOSE = (2076, 80, 990, 1760)      # convidado (Júnior), 9:16
+ANF_CLOSE = (525, 224, 990, 1760)       # anfitrião (Virgílio, dono do perfil), 9:16
 CONV_PAINEL = (1942, 50, 1200, 1067)    # convidado, painel 9:8
-ANF_PAINEL = (307, 520, 1200, 1067)     # anfitrião (Virgílio), painel 9:8
+ANF_PAINEL = (420, 480, 1200, 1067)     # anfitrião, painel 9:8
 CONV_45 = (1921, 60, 1320, 1650)        # convidado, 4:5
+ANF_45 = (360, 250, 1320, 1650)         # anfitrião, 4:5
 
+# trechos: (início, fim, quem aparece) — "a" = Virgílio (pergunta ou reação), "c" = Júnior; trechos colados no original = áudio contínuo
 CORTES = {
-    # 1) Quem paga a conta da 5x2? — gancho primeiro, depois o contexto
-    "1": ("dividida", [(1735.55, 1742.75), (1679.6, 1682.4), (1685.3, 1710.85), (1764.15, 1766.45), (1785.5, 1787.35)]),
-    # 2) Dólar a R$6 chega no seu pãozinho
-    "2": ("close", [(1613.1, 1625.2), (1595.75, 1612.6), (1626.15, 1643.75)]),
-    # 3) Conselho de quem tem 17 anos de empresa
-    "3": ("manchete", [(1787.5, 1800.2), (1849.55, 1853.4), (1854.0, 1866.7), (1867.25, 1875.7), (1880.2, 1892.4), (1901.1, 1918.1)]),
-    # 4) A oportunidade escondida no centro de Maceió — gancho + contexto
-    "4": ("close", [(725.5, 727.45), (459.0, 473.3), (473.7, 477.4), (719.1, 738.2)]),
-    # 5) Pai, empresário e secretário — pergunta do Virgílio + resposta
-    "5": ("aberto", [(1918.5, 1925.1), (1926.3, 1927.95), (1948.75, 1955.2), (1955.3, 1990.9)]),
+    # 1) Quanto do empreendedor tem no secretário? — pergunta do Virgílio + resposta (tela dividida: os dois sempre na tela)
+    "1": ("dividida", [(230.5, 238.0, "a"), (239.4, 275.9, "c")]),
+    # 2) Dólar a R$6 — gancho do Júnior, pergunta do Virgílio, resposta com reação do Virgílio
+    "2": ("close", [(1613.1, 1625.2, "c"), (1582.6, 1592.65, "a"), (1595.75, 1612.6, "c"), (1626.15, 1631.0, "c"), (1631.0, 1633.6, "a"), (1633.6, 1643.75, "c")]),
+    # 3) Conselho de quem tem 17 anos de empresa — com reações do Virgílio
+    "3": ("manchete", [(1787.5, 1800.2, "c"), (1849.55, 1853.4, "c"), (1854.0, 1859.5, "c"), (1859.5, 1862.2, "a"), (1862.2, 1866.7, "c"), (1867.25, 1875.7, "c"), (1880.2, 1892.4, "c"), (1901.1, 1906.9, "c"), (1906.9, 1909.4, "a"), (1909.4, 1918.1, "c")]),
+    # 4) Oportunidade no centro de Maceió — gancho, pergunta do Virgílio, resposta com reação
+    "4": ("close", [(725.5, 727.45, "c"), (671.1, 678.95, "a"), (459.0, 473.3, "c"), (473.7, 477.4, "c"), (719.1, 727.7, "c"), (727.7, 730.3, "a"), (730.3, 738.2, "c")]),
+    # 5) Pai, empresário e secretário — pergunta do Virgílio em close, resposta no plano aberto
+    "5": ("aberto", [(1918.5, 1925.1, "a"), (1926.3, 1927.95, "c"), (1948.75, 1955.2, "c"), (1955.3, 1990.9, "c")]),
 }
 layout, segs = CORTES[n]
 crop = lambda r: f"crop={r[2]}:{r[3]}:{r[0]}:{r[1]}"
 vf, af, cc = "", "", ""
 ins = []
 acc = 0.0; tre = []
-for i, (s, e) in enumerate(segs):
+for i, (s, e, quem) in enumerate(segs):
     d = round((e - s) * 30) / 30
     ins += ["-ss", f"{s:.3f}", "-t", f"{d + 0.3:.3f}", "-i", ORIG]
     base = f"[{i}:v]trim=duration={d:.4f},setpts=PTS-STARTPTS,fps=30"
@@ -39,15 +42,22 @@ for i, (s, e) in enumerate(segs):
         vf += (f"{base},split[c{i}][h{i}];[c{i}]{crop(CONV_PAINEL)},scale=1080:960[ct{i}];[h{i}]{crop(ANF_PAINEL)},scale=1080:960[hb{i}];"
                f"[ct{i}][hb{i}]vstack,setsar=1,format=yuv420p[v{i}];")
     elif layout == "close":
-        vf += f"{base},{crop(CONV_CLOSE)},scale=1080:1920,setsar=1,format=yuv420p[v{i}];"
+        vf += f"{base},{crop(ANF_CLOSE if quem == 'a' else CONV_CLOSE)},scale=1080:1920,setsar=1,format=yuv420p[v{i}];"
     elif layout == "manchete":
-        vf += f"{base},{crop(CONV_45)},scale=1080:1350,pad=1080:1920:0:300:color=black,setsar=1,format=yuv420p[v{i}];"
+        vf += f"{base},{crop(ANF_45 if quem == 'a' else CONV_45)},scale=1080:1350,pad=1080:1920:0:300:color=black,setsar=1,format=yuv420p[v{i}];"
     elif layout == "aberto":
-        vf += (f"{base},scale=1920:1080,split[a{i}][b{i}];[a{i}]scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920,boxblur=30:3,eq=brightness=-0.12[bg{i}];"
-               f"[b{i}]crop=1600:1080:200:0,scale=1080:729[fg{i}];[bg{i}][fg{i}]overlay=0:595,setsar=1,format=yuv420p[v{i}];")
-    af += f"[{i}:a]atrim=duration={d:.4f},asetpts=PTS-STARTPTS,aresample=48000,afade=t=in:d=0.012,afade=t=out:st={d - 0.012:.4f}:d=0.012[a{i}];"
+        if quem == "a":
+            vf += f"{base},{crop(ANF_CLOSE)},scale=1080:1920,setsar=1,format=yuv420p[v{i}];"
+        else:
+            vf += (f"{base},scale=1920:1080,split[a{i}][b{i}];[a{i}]scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920,boxblur=30:3,eq=brightness=-0.12[bg{i}];"
+                   f"[b{i}]crop=1600:1080:200:0,scale=1080:729[fg{i}];[bg{i}][fg{i}]overlay=0:595,setsar=1,format=yuv420p[v{i}];")
+    junta_ant = i > 0 and abs(segs[i - 1][1] - s) < 0.01
+    junta_prox = i < len(segs) - 1 and abs(segs[i + 1][0] - e) < 0.01
+    fi = "" if junta_ant else ",afade=t=in:d=0.012"
+    fo = "" if junta_prox else f",afade=t=out:st={d - 0.012:.4f}:d=0.012"
+    af += f"[{i}:a]atrim=duration={d:.4f},asetpts=PTS-STARTPTS,aresample=48000{fi}{fo}[a{i}];"
     cc += f"[v{i}][a{i}]"
-    tre.append({"s": s, "e": e, "ini": round(acc, 4), "fim": round(acc + d, 4)})
+    tre.append({"s": s, "e": e, "quem": quem, "ini": round(acc, 4), "fim": round(acc + d, 4)})
     acc += d
 filtro = vf + af + cc + f"concat=n={len(segs)}:v=1:a=1[v][a]"
 tmp = saida + ".tmp.mov"

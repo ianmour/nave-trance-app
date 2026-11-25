@@ -15,30 +15,30 @@
     </style>
   </head>
   <body>
-    <div id="main" data-composition-id="main" data-start="0" data-duration="46.533" data-width="1080" data-height="1920">
+    <div id="main" data-composition-id="main" data-start="0" data-duration="56.6" data-width="1080" data-height="1920">
       <div id="camera">
-        <video id="fundo" class="clip" src="assets/video.mp4" data-start="0" data-duration="46.533" data-track-index="0" data-has-audio="true"></video>
+        <video id="fundo" class="clip" src="assets/video.mp4" data-start="0" data-duration="56.6" data-track-index="0" data-has-audio="true"></video>
       </div>
-      <div id="camadas" data-composition-id="camadas" data-composition-src="compositions/camadas.html" data-start="0" data-duration="46.533" data-track-index="1" data-track-kind="captions" data-width="1080" data-height="1920"></div>
+      <div id="camadas" data-composition-id="camadas" data-composition-src="compositions/camadas.html" data-start="0" data-duration="56.6" data-track-index="1" data-track-kind="captions" data-width="1080" data-height="1920"></div>
       <audio id="som0" class="clip" src="assets/sfx/pop.mp3" data-start="0.100" data-duration="0.720" data-track-index="6" data-volume="0.06"></audio>
       <audio id="som1" class="clip" src="assets/sfx/pop.mp3" data-start="5.430" data-duration="0.720" data-track-index="7" data-volume="0.06"></audio>
-      <audio id="som2" class="clip" src="assets/sfx/impact-bass-1.mp3" data-start="8.620" data-duration="2.120" data-track-index="8" data-volume="0.06"></audio>
-      <audio id="som3" class="clip" src="assets/sfx/pop.mp3" data-start="17.780" data-duration="0.720" data-track-index="6" data-volume="0.06"></audio>
-      <audio id="som4" class="clip" src="assets/sfx/pop.mp3" data-start="33.990" data-duration="0.720" data-track-index="7" data-volume="0.06"></audio>
-      <audio id="som5" class="clip" src="assets/sfx/pop.mp3" data-start="35.870" data-duration="0.720" data-track-index="8" data-volume="0.06"></audio>
-      <audio id="som6" class="clip" src="assets/sfx/pop.mp3" data-start="37.420" data-duration="0.720" data-track-index="6" data-volume="0.06"></audio>
+      <audio id="som2" class="clip" src="assets/sfx/impact-bass-1.mp3" data-start="8.430" data-duration="2.120" data-track-index="8" data-volume="0.06"></audio>
+      <audio id="som3" class="clip" src="assets/sfx/pop.mp3" data-start="27.850" data-duration="0.720" data-track-index="6" data-volume="0.06"></audio>
+      <audio id="som4" class="clip" src="assets/sfx/pop.mp3" data-start="44.200" data-duration="0.720" data-track-index="7" data-volume="0.06"></audio>
+      <audio id="som5" class="clip" src="assets/sfx/pop.mp3" data-start="45.820" data-duration="0.720" data-track-index="8" data-volume="0.06"></audio>
+      <audio id="som6" class="clip" src="assets/sfx/pop.mp3" data-start="47.470" data-duration="0.720" data-track-index="6" data-volume="0.06"></audio>
     </div>
     <script>
       const tl = gsap.timeline({ paused: true });
       tl.set("#camera", { scale: 1, x: 0, y: 0 }, 0);
-      tl.fromTo("#camera", { scale: 1.1 }, { scale: 1, duration: 0.35, ease: "power3.out", immediateRender: false }, 33.990);
-      tl.fromTo("#camera", { scale: 1.1 }, { scale: 1, duration: 0.35, ease: "power3.out", immediateRender: false }, 35.870);
-      tl.fromTo("#camera", { scale: 1.1 }, { scale: 1, duration: 0.35, ease: "power3.out", immediateRender: false }, 37.420);
+      tl.fromTo("#camera", { scale: 1.1 }, { scale: 1, duration: 0.35, ease: "power3.out", immediateRender: false }, 44.200);
+      tl.fromTo("#camera", { scale: 1.1 }, { scale: 1, duration: 0.35, ease: "power3.out", immediateRender: false }, 45.820);
+      tl.fromTo("#camera", { scale: 1.1 }, { scale: 1, duration: 0.35, ease: "power3.out", immediateRender: false }, 47.470);
       tl.fromTo("#camera", { scale: 1.12 }, { scale: 1, duration: 0.35, ease: "power3.out", immediateRender: false }, 5.030);
-      tl.fromTo("#camera", { scale: 1.12 }, { scale: 1, duration: 0.35, ease: "power3.out", immediateRender: false }, 10.810);
-      tl.fromTo("#camera", { scale: 1.12 }, { scale: 1, duration: 0.35, ease: "power3.out", immediateRender: false }, 17.780);
-      tl.fromTo("#camera", { scale: 1.12 }, { scale: 1, duration: 0.35, ease: "power3.out", immediateRender: false }, 27.470);
-      tl.fromTo("#camera", { scale: 1.12 }, { scale: 1, duration: 0.35, ease: "power3.out", immediateRender: false }, 40.170);
+      tl.fromTo("#camera", { scale: 1.12 }, { scale: 1, duration: 0.35, ease: "power3.out", immediateRender: false }, 11.090);
+      tl.fromTo("#camera", { scale: 1.12 }, { scale: 1, duration: 0.35, ease: "power3.out", immediateRender: false }, 27.850);
+      tl.fromTo("#camera", { scale: 1.12 }, { scale: 1, duration: 0.35, ease: "power3.out", immediateRender: false }, 38.150);
+      tl.fromTo("#camera", { scale: 1.12 }, { scale: 1, duration: 0.35, ease: "power3.out", immediateRender: false }, 50.450);
       window.__timelines["main"] = tl;
     </script>
   </body>

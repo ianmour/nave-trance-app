@@ -15,7 +15,7 @@ const trechos = JSON.parse(fs.readFileSync(TRJ, "utf8"));
 const DUR = +trechos.at(-1).fim.toFixed(4);
 const ini = (n) => trechos.find((t) => t.nome === n).ini, fimT = (n) => trechos.filter((t) => t.nome === n).at(-1).fim;
 
-const TEXTO = "Ei, você já está aproveitando a campanha do Indique um Amigo? Pode ser que você esteja deixando a chance de faturar passar, hein? É isso mesmo! Indicou um amigo, ele foi contratado e cumpriu todas as regras da campanha, você ganhará R$200 por indicação. E quanto mais pessoas você indicar, maiores as chances de aumentar o seu prêmio. Já pensou indicar vários amigos e faturar ainda mais? Corre para o Portal do Colaborador e envie os currículos utilizando o filtro Indique um Amigo. Bora aproveitar!";
+const TEXTO = "Ei, você já está aproveitando a campanha do Indique um Amigo? Pode ser que você esteja deixando a chance de faturar passar, hein? É isso mesmo! Indicou um amigo, ele foi contratado e cumpriu todas as regras da campanha, você ganhará R$200 por indicação. E quanto mais pessoas você indicar, maiores as chances de aumentar o seu prêmio. Já pensou indicar vários amigos e faturar ainda mais? Corre para o portal e envie os currículos utilizando o filtro Indique um Amigo. Bora aproveitar!";
 const wsp = JSON.parse(fs.readFileSync(TJ, "utf8")).transcription.map((x) => ({ t: x.text.trim(), a: x.offsets.from / 1000, b: x.offsets.to / 1000 })).filter((x) => nrm(x.t));
 const txt = TEXTO.split(/\s+/), A = txt.map(nrm), B = wsp.map((x) => nrm(x.t)), n = A.length, m = B.length;
 const D = Array.from({ length: n + 1 }, () => new Int32Array(m + 1));
@@ -66,7 +66,16 @@ tw(`tl.to("#mais .pil", { scale: 1.08, duration: 0.2, yoyo: true, repeat: 1, sta
 sai("#mais > *", m1 - 0.2); som("sparkle", T("faturar", m0), 0.05); zoom(T("vários", m0) - 0.05);
 
 // 4) portal: Portal do Colaborador → Fale com RH → filtro "Indique um amigo"
-const p0 = ini("portal"), pc = T("filtro", p0) + 0.35, pr = Math.min(pc - 0.9, T("colaborador", p0) + 0.35), pEnd = T("Bora", p0) - 0.08;
+const p0 = ini("portal"), pc = T("filtro", p0) + 0.35, pr = Math.min(pc - 0.9, T("portal", p0) + 0.45), pEnd = T("Bora", p0) - 0.08;
+if (process.env.VERSAO === "site") {
+  // versão com link: título no alto, data e site abaixo da legenda
+  const s0 = T("portal", p0) - 0.1;
+  el("portal", s0, pEnd, `<div class="titulo">INDIQUE E GANHE</div>`, "left:0;width:1080px;top:130px;text-align:center");
+  el("portal2", s0, pEnd, `<div id="ig1" class="ig rs">indicações até 30/11</div><div id="ig2" class="ig ma">qualidade.almavivadobrasil.com.br</div>`, BAIXO(1270));
+  pop("#portal .titulo", s0); sobe("#ig1", s0 + 0.3); sobe("#ig2", s0 + 0.55);
+  sai("#portal .titulo", pEnd - 0.2); sai("#portal2 > *", pEnd - 0.2);
+  som("pop", s0, 0.07); som("pop", s0 + 0.3, 0.06); som("pop", s0 + 0.55, 0.06);
+} else {
 el("portal", T("portal", p0) - 0.1, pEnd, `<div class="janela"><div class="jt"><i></i><i></i><i></i><span>Portal do Colaborador</span></div><div class="jc"><span id="rh" class="chip">Fale com RH</span></div><div id="jf" class="jc jf"><span class="flt">Filtro:</span><span id="chip" class="chip">Indique um amigo</span></div></div><div class="mao"></div>`, "left:150px;width:780px;top:1250px");
 sobe("#portal .janela", T("portal", p0) - 0.1); som("whoosh-short", T("portal", p0) - 0.15, 0.05);
 tw(`tl.set("#jf", { opacity: 0 }, ${f(T("portal", p0) - 0.1)}); tl.set("#portal .mao", { opacity: 0 }, ${f(T("portal", p0) - 0.1)});`);
@@ -77,6 +86,7 @@ tw(`tl.to("#portal .mao", { x: 0, y: 0, duration: 0.3, ease: "power2.inOut" }, $
 tw(`tl.to("#chip", { scale: 0.92, duration: 0.08, yoyo: true, repeat: 1 }, ${f(pc)}); tl.set("#chip", { backgroundColor: "${RS}", color: "#fff", borderColor: "${RS}" }, ${f(pc + 0.08)});`);
 tw(`tl.to("#portal .mao", { opacity: 0, duration: 0.2 }, ${f(pc + 0.5)});`); sai("#portal .janela", pEnd - 0.2);
 som("click", pr, 0.09); som("pop", pr + 0.2, 0.05); som("click", pc, 0.09);
+}
 
 // 5) final: "BORA APROVEITAR!" na fala e tela final da marca, que depois some
 const CF = Math.min(DUR - 0.05, PAL.at(-1).fim + 0.25), FIM = +(CF + 3.4).toFixed(3);
@@ -102,7 +112,7 @@ faixa(ini("mais")); faixa(ini("portal")); faixa(CF);
 trechos.forEach((t, i) => { if (i && trechos[i - 1].nome === t.nome) cam.push(`tl.set("#camera", { scale: ${i % 2 ? 1.1 : 1} }, ${f(t.ini)}); tl.set("#camera", { scale: 1 }, ${f(t.fim)});`); });
 
 // legenda (estilo aprovado: branca, maior; palavra-chave sozinha e mais forte); some na tela final
-const CH = new Set(["indique", "faturar", "contratado", "regras", "r$200", "premio", "amigos", "colaborador", "filtro", "aproveitar"]);
+const CH = new Set(["indique", "faturar", "contratado", "regras", "r$200", "premio", "amigos", "portal", "filtro", "aproveitar"]);
 const ehChave = (p) => p && CHAVES(p);
 function CHAVES(p) { return CH.has(nrm(p.texto)); }
 const grupos = []; let g = [];
@@ -136,6 +146,7 @@ const CSS = `
     .chip { padding: 14px 28px; border-radius: 999px; border: 3px solid ${MA}; color: ${MA}; font-size: 38px; font-weight: 800; }
     .mao { position: absolute; left: 560px; top: 150px; width: 64px; height: 64px; border-radius: 50%; background: rgba(255,255,255,0.85); border: 4px solid rgba(0,0,0,0.25); box-shadow: 0 8px 20px rgba(0,0,0,0.3); }
     .bora { display: inline-block; padding: 16px 42px 12px; border-radius: 26px; background: ${RS}; color: #fff; font-family: "Anton"; font-size: 100px; line-height: 1; box-shadow: 0 0 0 7px #fff, 0 20px 50px rgba(0,0,0,0.3); }
+    .ig { display: block; width: fit-content; margin: 16px auto 0; padding: 12px 30px; border-radius: 16px; color: #fff; font-family: "Poppins"; font-weight: 800; font-size: 44px; box-shadow: 0 12px 30px rgba(0,0,0,0.25); } .ig.rs { background: ${RS}; } .ig.ma { background: ${MA}; font-size: 38px; }
     .fn { position: absolute; inset: 0; background: ${TQ}; overflow: hidden; }
     .onda { position: absolute; border-radius: 50%; border: 70px solid ${RS}; }
     .onda.o1 { width: 640px; height: 640px; left: -360px; top: -300px; } .onda.o2 { width: 700px; height: 700px; right: -400px; bottom: -330px; }

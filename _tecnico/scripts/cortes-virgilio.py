@@ -11,7 +11,9 @@ n, saida, trechos_json = sys.argv[1:4]
 # recortes no quadro 4K (x, y, largura, altura) — medidos nos quadros do vídeo
 CONV_CLOSE = (2076, 80, 990, 1760)      # convidado (Júnior), 9:16
 ANF_CLOSE = (525, 224, 990, 1760)       # anfitrião (Virgílio, dono do perfil), 9:16
-CONV_PAINEL = (1942, 50, 1200, 1067)    # convidado, painel 9:8
+CONV_PAINEL = (1942, 250, 1200, 1067)   # convidado, painel 9:8 (rosto centralizado)
+CONV_PAINEL_Y_TITULO = 50              # enquanto a manchete está na tela, o rosto fica mais baixo (sem ficar atrás do título)
+TITULO_FIM = 9.5                        # quando a manchete do corte 1 some (segundos do corte); depois o quadro sobe em 0,6 s
 ANF_PAINEL = (420, 480, 1200, 1067)     # anfitrião, painel 9:8
 CONV_45 = (1921, 60, 1320, 1650)        # convidado, 4:5
 ANF_45 = (360, 250, 1320, 1650)         # anfitrião, 4:5
@@ -19,7 +21,7 @@ ANF_45 = (360, 250, 1320, 1650)         # anfitrião, 4:5
 # trechos: (início, fim, quem aparece) — "a" = Virgílio (pergunta ou reação), "c" = Júnior; trechos colados no original = áudio contínuo
 CORTES = {
     # 1) Quanto do empreendedor tem no secretário? — pergunta do Virgílio + resposta (tela dividida: os dois sempre na tela)
-    "1": ("dividida", [(230.5, 238.0, "a"), (239.4, 275.9, "c")]),
+    "1": ("dividida", [(230.5, 239.35, "a"), (239.35, 275.9, "c")]),  # a pergunta vai até o fim de "empreendedor"
     # 2) Dólar a R$6 — gancho do Júnior, pergunta do Virgílio, resposta com reação do Virgílio
     "2": ("close", [(1613.1, 1625.2, "c"), (1582.6, 1592.65, "a"), (1595.75, 1612.6, "c"), (1626.15, 1631.0, "c"), (1631.0, 1633.6, "a"), (1633.6, 1643.75, "c")]),
     # 3) Conselho de quem tem 17 anos de empresa — com reações do Virgílio
@@ -39,7 +41,9 @@ for i, (s, e, quem) in enumerate(segs):
     ins += ["-ss", f"{s:.3f}", "-t", f"{d + 0.3:.3f}", "-i", ORIG]
     base = f"[{i}:v]trim=duration={d:.4f},setpts=PTS-STARTPTS,fps=30"
     if layout == "dividida":
-        vf += (f"{base},split[c{i}][h{i}];[c{i}]{crop(CONV_PAINEL)},scale=1080:960[ct{i}];[h{i}]{crop(ANF_PAINEL)},scale=1080:960[hb{i}];"
+        x0, y1, w0, h0 = CONV_PAINEL; y0 = CONV_PAINEL_Y_TITULO; tg = f"(t+{acc:.4f})"
+        yexp = f"if(lt({tg},{TITULO_FIM}),{y0},if(lt({tg},{TITULO_FIM + 0.6}),{y0}+({y1 - y0})*({tg}-{TITULO_FIM})/0.6,{y1}))"
+        vf += (f"{base},split[c{i}][h{i}];[c{i}]crop={w0}:{h0}:{x0}:'{yexp}',scale=1080:960[ct{i}];[h{i}]{crop(ANF_PAINEL)},scale=1080:960[hb{i}];"
                f"[ct{i}][hb{i}]vstack,setsar=1,format=yuv420p[v{i}];")
     elif layout == "close":
         vf += f"{base},{crop(ANF_CLOSE if quem == 'a' else CONV_CLOSE)},scale=1080:1920,setsar=1,format=yuv420p[v{i}];"

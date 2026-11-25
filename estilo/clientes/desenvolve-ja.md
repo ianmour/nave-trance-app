@@ -14,3 +14,4 @@
 - Legenda: estilo "mago" aprovado, tamanho maior (76 px / destaque 94 px).
 - **Perfis por rede (não trocar!):** TikTok = **@desenvolveja** (nome "Desenvolve Já"). Instagram (Maceió) = **@desenvolvejamaceio**, nome "Desenvolve Já - Maceió", com selo azul de verificado. Vídeo para Instagram leva o @ do Instagram.
 - Vídeo "indique um amigo" vale para três cidades: **não colocar endereço de cidade** no vídeo (vai na legenda do post).
+- **Aprovado ("ficou perfeito"):** `final/desenvolve-ja/indique-um-amigo-2-continuacao.mp4` — receita: takes na ordem da fala, virada de corpo como transição, faixas da marca nas outras trocas, cartões/pílulas abaixo da legenda (nada no rosto), título no alto, checklist com ✓, "+R$200" empilhando, janela do Portal (Portal → Fale com RH → filtro), tela final turquesa com ondas rosa que some.

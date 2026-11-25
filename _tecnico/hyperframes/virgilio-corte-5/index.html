@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@600;800;900&family=Poppins:wght@800;900&family=Inter:wght@500;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: #000; }
+      #main { position: relative; width: 100%; height: 100%; overflow: hidden; }
+      #camera { position: absolute; inset: 0; overflow: hidden; transform-origin: 50% 40%; }
+      #fundo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+      #camadas { position: absolute; inset: 0; z-index: 2; }
+    </style>
+  </head>
+  <body>
+    <div id="main" data-composition-id="main" data-start="0" data-duration="50.333" data-width="1080" data-height="1920">
+      <div id="camera">
+        <video id="fundo" class="clip" src="assets/video.mp4" data-start="0" data-duration="50.333" data-track-index="0" data-has-audio="true"></video>
+      </div>
+      <div id="camadas" data-composition-id="camadas" data-composition-src="compositions/camadas.html" data-start="0" data-duration="50.333" data-track-index="1" data-track-kind="captions" data-width="1080" data-height="1920"></div>
+    </div>
+    <script>
+      const tl = gsap.timeline({ paused: true });
+      tl.set("#camera", { scale: 1, x: 0, y: 0 }, 0);
+      tl.fromTo("#camera", { scale: 1 }, { scale: 1.06, duration: 50.333, ease: "none", immediateRender: false }, 0);
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>

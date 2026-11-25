@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@600;800;900&family=Poppins:wght@800;900&family=Inter:wght@500;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: #000; }
+      #main { position: relative; width: 100%; height: 100%; overflow: hidden; }
+      #camera { position: absolute; inset: 0; overflow: hidden; transform-origin: 50% 40%; }
+      #fundo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+      #camadas { position: absolute; inset: 0; z-index: 2; }
+    </style>
+  </head>
+  <body>
+    <div id="main" data-composition-id="main" data-start="0" data-duration="39.067" data-width="1080" data-height="1920">
+      <div id="camera">
+        <video id="fundo" class="clip" src="assets/video.mp4" data-start="0" data-duration="39.067" data-track-index="0" data-has-audio="true"></video>
+      </div>
+      <div id="camadas" data-composition-id="camadas" data-composition-src="compositions/camadas.html" data-start="0" data-duration="39.067" data-track-index="1" data-track-kind="captions" data-width="1080" data-height="1920"></div>
+      <audio id="som0" class="clip" src="assets/sfx/pop.mp3" data-start="0.050" data-duration="0.720" data-track-index="6" data-volume="0.06"></audio>
+      <audio id="som1" class="clip" src="assets/sfx/pop.mp3" data-start="6.420" data-duration="0.720" data-track-index="7" data-volume="0.06"></audio>
+      <audio id="som2" class="clip" src="assets/sfx/pop.mp3" data-start="26.640" data-duration="0.720" data-track-index="8" data-volume="0.06"></audio>
+      <audio id="som3" class="clip" src="assets/sfx/pop.mp3" data-start="31.200" data-duration="0.720" data-track-index="6" data-volume="0.06"></audio>
+      <audio id="som4" class="clip" src="assets/sfx/impact-bass-1.mp3" data-start="6.470" data-duration="2.120" data-track-index="7" data-volume="0.06"></audio>
+      <audio id="som5" class="clip" src="assets/sfx/riser.mp3" data-start="26.290" data-duration="10.030" data-track-index="8" data-volume="0.04"></audio>
+    </div>
+    <script>
+      const tl = gsap.timeline({ paused: true });
+      tl.set("#camera", { scale: 1, x: 0, y: 0 }, 0);
+      tl.fromTo("#camera", { scale: 1.12 }, { scale: 1, duration: 0.35, ease: "power3.out", immediateRender: false }, 0.050);
+      tl.fromTo("#camera", { scale: 1.12 }, { scale: 1, duration: 0.35, ease: "power3.out", immediateRender: false }, 6.420);
+      tl.fromTo("#camera", { scale: 1.12 }, { scale: 1, duration: 0.35, ease: "power3.out", immediateRender: false }, 26.640);
+      tl.fromTo("#camera", { scale: 1.12 }, { scale: 1, duration: 0.35, ease: "power3.out", immediateRender: false }, 31.200);
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>

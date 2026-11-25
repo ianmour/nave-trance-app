@@ -26,8 +26,8 @@ CORTES = {
     "3": ("manchete", [(1787.5, 1800.2, "c"), (1849.55, 1853.4, "c"), (1854.0, 1859.5, "c"), (1859.5, 1862.2, "a"), (1862.2, 1866.7, "c"), (1867.25, 1875.7, "c"), (1880.2, 1892.4, "c"), (1901.1, 1906.9, "c"), (1906.9, 1909.4, "a"), (1909.4, 1918.1, "c")]),
     # 4) Oportunidade no centro de Maceió — gancho, pergunta do Virgílio, resposta com reação
     "4": ("close", [(725.5, 727.45, "c"), (671.1, 678.95, "a"), (459.0, 473.3, "c"), (473.7, 477.4, "c"), (719.1, 727.7, "c"), (727.7, 730.3, "a"), (730.3, 738.2, "c")]),
-    # 5) Pai, empresário e secretário — pergunta do Virgílio em close, resposta no plano aberto
-    "5": ("aberto", [(1918.5, 1925.1, "a"), (1926.3, 1927.95, "c"), (1948.75, 1955.2, "c"), (1955.3, 1990.9, "c")]),
+    # 5) O Mix Mateus quer fornecedor de Alagoas — pergunta do Virgílio em close, resposta no plano aberto (oportunidade local)
+    "5": ("aberto", [(952.8, 961.1, "a"), (961.3, 965.2, "c"), (972.5, 1002.3, "c")]),
 }
 layout, segs = CORTES[n]
 crop = lambda r: f"crop={r[2]}:{r[3]}:{r[0]}:{r[1]}"

@@ -20,4 +20,4 @@
 
 ## Regras combinadas (pedido da pessoa)
 - **O Virgílio é o dono do perfil:** ele aparece em TODOS os cortes. Pergunta dele = rosto dele na tela (com o nome "VIRGÍLIO"); durante as respostas do convidado, entram cortes rápidos com a reação dele.
-- **Não fazer corte sobre a escala 5x2** (tema que a pessoa não quer).
+- **Não fazer corte sobre a escala 5x2 nem sobre o convidado ser pai/família** (temas que a pessoa não quer).

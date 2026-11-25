@@ -10,7 +10,7 @@ SEGS = [
     ("IMG_7735.mov", 0.55, 3.52, 3.4, "gancho"), ("IMG_7735.mov", 3.80, 7.95, 3.4, "gancho"),
     ("IMG_7738.mov", 0.75, 6.44, 3.2, "regras"), ("IMG_7738.mov", 6.70, 9.35, 3.2, "regras"),   # começa no fim da virada
     ("IMG_7753.mov", 0.70, 9.78, 0.0, "mais"),
-    ("IMG_7741.mov", 1.85, 2.79, 4.0, "portal"), ("IMG_7741.mov", 3.90, 7.43, 4.0, "portal"), ("IMG_7741.mov", 7.72, 8.55, 4.0, "portal"),  # tira "do colaborador" (pedido do cliente)
+    ("IMG_7741.mov", 1.85, 2.85, 4.0, "portal"), ("IMG_7741.mov", 3.90, 7.43, 4.0, "portal"), ("IMG_7741.mov", 7.72, 8.55, 4.0, "portal"),  # tira "do colaborador" (pedido do cliente)
 ]
 v = a = c = ""; ins = []; acc = 0.0; tre = []
 for i, (arq, s, e, g, nome) in enumerate(SEGS):

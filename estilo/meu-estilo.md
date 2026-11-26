@@ -83,3 +83,10 @@ vicios: é, éé, ééé, éééé, ã, ãã, hum, hmm, hmmm, ahn, hã, eh, ah
 pausa_passo_s: 0.5
 palavras_passo: primeiro, primeira, segundo, segunda, terceiro, terceira, quarto, quinto, passo, agora, depois, em seguida, por ultimo, finalmente, proximo
 ```
+
+
+## Regra fixa de corte (pedido repetido da pessoa)
+- **Nunca cortar uma palavra no meio.** Todo corte acontece DEPOIS que a pessoa termina a palavra inteira (e antes da próxima começar). Conferir cada emenda ouvindo/transcrevendo o trecho; na dúvida, deixar alguns milissegundos a mais.
+- Se uma emenda soar artificial, preferir deixar a fala original inteira a forçar o corte.
+- Takes longos com várias entonações: escolher a MELHOR entonação de cada frase.
+- Se a imagem de um take estiver ruim (câmera lenta, tremida, desfocada), usar só a voz desse trecho e cobrir com fotos/imagens de apoio + texto na tela.

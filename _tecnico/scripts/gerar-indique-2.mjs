@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// Desenvolve Já — "Indique um amigo 2" (continuação). Mesmo visual do primeiro: turquesa #5CE1E6, marinho #001459,
+// Desenvolve Já — "Indique amigos 2" (continuação). Mesmo visual do primeiro: turquesa #5CE1E6, marinho #001459,
 // rosa #F9057F, branco; títulos condensados (Anton), texto arredondado (Poppins); faixas da marca nas trocas de cena;
 // tela final turquesa com ondas rosa. Nada na frente da cabeça: informações abaixo da legenda, títulos só no alto.
 // Uso: node gerar-indique-2.mjs <projeto> <trechos.json> <transcricao do corte (whisper json)>
@@ -15,7 +15,7 @@ const trechos = JSON.parse(fs.readFileSync(TRJ, "utf8"));
 const DUR = +trechos.at(-1).fim.toFixed(4);
 const ini = (n) => trechos.find((t) => t.nome === n).ini, fimT = (n) => trechos.filter((t) => t.nome === n).at(-1).fim;
 
-const TEXTO = "Ei, você já está aproveitando a campanha do Indique um Amigo? Pode ser que você esteja deixando a chance de faturar passar, hein? É isso mesmo! Indicou um amigo, ele foi contratado e cumpriu todas as regras da campanha, você ganhará R$200 por indicação. E quanto mais pessoas você indicar, maiores as chances de aumentar o seu prêmio. Já pensou indicar vários amigos e faturar ainda mais? Corre para o Portal do Colaborador e envie os currículos utilizando o filtro Indique um Amigo. Bora aproveitar!";
+const TEXTO = "Ei, você já está aproveitando a campanha do Indique Amigos? Pode ser que você esteja deixando a chance de faturar passar, hein? É isso mesmo! Indicou um amigo, ele foi contratado e cumpriu todas as regras da campanha, você ganhará R$200 por indicação. E quanto mais pessoas você indicar, maiores as chances de aumentar o seu prêmio. Já pensou indicar vários amigos e faturar ainda mais? Corre para o Portal do Colaborador e envie os currículos utilizando o filtro Indique Amigos. Bora aproveitar!";
 const wsp = JSON.parse(fs.readFileSync(TJ, "utf8")).transcription.map((x) => ({ t: x.text.trim(), a: x.offsets.from / 1000, b: x.offsets.to / 1000 })).filter((x) => nrm(x.t));
 const txt = TEXTO.split(/\s+/), A = txt.map(nrm), B = wsp.map((x) => nrm(x.t)), n = A.length, m = B.length;
 const D = Array.from({ length: n + 1 }, () => new Int32Array(m + 1));
@@ -40,7 +40,7 @@ const check = `<svg viewBox="0 0 24 24" width="34" height="34"><path d="M5 12.5l
 
 // 1) gancho: título no alto + "não deixa passar"
 const g1 = fimT("gancho");
-el("tit", 0.1, g1, `<div class="titulo">INDIQUE UM AMIGO</div>`, "left:0;width:1080px;top:130px;text-align:center");
+el("tit", 0.1, g1, `<div class="titulo">INDIQUE AMIGOS</div>`, "left:0;width:1080px;top:130px;text-align:center");
 pop("#tit .titulo", 0.1); sai("#tit .titulo", g1 - 0.2); som("whoosh-short", 0.05, 0.05);
 el("passa", T("faturar") - 0.05, g1, `<div class="pil">NÃO DEIXA ESSA CHANCE PASSAR</div>`, BAIXO());
 pop("#passa .pil", T("faturar") - 0.05); tw(`tl.to("#passa .pil", { scale: 1.06, duration: 0.25, yoyo: true, repeat: 3, ease: "sine.inOut" }, ${f(T("faturar") + 0.3)});`);
@@ -65,7 +65,7 @@ sobe("#mais .titulo", T("quanto", m0) - 0.05);
 tw(`tl.to("#mais .pil", { scale: 1.08, duration: 0.2, yoyo: true, repeat: 1, stagger: 0.08 }, ${f(T("faturar", m0) - 0.05)});`);
 sai("#mais > *", m1 - 0.2); som("sparkle", T("faturar", m0), 0.05); zoom(T("vários", m0) - 0.05);
 
-// 4) portal: Portal do Colaborador → Fale com RH → filtro "Indique um amigo"
+// 4) portal: Portal do Colaborador → Fale com RH → filtro "Indique amigos"
 const p0 = ini("portal"), pc = T("filtro", p0) + 0.35, pr = Math.min(pc - 0.9, T("colaborador", p0) + 0.35), pEnd = T("Bora", p0) - 0.08;
 if (process.env.VERSAO === "site") {
   // versão com link: título no alto, data e site abaixo da legenda
@@ -76,7 +76,7 @@ if (process.env.VERSAO === "site") {
   sai("#portal .titulo", pEnd - 0.2); sai("#portal2 > *", pEnd - 0.2);
   som("pop", s0, 0.07); som("pop", s0 + 0.3, 0.06); som("pop", s0 + 0.55, 0.06);
 } else {
-el("portal", T("portal", p0) - 0.1, pEnd, `<div class="janela"><div class="jt"><i></i><i></i><i></i><span>Portal</span></div><div class="jc"><span id="rh" class="chip">Fale com RH</span></div><div id="jf" class="jc jf"><span class="flt">Filtro:</span><span id="chip" class="chip">Indique um amigo</span></div></div><div class="mao"></div>`, "left:150px;width:780px;top:1250px");
+el("portal", T("portal", p0) - 0.1, pEnd, `<div class="janela"><div class="jt"><i></i><i></i><i></i><span>Portal</span></div><div class="jc"><span id="rh" class="chip">Fale com RH</span></div><div id="jf" class="jc jf"><span class="flt">Filtro:</span><span id="chip" class="chip">Indique amigos</span></div></div><div class="mao"></div>`, "left:150px;width:780px;top:1250px");
 sobe("#portal .janela", T("portal", p0) - 0.1); som("whoosh-short", T("portal", p0) - 0.15, 0.05);
 tw(`tl.set("#jf", { opacity: 0 }, ${f(T("portal", p0) - 0.1)}); tl.set("#portal .mao", { opacity: 0 }, ${f(T("portal", p0) - 0.1)});`);
 tw(`tl.fromTo("#portal .mao", { opacity: 0, x: 60, y: -60 }, { opacity: 1, x: -260, y: -110, duration: 0.3, ease: "power2.out" }, ${f(pr - 0.3)});`);

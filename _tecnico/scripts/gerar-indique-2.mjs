@@ -109,7 +109,8 @@ const faixa = (t) => {
 som("whoosh-short", ini("regras") - 0.1, 0.05);
 faixa(ini("mais")); faixa(ini("portal")); faixa(CF);
 // pausas cortadas dentro do mesmo take: pulo de câmera
-trechos.forEach((t, i) => { if (i && trechos[i - 1].nome === t.nome) cam.push(`tl.set("#camera", { scale: ${i % 2 ? 1.1 : 1} }, ${f(t.ini)}); tl.set("#camera", { scale: 1 }, ${f(t.fim)});`); });
+trechos.forEach((t, i) => { if (i && t.nome === "portal" && trechos[i - 1].nome === "portal" && trechos[i - 1].arquivo === t.arquivo && Math.abs(trechos[i - 1].e - 2.85) < 0.01) { cam.push(`tl.fromTo("#camera", { scale: 1.1 }, { scale: 1, duration: 0.55, ease: "power2.out", immediateRender: false }, ${f(t.ini)});`); return; }
+  if (i && trechos[i - 1].nome === t.nome) cam.push(`tl.set("#camera", { scale: ${i % 2 ? 1.1 : 1} }, ${f(t.ini)}); tl.set("#camera", { scale: 1 }, ${f(t.fim)});`); });
 
 // legenda (estilo aprovado: branca, maior; palavra-chave sozinha e mais forte); some na tela final
 const CH = new Set(["indique", "faturar", "contratado", "regras", "r$200", "premio", "amigos", "portal", "filtro", "aproveitar"]);

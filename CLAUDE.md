@@ -48,6 +48,7 @@ Ferramenta pronta para os passos 2 a 8: `_tecnico/scripts/editor.mjs` (rode sem 
 
 A pessoa coloca os vídeos novos nesta pasta do Drive (compartilhada por link): https://drive.google.com/drive/folders/18edG5UgfCqTGkmD_R4SkpFAsml74uQ7j
 Quando ela disser "mandei", listar a pasta (`https://drive.google.com/embeddedfolderview?id=<id>`, inclusive subpastas) e baixar com `https://drive.usercontent.google.com/download?id=<id>&export=download&confirm=t` para `originais/<projeto>/`. Só leitura: nunca mexer no Drive.
+**Cuidado com o limite do Google ("Quota exceeded"):** arquivos compartilhados por link travam por horas se forem acessados muitas vezes. Por isso: baixar cada arquivo **uma única vez**, com um `curl` simples para um arquivo local (ou `curl ... | ffmpeg -i pipe:0` se o vídeo tiver o "moov" no começo), **sem** `ffprobe`/testes pela rede antes, sem medir tamanho arquivo por arquivo, sem repetir downloads que falharam em seguida. Se faltar espaço, baixar um por vez e converter. Nunca tentar driblar o limite (baixar em pedaços, etc.); se travar, pedir à pessoa para "Fazer uma cópia" dos arquivos no Drive.
 
 ## Imagens, músicas e efeitos (grátis, sem conta)
 

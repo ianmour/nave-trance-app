@@ -6,7 +6,7 @@ TXT = {"gancho":"Imagine transformar o Brasil em poesia.","walter":"Walter Firmo
 "beleza":"mostrar a beleza que o olhar comum não via.","tempo":"Num tempo em que a fotografia precisava ser perfeita, ele mostrou o imperfeito e fez disso","tempo2":"arte.",
 "retratou":"Retratou a vida no cotidiano e, em cada clique, mostrou que o Brasil é feito de cor,","retratou2":"afeto e verdade.",
 "epoca":"Na época, falaram que suas fotos eram fora do padrão.","hoje":"E hoje fazem parte da nossa história.",
-"museus":"Estão em museus, livros,","museus2":"principalmente, no jeito que a gente se reconhece.","provou":"Walter provou que a fotografia não é só técnica:",
+"museus":"Estão em museus, livros, principalmente no jeito que a gente se reconhece.","provou":"Walter provou que a fotografia não é só técnica:",
 "instante":"é o instante em que a vida se deixa ver e a arte acontece sem pedir licença.",
 "fim":"Porque, no fim, é isso que a fotografia faz: transforma o real em memória,","encontro":"sendo o encontro entre o que o mundo mostra e o que a gente sente."}
 import sys

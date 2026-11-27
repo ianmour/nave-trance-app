@@ -90,3 +90,8 @@ palavras_passo: primeiro, primeira, segundo, segunda, terceiro, terceira, quarto
 - Se uma emenda soar artificial, preferir deixar a fala original inteira a forçar o corte.
 - Takes longos com várias entonações: escolher a MELHOR entonação de cada frase.
 - Se a imagem de um take estiver ruim (câmera lenta, tremida, desfocada), usar só a voz desse trecho e cobrir com fotos/imagens de apoio + texto na tela.
+
+### Lição (Lizzie, 27/11): fim de palavra e tropeço
+- O fim da última palavra costuma ser fraco (ex.: o "-ca" de "técnica"). Só cortar depois que a última sílaba some de verdade, tolerando pequenos vales de até 0,15 s.
+- Procurar tropeços dentro do take ("e pri… principalmente"): transcrever o trecho em partes menores e tirar o começo falso.
+- Corte rápido: terminou a palavra, já entra a próxima frase.

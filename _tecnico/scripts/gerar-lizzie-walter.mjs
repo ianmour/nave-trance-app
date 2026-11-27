@@ -30,19 +30,19 @@ const el = (id, t0, t1, html, estilo, trilha = 0) => els.push(`      <div id="${
 const tw = (s) => js.push("      " + s);
 const som = (nome, t, v) => sons.push([nome, Math.max(0, t), v]);
 
-// ---- fotos do Walter Firmo: entram com "clique" (flash + som), zoom lento; horizontais ficam inteiras sobre fundo desfocado ----
-const HORIZ = new Set([4, 9, 11, 12]);
+// ---- fotos do Walter Firmo como "cartões" (borda branca, inclinados) que entram rápido com clique e saem voando;
+// nos trechos em que a imagem dela estava ruim, o cartão vem sobre a própria foto desfocada em tela cheia ----
 let nf = 0;
-const foto = (num, t0, t1, rotulo = "") => {
-  const id = `ft${nf++}`, src = `assets/fotos/f${num}.jpg`;
-  const corpo = HORIZ.has(num)
-    ? `<img class="bg" src="${src}"><div class="fr"><img src="${src}"></div>`
-    : `<img class="cv" src="${src}">`;
-  el(id, t0, t1, `<div class="foto">${corpo}${rotulo ? `<div class="rot">${rotulo}</div>` : ""}<i class="flash"></i></div>`, "left:0;top:0;width:1080px;height:1920px", 1);
-  tw(`tl.fromTo("#${id} .cv, #${id} .fr", { scale: 1.1 }, { scale: 1, duration: ${f(t1 - t0 + 0.3)}, ease: "none" }, ${f(t0)});`);
-  tw(`tl.fromTo("#${id} .flash", { opacity: 0.85 }, { opacity: 0, duration: 0.22, ease: "power2.out" }, ${f(t0)});`);
-  if (rotulo) tw(`tl.fromTo("#${id} .rot", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4 }, ${f(t0 + 0.2)});`);
-  som("click", t0, 0.09);
+const foto = (num, t0, t1, rotulo = "", cheia = false) => {
+  const id = `ft${nf++}`, src = `assets/fotos/f${num}.jpg`, rot = [-5, 4, -3, 6, -6, 3][nf % 6], lado = nf % 2 ? 1 : -1;
+  el(id, t0, t1, `<div class="cena">${cheia ? `<img class="bg" src="${src}">` : ""}<div class="pos ${cheia ? "centro" : (lado > 0 ? "dir" : "esq")}"><div class="card"><img src="${src}">${rotulo ? `<div class="rot">${rotulo}</div>` : ""}</div></div><i class="flash"></i></div>`, "left:0;top:0;width:1080px;height:1920px", 1);
+  if (cheia) tw(`tl.fromTo("#${id} .bg", { opacity: 0 }, { opacity: 1, duration: 0.15 }, ${f(t0)});`);
+  tw(`tl.fromTo("#${id} .card", { scale: 1.5, rotation: ${rot + 12 * lado}, y: 120, opacity: 0 }, { scale: 1, rotation: ${rot}, y: 0, opacity: 1, duration: 0.3, ease: "back.out(1.6)" }, ${f(t0)});`);
+  tw(`tl.to("#${id} .card", { scale: 1.04, duration: ${f(Math.max(0.2, t1 - t0 - 0.5))}, ease: "none" }, ${f(t0 + 0.3)});`);
+  tw(`tl.to("#${id} .card", { x: ${700 * lado}, rotation: ${rot + 25 * lado}, opacity: 0, duration: 0.2, ease: "power2.in" }, ${f(t1 - 0.2)});`);
+  if (cheia) tw(`tl.to("#${id} .bg", { opacity: 0, duration: 0.15 }, ${f(t1 - 0.15)});`);
+  tw(`tl.fromTo("#${id} .flash", { opacity: 0.7 }, { opacity: 0, duration: 0.18, ease: "power2.out" }, ${f(t0)});`);
+  som("click", t0, 0.09); som("whoosh-short", t1 - 0.22, 0.04);
 };
 foto(9, T("poesia") - 0.05, T("Walter") - 0.05);
 foto(3, T("Walter") - 0.03, T("câmera") + 0.2);
@@ -53,12 +53,12 @@ foto(6, T("cor") - 0.05, T("afeto") - 0.04);
 foto(15, T("afeto") - 0.04, T("verdade") - 0.04);
 foto(5, T("verdade") - 0.04, T("Na") - 0.06);
 foto(8, T("parte") - 0.08, T("Estão") - 0.05, "Dona Ivone Lara");
-foto(16, T("Estão") - 0.05, T("principalmente") - 0.05);
-foto(11, T("principalmente") - 0.05, T("Walter", 33) - 0.05);
-foto(13, T("Walter", 33) - 0.05, T("é o instante") - 0.04);
-foto(7, T("é o instante") - 0.04, T("arte acontece") - 0.05);
-foto(14, T("arte acontece") - 0.05, T("Porque") - 0.06);
-foto(2, T("mostra") - 0.05, DUR);
+foto(16, T("Estão") - 0.05, T("principalmente") - 0.05, "", true);
+foto(11, T("principalmente") - 0.05, T("Walter", 30) - 0.05, "", true);
+foto(13, T("Walter", 30) - 0.05, T("é o instante") - 0.04, "", true);
+foto(7, T("é o instante") - 0.04, T("arte acontece") - 0.05, "", true);
+foto(14, T("arte acontece") - 0.05, T("Porque") - 0.06, "", true);
+foto(2, T("mostra") - 0.05, DUR + 0.3);
 // final: escurece devagar
 el("fim", DUR - 1.2, DUR, `<i class="escuro"></i>`, "left:0;top:0;width:1080px;height:1920px", 3);
 tw(`tl.fromTo("#fim .escuro", { opacity: 0 }, { opacity: 0.85, duration: 1.2, ease: "power1.in" }, ${f(DUR - 1.2)});`);
@@ -80,17 +80,24 @@ grupos.forEach((gr, i) => {
   if (gr.some(ehChave)) som("click-soft", a, 0.035);
 });
 
+const CORTES = JSON.parse(fs.readFileSync(path.join(P, "assets/cortes.json"), "utf8"));
+const CAM = [`tl.set("#camera", { scale: 1 }, 0);`, ...CORTES.map((t, i) => `tl.set("#camera", { scale: ${i % 2 ? 1 : 1.1} }, ${f(t)});`)].join("\n      ");
+CORTES.forEach((t) => som("whoosh-short", t - 0.03, 0.02));
 const FONTES = `<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,500;1,600&family=Poppins:wght@500;600&display=swap" rel="stylesheet">`;
 fs.mkdirSync(path.join(P, "compositions"), { recursive: true });
 fs.writeFileSync(path.join(P, "compositions/fotos.html"), `<template>
+  ${FONTES}
   <style>
     #root { position: absolute; inset: 0; } .ui { position: absolute; }
-    .foto { position: absolute; inset: 0; overflow: hidden; background: #0d0806; }
-    .cv { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-    .bg { position: absolute; inset: -60px; width: calc(100% + 120px); height: calc(100% + 120px); object-fit: cover; filter: blur(40px) brightness(0.45) saturate(1.1); }
-    .fr { position: absolute; left: 40px; right: 40px; top: 50%; transform-origin: 50% 50%; margin-top: -440px; height: 880px; display: flex; align-items: center; justify-content: center; }
-    .fr img { max-width: 100%; max-height: 100%; box-shadow: 0 30px 80px rgba(0,0,0,0.55); }
-    .rot { position: absolute; left: 0; right: 0; bottom: 230px; text-align: center; font-family: "Playfair Display"; font-style: italic; font-weight: 500; font-size: 58px; color: ${CR}; text-shadow: 0 3px 18px rgba(0,0,0,0.7); }
+    .cena { position: absolute; inset: 0; }
+    .bg { position: absolute; inset: -60px; width: calc(100% + 120px); height: calc(100% + 120px); object-fit: cover; filter: blur(36px) brightness(0.5) saturate(1.1); }
+    .pos { position: absolute; left: 0; right: 0; display: flex; }
+    .pos.centro { top: 150px; justify-content: center; }
+    .pos.esq, .pos.dir { top: 1340px; padding: 0 70px; } .pos.esq { justify-content: flex-start; } .pos.dir { justify-content: flex-end; }
+    .pos.esq .card img, .pos.dir .card img { max-width: 580px; max-height: 470px; }
+    .card { padding: 18px 18px 26px; background: #f7f1e6; box-shadow: 0 30px 70px rgba(0,0,0,0.5); }
+    .card img { display: block; max-width: 740px; max-height: 860px; }
+    .rot { margin-top: 8px; text-align: center; font-family: "Playfair Display"; font-style: italic; font-weight: 600; font-size: 38px; color: #2a1d15; }
     .flash { position: absolute; inset: 0; background: #fff; opacity: 0; }
     .escuro { position: absolute; inset: 0; background: #000; opacity: 0; }
   </style>
@@ -158,7 +165,7 @@ fs.writeFileSync(path.join(P, "index.html"), `<!doctype html>
 ${audios}    </div>
     <script>
       const tl = gsap.timeline({ paused: true });
-      tl.fromTo("#camera", { scale: 1.0 }, { scale: 1.06, duration: ${f(DUR)}, ease: "none" }, 0);
+      ${CAM}
       window.__timelines["main"] = tl;
     </script>
   </body>

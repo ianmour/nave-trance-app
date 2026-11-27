@@ -199,7 +199,7 @@ grupos.forEach((gr, i) => {
   const linhas = gr.map((p) => `<span class="${ehChave(p) ? "ch" : "nm"}">${esc(p.texto.replace(/[.,!?;:]+$/, ""))}</span>`).join(" ");
   lh += `      <div id="lg${i}" class="clip grupo" data-start="${f(a)}" data-duration="${f(b - a)}" data-track-index="50" style="z-index:50"><div class="cx">${linhas}</div></div>\n`;
   tw(`tl.fromTo("#lg${i} .cx", { opacity: 0, y: 14, scale: 0.96 }, { opacity: 1, y: 0, scale: 1, duration: 0.2, ease: "power2.out" }, ${f(a)});`);
-  gr.forEach((p) => { if (ehChave(p)) { const k = gr.indexOf(p); tw(`tl.fromTo("#lg${i} .cx span:nth-child(${k + 1})", { scale: 1.35 }, { scale: 1, duration: 0.3, ease: "back.out(2)" }, ${f(Math.max(a, p.ini - 0.04))});`); } });
+  gr.forEach((p) => { if (ehChave(p)) { const k = gr.indexOf(p); tw(`tl.fromTo("#lg${i} .cx span:nth-child(${k + 1})", { scale: 1.25 }, { scale: 1, duration: 0.3, ease: "back.out(2)", immediateRender: false }, ${f(Math.max(a, p.ini - 0.04))});`); } });
   if (gr.some(ehChave)) som("click-soft", a, 0.03);
 });
 
@@ -255,7 +255,7 @@ fs.writeFileSync(path.join(P, "index.html"), `<!doctype html>
       #tremor { position: absolute; inset: 0; z-index: 72; background: #ffb070; mix-blend-mode: soft-light; opacity: 0.05; pointer-events: none; }
       .grupo { position: absolute; left: 70px; width: 940px; top: 1200px; text-align: center; }
       .cx { display: inline-block; line-height: 1.1; color: ${CR}; text-shadow: 0 2px 18px rgba(0,0,0,0.8), 0 0 3px rgba(0,0,0,0.7); }
-      .nm, .ch { display: inline-block; margin: 0 0.13em; }
+      .nm, .ch { display: inline-block; margin: 0 0.13em; } .ch { margin: 0 0.2em; transform-origin: 50% 70%; }
       .nm { font-family: "Poppins"; font-weight: 500; font-size: 58px; letter-spacing: -0.01em; }
       .ch { font-family: "Playfair Display"; font-style: italic; font-weight: 600; font-size: 92px; letter-spacing: -0.01em; }
     </style>

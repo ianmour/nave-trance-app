@@ -42,7 +42,7 @@
       #tremor { position: absolute; inset: 0; z-index: 72; background: #ffb070; mix-blend-mode: soft-light; opacity: 0.05; pointer-events: none; }
       .grupo { position: absolute; left: 70px; width: 940px; top: 1200px; text-align: center; }
       .cx { display: inline-block; line-height: 1.1; color: #F3E6C8; text-shadow: 0 2px 18px rgba(0,0,0,0.8), 0 0 3px rgba(0,0,0,0.7); }
-      .nm, .ch { display: inline-block; margin: 0 0.13em; }
+      .nm, .ch { display: inline-block; margin: 0 0.13em; } .ch { margin: 0 0.2em; transform-origin: 50% 70%; }
       .nm { font-family: "Poppins"; font-weight: 500; font-size: 58px; letter-spacing: -0.01em; }
       .ch { font-family: "Playfair Display"; font-style: italic; font-weight: 600; font-size: 92px; letter-spacing: -0.01em; }
     </style>
@@ -1285,17 +1285,17 @@
       tl.set("#tremor", { opacity: 0.047 }, 48.500);
       tl.fromTo("#lg0 .cx", { opacity: 0, y: 14, scale: 0.96 }, { opacity: 1, y: 0, scale: 1, duration: 0.2, ease: "power2.out" }, 0.050);
       tl.fromTo("#lg1 .cx", { opacity: 0, y: 14, scale: 0.96 }, { opacity: 1, y: 0, scale: 1, duration: 0.2, ease: "power2.out" }, 1.740);
-      tl.fromTo("#lg1 .cx span:nth-child(3)", { scale: 1.35 }, { scale: 1, duration: 0.3, ease: "back.out(2)" }, 2.640);
+      tl.fromTo("#lg1 .cx span:nth-child(3)", { scale: 1.25 }, { scale: 1, duration: 0.3, ease: "back.out(2)", immediateRender: false }, 2.640);
       tl.fromTo("#lg2 .cx", { opacity: 0, y: 14, scale: 0.96 }, { opacity: 1, y: 0, scale: 1, duration: 0.2, ease: "power2.out" }, 3.456);
-      tl.fromTo("#lg2 .cx span:nth-child(1)", { scale: 1.35 }, { scale: 1, duration: 0.3, ease: "back.out(2)" }, 3.476);
-      tl.fromTo("#lg2 .cx span:nth-child(2)", { scale: 1.35 }, { scale: 1, duration: 0.3, ease: "back.out(2)" }, 3.726);
+      tl.fromTo("#lg2 .cx span:nth-child(1)", { scale: 1.25 }, { scale: 1, duration: 0.3, ease: "back.out(2)", immediateRender: false }, 3.476);
+      tl.fromTo("#lg2 .cx span:nth-child(2)", { scale: 1.25 }, { scale: 1, duration: 0.3, ease: "back.out(2)", immediateRender: false }, 3.726);
       tl.fromTo("#lg3 .cx", { opacity: 0, y: 14, scale: 0.96 }, { opacity: 1, y: 0, scale: 1, duration: 0.2, ease: "power2.out" }, 3.996);
       tl.fromTo("#lg4 .cx", { opacity: 0, y: 14, scale: 0.96 }, { opacity: 1, y: 0, scale: 1, duration: 0.2, ease: "power2.out" }, 4.786);
-      tl.fromTo("#lg4 .cx span:nth-child(1)", { scale: 1.35 }, { scale: 1, duration: 0.3, ease: "back.out(2)" }, 4.806);
+      tl.fromTo("#lg4 .cx span:nth-child(1)", { scale: 1.25 }, { scale: 1, duration: 0.3, ease: "back.out(2)", immediateRender: false }, 4.806);
       tl.fromTo("#lg5 .cx", { opacity: 0, y: 14, scale: 0.96 }, { opacity: 1, y: 0, scale: 1, duration: 0.2, ease: "power2.out" }, 5.836);
-      tl.fromTo("#lg5 .cx span:nth-child(2)", { scale: 1.35 }, { scale: 1, duration: 0.3, ease: "back.out(2)" }, 6.166);
+      tl.fromTo("#lg5 .cx span:nth-child(2)", { scale: 1.25 }, { scale: 1, duration: 0.3, ease: "back.out(2)", immediateRender: false }, 6.166);
       tl.fromTo("#lg6 .cx", { opacity: 0, y: 14, scale: 0.96 }, { opacity: 1, y: 0, scale: 1, duration: 0.2, ease: "power2.out" }, 7.120);
-      tl.fromTo("#lg6 .cx span:nth-child(3)", { scale: 1.35 }, { scale: 1, duration: 0.3, ease: "back.out(2)" }, 7.640);
+      tl.fromTo("#lg6 .cx span:nth-child(3)", { scale: 1.25 }, { scale: 1, duration: 0.3, ease: "back.out(2)", immediateRender: false }, 7.640);
       tl.fromTo("#lg7 .cx", { opacity: 0, y: 14, scale: 0.96 }, { opacity: 1, y: 0, scale: 1, duration: 0.2, ease: "power2.out" }, 8.140);
       tl.fromTo("#lg8 .cx", { opacity: 0, y: 14, scale: 0.96 }, { opacity: 1, y: 0, scale: 1, duration: 0.2, ease: "power2.out" }, 8.999);
       tl.fromTo("#lg9 .cx", { opacity: 0, y: 14, scale: 0.96 }, { opacity: 1, y: 0, scale: 1, duration: 0.2, ease: "power2.out" }, 9.913);
@@ -1303,65 +1303,65 @@
       tl.fromTo("#lg11 .cx", { opacity: 0, y: 14, scale: 0.96 }, { opacity: 1, y: 0, scale: 1, duration: 0.2, ease: "power2.out" }, 11.443);
       tl.fromTo("#lg12 .cx", { opacity: 0, y: 14, scale: 0.96 }, { opacity: 1, y: 0, scale: 1, duration: 0.2, ease: "power2.out" }, 12.633);
       tl.fromTo("#lg13 .cx", { opacity: 0, y: 14, scale: 0.96 }, { opacity: 1, y: 0, scale: 1, duration: 0.2, ease: "power2.out" }, 13.403);
-      tl.fromTo("#lg13 .cx span:nth-child(1)", { scale: 1.35 }, { scale: 1, duration: 0.3, ease: "back.out(2)" }, 13.423);
+      tl.fromTo("#lg13 .cx span:nth-child(1)", { scale: 1.25 }, { scale: 1, duration: 0.3, ease: "back.out(2)", immediateRender: false }, 13.423);
       tl.fromTo("#lg14 .cx", { opacity: 0, y: 14, scale: 0.96 }, { opacity: 1, y: 0, scale: 1, duration: 0.2, ease: "power2.out" }, 14.303);
-      tl.fromTo("#lg14 .cx span:nth-child(2)", { scale: 1.35 }, { scale: 1, duration: 0.3, ease: "back.out(2)" }, 14.903);
+      tl.fromTo("#lg14 .cx span:nth-child(2)", { scale: 1.25 }, { scale: 1, duration: 0.3, ease: "back.out(2)", immediateRender: false }, 14.903);
       tl.fromTo("#lg15 .cx", { opacity: 0, y: 14, scale: 0.96 }, { opacity: 1, y: 0, scale: 1, duration: 0.2, ease: "power2.out" }, 15.373);
       tl.fromTo("#lg16 .cx", { opacity: 0, y: 14, scale: 0.96 }, { opacity: 1, y: 0, scale: 1, duration: 0.2, ease: "power2.out" }, 16.373);
-      tl.fromTo("#lg16 .cx span:nth-child(2)", { scale: 1.35 }, { scale: 1, duration: 0.3, ease: "back.out(2)" }, 16.583);
+      tl.fromTo("#lg16 .cx span:nth-child(2)", { scale: 1.25 }, { scale: 1, duration: 0.3, ease: "back.out(2)", immediateRender: false }, 16.583);
       tl.fromTo("#lg17 .cx", { opacity: 0, y: 14, scale: 0.96 }, { opacity: 1, y: 0, scale: 1, duration: 0.2, ease: "power2.out" }, 17.143);
       tl.fromTo("#lg18 .cx", { opacity: 0, y: 14, scale: 0.96 }, { opacity: 1, y: 0, scale: 1, duration: 0.2, ease: "power2.out" }, 17.333);
       tl.fromTo("#lg19 .cx", { opacity: 0, y: 14, scale: 0.96 }, { opacity: 1, y: 0, scale: 1, duration: 0.2, ease: "power2.out" }, 18.163);
       tl.fromTo("#lg20 .cx", { opacity: 0, y: 14, scale: 0.96 }, { opacity: 1, y: 0, scale: 1, duration: 0.2, ease: "power2.out" }, 18.853);
       tl.fromTo("#lg21 .cx", { opacity: 0, y: 14, scale: 0.96 }, { opacity: 1, y: 0, scale: 1, duration: 0.2, ease: "power2.out" }, 19.723);
-      tl.fromTo("#lg21 .cx span:nth-child(2)", { scale: 1.35 }, { scale: 1, duration: 0.3, ease: "back.out(2)" }, 20.303);
+      tl.fromTo("#lg21 .cx span:nth-child(2)", { scale: 1.25 }, { scale: 1, duration: 0.3, ease: "back.out(2)", immediateRender: false }, 20.303);
       tl.fromTo("#lg22 .cx", { opacity: 0, y: 14, scale: 0.96 }, { opacity: 1, y: 0, scale: 1, duration: 0.2, ease: "power2.out" }, 20.483);
-      tl.fromTo("#lg22 .cx span:nth-child(1)", { scale: 1.35 }, { scale: 1, duration: 0.3, ease: "back.out(2)" }, 20.503);
-      tl.fromTo("#lg22 .cx span:nth-child(3)", { scale: 1.35 }, { scale: 1, duration: 0.3, ease: "back.out(2)" }, 21.203);
+      tl.fromTo("#lg22 .cx span:nth-child(1)", { scale: 1.25 }, { scale: 1, duration: 0.3, ease: "back.out(2)", immediateRender: false }, 20.503);
+      tl.fromTo("#lg22 .cx span:nth-child(3)", { scale: 1.25 }, { scale: 1, duration: 0.3, ease: "back.out(2)", immediateRender: false }, 21.203);
       tl.fromTo("#lg23 .cx", { opacity: 0, y: 14, scale: 0.96 }, { opacity: 1, y: 0, scale: 1, duration: 0.2, ease: "power2.out" }, 21.930);
       tl.fromTo("#lg24 .cx", { opacity: 0, y: 14, scale: 0.96 }, { opacity: 1, y: 0, scale: 1, duration: 0.2, ease: "power2.out" }, 22.740);
       tl.fromTo("#lg25 .cx", { opacity: 0, y: 14, scale: 0.96 }, { opacity: 1, y: 0, scale: 1, duration: 0.2, ease: "power2.out" }, 23.450);
       tl.fromTo("#lg26 .cx", { opacity: 0, y: 14, scale: 0.96 }, { opacity: 1, y: 0, scale: 1, duration: 0.2, ease: "power2.out" }, 24.390);
-      tl.fromTo("#lg26 .cx span:nth-child(2)", { scale: 1.35 }, { scale: 1, duration: 0.3, ease: "back.out(2)" }, 24.580);
+      tl.fromTo("#lg26 .cx span:nth-child(2)", { scale: 1.25 }, { scale: 1, duration: 0.3, ease: "back.out(2)", immediateRender: false }, 24.580);
       tl.fromTo("#lg27 .cx", { opacity: 0, y: 14, scale: 0.96 }, { opacity: 1, y: 0, scale: 1, duration: 0.2, ease: "power2.out" }, 25.156);
       tl.fromTo("#lg28 .cx", { opacity: 0, y: 14, scale: 0.96 }, { opacity: 1, y: 0, scale: 1, duration: 0.2, ease: "power2.out" }, 26.356);
       tl.fromTo("#lg29 .cx", { opacity: 0, y: 14, scale: 0.96 }, { opacity: 1, y: 0, scale: 1, duration: 0.2, ease: "power2.out" }, 27.216);
-      tl.fromTo("#lg29 .cx span:nth-child(1)", { scale: 1.35 }, { scale: 1, duration: 0.3, ease: "back.out(2)" }, 27.236);
+      tl.fromTo("#lg29 .cx span:nth-child(1)", { scale: 1.25 }, { scale: 1, duration: 0.3, ease: "back.out(2)", immediateRender: false }, 27.236);
       tl.fromTo("#lg30 .cx", { opacity: 0, y: 14, scale: 0.96 }, { opacity: 1, y: 0, scale: 1, duration: 0.2, ease: "power2.out" }, 27.936);
-      tl.fromTo("#lg30 .cx span:nth-child(3)", { scale: 1.35 }, { scale: 1, duration: 0.3, ease: "back.out(2)" }, 28.446);
+      tl.fromTo("#lg30 .cx span:nth-child(3)", { scale: 1.25 }, { scale: 1, duration: 0.3, ease: "back.out(2)", immediateRender: false }, 28.446);
       tl.fromTo("#lg31 .cx", { opacity: 0, y: 14, scale: 0.96 }, { opacity: 1, y: 0, scale: 1, duration: 0.2, ease: "power2.out" }, 28.736);
       tl.fromTo("#lg32 .cx", { opacity: 0, y: 14, scale: 0.96 }, { opacity: 1, y: 0, scale: 1, duration: 0.2, ease: "power2.out" }, 29.236);
       tl.fromTo("#lg33 .cx", { opacity: 0, y: 14, scale: 0.96 }, { opacity: 1, y: 0, scale: 1, duration: 0.2, ease: "power2.out" }, 30.156);
       tl.fromTo("#lg34 .cx", { opacity: 0, y: 14, scale: 0.96 }, { opacity: 1, y: 0, scale: 1, duration: 0.2, ease: "power2.out" }, 30.836);
       tl.fromTo("#lg35 .cx", { opacity: 0, y: 14, scale: 0.96 }, { opacity: 1, y: 0, scale: 1, duration: 0.2, ease: "power2.out" }, 31.556);
-      tl.fromTo("#lg35 .cx span:nth-child(1)", { scale: 1.35 }, { scale: 1, duration: 0.3, ease: "back.out(2)" }, 31.576);
+      tl.fromTo("#lg35 .cx span:nth-child(1)", { scale: 1.25 }, { scale: 1, duration: 0.3, ease: "back.out(2)", immediateRender: false }, 31.576);
       tl.fromTo("#lg36 .cx", { opacity: 0, y: 14, scale: 0.96 }, { opacity: 1, y: 0, scale: 1, duration: 0.2, ease: "power2.out" }, 32.426);
-      tl.fromTo("#lg36 .cx span:nth-child(1)", { scale: 1.35 }, { scale: 1, duration: 0.3, ease: "back.out(2)" }, 32.446);
+      tl.fromTo("#lg36 .cx span:nth-child(1)", { scale: 1.25 }, { scale: 1, duration: 0.3, ease: "back.out(2)", immediateRender: false }, 32.446);
       tl.fromTo("#lg37 .cx", { opacity: 0, y: 14, scale: 0.96 }, { opacity: 1, y: 0, scale: 1, duration: 0.2, ease: "power2.out" }, 33.166);
       tl.fromTo("#lg38 .cx", { opacity: 0, y: 14, scale: 0.96 }, { opacity: 1, y: 0, scale: 1, duration: 0.2, ease: "power2.out" }, 34.116);
-      tl.fromTo("#lg38 .cx span:nth-child(3)", { scale: 1.35 }, { scale: 1, duration: 0.3, ease: "back.out(2)" }, 34.476);
+      tl.fromTo("#lg38 .cx span:nth-child(3)", { scale: 1.25 }, { scale: 1, duration: 0.3, ease: "back.out(2)", immediateRender: false }, 34.476);
       tl.fromTo("#lg39 .cx", { opacity: 0, y: 14, scale: 0.96 }, { opacity: 1, y: 0, scale: 1, duration: 0.2, ease: "power2.out" }, 34.906);
-      tl.fromTo("#lg39 .cx span:nth-child(3)", { scale: 1.35 }, { scale: 1, duration: 0.3, ease: "back.out(2)" }, 35.456);
+      tl.fromTo("#lg39 .cx span:nth-child(3)", { scale: 1.25 }, { scale: 1, duration: 0.3, ease: "back.out(2)", immediateRender: false }, 35.456);
       tl.fromTo("#lg40 .cx", { opacity: 0, y: 14, scale: 0.96 }, { opacity: 1, y: 0, scale: 1, duration: 0.2, ease: "power2.out" }, 35.826);
       tl.fromTo("#lg41 .cx", { opacity: 0, y: 14, scale: 0.96 }, { opacity: 1, y: 0, scale: 1, duration: 0.2, ease: "power2.out" }, 36.296);
       tl.fromTo("#lg42 .cx", { opacity: 0, y: 14, scale: 0.96 }, { opacity: 1, y: 0, scale: 1, duration: 0.2, ease: "power2.out" }, 36.996);
       tl.fromTo("#lg43 .cx", { opacity: 0, y: 14, scale: 0.96 }, { opacity: 1, y: 0, scale: 1, duration: 0.2, ease: "power2.out" }, 37.516);
-      tl.fromTo("#lg43 .cx span:nth-child(1)", { scale: 1.35 }, { scale: 1, duration: 0.3, ease: "back.out(2)" }, 37.536);
+      tl.fromTo("#lg43 .cx span:nth-child(1)", { scale: 1.25 }, { scale: 1, duration: 0.3, ease: "back.out(2)", immediateRender: false }, 37.536);
       tl.fromTo("#lg44 .cx", { opacity: 0, y: 14, scale: 0.96 }, { opacity: 1, y: 0, scale: 1, duration: 0.2, ease: "power2.out" }, 38.656);
-      tl.fromTo("#lg44 .cx span:nth-child(2)", { scale: 1.35 }, { scale: 1, duration: 0.3, ease: "back.out(2)" }, 38.946);
+      tl.fromTo("#lg44 .cx span:nth-child(2)", { scale: 1.25 }, { scale: 1, duration: 0.3, ease: "back.out(2)", immediateRender: false }, 38.946);
       tl.fromTo("#lg45 .cx", { opacity: 0, y: 14, scale: 0.96 }, { opacity: 1, y: 0, scale: 1, duration: 0.2, ease: "power2.out" }, 39.653);
       tl.fromTo("#lg46 .cx", { opacity: 0, y: 14, scale: 0.96 }, { opacity: 1, y: 0, scale: 1, duration: 0.2, ease: "power2.out" }, 39.953);
       tl.fromTo("#lg47 .cx", { opacity: 0, y: 14, scale: 0.96 }, { opacity: 1, y: 0, scale: 1, duration: 0.2, ease: "power2.out" }, 40.303);
       tl.fromTo("#lg48 .cx", { opacity: 0, y: 14, scale: 0.96 }, { opacity: 1, y: 0, scale: 1, duration: 0.2, ease: "power2.out" }, 40.953);
       tl.fromTo("#lg49 .cx", { opacity: 0, y: 14, scale: 0.96 }, { opacity: 1, y: 0, scale: 1, duration: 0.2, ease: "power2.out" }, 42.013);
       tl.fromTo("#lg50 .cx", { opacity: 0, y: 14, scale: 0.96 }, { opacity: 1, y: 0, scale: 1, duration: 0.2, ease: "power2.out" }, 42.823);
-      tl.fromTo("#lg50 .cx span:nth-child(2)", { scale: 1.35 }, { scale: 1, duration: 0.3, ease: "back.out(2)" }, 43.023);
+      tl.fromTo("#lg50 .cx span:nth-child(2)", { scale: 1.25 }, { scale: 1, duration: 0.3, ease: "back.out(2)", immediateRender: false }, 43.023);
       tl.fromTo("#lg51 .cx", { opacity: 0, y: 14, scale: 0.96 }, { opacity: 1, y: 0, scale: 1, duration: 0.2, ease: "power2.out" }, 43.440);
       tl.fromTo("#lg52 .cx", { opacity: 0, y: 14, scale: 0.96 }, { opacity: 1, y: 0, scale: 1, duration: 0.2, ease: "power2.out" }, 44.320);
       tl.fromTo("#lg53 .cx", { opacity: 0, y: 14, scale: 0.96 }, { opacity: 1, y: 0, scale: 1, duration: 0.2, ease: "power2.out" }, 44.900);
       tl.fromTo("#lg54 .cx", { opacity: 0, y: 14, scale: 0.96 }, { opacity: 1, y: 0, scale: 1, duration: 0.2, ease: "power2.out" }, 45.600);
       tl.fromTo("#lg55 .cx", { opacity: 0, y: 14, scale: 0.96 }, { opacity: 1, y: 0, scale: 1, duration: 0.2, ease: "power2.out" }, 46.080);
-      tl.fromTo("#lg55 .cx span:nth-child(3)", { scale: 1.35 }, { scale: 1, duration: 0.3, ease: "back.out(2)" }, 46.700);
+      tl.fromTo("#lg55 .cx span:nth-child(3)", { scale: 1.25 }, { scale: 1, duration: 0.3, ease: "back.out(2)", immediateRender: false }, 46.700);
       window.__timelines["main"] = tl;
     </script>
   </body>

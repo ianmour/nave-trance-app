@@ -9,7 +9,12 @@ TXT = {"gancho":"Imagine transformar o Brasil em poesia.","walter":"Walter Firmo
 "museus":"Estão em museus, livros e, principalmente, no jeito que a gente se reconhece.","provou":"Walter provou que a fotografia não é só técnica:",
 "instante":"é o instante em que a vida se deixa ver e a arte acontece sem pedir licença.",
 "fim":"Porque, no fim, é isso que a fotografia faz: transforma o real em memória,","encontro":"sendo o encontro entre o que o mundo mostra e o que a gente sente."}
-M=json.load(open("mapa.json")); x=np.frombuffer(subprocess.run(["ffmpeg","-v","error","-i","montagem.mp4","-vn","-ac","1","-ar","16000","-f","s16le","-"],capture_output=True).stdout,np.int16)/32768
+import sys
+M0=json.load(open("mapa.json")); M=[]
+for m in M0:
+    if M and M[-1]["nome"]==m["nome"]: M[-1]["fim"]=m["fim"]
+    else: M.append(dict(m))
+x=np.frombuffer(subprocess.run(["ffmpeg","-v","error","-i",sys.argv[1] if len(sys.argv)>1 else "montagem.mp4","-vn","-ac","1","-ar","16000","-f","s16le","-"],capture_output=True).stdout,np.int16)/32768
 fr=x[:len(x)//160*160].reshape(-1,160); db=20*np.log10(np.sqrt((fr**2).mean(1))+1e-9)
 out=[]
 for m in M:
@@ -23,4 +28,4 @@ for m in M:
         a=idx[int(acc/tot*(len(idx)-1))]; acc+=w; b=idx[min(len(idx)-1,int(acc/tot*(len(idx)-1)))]
         out.append({"text":p,"offsets":{"from":int((m["ini"]+a/100)*1000),"to":int((m["ini"]+b/100)*1000)}})
     print(m["nome"]," ".join(f'{o["text"]}@{o["offsets"]["from"]/1000:.2f}' for o in out[-len(palavras):]))
-json.dump({"transcription":out},open("palavras.json","w"),ensure_ascii=False)
+json.dump({"transcription":out},open(sys.argv[2] if len(sys.argv)>2 else "palavras.json","w"),ensure_ascii=False)

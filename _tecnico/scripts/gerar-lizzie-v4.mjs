@@ -12,7 +12,7 @@ const W = 1080, H = 1920, CR = "#F3E6C8", VERM = "#C2412F";
 const f = (n) => (+n).toFixed(3);
 const esc = (s) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
 const nrm = (s) => s.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/[^a-z0-9]/g, "");
-const FALA = +process.argv[4], DUR = +(FALA + 1.5).toFixed(2);
+const FALA = +process.argv[4], DUR = +(FALA + 2.8).toFixed(2);
 
 const PAL = JSON.parse(fs.readFileSync(TJ, "utf8")).transcription.map((x) => ({ texto: x.text.trim(), ini: x.offsets.from / 1000, fim: x.offsets.to / 1000 }));
 const T = (frag, desde = 0) => { const ws = frag.split(" ").map(nrm); for (let i = 0; i < PAL.length; i++) if (PAL[i].ini >= desde && ws.every((w, k) => nrm(PAL[i + k]?.texto || "") === w)) return PAL[i].ini; throw new Error("não achei: " + frag); };
@@ -153,7 +153,8 @@ const salta = (id, t, s = 1.12, dur = 0.35) => { tw(`tl.fromTo("#${id} .pop", { 
   papel(t0, DUR + 0.2,
     impressa("e7c", 3, 40, 110, 300, -7, false) + impressa("e7d", 6, 740, 90, 290, 6, false) +
     impressa("e7a", 8, 30, 640, 290, 5, false) + impressa("e7b", 15, 760, 620, 280, -5, false) +
-        `<div id="e7cr" class="maq" style="left:0;right:0;top:1780px;text-align:center;font-size:26px;letter-spacing:0.25em;opacity:0.8">FOTOGRAFIAS · WALTER FIRMO</div>`, "sobe", "fim");
+        `<div id="assin" style="position:absolute;left:0;right:0;top:1340px;text-align:center;opacity:0;z-index:13"><div style="font-family:\'Playfair Display\';font-style:italic;font-weight:600;font-size:110px;color:${CR};text-shadow:0 4px 20px rgba(0,0,0,0.6)">Walter Firmo</div><i style="display:block;margin:10px auto 0;width:420px;height:4px;background:${CR};opacity:0.8;transform-origin:0 50%"></i></div><div id="vaz" style="position:absolute;inset:0;z-index:14;mix-blend-mode:screen;pointer-events:none"><i class="luz"></i></div>` +
+    `<div id="e7cr" class="maq" style="left:0;right:0;top:1780px;text-align:center;font-size:26px;letter-spacing:0.25em;opacity:0.8">FOTOGRAFIAS · WALTER FIRMO</div>`, "sobe", "fim");
   [["#e7c", t0 + 0.2, -7], ["#e7d", T("mundo") - 0.1, 6], ["#e7a", T("mostra") - 0.05, 5], ["#e7b", T("mostra") + 0.15, -5]].forEach(([s, t, r], k) => {
     tw(`tl.fromTo("${s}", { scale: 1.5, rotation: ${r + [-20, 18, -14, 14][k]}, y: 150, opacity: 0 }, { scale: 1, rotation: ${r}, y: 0, opacity: 1, duration: 0.3, ease: "back.out(1.7)" }, ${f(t)});`); som("click", t, 0.07);
     tw(`tl.to("${s}", { y: ${k % 2 ? -18 : 18}, duration: ${f(DUR - t - 0.3)}, ease: "none" }, ${f(t + 0.3)});`);
@@ -161,11 +162,19 @@ const salta = (id, t, s = 1.12, dur = 0.35) => { tw(`tl.fromTo("#${id} .pop", { 
   tw(`tl.fromTo("#e7p", { y: 1300, rotation: 14 }, { y: 0, rotation: -2, duration: 0.5, ease: "back.out(1.2)" }, ${f(te)});`); som("whoosh", te - 0.1, 0.05);
   tw(`tl.to("#e7a, #e7b, #e7c, #e7d", { filter: "brightness(0.7)", duration: 0.4 }, ${f(te + 0.2)});`);
   tw(`tl.to("#e7p", { rotation: 1.5, scale: 1.05, duration: ${f(DUR - te - 0.5)}, ease: "sine.inOut" }, ${f(te + 0.5)});`);
-  tw(`tl.fromTo("#e7cr", { opacity: 0 }, { opacity: 0.8, duration: 0.4 }, ${f(tg + 0.3)});`); som("chime", tg + 0.1, 0.03);
+  // finalização: as fotos dele se afastam, ela fica em destaque, assinatura "Walter Firmo" e luz quente
+  const tf = FALA + 0.25;
+  [["#e7c", -160, -120], ["#e7d", 160, -120], ["#e7a", -180, 100], ["#e7b", 180, 100]].forEach(([s2, dx, dy]) => tw(`tl.to("${s2}", { x: ${dx}, y: ${dy}, opacity: 0.35, duration: 1.4, ease: "power2.inOut" }, ${f(tf)});`));
+  tw(`tl.to("#e7p", { y: -40, scale: 1.1, rotation: 0, duration: 1.4, ease: "power2.inOut" }, ${f(tf)});`);
+  tw(`tl.fromTo("#assin", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.6, ease: "power2.out" }, ${f(tf + 0.35)});`);
+  tw(`tl.fromTo("#assin i", { scaleX: 0 }, { scaleX: 1, duration: 0.7, ease: "power2.inOut" }, ${f(tf + 0.6)});`);
+  tw(`tl.fromTo("#e7cr", { opacity: 0 }, { opacity: 0.85, duration: 0.5 }, ${f(tf + 0.8)});`);
+  tw(`tl.fromTo("#vaz .luz", { opacity: 0, x: -500 }, { opacity: 0.35, x: 300, duration: 1.6, ease: "sine.inOut" }, ${f(tf + 0.5)});`);
+  som("chime", tf + 0.3, 0.035); som("whoosh-cinematic", tf, 0.03); som("click-soft", tf + 0.6, 0.05);
 }
 // final: escurece
-clip("fim", DUR - 1.0, DUR, `<i class="pre"></i>`, 45);
-tw(`tl.fromTo("#fim .pre", { opacity: 0 }, { opacity: 1, duration: 1.0, ease: "power1.in" }, ${f(DUR - 1.0)});`);
+clip("fim", DUR - 0.9, DUR, `<i class="pre"></i>`, 45);
+tw(`tl.fromTo("#fim .pre", { opacity: 0 }, { opacity: 1, duration: 0.9, ease: "power1.in" }, ${f(DUR - 0.9)});`);
 
 // ---------- câmera dela: começa com "soco" (chamada), depois aproximação lenta; troca de enquadramento nos cortes ----------
 const CENAS_ELA = [[0, T("Walter Firmo")], [T("mostrar"), T("Num tempo")], [T("Retratou"), T("em cada clique")], [T("Na época"), T("E hoje")], [T("E hoje"), T("Estão em museus")], [T("Porque"), T("sendo o encontro")]];
@@ -190,7 +199,7 @@ if (g.length) grupos.push(g);
 let lh = "";
 grupos.forEach((gr, i) => {
   const a = Math.max(0, gr[0].ini - 0.06), prox = grupos[i + 1];
-  const b = prox ? Math.min(prox[0].ini - 0.06, gr.at(-1).fim + 0.5) : DUR - 1.0;
+  const b = prox ? Math.min(prox[0].ini - 0.06, gr.at(-1).fim + 0.5) : FALA + 0.35;
   if (b - a < 0.1) return;
   const linhas = gr.map((p) => `<span class="${ehChave(p) ? "ch" : "nm"}">${esc(p.texto.replace(/[.,!?;:]+$/, ""))}</span>`).join(" ");
   lh += `      <div id="lg${i}" class="clip grupo" data-start="${f(a)}" data-duration="${f(b - a)}" data-track-index="50" style="z-index:50"><div class="cx">${linhas}</div></div>\n`;

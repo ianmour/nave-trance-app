@@ -9,10 +9,10 @@ TRAT = ("highpass=f=90,afftdn=nr=20:nf=-32:tn=1,agate=threshold=0.02:ratio=2.5:a
 COR = "eq=contrast=1.06:saturation=0.78:gamma=0.97,colorbalance=rs=0.06:gs=0.02:bs=-0.07:rm=0.05:bm=-0.05:rh=0.03:bh=-0.06"
 ins, v, a, cc, acc, mapa = [], "", "", "", 0.0, []
 for i, (n, s, e) in enumerate(C):
-    d = round((e - s) * 30) / 30
+    nq = round((e - s) * 30); d = nq / 30
     ins += ["-ss", f"{s - 0.5:.3f}", "-t", f"{d + 0.8:.3f}", "-i", SRC]
-    v += f"[{i}:v]trim=start=0.5:duration={d:.4f},setpts=PTS-STARTPTS,{COR},setsar=1,format=yuv420p[v{i}];"
-    a += (f"[{i}:a]aresample=48000,{TRAT},atrim=start=0.5:duration={d:.4f},asetpts=PTS-STARTPTS,"
+    v += f"[{i}:v]setpts=PTS-STARTPTS,trim=start_frame=15:end_frame={15 + nq},setpts=PTS-STARTPTS,{COR},setsar=1,format=yuv420p[v{i}];"
+    a += (f"[{i}:a]aresample=48000,{TRAT},atrim=start_sample=24000:end_sample={24000 + nq * 1600},asetpts=PTS-STARTPTS,"
           f"afade=t=in:d=0.008,afade=t=out:st={d - 0.012:.4f}:d=0.012[a{i}];")
     cc += f"[v{i}][a{i}]"; mapa.append({"nome": n, "s": s, "e": e, "ini": round(acc, 4), "fim": round(acc + d, 4)}); acc += d
 tmp = saida + ".tmp.mov"

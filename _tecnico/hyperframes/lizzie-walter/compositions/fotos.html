@@ -1,0 +1,69 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; } .ui { position: absolute; }
+    .foto { position: absolute; inset: 0; overflow: hidden; background: #0d0806; }
+    .cv { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+    .bg { position: absolute; inset: -60px; width: calc(100% + 120px); height: calc(100% + 120px); object-fit: cover; filter: blur(40px) brightness(0.45) saturate(1.1); }
+    .fr { position: absolute; left: 40px; right: 40px; top: 50%; transform-origin: 50% 50%; margin-top: -440px; height: 880px; display: flex; align-items: center; justify-content: center; }
+    .fr img { max-width: 100%; max-height: 100%; box-shadow: 0 30px 80px rgba(0,0,0,0.55); }
+    .rot { position: absolute; left: 0; right: 0; bottom: 230px; text-align: center; font-family: "Playfair Display"; font-style: italic; font-weight: 500; font-size: 58px; color: #F3E6C8; text-shadow: 0 3px 18px rgba(0,0,0,0.7); }
+    .flash { position: absolute; inset: 0; background: #fff; opacity: 0; }
+    .escuro { position: absolute; inset: 0; background: #000; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="fotos" data-width="1080" data-height="1920">
+      <div id="ft0" class="clip ui" data-start="3.780" data-duration="0.970" data-track-index="1" style="left:0;top:0;width:1080px;height:1920px" data-layout-allow-overlap data-layout-allow-occlusion><div class="foto"><img class="bg" src="assets/fotos/f9.jpg"><div class="fr"><img src="assets/fotos/f9.jpg"></div><i class="flash"></i></div></div>
+      <div id="ft1" class="clip ui" data-start="4.770" data-duration="2.540" data-track-index="1" style="left:0;top:0;width:1080px;height:1920px" data-layout-allow-overlap data-layout-allow-occlusion><div class="foto"><img class="cv" src="assets/fotos/f3.jpg"><i class="flash"></i></div></div>
+      <div id="ft2" class="clip ui" data-start="10.750" data-duration="3.330" data-track-index="1" style="left:0;top:0;width:1080px;height:1920px" data-layout-allow-overlap data-layout-allow-occlusion><div class="foto"><img class="bg" src="assets/fotos/f12.jpg"><div class="fr"><img src="assets/fotos/f12.jpg"></div><i class="flash"></i></div></div>
+      <div id="ft3" class="clip ui" data-start="17.180" data-duration="2.400" data-track-index="1" style="left:0;top:0;width:1080px;height:1920px" data-layout-allow-overlap data-layout-allow-occlusion><div class="foto"><img class="bg" src="assets/fotos/f4.jpg"><div class="fr"><img src="assets/fotos/f4.jpg"></div><i class="flash"></i></div></div>
+      <div id="ft4" class="clip ui" data-start="22.120" data-duration="2.530" data-track-index="1" style="left:0;top:0;width:1080px;height:1920px" data-layout-allow-overlap data-layout-allow-occlusion><div class="foto"><img class="cv" src="assets/fotos/f1.jpg"><i class="flash"></i></div></div>
+      <div id="ft5" class="clip ui" data-start="24.650" data-duration="0.420" data-track-index="1" style="left:0;top:0;width:1080px;height:1920px" data-layout-allow-overlap data-layout-allow-occlusion><div class="foto"><img class="cv" src="assets/fotos/f6.jpg"><i class="flash"></i></div></div>
+      <div id="ft6" class="clip ui" data-start="25.070" data-duration="0.660" data-track-index="1" style="left:0;top:0;width:1080px;height:1920px" data-layout-allow-overlap data-layout-allow-occlusion><div class="foto"><img class="cv" src="assets/fotos/f15.jpg"><i class="flash"></i></div></div>
+      <div id="ft7" class="clip ui" data-start="25.730" data-duration="1.350" data-track-index="1" style="left:0;top:0;width:1080px;height:1920px" data-layout-allow-overlap data-layout-allow-occlusion><div class="foto"><img class="cv" src="assets/fotos/f5.jpg"><i class="flash"></i></div></div>
+      <div id="ft8" class="clip ui" data-start="30.900" data-duration="2.590" data-track-index="1" style="left:0;top:0;width:1080px;height:1920px" data-layout-allow-overlap data-layout-allow-occlusion><div class="foto"><img class="cv" src="assets/fotos/f8.jpg"><div class="rot">Dona Ivone Lara</div><i class="flash"></i></div></div>
+      <div id="ft9" class="clip ui" data-start="33.490" data-duration="1.540" data-track-index="1" style="left:0;top:0;width:1080px;height:1920px" data-layout-allow-overlap data-layout-allow-occlusion><div class="foto"><img class="cv" src="assets/fotos/f16.jpg"><i class="flash"></i></div></div>
+      <div id="ft10" class="clip ui" data-start="35.030" data-duration="3.780" data-track-index="1" style="left:0;top:0;width:1080px;height:1920px" data-layout-allow-overlap data-layout-allow-occlusion><div class="foto"><img class="bg" src="assets/fotos/f11.jpg"><div class="fr"><img src="assets/fotos/f11.jpg"></div><i class="flash"></i></div></div>
+      <div id="ft11" class="clip ui" data-start="38.810" data-duration="3.130" data-track-index="1" style="left:0;top:0;width:1080px;height:1920px" data-layout-allow-overlap data-layout-allow-occlusion><div class="foto"><img class="cv" src="assets/fotos/f13.jpg"><i class="flash"></i></div></div>
+      <div id="ft12" class="clip ui" data-start="41.940" data-duration="1.920" data-track-index="1" style="left:0;top:0;width:1080px;height:1920px" data-layout-allow-overlap data-layout-allow-occlusion><div class="foto"><img class="cv" src="assets/fotos/f7.jpg"><i class="flash"></i></div></div>
+      <div id="ft13" class="clip ui" data-start="43.860" data-duration="2.340" data-track-index="1" style="left:0;top:0;width:1080px;height:1920px" data-layout-allow-overlap data-layout-allow-occlusion><div class="foto"><img class="cv" src="assets/fotos/f14.jpg"><i class="flash"></i></div></div>
+      <div id="ft14" class="clip ui" data-start="53.560" data-duration="1.840" data-track-index="1" style="left:0;top:0;width:1080px;height:1920px" data-layout-allow-overlap data-layout-allow-occlusion><div class="foto"><img class="cv" src="assets/fotos/f2.jpg"><i class="flash"></i></div></div>
+      <div id="fim" class="clip ui" data-start="54.200" data-duration="1.200" data-track-index="3" style="left:0;top:0;width:1080px;height:1920px" data-layout-allow-overlap data-layout-allow-occlusion><i class="escuro"></i></div>
+  </div>
+  <script>
+    (function () {
+      const tl = gsap.timeline({ paused: true });
+      tl.fromTo("#ft0 .cv, #ft0 .fr", { scale: 1.1 }, { scale: 1, duration: 1.270, ease: "none" }, 3.780);
+      tl.fromTo("#ft0 .flash", { opacity: 0.85 }, { opacity: 0, duration: 0.22, ease: "power2.out" }, 3.780);
+      tl.fromTo("#ft1 .cv, #ft1 .fr", { scale: 1.1 }, { scale: 1, duration: 2.840, ease: "none" }, 4.770);
+      tl.fromTo("#ft1 .flash", { opacity: 0.85 }, { opacity: 0, duration: 0.22, ease: "power2.out" }, 4.770);
+      tl.fromTo("#ft2 .cv, #ft2 .fr", { scale: 1.1 }, { scale: 1, duration: 3.630, ease: "none" }, 10.750);
+      tl.fromTo("#ft2 .flash", { opacity: 0.85 }, { opacity: 0, duration: 0.22, ease: "power2.out" }, 10.750);
+      tl.fromTo("#ft3 .cv, #ft3 .fr", { scale: 1.1 }, { scale: 1, duration: 2.700, ease: "none" }, 17.180);
+      tl.fromTo("#ft3 .flash", { opacity: 0.85 }, { opacity: 0, duration: 0.22, ease: "power2.out" }, 17.180);
+      tl.fromTo("#ft4 .cv, #ft4 .fr", { scale: 1.1 }, { scale: 1, duration: 2.830, ease: "none" }, 22.120);
+      tl.fromTo("#ft4 .flash", { opacity: 0.85 }, { opacity: 0, duration: 0.22, ease: "power2.out" }, 22.120);
+      tl.fromTo("#ft5 .cv, #ft5 .fr", { scale: 1.1 }, { scale: 1, duration: 0.720, ease: "none" }, 24.650);
+      tl.fromTo("#ft5 .flash", { opacity: 0.85 }, { opacity: 0, duration: 0.22, ease: "power2.out" }, 24.650);
+      tl.fromTo("#ft6 .cv, #ft6 .fr", { scale: 1.1 }, { scale: 1, duration: 0.960, ease: "none" }, 25.070);
+      tl.fromTo("#ft6 .flash", { opacity: 0.85 }, { opacity: 0, duration: 0.22, ease: "power2.out" }, 25.070);
+      tl.fromTo("#ft7 .cv, #ft7 .fr", { scale: 1.1 }, { scale: 1, duration: 1.650, ease: "none" }, 25.730);
+      tl.fromTo("#ft7 .flash", { opacity: 0.85 }, { opacity: 0, duration: 0.22, ease: "power2.out" }, 25.730);
+      tl.fromTo("#ft8 .cv, #ft8 .fr", { scale: 1.1 }, { scale: 1, duration: 2.890, ease: "none" }, 30.900);
+      tl.fromTo("#ft8 .flash", { opacity: 0.85 }, { opacity: 0, duration: 0.22, ease: "power2.out" }, 30.900);
+      tl.fromTo("#ft8 .rot", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4 }, 31.100);
+      tl.fromTo("#ft9 .cv, #ft9 .fr", { scale: 1.1 }, { scale: 1, duration: 1.840, ease: "none" }, 33.490);
+      tl.fromTo("#ft9 .flash", { opacity: 0.85 }, { opacity: 0, duration: 0.22, ease: "power2.out" }, 33.490);
+      tl.fromTo("#ft10 .cv, #ft10 .fr", { scale: 1.1 }, { scale: 1, duration: 4.080, ease: "none" }, 35.030);
+      tl.fromTo("#ft10 .flash", { opacity: 0.85 }, { opacity: 0, duration: 0.22, ease: "power2.out" }, 35.030);
+      tl.fromTo("#ft11 .cv, #ft11 .fr", { scale: 1.1 }, { scale: 1, duration: 3.430, ease: "none" }, 38.810);
+      tl.fromTo("#ft11 .flash", { opacity: 0.85 }, { opacity: 0, duration: 0.22, ease: "power2.out" }, 38.810);
+      tl.fromTo("#ft12 .cv, #ft12 .fr", { scale: 1.1 }, { scale: 1, duration: 2.220, ease: "none" }, 41.940);
+      tl.fromTo("#ft12 .flash", { opacity: 0.85 }, { opacity: 0, duration: 0.22, ease: "power2.out" }, 41.940);
+      tl.fromTo("#ft13 .cv, #ft13 .fr", { scale: 1.1 }, { scale: 1, duration: 2.640, ease: "none" }, 43.860);
+      tl.fromTo("#ft13 .flash", { opacity: 0.85 }, { opacity: 0, duration: 0.22, ease: "power2.out" }, 43.860);
+      tl.fromTo("#ft14 .cv, #ft14 .fr", { scale: 1.1 }, { scale: 1, duration: 2.140, ease: "none" }, 53.560);
+      tl.fromTo("#ft14 .flash", { opacity: 0.85 }, { opacity: 0, duration: 0.22, ease: "power2.out" }, 53.560);
+      tl.fromTo("#fim .escuro", { opacity: 0 }, { opacity: 0.85, duration: 1.2, ease: "power1.in" }, 54.200);
+      window.__timelines["fotos"] = tl;
+    })();
+  </script>
+</template>

@@ -3,10 +3,10 @@
 # (energia acima do ruído). O whisper se perde em clipes curtos, então aqui só usamos a energia do áudio.
 import json, subprocess, re, numpy as np
 TXT = {"gancho":"Imagine transformar o Brasil em poesia.","walter":"Walter Firmo começou com uma câmera emprestada e um sonho:",
-"beleza":"mostrar a beleza que o olhar comum não via.","tempo":"Num tempo em que a fotografia precisava ser perfeita, ele mostrou o imperfeito e fez disso arte.",
-"retratou":"Retratou a vida no cotidiano e, em cada clique, mostrou que o Brasil é feito de cor, afeto e verdade.",
+"beleza":"mostrar a beleza que o olhar comum não via.","tempo":"Num tempo em que a fotografia precisava ser perfeita, ele mostrou o imperfeito e fez disso","tempo2":"arte.",
+"retratou":"Retratou a vida no cotidiano e, em cada clique, mostrou que o Brasil é feito de cor,","retratou2":"afeto e verdade.",
 "epoca":"Na época, falaram que suas fotos eram fora do padrão.","hoje":"E hoje fazem parte da nossa história.",
-"museus":"Estão em museus, livros e, principalmente, no jeito que a gente se reconhece.","provou":"Walter provou que a fotografia não é só técnica:",
+"museus":"Estão em museus, livros,","museus2":"principalmente, no jeito que a gente se reconhece.","provou":"Walter provou que a fotografia não é só técnica:",
 "instante":"é o instante em que a vida se deixa ver e a arte acontece sem pedir licença.",
 "fim":"Porque, no fim, é isso que a fotografia faz: transforma o real em memória,","encontro":"sendo o encontro entre o que o mundo mostra e o que a gente sente."}
 import sys
@@ -18,7 +18,7 @@ x=np.frombuffer(subprocess.run(["ffmpeg","-v","error","-i",sys.argv[1] if len(sy
 fr=x[:len(x)//160*160].reshape(-1,160); db=20*np.log10(np.sqrt((fr**2).mean(1))+1e-9)
 out=[]
 for m in M:
-    i0,i1=int(m["ini"]*100),int(m["fim"]*100); seg=db[i0:i1]; piso=np.percentile(seg,10)
+    i0,i1=int(m["ini"]*100),int(m["fim"]*100); seg=db[i0:i1]; piso=min(np.percentile(seg,10), np.percentile(db,10)+2)
     v=seg>max(piso+10,-45)
     for k in range(len(v)):            # preenche buracos curtos (< 80 ms)
         if not v[k] and v[max(0,k-8):k].any() and v[k+1:k+9].any(): v[k]=True

@@ -16,9 +16,12 @@ for n, s, e in C:
     while k > i0 and fraco[k - 1] and on - k < 12: k -= 1
     ini = max(i0, k - 3)
     off = max(i for i in range(i0, i1) if forte[max(0, i - 2):i + 1].all())
-    k = off
-    while k < i1 and fraco[k + 1] and k - off < 15: k += 1
-    fim = min(i1, k + 6)
+    # fim: segue a cauda da última palavra (sílabas finais fracas como o "-ca" de "técnica"), tolerando vales de até 0,15 s
+    k = off; ult = off; i1b = min(len(fraco) - 1, i1 + 40)
+    while k < i1b and k - ult <= 15:
+        k += 1
+        if fraco[k]: ult = k
+    fim = min(i1b, ult + 8)
     # pausas internas
     cortes = []; run = 0
     for i in range(ini, fim):
@@ -33,5 +36,5 @@ for n, s, e in C:
         P.append([n, round(a + pos / 100, 3), round(a + (g0 + 5) / 100, 3)]); pos = g1 - 5
     P.append([n, round(a + pos / 100, 3), round(a + fim / 100, 3)])
     print(n, [s, e], "->", [p[1:] for p in P if p[0] == n])
-json.dump(P, open("pecas.json", "w"), indent=1)
+json.dump(P, open("pecas-auto.json", "w"), indent=1)
 print("total", round(sum(p[2] - p[1] for p in P), 2))

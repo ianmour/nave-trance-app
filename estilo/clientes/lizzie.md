@@ -14,3 +14,10 @@
 - **Cortes:** nada de picotar pausas dentro da frase (ficou "travado"). Cada frase inteira, cortada logo antes da 1ª palavra e logo depois da última. Começo direto, como chamada (sem respiro no início).
 - **Animação:** "motion vintage criativo": papel antigo escuro com borda rasgada, granulado de filme, pessoas das fotos recortadas como adesivo de borda creme, tremido de stop-motion, carimbo, letra de máquina de escrever, molduras, visor de câmera. Alterna cena de papel (rosto da foto) ↔ rosto dela. Final: o vídeo dela numa polaroid no meio dos recortes.
 - Script: `_tecnico/scripts/gerar-lizzie-v3.mjs` (montagem: `montar-lizzie-v3.py`).
+
+## Walter Firmo v4 (27/11) — pedidos sobre a v3
+- **Mostrar a foto INTEIRA** (para analisar o trabalho dele), não só recorte. Solução: foto impressa inteira com borda creme + o recorte da pessoa "saltando" de dentro dela.
+- **Fluidez nos cortes:** corte rápido logo que a palavra termina e já entra a próxima frase; pausas longas no meio viram ~0,1 s. Nunca cortar palavra no meio. Conferir cada trecho com o whisper (sobrou pedaço de outra tentativa — "padrão" repetido — no começo de um take).
+- **Voz mais alta/impactante:** -12 LUFS, compressão mais forte.
+- Final: ela numa polaroid grande com fita, fotos inteiras dele em volta (ela gostou, pediu para caprichar).
+- Script: `_tecnico/scripts/gerar-lizzie-v4.mjs` + `lizzie-cortes-v4.py` + `montar-lizzie-v4.py`.

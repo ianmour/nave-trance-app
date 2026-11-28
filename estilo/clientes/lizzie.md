@@ -33,3 +33,4 @@
 - **Laranja forte #F0562D** (títulos das capas), **creme #F6E7D3** (caixas, textos), **verde-petróleo #1E5B54** (fundo de capa), fundo escuro #121212.
 - Títulos de capa: letra condensada grossa, maiúscula, laranja. Destaques em serifa creme.
 - Não usar rosa/roxo como cor da marca dela (o roxo/neon só aparece nas fotos de festival).
+- **Sem efeitos que pareçam passarinho** (sparkle, chime, ping). Ela pediu fluidez: câmera com aproximação contínua (sem saltos de zoom), dissolver curto (0,2 s) nos cortes internos, cenas entrando/saindo suaves.

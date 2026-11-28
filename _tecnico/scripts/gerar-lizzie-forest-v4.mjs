@@ -22,14 +22,15 @@ const PAL = JSON.parse(fs.readFileSync(TJ, "utf8")).transcription.map((x) => ({ 
 const T = (frag, desde = 0) => { const ws = frag.split(" ").map(nrm); for (let i = 0; i < PAL.length; i++) if (PAL[i].ini >= desde && ws.every((w, k) => nrm(PAL[i + k]?.texto || "") === w)) return PAL[i].ini; throw new Error("não achei: " + frag); };
 
 let sem = 3; const rnd = () => ((sem = (sem * 16807) % 2147483647) / 2147483647);
-const cenas = [], atras = [], js = [], sons = [], SEM_LEG = [], RECORTE_ON = [];
+const cenas = [], atras = [], js = [], sons = [], SEM_LEG = [], RECORTE_ON = [], DISSOLVE = [];
 const tw = (s) => js.push("      " + s);
-const som = (nome, t, v) => sons.push([nome, Math.max(0, t), v]);
+const SEM_SOM = new Set(["sparkle", "chime", "ping"]); // pareciam passarinho
+const som = (nome, t, v) => { if (!SEM_SOM.has(nome)) sons.push([nome, Math.max(0, t), nome === "click" ? v * 0.7 : v]); };
 const clip = (lista, id, t0, t1, html, z) => lista.push(`        <div id="${id}" class="clip cena" data-start="${f(t0)}" data-duration="${f(t1 - t0)}" data-track-index="${z}" style="z-index:${z}">${html}</div>`);
 const frente = (id, t0, t1, html, z = 20) => clip(cenas, id, t0, t1, html, z);
 const tras = (id, t0, t1, html) => { clip(atras, id, t0, t1, html, 2); RECORTE_ON.push([t0, t1]); };
 const sai = (sel, t, d = 0.22) => tw(`tl.to("${sel}", { opacity: 0, y: -20, filter: "blur(8px)", duration: ${d}, ease: "power2.in" }, ${f(t - d)});`);
-const entraSuave = (sel, t, d = 0.45, de = "y: 40") => tw(`tl.fromTo("${sel}", { opacity: 0, ${de}, filter: "blur(12px)" }, { opacity: 1, x: 0, y: 0, scale: 1, filter: "blur(0px)", duration: ${d}, ease: "expo.out" }, ${f(t)});`);
+const entraSuave = (sel, t, d = 0.45, de = "y: 40") => tw(`tl.fromTo("${sel}", { opacity: 0, ${de}, filter: "blur(12px)" }, { opacity: 1, x: 0, y: 0, scale: 1, filter: "blur(0px)", duration: ${d}, ease: "power3.out" }, ${f(t)});`);
 const rotulo = (id, t0, t1, txt) => { frente(id, t0, t1, `<div class="rot">${txt}</div>`, 25); entraSuave(`#${id} .rot`, t0, 0.5, "y: -20"); sai(`#${id} .rot`, t1); som("click-soft", t0, 0.04); };
 let nfl = 0;
 const flash = (t, o = 0.7) => { const id = `fl${nfl++}`; frente(id, t, t + 0.3, `<i class="luz"></i>`, 40); tw(`tl.fromTo("#${id} .luz", { opacity: ${o} }, { opacity: 0, duration: 0.28, ease: "power2.out" }, ${f(t)});`); };
@@ -37,7 +38,7 @@ const flash = (t, o = 0.7) => { const id = `fl${nfl++}`; frente(id, t, t + 0.3, 
 const atrasDela = (id, t0, t1, txt, estilo = "") => {
   tras(id, t0, t1, `<i class="velo"></i><div class="gig grad" style="${estilo}">${txt}</div>`);
   tw(`tl.fromTo("#${id} .velo", { opacity: 0 }, { opacity: 1, duration: 0.3 }, ${f(t0)});`);
-  tw(`tl.fromTo("#${id} .gig", { opacity: 0, y: 60, filter: "blur(20px)", scale: 0.94 }, { opacity: 1, y: 0, filter: "blur(0px)", scale: 1, duration: 0.6, ease: "expo.out" }, ${f(t0)});`);
+  tw(`tl.fromTo("#${id} .gig", { opacity: 0, y: 60, filter: "blur(20px)", scale: 0.94 }, { opacity: 1, y: 0, filter: "blur(0px)", scale: 1, duration: 0.6, ease: "power3.out" }, ${f(t0)});`);
   tw(`tl.to("#${id} .gig", { scale: 1.04, duration: ${f(Math.max(0.2, t1 - t0 - 0.8))}, ease: "none" }, ${f(t0 + 0.6)});`);
   tw(`tl.to("#${id}", { opacity: 0, duration: 0.25 }, ${f(t1 - 0.25)});`);
   som("whoosh", t0 - 0.12, 0.035);
@@ -63,15 +64,15 @@ atrasDela("g1", T("momento") - 0.05, T("Fotografar") - 0.02, "momento");
     <div class="chip" id="c1c" style="top:880px">clicar um botão</div>
     <div class="cartao foto" id="c1d" style="top:1030px;left:250px;width:580px;height:420px;transform:rotate(-3deg)"><img src="assets/fotos/cam1.jpg"></div>
     <div class="txt fino grad" id="c1e" style="top:1500px;font-size:110px">um momento</div>`, 10);
-  tw(`tl.fromTo("#c1 .claro", { clipPath: "circle(0% at 50% 45%)" }, { clipPath: "circle(130% at 50% 45%)", duration: 0.45, ease: "expo.out" }, ${f(t0)});`); som("whoosh", t0 - 0.12, 0.05);
+  tw(`tl.fromTo("#c1 .claro", { clipPath: "circle(0% at 50% 45%)" }, { clipPath: "circle(130% at 50% 45%)", duration: 0.45, ease: "power3.out" }, ${f(t0)});`); som("whoosh", t0 - 0.12, 0.05);
   entraSuave("#c1a", t0 + 0.05, 0.5);
   entraSuave("#c1b", T("é muito") - 0.05, 0.4); som("click-soft", T("é muito") - 0.05, 0.05);
   tw(`tl.fromTo("#c1c", { scale: 0.4, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.3, ease: "back.out(2.2)" }, ${f(T("clicar") - 0.08)});`); som("pop", T("clicar") - 0.08, 0.07);
   tw(`tl.to("#c1c", { textDecoration: "line-through", opacity: 0.45, duration: 0.01 }, ${f(T("registrar") - 0.1)});`);
-  tw(`tl.fromTo("#c1d", { y: 500, opacity: 0, rotation: 12 }, { y: 0, opacity: 1, rotation: -3, duration: 0.45, ease: "expo.out" }, ${f(T("registrar") - 0.1)});`); som("whoosh-short", T("registrar") - 0.15, 0.05);
+  tw(`tl.fromTo("#c1d", { y: 500, opacity: 0, rotation: 12 }, { y: 0, opacity: 1, rotation: -3, duration: 0.45, ease: "power3.out" }, ${f(T("registrar") - 0.1)});`); som("whoosh-short", T("registrar") - 0.15, 0.05);
   tw(`tl.fromTo("#c1d img", { filter: "brightness(2.4) saturate(0)" }, { filter: "brightness(1) saturate(1.1)", duration: 0.8, ease: "power2.out", immediateRender: false }, ${f(T("registrar"))});`);
   entraSuave("#c1e", T("momento", 3) - 0.1, 0.5); som("sparkle", T("momento", 3) - 0.1, 0.05);
-  tw(`tl.to("#c1", { clipPath: "inset(0% 0% 100% 0%)", duration: 0.3, ease: "expo.in" }, ${f(t1 - 0.3)});`); som("whoosh-short", t1 - 0.32, 0.05);
+  tw(`tl.to("#c1", { clipPath: "inset(0% 0% 100% 0%)", duration: 0.3, ease: "power2.inOut" }, ${f(t1 - 0.3)});`); som("whoosh-short", t1 - 0.32, 0.05);
 }
 
 // ============ 2 — "É conseguir, através do meu olhar, perceber, enquadrar e registrar": peças 1 2 3 de vidro + foco ============
@@ -80,7 +81,7 @@ atrasDela("g1", T("momento") - 0.05, T("Fotografar") - 0.02, "momento");
   rotulo("r2", t0, T("pelo menos"), "01 / o olhar");
   atrasDela("g2", T("olhar") - 0.06, T("perceber") + 0.2, "olhar");
   frente("foc", t0 + 0.2, tr, `<div class="foco"><i></i><i></i><i></i><i></i></div>`, 21);
-  tw(`tl.fromTo("#foc .foco", { scale: 1.6, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.5, ease: "expo.out" }, ${f(t0 + 0.2)});`);
+  tw(`tl.fromTo("#foc .foco", { scale: 1.6, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.5, ease: "power3.out" }, ${f(t0 + 0.2)});`);
   tw(`tl.to("#foc .foco", { scale: 0.86, duration: 0.18, ease: "back.out(3)" }, ${f(T("enquadrar") - 0.05)});`); som("ping", T("enquadrar") - 0.05, 0.04);
   const P3 = [["perceber", T("perceber")], ["enquadrar", T("enquadrar")], ["registrar", tr]];
   frente("p3", T("perceber") - 0.25, t1, `<div class="pecas">${P3.map(([w], k) => `<div class="peca" id="pc${k}"><b>${k + 1}</b><span>${w}</span></div>`).join("")}</div>`, 23);
@@ -99,10 +100,10 @@ atrasDela("g1", T("momento") - 0.05, T("Fotografar") - 0.02, "momento");
 {
   const t0 = T("pelo menos") - 0.05, ts = T("sentimento"), t1 = T("Observando") - 0.05;
   frente("s3", t0, t1, `<div class="fcheia"><img src="assets/fotos/fest2.jpg" style="object-position:40% 50%"></div><i class="sombra"></i><div class="txt fino grad" id="s3t" style="top:1380px;font-size:130px">sentimento</div>`, 10);
-  tw(`tl.fromTo("#s3", { clipPath: "inset(12% 10% 12% 10% round 60px)" }, { clipPath: "inset(0% 0% 0% 0% round 0px)", duration: 0.55, ease: "expo.out" }, ${f(t0)});`);
+  tw(`tl.fromTo("#s3", { clipPath: "inset(12% 10% 12% 10% round 60px)" }, { clipPath: "inset(0% 0% 0% 0% round 0px)", duration: 0.55, ease: "power3.out" }, ${f(t0)});`);
   tw(`tl.fromTo("#s3 img", { scale: 1.5 }, { scale: 1.08, duration: ${f(t1 - t0)}, ease: "power1.out" }, ${f(t0)});`);
   entraSuave("#s3t", ts - 0.08, 0.6); SEM_LEG.push([ts - 0.1, t1]); som("whoosh-cinematic", t0 - 0.12, 0.04); som("sparkle", ts - 0.1, 0.04);
-  tw(`tl.to("#s3", { clipPath: "inset(12% 10% 12% 10% round 60px)", opacity: 0, duration: 0.3, ease: "expo.in" }, ${f(t1 - 0.3)});`);
+  tw(`tl.to("#s3", { clipPath: "inset(12% 10% 12% 10% round 60px)", opacity: 0, duration: 0.3, ease: "power2.inOut" }, ${f(t1 - 0.3)});`);
 }
 
 // ============ 4 — carrossel 3D de cartões em volta dela + "memória" atrás ============
@@ -121,7 +122,7 @@ atrasDela("g1", T("momento") - 0.05, T("Fotografar") - 0.02, "momento");
   const t0 = T("dentro desses") - 0.05, t1 = T("é algo") - 0.02;
   rotulo("r5", T("O meu trabalho") - 0.05, T("Por ser") - 0.1, "02 / os festivais");
   tras("fes", t0, t1, `<div class="fcheia"><img src="assets/fotos/fest3.jpg"></div><i class="sombra" style="opacity:0.35"></i>`);
-  tw(`tl.fromTo("#fes", { clipPath: "inset(30% 20% 50% 20% round 60px)" }, { clipPath: "inset(0% 0% 0% 0% round 0px)", duration: 0.55, ease: "expo.out" }, ${f(t0)});`);
+  tw(`tl.fromTo("#fes", { clipPath: "inset(30% 20% 50% 20% round 60px)" }, { clipPath: "inset(0% 0% 0% 0% round 0px)", duration: 0.55, ease: "power3.out" }, ${f(t0)});`);
   tw(`tl.fromTo("#fes img", { scale: 1.3 }, { scale: 1.05, duration: ${f(t1 - t0)}, ease: "none" }, ${f(t0)});`);
   tw(`tl.to("#fes", { opacity: 0, duration: 0.2 }, ${f(t1 - 0.2)});`); som("whoosh-cinematic", t0 - 0.15, 0.04);
 }
@@ -138,10 +139,10 @@ atrasDela("g1", T("momento") - 0.05, T("Fotografar") - 0.02, "momento");
   tw(`tl.fromTo("#gl", { strokeDasharray: 1100, strokeDashoffset: 1100 }, { strokeDashoffset: 0, duration: ${f(t12 - t0 + 0.2)}, ease: "power2.inOut" }, ${f(t0 + 0.15)});`);
   for (let k = 0; k <= 12; k++) { const a = t0 + 0.1 + (t12 - t0) * k / 12; tw(`tl.set("#gn${k}", { opacity: 1 }, ${f(a)});`); if (k < 12) tw(`tl.set("#gn${k}", { opacity: 0 }, ${f(t0 + 0.1 + (t12 - t0) * (k + 1) / 12)});`); }
   som("typing", t0 + 0.1, 0.04); som("impact-bass-1", t12, 0.05);
-  tw(`tl.to("#graf .graf", { y: 300, opacity: 0, duration: 0.3, ease: "expo.in" }, ${f(tsai - 0.3)});`);
+  tw(`tl.to("#graf .graf", { y: 300, opacity: 0, duration: 0.3, ease: "power2.inOut" }, ${f(tsai - 0.3)});`);
   const R = ["fest4", "fest5", "fest1"]; const passo = (t1 - tf) / R.length;
-  R.forEach((n, k) => { const a = tf + k * passo; frente(`rc${k}`, a, a + passo, `<div class="fcheia"><img src="assets/fotos/${n}.jpg"></div>`, 12);
-    tw(`tl.fromTo("#rc${k} img", { scale: 1.25 }, { scale: 1.08, duration: ${f(passo)}, ease: "none" }, ${f(a)});`); som("click", a, 0.09); });
+  R.forEach((n, k) => { const a = tf + k * passo; frente(`rc${k}`, a, a + passo + (k < 2 ? 0.22 : 0), `<div class="fcheia"><img src="assets/fotos/${n}.jpg"></div>`, 12);
+    tw(`tl.fromTo("#rc${k} img", { scale: 1.2 }, { scale: 1.06, duration: ${f(passo + 0.25)}, ease: "none" }, ${f(a)});`); tw(`tl.fromTo("#rc${k}", { opacity: 0 }, { opacity: 1, duration: 0.22, ease: "power1.inOut" }, ${f(a)});`); som("whoosh-short", a - 0.05, 0.04); });
   flash(tf, 0.5); SEM_LEG.push([tf + 0.05, t1]);
 }
 
@@ -150,15 +151,15 @@ atrasDela("g1", T("momento") - 0.05, T("Fotografar") - 0.02, "momento");
   const t0 = T("a liberdade") - 0.05, ts = T("sair"), td = T("desestressar"), te = T("encontrar") - 0.05, t1 = T("e viver") - 0.05;
   rotulo("r7", T("São espaços") - 0.05, t0 + 0.2, "03 / os encontros");
   frente("lib", t0, ts - 0.05, `<div class="fcheia"><img src="assets/fotos/cores.jpg"></div><i class="sombra"></i><div class="txt fino grad" style="top:820px;font-size:170px">liberdade</div>`, 10);
-  tw(`tl.fromTo("#lib", { clipPath: "circle(0% at 50% 50%)" }, { clipPath: "circle(120% at 50% 50%)", duration: 0.5, ease: "expo.out" }, ${f(t0)});`);
+  tw(`tl.fromTo("#lib", { clipPath: "circle(0% at 50% 50%)" }, { clipPath: "circle(120% at 50% 50%)", duration: 0.5, ease: "power3.out" }, ${f(t0)});`);
   tw(`tl.fromTo("#lib img", { scale: 1.3 }, { scale: 1.08, duration: ${f(ts - t0)}, ease: "power2.out" }, ${f(t0)});`);
   entraSuave("#lib .txt", T("liberdade") - 0.05, 0.5); som("impact-bass-2", T("liberdade"), 0.04); SEM_LEG.push([T("liberdade") - 0.1, ts - 0.05]);
   const S = [["maos1", "− rotina", ts], ["grama", "+ leveza", td], ["risos1", "+ pessoas", te]];
   frente("c3", ts - 0.05, t1, `<div class="claro" style="background:${VERDE}"></div>` + S.map(([n, txt], k) => `<div class="cartao foto" id="cc${k}" style="left:${[60, 560, 300][k]}px;top:${[170, 560, 980][k]}px;width:460px;height:${[560, 560, 600][k]}px"><img src="assets/fotos/${n}.jpg"><div class="chip pq" style="position:absolute;left:24px;bottom:24px;top:auto">${txt}</div></div>`).join(""), 10);
-  S.forEach(([n, txt, a], k) => { tw(`tl.fromTo("#cc${k}", { y: 700, opacity: 0, rotation: ${[-12, 10, -6][k]} }, { y: 0, opacity: 1, rotation: ${[-3, 3, -1][k]}, duration: 0.45, ease: "expo.out" }, ${f(a - 0.08)});`);
+  S.forEach(([n, txt, a], k) => { tw(`tl.fromTo("#cc${k}", { y: 700, opacity: 0, rotation: ${[-12, 10, -6][k]} }, { y: 0, opacity: 1, rotation: ${[-3, 3, -1][k]}, duration: 0.45, ease: "power3.out" }, ${f(a - 0.08)});`);
     tw(`tl.fromTo("#cc${k} img", { scale: 1.3 }, { scale: 1.05, duration: ${f(t1 - a)}, ease: "none" }, ${f(a - 0.08)});`); som("whoosh-short", a - 0.12, 0.05); som("pop", a + 0.15, 0.05); });
   SEM_LEG.push([ts - 0.05, t1]);
-  tw(`tl.to("#c3 .cartao", { y: -900, opacity: 0, duration: 0.3, stagger: 0.04, ease: "expo.in" }, ${f(t1 - 0.34)});`);
+  tw(`tl.to("#c3 .cartao", { y: -900, opacity: 0, duration: 0.3, stagger: 0.04, ease: "power2.inOut" }, ${f(t1 - 0.34)});`);
 }
 
 // ============ 8 — "e viver experiências… difícil colocar em palavras" ============
@@ -169,7 +170,7 @@ atrasDela("g1", T("momento") - 0.05, T("Fotografar") - 0.02, "momento");
   const L = "palavras".split("");
   tras("pal", tp, t1, `<i class="velo"></i><div class="gig grad">${L.map((c, k) => `<b id="lt${k}" style="display:inline-block">${c}</b>`).join("")}</div>`);
   tw(`tl.fromTo("#pal .velo", { opacity: 0 }, { opacity: 1, duration: 0.2 }, ${f(tp)});`);
-  tw(`tl.fromTo("#pal .gig b", { opacity: 0, y: -60, filter: "blur(10px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.3, stagger: 0.04, ease: "expo.out" }, ${f(tp + 0.05)});`); som("typing", tp, 0.05);
+  tw(`tl.fromTo("#pal .gig b", { opacity: 0, y: -60, filter: "blur(10px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.3, stagger: 0.04, ease: "power3.out" }, ${f(tp + 0.05)});`); som("typing", tp, 0.05);
   L.forEach((c, k) => tw(`tl.to("#lt${k}", { y: ${300 + rnd() * 400}, x: ${(rnd() - 0.5) * 260}, rotation: ${(rnd() - 0.5) * 120}, opacity: 0, filter: "blur(6px)", duration: 0.6, ease: "power2.in" }, ${f(T("palavras") + 0.15 + k * 0.03)});`));
   som("whoosh", T("palavras") + 0.1, 0.04);
 }
@@ -179,7 +180,7 @@ atrasDela("g1", T("momento") - 0.05, T("Fotografar") - 0.02, "momento");
   atrasDela("g9", T("me move") - 0.05, T("Poder") + 0.3, "me move");
   const t0 = T("encontros") - 0.1, t1 = T("E nos dias") - 0.05;
   frente("enc", t0, t1, ["tendas", "maos3"].map((n, k) => `<div class="cartao foto" id="pl${k}" style="${k ? "right:50px;top:170px" : "left:50px;top:330px"};width:330px;height:420px"><img src="assets/fotos/${n}.jpg"></div>`).join(""), 22);
-  [0, 1].forEach((k) => { tw(`tl.fromTo("#pl${k}", { x: ${k ? 500 : -500}, rotation: ${k ? 25 : -25}, opacity: 0 }, { x: 0, rotation: ${k ? 6 : -6}, opacity: 1, duration: 0.5, ease: "expo.out" }, ${f(t0 + k * 0.3)});`);
+  [0, 1].forEach((k) => { tw(`tl.fromTo("#pl${k}", { x: ${k ? 500 : -500}, rotation: ${k ? 25 : -25}, opacity: 0 }, { x: 0, rotation: ${k ? 6 : -6}, opacity: 1, duration: 0.5, ease: "power3.out" }, ${f(t0 + k * 0.3)});`);
     tw(`tl.to("#pl${k}", { y: ${k ? -30 : 30}, duration: ${f(t1 - t0 - 0.9)}, ease: "sine.inOut" }, ${f(t0 + 0.5 + k * 0.3)});`); som("pop", t0 + 0.15 + k * 0.3, 0.06); });
   tw(`tl.to("#enc .cartao", { opacity: 0, scale: 0.8, duration: 0.25 }, ${f(t1 - 0.25)});`);
 }
@@ -193,10 +194,10 @@ atrasDela("g1", T("momento") - 0.05, T("Fotografar") - 0.02, "momento");
   tw(`tl.fromTo("#cal .cal", { y: 400, opacity: 0, scale: 0.85 }, { y: 0, opacity: 1, scale: 1, duration: 0.45, ease: "back.out(1.6)" }, ${f(t0)});`); som("whoosh-short", t0 - 0.1, 0.05);
   tw(`tl.fromTo("#d5", { background: "rgba(29,19,14,0)", color: "${ESC}" }, { background: "${VERDE}", color: "${BR}", scale: 1.2, duration: 0.2, ease: "back.out(3)" }, ${f(T("5") - 0.03)});`); som("ping", T("5") - 0.03, 0.05);
   tw(`tl.fromTo("#d6", { background: "rgba(29,19,14,0)", color: "${ESC}" }, { background: "${VERDE}", color: "${BR}", scale: 1.2, duration: 0.2, ease: "back.out(3)" }, ${f(T("6") - 0.03)});`); som("ping", T("6") - 0.03, 0.05);
-  tw(`tl.to("#cal .cal", { y: 400, opacity: 0, duration: 0.25, ease: "expo.in" }, ${f(tfo - 0.25)});`);
+  tw(`tl.to("#cal .cal", { y: 400, opacity: 0, duration: 0.25, ease: "power2.inOut" }, ${f(tfo - 0.25)});`);
   SEM_LEG.push([t0, tfo]);
   frente("fs", tfo, ti, `<div class="claro" style="background:${VERDE}"></div><div class="txt fino grad" id="fsa" style="top:760px;font-size:150px">forest</div><div class="txt fino grad" id="fsb" style="top:930px;font-size:150px">shankara</div>`, 10);
-  tw(`tl.fromTo("#fs .claro", { clipPath: "inset(50% 0% 50% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.3, ease: "expo.out" }, ${f(tfo)});`);
+  tw(`tl.fromTo("#fs .claro", { clipPath: "inset(50% 0% 50% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.3, ease: "power3.out" }, ${f(tfo)});`);
   entraSuave("#fsa", tfo + 0.02, 0.4, "x: -200"); entraSuave("#fsb", T("Shankara") - 0.05, 0.4, "x: 200");
   som("whoosh-short", tfo - 0.05, 0.06); som("whoosh-short", T("Shankara") - 0.1, 0.06); SEM_LEG.push([tfo, ti]);
   // cartão de localização (ela atrás de um cartão de vidro com a foto da praia)
@@ -204,9 +205,9 @@ atrasDela("g1", T("momento") - 0.05, T("Fotografar") - 0.02, "momento");
   tw(`tl.fromTo("#loc .loc", { y: 500, opacity: 0, scale: 0.85 }, { y: 0, opacity: 1, scale: 1, duration: 0.5, ease: "back.out(1.5)" }, ${f(ti)});`);
   tw(`tl.fromTo("#loc img", { scale: 1.3 }, { scale: 1.05, duration: ${f(tl_ - ti)}, ease: "none" }, ${f(ti)});`);
   tw(`tl.fromTo("#loc .pin", { y: -80, opacity: 0 }, { y: 0, opacity: 1, duration: 0.3, ease: "bounce.out" }, ${f(ti + 0.3)});`); som("pop", ti + 0.35, 0.07); som("whoosh", ti - 0.1, 0.05);
-  tw(`tl.to("#loc .loc", { y: 500, opacity: 0, duration: 0.25, ease: "expo.in" }, ${f(tl_ + 0.1 - 0.25)});`); SEM_LEG.push([ti, tl_]);
+  tw(`tl.to("#loc .loc", { y: 500, opacity: 0, duration: 0.25, ease: "power2.inOut" }, ${f(tl_ + 0.1 - 0.25)});`); SEM_LEG.push([ti, tl_]);
   frente("lente", tl_, t1, `<div class="lente" id="len"><i></i><i></i><i></i></div>`, 30);
-  tw(`tl.fromTo("#len", { scale: 3, rotation: -90, opacity: 0 }, { scale: 1, rotation: 0, opacity: 1, duration: 0.45, ease: "expo.out" }, ${f(tl_)});`);
+  tw(`tl.fromTo("#len", { scale: 3, rotation: -90, opacity: 0 }, { scale: 1, rotation: 0, opacity: 1, duration: 0.45, ease: "power3.out" }, ${f(tl_)});`);
   tw(`tl.to("#len", { rotation: 30, duration: ${f(t1 - tl_ - 0.7)}, ease: "none" }, ${f(tl_ + 0.45)});`);
   tw(`tl.to("#len", { scale: 4, opacity: 0, duration: 0.25, ease: "power2.in" }, ${f(t1 - 0.25)});`);
   som("click-soft", tl_, 0.06); som("click", T("lentes") + 0.05, 0.1); flash(T("lentes") + 0.05, 0.45);
@@ -218,7 +219,7 @@ atrasDela("g1", T("momento") - 0.05, T("Fotografar") - 0.02, "momento");
   tras("niver", t0, t1, `<i class="velo"></i><div class="gig grad" style="top:-20px;font-size:460px;font-weight:300">6</div>` +
     Array.from({ length: 34 }, (_, k) => `<i class="brilho" id="br${k}" style="left:${Math.round(rnd() * 1060)}px;top:-40px;width:${5 + Math.round(rnd() * 9)}px;height:${5 + Math.round(rnd() * 9)}px"></i>`).join(""));
   tw(`tl.fromTo("#niver .velo", { opacity: 0 }, { opacity: 1, duration: 0.3 }, ${f(t0)});`);
-  tw(`tl.fromTo("#niver .gig", { scale: 0.5, opacity: 0, filter: "blur(20px)" }, { scale: 1, opacity: 1, filter: "blur(0px)", duration: 0.6, ease: "expo.out" }, ${f(t0)});`);
+  tw(`tl.fromTo("#niver .gig", { scale: 0.5, opacity: 0, filter: "blur(20px)" }, { scale: 1, opacity: 1, filter: "blur(0px)", duration: 0.6, ease: "power3.out" }, ${f(t0)});`);
   for (let k = 0; k < 34; k++) tw(`tl.fromTo("#br${k}", { y: 0, rotation: 0, opacity: 1 }, { y: ${1500 + rnd() * 600}, rotation: ${rnd() * 720}, x: ${(rnd() - 0.5) * 200}, opacity: 0.8, duration: ${f(1.8 + rnd() * 1.5)}, ease: "none" }, ${f(t0 + rnd() * 1.4)});`);
   frente("chipn", T("dia 6") - 0.1, t1, `<div class="chip" style="top:560px">06.12 · meu aniversário</div>`, 24);
   tw(`tl.fromTo("#chipn .chip", { scale: 0.4, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.3, ease: "back.out(2.2)" }, ${f(T("dia 6") - 0.1)});`);
@@ -238,8 +239,10 @@ frente("fim", DUR - 0.35, DUR, `<i class="pre"></i>`, 45);
 tw(`tl.fromTo("#fim .pre", { opacity: 0 }, { opacity: 1, duration: 0.35, ease: "power1.in" }, ${f(DUR - 0.35)});`);
 
 // ---------- câmera dela ----------
-tw(`tl.set("#camera", { scale: 1.22 }, 0);`); tw(`tl.to("#camera", { scale: 1.02, duration: 0.5, ease: "expo.out" }, 0);`);
-MAPA.forEach((m, i) => { if (i === 0) return; tw(`tl.set("#camera", { scale: ${i % 2 ? 1.08 : 1.0} }, ${f(m.ini)});`); });
+tw(`tl.set("#camera", { scale: 1.22 }, 0);`); tw(`tl.to("#camera", { scale: 1.02, duration: 0.5, ease: "power3.out" }, 0);`);
+tw(`tl.to("#camera", { scale: 1.1, duration: ${f(DUR - 0.5)}, ease: "sine.inOut" }, 0.5);`);
+// cortes internos: a imagem anterior dissolve por cima (0,2 s) — o "pulo" do corte some
+MAPA.forEach((m, i) => { if (i === 0) return; DISSOLVE.push(`          <img id="dv${i}" class="clip dv" src="assets/cortes/c${i}.jpg" data-start="${f(m.ini)}" data-duration="0.25" data-track-index="1">`); tw(`tl.fromTo("#dv${i}", { opacity: 1 }, { opacity: 0, duration: 0.22, ease: "power1.out" }, ${f(m.ini)});`); });
 tw(`tl.set("#recorte", { opacity: 0 }, 0);`);
 RECORTE_ON.forEach(([a, b]) => { tw(`tl.set("#recorte", { opacity: 1 }, ${f(a)});`); tw(`tl.set("#recorte", { opacity: 0 }, ${f(b)});`); });
 
@@ -247,7 +250,7 @@ RECORTE_ON.forEach(([a, b]) => { tw(`tl.set("#recorte", { opacity: 1 }, ${f(a)})
 const CHAVES = new Set(["botao", "momento", "olhar", "sentimento", "memoria", "fotografa", "festivais", "sensivel", "anos", "liberdade", "rotina", "pessoas", "experiencias", "palavras", "move", "espontaneidade", "naturalidade", "encontros", "amigos", "dezembro", "magia", "lentes", "aniversario", "especial", "voces", "gente", "sentindo", "redor"]);
 const ehChave = (p) => CHAVES.has(nrm(p.texto));
 const grupos = []; let g = [];
-PAL.forEach((p, i) => { const q = PAL[i + 1]; g.push(p); if (!q || /[.,!?;:]$/.test(p.texto) || q.ini - p.fim >= 0.3 || g.length >= 2 || ehChave(p)) { grupos.push(g); g = []; } });
+PAL.forEach((p, i) => { const q = PAL[i + 1]; g.push(p); if (!q || /[.,!?;:]$/.test(p.texto) || q.ini - p.fim >= 0.3 || g.length >= 3 || (ehChave(p) && g.length >= 2)) { grupos.push(g); g = []; } });
 if (g.length) grupos.push(g);
 let lh = "";
 grupos.forEach((gr, i) => {
@@ -257,7 +260,7 @@ grupos.forEach((gr, i) => {
   const meio = (a + b) / 2; if (SEM_LEG.some(([s0, s1]) => meio > s0 && meio < s1)) return;
   const linhas = gr.map((p) => `<span class="${ehChave(p) ? "ch" : "nm"}">${esc(p.texto.replace(/[.,!?;:]+$/, "").toLowerCase())}</span>`).join(" ");
   lh += `      <div id="lg${i}" class="clip grupo" data-start="${f(a)}" data-duration="${f(b - a)}" data-track-index="50" style="z-index:50"><div class="cx">${linhas}</div></div>\n`;
-  tw(`tl.fromTo("#lg${i} .cx", { opacity: 0, y: 18, filter: "blur(8px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.22, ease: "expo.out" }, ${f(a)});`);
+  tw(`tl.fromTo("#lg${i} .cx", { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.28, ease: "power2.out" }, ${f(a)});`);
 });
 
 const FONTES = `<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;600;700&display=swap" rel="stylesheet">`;
@@ -283,6 +286,7 @@ fs.writeFileSync(path.join(P, "index.html"), `<!doctype html>
       #fundo, #recorte video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
       #fundo { filter: contrast(1.08) saturate(1.22) brightness(1.05); }
       #recorte video { filter: contrast(1.08) saturate(1.22) brightness(1.05); }
+      #dissolve { position: absolute; inset: 0; z-index: 1; } .dv { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: contrast(1.08) saturate(1.22) brightness(1.05); }
       #atras { position: absolute; inset: 0; z-index: 2; } #recorte { position: absolute; inset: 0; z-index: 3; }
       .cena { position: absolute; left: 0; top: 0; width: ${W}px; height: ${H}px; overflow: hidden; }
       .grad { background: ${GRAD}; -webkit-background-clip: text; background-clip: text; color: transparent !important; }
@@ -351,6 +355,9 @@ fs.writeFileSync(path.join(P, "index.html"), `<!doctype html>
     <div id="main" data-composition-id="main" data-start="0" data-duration="${DUR}" data-width="${W}" data-height="${H}">
       <div id="camera">
         <video id="fundo" class="clip" src="assets/fala.mp4" data-start="0" data-duration="${DUR}" data-track-index="0" data-has-audio="true"></video>
+        <div id="dissolve">
+${DISSOLVE.join("\n")}
+        </div>
         <div id="atras">
 ${atras.join("\n")}
         </div>

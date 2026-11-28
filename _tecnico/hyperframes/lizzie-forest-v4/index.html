@@ -13,6 +13,7 @@
       #fundo, #recorte video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
       #fundo { filter: contrast(1.08) saturate(1.22) brightness(1.05); }
       #recorte video { filter: contrast(1.08) saturate(1.22) brightness(1.05); }
+      #dissolve { position: absolute; inset: 0; z-index: 1; } .dv { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: contrast(1.08) saturate(1.22) brightness(1.05); }
       #atras { position: absolute; inset: 0; z-index: 2; } #recorte { position: absolute; inset: 0; z-index: 3; }
       .cena { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: hidden; }
       .grad { background: linear-gradient(100deg, #F6E7D3 0%, #F7A877 45%, #F0562D 100%); -webkit-background-clip: text; background-clip: text; color: transparent !important; }
@@ -81,6 +82,25 @@
     <div id="main" data-composition-id="main" data-start="0" data-duration="60.45" data-width="1080" data-height="1920">
       <div id="camera">
         <video id="fundo" class="clip" src="assets/fala.mp4" data-start="0" data-duration="60.45" data-track-index="0" data-has-audio="true"></video>
+        <div id="dissolve">
+          <img id="dv1" class="clip dv" src="assets/cortes/c1.jpg" data-start="2.967" data-duration="0.25" data-track-index="1">
+          <img id="dv2" class="clip dv" src="assets/cortes/c2.jpg" data-start="6.600" data-duration="0.25" data-track-index="1">
+          <img id="dv3" class="clip dv" src="assets/cortes/c3.jpg" data-start="8.400" data-duration="0.25" data-track-index="1">
+          <img id="dv4" class="clip dv" src="assets/cortes/c4.jpg" data-start="9.233" data-duration="0.25" data-track-index="1">
+          <img id="dv5" class="clip dv" src="assets/cortes/c5.jpg" data-start="10.167" data-duration="0.25" data-track-index="1">
+          <img id="dv6" class="clip dv" src="assets/cortes/c6.jpg" data-start="11.100" data-duration="0.25" data-track-index="1">
+          <img id="dv7" class="clip dv" src="assets/cortes/c7.jpg" data-start="14.000" data-duration="0.25" data-track-index="1">
+          <img id="dv8" class="clip dv" src="assets/cortes/c8.jpg" data-start="18.467" data-duration="0.25" data-track-index="1">
+          <img id="dv9" class="clip dv" src="assets/cortes/c9.jpg" data-start="22.967" data-duration="0.25" data-track-index="1">
+          <img id="dv10" class="clip dv" src="assets/cortes/c10.jpg" data-start="27.900" data-duration="0.25" data-track-index="1">
+          <img id="dv11" class="clip dv" src="assets/cortes/c11.jpg" data-start="34.033" data-duration="0.25" data-track-index="1">
+          <img id="dv12" class="clip dv" src="assets/cortes/c12.jpg" data-start="34.700" data-duration="0.25" data-track-index="1">
+          <img id="dv13" class="clip dv" src="assets/cortes/c13.jpg" data-start="36.533" data-duration="0.25" data-track-index="1">
+          <img id="dv14" class="clip dv" src="assets/cortes/c14.jpg" data-start="38.100" data-duration="0.25" data-track-index="1">
+          <img id="dv15" class="clip dv" src="assets/cortes/c15.jpg" data-start="46.700" data-duration="0.25" data-track-index="1">
+          <img id="dv16" class="clip dv" src="assets/cortes/c16.jpg" data-start="52.633" data-duration="0.25" data-track-index="1">
+          <img id="dv17" class="clip dv" src="assets/cortes/c17.jpg" data-start="57.400" data-duration="0.25" data-track-index="1">
+        </div>
         <div id="atras">
         <div id="g1" class="clip cena" data-start="1.370" data-duration="1.606" data-track-index="2" style="z-index:2"><i class="velo"></i><div class="gig grad" style="">momento</div></div>
         <div id="g2" class="clip cena" data-start="7.960" data-duration="0.549" data-track-index="2" style="z-index:2"><i class="velo"></i><div class="gig grad" style="">olhar</div></div>
@@ -114,8 +134,8 @@
         <div id="graf" class="clip cena" data-start="22.956" data-duration="2.570" data-track-index="23" style="z-index:23"><div class="vidro graf"><div class="gt"><span class="mini">anos de pista</span><span class="num">+<span class="cont"><b id="gn0">0</b><b id="gn1">1</b><b id="gn2">2</b><b id="gn3">3</b><b id="gn4">4</b><b id="gn5">5</b><b id="gn6">6</b><b id="gn7">7</b><b id="gn8">8</b><b id="gn9">9</b><b id="gn10">10</b><b id="gn11">11</b><b id="gn12">12</b></span></span></div>
       <svg viewBox="0 0 800 260" class="linha"><path id="gl" d="M 10 240 C 120 230, 180 200, 260 190 S 400 150, 460 120 S 600 80, 660 50 S 760 20, 790 12" fill="none" stroke="#121212" stroke-width="7" stroke-linecap="round"/></svg>
       <div class="anos"><span>2013</span><span>2019</span><span>2025</span></div></div></div>
-        <div id="rc0" class="clip cena" data-start="27.006" data-duration="0.308" data-track-index="12" style="z-index:12"><div class="fcheia"><img src="assets/fotos/fest4.jpg"></div></div>
-        <div id="rc1" class="clip cena" data-start="27.314" data-duration="0.308" data-track-index="12" style="z-index:12"><div class="fcheia"><img src="assets/fotos/fest5.jpg"></div></div>
+        <div id="rc0" class="clip cena" data-start="27.006" data-duration="0.528" data-track-index="12" style="z-index:12"><div class="fcheia"><img src="assets/fotos/fest4.jpg"></div></div>
+        <div id="rc1" class="clip cena" data-start="27.314" data-duration="0.528" data-track-index="12" style="z-index:12"><div class="fcheia"><img src="assets/fotos/fest5.jpg"></div></div>
         <div id="rc2" class="clip cena" data-start="27.621" data-duration="0.308" data-track-index="12" style="z-index:12"><div class="fcheia"><img src="assets/fotos/fest1.jpg"></div></div>
         <div id="fl3" class="clip cena" data-start="27.006" data-duration="0.300" data-track-index="40" style="z-index:40"><i class="luz"></i></div>
         <div id="r7" class="clip cena" data-start="27.929" data-duration="2.380" data-track-index="25" style="z-index:25"><div class="rot">03 / os encontros</div></div>
@@ -132,169 +152,139 @@
         <div id="chipn" class="clip cena" data-start="54.893" data-duration="0.840" data-track-index="24" style="z-index:24"><div class="chip" style="top:560px">06.12 · meu aniversário</div></div>
         <div id="ing" class="clip cena" data-start="59.240" data-duration="1.210" data-track-index="24" style="z-index:24"><div class="vidro ing"><div><span class="mini">ingresso</span><b>forest shankara</b><span class="mini">5 e 6 de dezembro · ilha da magia</span></div><i class="pic"></i><div class="adm">vem</div></div></div>
         <div id="fim" class="clip cena" data-start="60.100" data-duration="0.350" data-track-index="45" style="z-index:45"><i class="pre"></i></div>
-      <div id="lg0" class="clip grupo" data-start="0.030" data-duration="0.290" data-track-index="50" style="z-index:50"><div class="cx"><span class="nm">é</span> <span class="nm">que</span></div></div>
-      <div id="lg1" class="clip grupo" data-start="0.320" data-duration="0.470" data-track-index="50" style="z-index:50"><div class="cx"><span class="nm">tanta</span> <span class="nm">coisa</span></div></div>
-      <div id="lg2" class="clip grupo" data-start="0.790" data-duration="0.580" data-track-index="50" style="z-index:50"><div class="cx"><span class="nm">acontece</span> <span class="nm">no</span></div></div>
-      <div id="lg3" class="clip grupo" data-start="1.370" data-duration="0.330" data-track-index="50" style="z-index:50"><div class="cx"><span class="ch">momento</span></div></div>
-      <div id="lg4" class="clip grupo" data-start="1.700" data-duration="0.330" data-track-index="50" style="z-index:50"><div class="cx"><span class="nm">que</span> <span class="nm">eu</span></div></div>
-      <div id="lg5" class="clip grupo" data-start="2.030" data-duration="0.580" data-track-index="50" style="z-index:50"><div class="cx"><span class="nm">clico</span> <span class="nm">aquele</span></div></div>
-      <div id="lg6" class="clip grupo" data-start="2.610" data-duration="0.336" data-track-index="50" style="z-index:50"><div class="cx"><span class="ch">botão</span></div></div>
-      <div id="lg15" class="clip grupo" data-start="6.620" data-duration="0.580" data-track-index="50" style="z-index:50"><div class="cx"><span class="nm">é</span> <span class="nm">conseguir</span></div></div>
-      <div id="lg16" class="clip grupo" data-start="7.200" data-duration="0.590" data-track-index="50" style="z-index:50"><div class="cx"><span class="nm">através</span> <span class="nm">do</span></div></div>
-      <div id="lg17" class="clip grupo" data-start="7.790" data-duration="0.469" data-track-index="50" style="z-index:50"><div class="cx"><span class="nm">meu</span> <span class="ch">olhar</span></div></div>
-      <div id="lg21" class="clip grupo" data-start="10.380" data-duration="0.469" data-track-index="50" style="z-index:50"><div class="cx"><span class="nm">menos</span> <span class="nm">um</span></div></div>
-      <div id="lg22" class="clip grupo" data-start="10.849" data-duration="0.871" data-track-index="50" style="z-index:50"><div class="cx"><span class="nm">pouco</span> <span class="nm">daquele</span></div></div>
-      <div id="lg27" class="clip grupo" data-start="14.020" data-duration="0.680" data-track-index="50" style="z-index:50"><div class="cx"><span class="nm">observando</span> <span class="nm">tudo</span></div></div>
-      <div id="lg28" class="clip grupo" data-start="14.700" data-duration="0.490" data-track-index="50" style="z-index:50"><div class="cx"><span class="nm">aquilo</span> <span class="nm">que</span></div></div>
-      <div id="lg29" class="clip grupo" data-start="15.190" data-duration="0.780" data-track-index="50" style="z-index:50"><div class="cx"><span class="nm">está</span> <span class="nm">acontecendo</span></div></div>
-      <div id="lg30" class="clip grupo" data-start="15.970" data-duration="0.289" data-track-index="50" style="z-index:50"><div class="cx"><span class="nm">ao</span> <span class="nm">meu</span></div></div>
-      <div id="lg31" class="clip grupo" data-start="16.259" data-duration="0.241" data-track-index="50" style="z-index:50"><div class="cx"><span class="ch">redor</span></div></div>
-      <div id="lg32" class="clip grupo" data-start="16.500" data-duration="0.600" data-track-index="50" style="z-index:50"><div class="cx"><span class="nm">e</span> <span class="nm">transformando</span></div></div>
-      <div id="lg33" class="clip grupo" data-start="17.100" data-duration="0.660" data-track-index="50" style="z-index:50"><div class="cx"><span class="nm">tudo</span> <span class="nm">aquilo</span></div></div>
-      <div id="lg34" class="clip grupo" data-start="17.760" data-duration="0.736" data-track-index="50" style="z-index:50"><div class="cx"><span class="nm">em</span> <span class="ch">memória</span></div></div>
-      <div id="lg35" class="clip grupo" data-start="18.496" data-duration="0.350" data-track-index="50" style="z-index:50"><div class="cx"><span class="nm">o</span> <span class="nm">meu</span></div></div>
-      <div id="lg36" class="clip grupo" data-start="18.846" data-duration="0.730" data-track-index="50" style="z-index:50"><div class="cx"><span class="nm">trabalho</span> <span class="nm">como</span></div></div>
-      <div id="lg37" class="clip grupo" data-start="19.576" data-duration="0.590" data-track-index="50" style="z-index:50"><div class="cx"><span class="ch">fotógrafa</span></div></div>
-      <div id="lg38" class="clip grupo" data-start="20.166" data-duration="0.770" data-track-index="50" style="z-index:50"><div class="cx"><span class="nm">dentro</span> <span class="nm">desses</span></div></div>
-      <div id="lg39" class="clip grupo" data-start="20.936" data-duration="0.430" data-track-index="50" style="z-index:50"><div class="cx"><span class="ch">festivais</span></div></div>
-      <div id="lg40" class="clip grupo" data-start="21.366" data-duration="0.480" data-track-index="50" style="z-index:50"><div class="cx"><span class="nm">é</span> <span class="nm">algo</span></div></div>
-      <div id="lg41" class="clip grupo" data-start="21.846" data-duration="1.110" data-track-index="50" style="z-index:50"><div class="cx"><span class="nm">muito</span> <span class="ch">sensível</span></div></div>
-      <div id="lg49" class="clip grupo" data-start="25.696" data-duration="0.490" data-track-index="50" style="z-index:50"><div class="cx"><span class="nm">a</span> <span class="ch">gente</span></div></div>
-      <div id="lg50" class="clip grupo" data-start="26.186" data-duration="0.520" data-track-index="50" style="z-index:50"><div class="cx"><span class="nm">constrói</span> <span class="nm">dentro</span></div></div>
-      <div id="lg51" class="clip grupo" data-start="26.706" data-duration="0.560" data-track-index="50" style="z-index:50"><div class="cx"><span class="nm">dessas</span> <span class="nm">festas</span></div></div>
-      <div id="lg53" class="clip grupo" data-start="27.929" data-duration="0.690" data-track-index="50" style="z-index:50"><div class="cx"><span class="nm">são</span> <span class="nm">espaços</span></div></div>
-      <div id="lg54" class="clip grupo" data-start="28.619" data-duration="0.691" data-track-index="50" style="z-index:50"><div class="cx"><span class="nm">onde</span> <span class="nm">muitas</span></div></div>
-      <div id="lg55" class="clip grupo" data-start="29.310" data-duration="0.340" data-track-index="50" style="z-index:50"><div class="cx"><span class="ch">pessoas</span></div></div>
-      <div id="lg56" class="clip grupo" data-start="29.650" data-duration="0.660" data-track-index="50" style="z-index:50"><div class="cx"><span class="nm">encontram</span> <span class="nm">a</span></div></div>
-      <div id="lg63" class="clip grupo" data-start="34.200" data-duration="0.710" data-track-index="50" style="z-index:50"><div class="cx"><span class="nm">e</span> <span class="nm">viver</span></div></div>
-      <div id="lg64" class="clip grupo" data-start="34.910" data-duration="0.600" data-track-index="50" style="z-index:50"><div class="cx"><span class="ch">experiências</span></div></div>
-      <div id="lg65" class="clip grupo" data-start="35.510" data-duration="0.390" data-track-index="50" style="z-index:50"><div class="cx"><span class="nm">que</span> <span class="nm">é</span></div></div>
-      <div id="lg66" class="clip grupo" data-start="35.900" data-duration="0.960" data-track-index="50" style="z-index:50"><div class="cx"><span class="nm">até</span> <span class="nm">difícil</span></div></div>
-      <div id="lg67" class="clip grupo" data-start="36.860" data-duration="0.660" data-track-index="50" style="z-index:50"><div class="cx"><span class="nm">colocar</span> <span class="nm">em</span></div></div>
-      <div id="lg68" class="clip grupo" data-start="37.520" data-duration="0.600" data-track-index="50" style="z-index:50"><div class="cx"><span class="ch">palavras</span></div></div>
-      <div id="lg69" class="clip grupo" data-start="38.120" data-duration="0.330" data-track-index="50" style="z-index:50"><div class="cx"><span class="nm">e</span> <span class="nm">é</span></div></div>
-      <div id="lg70" class="clip grupo" data-start="38.450" data-duration="0.460" data-track-index="50" style="z-index:50"><div class="cx"><span class="nm">isso</span> <span class="nm">que</span></div></div>
-      <div id="lg71" class="clip grupo" data-start="38.910" data-duration="0.510" data-track-index="50" style="z-index:50"><div class="cx"><span class="nm">me</span> <span class="ch">move</span></div></div>
-      <div id="lg72" class="clip grupo" data-start="39.420" data-duration="0.290" data-track-index="50" style="z-index:50"><div class="cx"><span class="nm">sabe</span></div></div>
-      <div id="lg73" class="clip grupo" data-start="39.710" data-duration="0.920" data-track-index="50" style="z-index:50"><div class="cx"><span class="nm">poder</span> <span class="nm">registrar</span></div></div>
-      <div id="lg74" class="clip grupo" data-start="40.630" data-duration="0.640" data-track-index="50" style="z-index:50"><div class="cx"><span class="nm">isso</span> <span class="nm">com</span></div></div>
-      <div id="lg75" class="clip grupo" data-start="41.270" data-duration="1.090" data-track-index="50" style="z-index:50"><div class="cx"><span class="nm">muita</span> <span class="ch">espontaneidade</span></div></div>
-      <div id="lg76" class="clip grupo" data-start="42.360" data-duration="0.710" data-track-index="50" style="z-index:50"><div class="cx"><span class="nm">respeitando</span> <span class="nm">a</span></div></div>
-      <div id="lg77" class="clip grupo" data-start="43.070" data-duration="0.780" data-track-index="50" style="z-index:50"><div class="cx"><span class="ch">naturalidade</span></div></div>
-      <div id="lg78" class="clip grupo" data-start="43.850" data-duration="0.820" data-track-index="50" style="z-index:50"><div class="cx"><span class="nm">dos</span> <span class="ch">encontros</span></div></div>
-      <div id="lg79" class="clip grupo" data-start="44.670" data-duration="0.460" data-track-index="50" style="z-index:50"><div class="cx"><span class="nm">das</span> <span class="ch">pessoas</span></div></div>
-      <div id="lg80" class="clip grupo" data-start="45.130" data-duration="0.330" data-track-index="50" style="z-index:50"><div class="cx"><span class="nm">com</span> <span class="nm">os</span></div></div>
-      <div id="lg81" class="clip grupo" data-start="45.460" data-duration="0.430" data-track-index="50" style="z-index:50"><div class="cx"><span class="ch">amigos</span></div></div>
-      <div id="lg82" class="clip grupo" data-start="45.890" data-duration="0.830" data-track-index="50" style="z-index:50"><div class="cx"><span class="nm">consigo</span> <span class="nm">mesmas</span></div></div>
-      <div id="lg93" class="clip grupo" data-start="51.250" data-duration="0.620" data-track-index="50" style="z-index:50"><div class="cx"><span class="nm">isso</span> <span class="nm">através</span></div></div>
-      <div id="lg94" class="clip grupo" data-start="51.870" data-duration="0.400" data-track-index="50" style="z-index:50"><div class="cx"><span class="nm">das</span> <span class="nm">minhas</span></div></div>
-      <div id="lg95" class="clip grupo" data-start="52.270" data-duration="0.393" data-track-index="50" style="z-index:50"><div class="cx"><span class="ch">lentes</span></div></div>
-      <div id="lg96" class="clip grupo" data-start="52.663" data-duration="0.350" data-track-index="50" style="z-index:50"><div class="cx"><span class="nm">ainda</span> <span class="nm">mais</span></div></div>
-      <div id="lg97" class="clip grupo" data-start="53.013" data-duration="0.260" data-track-index="50" style="z-index:50"><div class="cx"><span class="nm">com</span> <span class="nm">um</span></div></div>
-      <div id="lg98" class="clip grupo" data-start="53.273" data-duration="0.440" data-track-index="50" style="z-index:50"><div class="cx"><span class="nm">toque</span> <span class="nm">super</span></div></div>
-      <div id="lg99" class="clip grupo" data-start="53.713" data-duration="0.330" data-track-index="50" style="z-index:50"><div class="cx"><span class="ch">especial</span></div></div>
-      <div id="lg100" class="clip grupo" data-start="54.043" data-duration="0.360" data-track-index="50" style="z-index:50"><div class="cx"><span class="nm">porque</span> <span class="nm">é</span></div></div>
-      <div id="lg101" class="clip grupo" data-start="54.403" data-duration="0.540" data-track-index="50" style="z-index:50"><div class="cx"><span class="ch">aniversário</span></div></div>
-      <div id="lg102" class="clip grupo" data-start="54.943" data-duration="0.350" data-track-index="50" style="z-index:50"><div class="cx"><span class="nm">dia</span> <span class="nm">6</span></div></div>
-      <div id="lg103" class="clip grupo" data-start="55.293" data-duration="0.440" data-track-index="50" style="z-index:50"><div class="cx"><span class="nm">de</span> <span class="ch">dezembro</span></div></div>
-      <div id="lg104" class="clip grupo" data-start="55.733" data-duration="0.350" data-track-index="50" style="z-index:50"><div class="cx"><span class="nm">então</span> <span class="nm">eu</span></div></div>
-      <div id="lg105" class="clip grupo" data-start="56.083" data-duration="0.540" data-track-index="50" style="z-index:50"><div class="cx"><span class="nm">vou</span> <span class="nm">comemorar</span></div></div>
-      <div id="lg106" class="clip grupo" data-start="56.623" data-duration="0.390" data-track-index="50" style="z-index:50"><div class="cx"><span class="nm">junto</span> <span class="nm">com</span></div></div>
-      <div id="lg107" class="clip grupo" data-start="57.013" data-duration="0.407" data-track-index="50" style="z-index:50"><div class="cx"><span class="ch">vocês</span></div></div>
-      <div id="lg108" class="clip grupo" data-start="57.420" data-duration="0.250" data-track-index="50" style="z-index:50"><div class="cx"><span class="nm">então</span></div></div>
-      <div id="lg109" class="clip grupo" data-start="57.670" data-duration="0.409" data-track-index="50" style="z-index:50"><div class="cx"><span class="nm">se</span> <span class="nm">você</span></div></div>
-      <div id="lg110" class="clip grupo" data-start="58.079" data-duration="0.511" data-track-index="50" style="z-index:50"><div class="cx"><span class="nm">ainda</span> <span class="nm">está</span></div></div>
-      <div id="lg111" class="clip grupo" data-start="58.590" data-duration="0.610" data-track-index="50" style="z-index:50"><div class="cx"><span class="nm">na</span> <span class="nm">dúvida</span></div></div>
+      <div id="lg0" class="clip grupo" data-start="0.030" data-duration="0.530" data-track-index="50" style="z-index:50"><div class="cx"><span class="nm">é</span> <span class="nm">que</span> <span class="nm">tanta</span></div></div>
+      <div id="lg1" class="clip grupo" data-start="0.560" data-duration="0.810" data-track-index="50" style="z-index:50"><div class="cx"><span class="nm">coisa</span> <span class="nm">acontece</span> <span class="nm">no</span></div></div>
+      <div id="lg2" class="clip grupo" data-start="1.370" data-duration="0.660" data-track-index="50" style="z-index:50"><div class="cx"><span class="ch">momento</span> <span class="nm">que</span> <span class="nm">eu</span></div></div>
+      <div id="lg3" class="clip grupo" data-start="2.030" data-duration="0.916" data-track-index="50" style="z-index:50"><div class="cx"><span class="nm">clico</span> <span class="nm">aquele</span> <span class="ch">botão</span></div></div>
+      <div id="lg10" class="clip grupo" data-start="6.620" data-duration="0.580" data-track-index="50" style="z-index:50"><div class="cx"><span class="nm">é</span> <span class="nm">conseguir</span></div></div>
+      <div id="lg11" class="clip grupo" data-start="7.200" data-duration="0.770" data-track-index="50" style="z-index:50"><div class="cx"><span class="nm">através</span> <span class="nm">do</span> <span class="nm">meu</span></div></div>
+      <div id="lg15" class="clip grupo" data-start="10.009" data-duration="0.840" data-track-index="50" style="z-index:50"><div class="cx"><span class="nm">pelo</span> <span class="nm">menos</span> <span class="nm">um</span></div></div>
+      <div id="lg16" class="clip grupo" data-start="10.849" data-duration="1.410" data-track-index="50" style="z-index:50"><div class="cx"><span class="nm">pouco</span> <span class="nm">daquele</span> <span class="ch">sentimento</span></div></div>
+      <div id="lg19" class="clip grupo" data-start="14.020" data-duration="1.020" data-track-index="50" style="z-index:50"><div class="cx"><span class="nm">observando</span> <span class="nm">tudo</span> <span class="nm">aquilo</span></div></div>
+      <div id="lg20" class="clip grupo" data-start="15.040" data-duration="0.930" data-track-index="50" style="z-index:50"><div class="cx"><span class="nm">que</span> <span class="nm">está</span> <span class="nm">acontecendo</span></div></div>
+      <div id="lg21" class="clip grupo" data-start="15.970" data-duration="0.530" data-track-index="50" style="z-index:50"><div class="cx"><span class="nm">ao</span> <span class="nm">meu</span> <span class="ch">redor</span></div></div>
+      <div id="lg22" class="clip grupo" data-start="16.500" data-duration="0.920" data-track-index="50" style="z-index:50"><div class="cx"><span class="nm">e</span> <span class="nm">transformando</span> <span class="nm">tudo</span></div></div>
+      <div id="lg23" class="clip grupo" data-start="17.420" data-duration="1.076" data-track-index="50" style="z-index:50"><div class="cx"><span class="nm">aquilo</span> <span class="nm">em</span> <span class="ch">memória</span></div></div>
+      <div id="lg24" class="clip grupo" data-start="18.496" data-duration="0.780" data-track-index="50" style="z-index:50"><div class="cx"><span class="nm">o</span> <span class="nm">meu</span> <span class="nm">trabalho</span></div></div>
+      <div id="lg25" class="clip grupo" data-start="19.276" data-duration="0.890" data-track-index="50" style="z-index:50"><div class="cx"><span class="nm">como</span> <span class="ch">fotógrafa</span></div></div>
+      <div id="lg26" class="clip grupo" data-start="20.166" data-duration="1.200" data-track-index="50" style="z-index:50"><div class="cx"><span class="nm">dentro</span> <span class="nm">desses</span> <span class="ch">festivais</span></div></div>
+      <div id="lg27" class="clip grupo" data-start="21.366" data-duration="0.850" data-track-index="50" style="z-index:50"><div class="cx"><span class="nm">é</span> <span class="nm">algo</span> <span class="nm">muito</span></div></div>
+      <div id="lg28" class="clip grupo" data-start="22.216" data-duration="0.740" data-track-index="50" style="z-index:50"><div class="cx"><span class="ch">sensível</span></div></div>
+      <div id="lg34" class="clip grupo" data-start="25.696" data-duration="0.490" data-track-index="50" style="z-index:50"><div class="cx"><span class="nm">a</span> <span class="ch">gente</span></div></div>
+      <div id="lg35" class="clip grupo" data-start="26.186" data-duration="0.820" data-track-index="50" style="z-index:50"><div class="cx"><span class="nm">constrói</span> <span class="nm">dentro</span> <span class="nm">dessas</span></div></div>
+      <div id="lg37" class="clip grupo" data-start="27.929" data-duration="1.021" data-track-index="50" style="z-index:50"><div class="cx"><span class="nm">são</span> <span class="nm">espaços</span> <span class="nm">onde</span></div></div>
+      <div id="lg38" class="clip grupo" data-start="28.950" data-duration="0.700" data-track-index="50" style="z-index:50"><div class="cx"><span class="nm">muitas</span> <span class="ch">pessoas</span></div></div>
+      <div id="lg43" class="clip grupo" data-start="33.780" data-duration="1.130" data-track-index="50" style="z-index:50"><div class="cx"><span class="ch">pessoas</span> <span class="nm">e</span> <span class="nm">viver</span></div></div>
+      <div id="lg44" class="clip grupo" data-start="34.910" data-duration="0.990" data-track-index="50" style="z-index:50"><div class="cx"><span class="ch">experiências</span> <span class="nm">que</span> <span class="nm">é</span></div></div>
+      <div id="lg45" class="clip grupo" data-start="35.900" data-duration="1.420" data-track-index="50" style="z-index:50"><div class="cx"><span class="nm">até</span> <span class="nm">difícil</span> <span class="nm">colocar</span></div></div>
+      <div id="lg46" class="clip grupo" data-start="37.320" data-duration="0.800" data-track-index="50" style="z-index:50"><div class="cx"><span class="nm">em</span> <span class="ch">palavras</span></div></div>
+      <div id="lg47" class="clip grupo" data-start="38.120" data-duration="0.620" data-track-index="50" style="z-index:50"><div class="cx"><span class="nm">e</span> <span class="nm">é</span> <span class="nm">isso</span></div></div>
+      <div id="lg48" class="clip grupo" data-start="38.740" data-duration="0.680" data-track-index="50" style="z-index:50"><div class="cx"><span class="nm">que</span> <span class="nm">me</span> <span class="ch">move</span></div></div>
+      <div id="lg49" class="clip grupo" data-start="39.420" data-duration="0.290" data-track-index="50" style="z-index:50"><div class="cx"><span class="nm">sabe</span></div></div>
+      <div id="lg50" class="clip grupo" data-start="39.710" data-duration="1.210" data-track-index="50" style="z-index:50"><div class="cx"><span class="nm">poder</span> <span class="nm">registrar</span> <span class="nm">isso</span></div></div>
+      <div id="lg51" class="clip grupo" data-start="40.920" data-duration="1.440" data-track-index="50" style="z-index:50"><div class="cx"><span class="nm">com</span> <span class="nm">muita</span> <span class="ch">espontaneidade</span></div></div>
+      <div id="lg52" class="clip grupo" data-start="42.360" data-duration="1.490" data-track-index="50" style="z-index:50"><div class="cx"><span class="nm">respeitando</span> <span class="nm">a</span> <span class="ch">naturalidade</span></div></div>
+      <div id="lg53" class="clip grupo" data-start="43.850" data-duration="0.820" data-track-index="50" style="z-index:50"><div class="cx"><span class="nm">dos</span> <span class="ch">encontros</span></div></div>
+      <div id="lg54" class="clip grupo" data-start="44.670" data-duration="0.460" data-track-index="50" style="z-index:50"><div class="cx"><span class="nm">das</span> <span class="ch">pessoas</span></div></div>
+      <div id="lg55" class="clip grupo" data-start="45.130" data-duration="0.760" data-track-index="50" style="z-index:50"><div class="cx"><span class="nm">com</span> <span class="nm">os</span> <span class="ch">amigos</span></div></div>
+      <div id="lg56" class="clip grupo" data-start="45.890" data-duration="0.830" data-track-index="50" style="z-index:50"><div class="cx"><span class="nm">consigo</span> <span class="nm">mesmas</span></div></div>
+      <div id="lg65" class="clip grupo" data-start="51.510" data-duration="0.760" data-track-index="50" style="z-index:50"><div class="cx"><span class="nm">através</span> <span class="nm">das</span> <span class="nm">minhas</span></div></div>
+      <div id="lg66" class="clip grupo" data-start="52.270" data-duration="0.393" data-track-index="50" style="z-index:50"><div class="cx"><span class="ch">lentes</span></div></div>
+      <div id="lg67" class="clip grupo" data-start="52.663" data-duration="0.480" data-track-index="50" style="z-index:50"><div class="cx"><span class="nm">ainda</span> <span class="nm">mais</span> <span class="nm">com</span></div></div>
+      <div id="lg68" class="clip grupo" data-start="53.143" data-duration="0.570" data-track-index="50" style="z-index:50"><div class="cx"><span class="nm">um</span> <span class="nm">toque</span> <span class="nm">super</span></div></div>
+      <div id="lg69" class="clip grupo" data-start="53.713" data-duration="0.330" data-track-index="50" style="z-index:50"><div class="cx"><span class="ch">especial</span></div></div>
+      <div id="lg70" class="clip grupo" data-start="54.043" data-duration="0.900" data-track-index="50" style="z-index:50"><div class="cx"><span class="nm">porque</span> <span class="nm">é</span> <span class="ch">aniversário</span></div></div>
+      <div id="lg71" class="clip grupo" data-start="54.943" data-duration="0.480" data-track-index="50" style="z-index:50"><div class="cx"><span class="nm">dia</span> <span class="nm">6</span> <span class="nm">de</span></div></div>
+      <div id="lg72" class="clip grupo" data-start="55.423" data-duration="0.310" data-track-index="50" style="z-index:50"><div class="cx"><span class="ch">dezembro</span></div></div>
+      <div id="lg73" class="clip grupo" data-start="55.733" data-duration="0.480" data-track-index="50" style="z-index:50"><div class="cx"><span class="nm">então</span> <span class="nm">eu</span> <span class="nm">vou</span></div></div>
+      <div id="lg74" class="clip grupo" data-start="56.213" data-duration="0.800" data-track-index="50" style="z-index:50"><div class="cx"><span class="nm">comemorar</span> <span class="nm">junto</span> <span class="nm">com</span></div></div>
+      <div id="lg75" class="clip grupo" data-start="57.013" data-duration="0.407" data-track-index="50" style="z-index:50"><div class="cx"><span class="ch">vocês</span></div></div>
+      <div id="lg76" class="clip grupo" data-start="57.420" data-duration="0.250" data-track-index="50" style="z-index:50"><div class="cx"><span class="nm">então</span></div></div>
+      <div id="lg77" class="clip grupo" data-start="57.670" data-duration="0.670" data-track-index="50" style="z-index:50"><div class="cx"><span class="nm">se</span> <span class="nm">você</span> <span class="nm">ainda</span></div></div>
+      <div id="lg78" class="clip grupo" data-start="58.340" data-duration="0.860" data-track-index="50" style="z-index:50"><div class="cx"><span class="nm">está</span> <span class="nm">na</span> <span class="nm">dúvida</span></div></div>
 
       <audio id="som0" class="clip" src="assets/sfx/click-soft.mp3" data-start="0.050" data-duration="0.370" data-track-index="60" data-volume="0.04"></audio>
       <audio id="som1" class="clip" src="assets/sfx/whoosh.mp3" data-start="1.250" data-duration="0.570" data-track-index="61" data-volume="0.035"></audio>
-      <audio id="som2" class="clip" src="assets/sfx/click.mp3" data-start="2.050" data-duration="0.370" data-track-index="62" data-volume="0.11"></audio>
+      <audio id="som2" class="clip" src="assets/sfx/click.mp3" data-start="2.050" data-duration="0.370" data-track-index="62" data-volume="0.077"></audio>
       <audio id="som3" class="clip" src="assets/sfx/pop.mp3" data-start="1.830" data-duration="0.720" data-track-index="63" data-volume="0.05"></audio>
       <audio id="som4" class="clip" src="assets/sfx/whoosh.mp3" data-start="2.836" data-duration="0.570" data-track-index="60" data-volume="0.05"></audio>
       <audio id="som5" class="clip" src="assets/sfx/click-soft.mp3" data-start="3.716" data-duration="0.370" data-track-index="61" data-volume="0.05"></audio>
       <audio id="som6" class="clip" src="assets/sfx/pop.mp3" data-start="4.556" data-duration="0.720" data-track-index="62" data-volume="0.07"></audio>
       <audio id="som7" class="clip" src="assets/sfx/whoosh-short.mp3" data-start="5.316" data-duration="0.570" data-track-index="63" data-volume="0.05"></audio>
-      <audio id="som8" class="clip" src="assets/sfx/sparkle.mp3" data-start="5.906" data-duration="1.800" data-track-index="60" data-volume="0.05"></audio>
-      <audio id="som9" class="clip" src="assets/sfx/whoosh-short.mp3" data-start="6.310" data-duration="0.570" data-track-index="61" data-volume="0.05"></audio>
-      <audio id="som10" class="clip" src="assets/sfx/click-soft.mp3" data-start="6.630" data-duration="0.370" data-track-index="62" data-volume="0.04"></audio>
-      <audio id="som11" class="clip" src="assets/sfx/whoosh.mp3" data-start="7.840" data-duration="0.570" data-track-index="63" data-volume="0.035"></audio>
-      <audio id="som12" class="clip" src="assets/sfx/ping.mp3" data-start="8.840" data-duration="1.320" data-track-index="60" data-volume="0.04"></audio>
-      <audio id="som13" class="clip" src="assets/sfx/key-press.mp3" data-start="8.269" data-duration="0.400" data-track-index="61" data-volume="0.08"></audio>
-      <audio id="som14" class="clip" src="assets/sfx/key-press.mp3" data-start="8.850" data-duration="0.400" data-track-index="62" data-volume="0.08"></audio>
-      <audio id="som15" class="clip" src="assets/sfx/key-press.mp3" data-start="9.609" data-duration="0.400" data-track-index="63" data-volume="0.08"></audio>
-      <audio id="som16" class="clip" src="assets/sfx/click.mp3" data-start="9.649" data-duration="0.370" data-track-index="60" data-volume="0.12"></audio>
-      <audio id="som17" class="clip" src="assets/sfx/whoosh-short.mp3" data-start="10.199" data-duration="0.570" data-track-index="61" data-volume="0.05"></audio>
-      <audio id="som18" class="clip" src="assets/sfx/whoosh-cinematic.mp3" data-start="9.889" data-duration="5.540" data-track-index="62" data-volume="0.04"></audio>
-      <audio id="som19" class="clip" src="assets/sfx/sparkle.mp3" data-start="11.670" data-duration="1.800" data-track-index="63" data-volume="0.04"></audio>
-      <audio id="som20" class="clip" src="assets/sfx/riser.mp3" data-start="14.370" data-duration="10.030" data-track-index="60" data-volume="0.03"></audio>
-      <audio id="som21" class="clip" src="assets/sfx/click.mp3" data-start="17.900" data-duration="0.370" data-track-index="61" data-volume="0.08"></audio>
-      <audio id="som22" class="clip" src="assets/sfx/whoosh.mp3" data-start="17.810" data-duration="0.570" data-track-index="62" data-volume="0.035"></audio>
-      <audio id="som23" class="clip" src="assets/sfx/click-soft.mp3" data-start="18.496" data-duration="0.370" data-track-index="63" data-volume="0.04"></audio>
-      <audio id="som24" class="clip" src="assets/sfx/whoosh-cinematic.mp3" data-start="20.016" data-duration="5.540" data-track-index="60" data-volume="0.04"></audio>
-      <audio id="som25" class="clip" src="assets/sfx/pop.mp3" data-start="23.006" data-duration="0.720" data-track-index="61" data-volume="0.06"></audio>
-      <audio id="som26" class="clip" src="assets/sfx/typing.mp3" data-start="23.056" data-duration="1.500" data-track-index="62" data-volume="0.04"></audio>
-      <audio id="som27" class="clip" src="assets/sfx/impact-bass-1.mp3" data-start="24.116" data-duration="2.120" data-track-index="63" data-volume="0.05"></audio>
-      <audio id="som28" class="clip" src="assets/sfx/click.mp3" data-start="27.006" data-duration="0.370" data-track-index="60" data-volume="0.09"></audio>
-      <audio id="som29" class="clip" src="assets/sfx/click.mp3" data-start="27.314" data-duration="0.370" data-track-index="61" data-volume="0.09"></audio>
-      <audio id="som30" class="clip" src="assets/sfx/click.mp3" data-start="27.621" data-duration="0.370" data-track-index="62" data-volume="0.09"></audio>
-      <audio id="som31" class="clip" src="assets/sfx/click-soft.mp3" data-start="27.929" data-duration="0.370" data-track-index="63" data-volume="0.04"></audio>
-      <audio id="som32" class="clip" src="assets/sfx/impact-bass-2.mp3" data-start="30.360" data-duration="2.590" data-track-index="60" data-volume="0.04"></audio>
-      <audio id="som33" class="clip" src="assets/sfx/whoosh-short.mp3" data-start="31.380" data-duration="0.570" data-track-index="61" data-volume="0.05"></audio>
-      <audio id="som34" class="clip" src="assets/sfx/pop.mp3" data-start="31.650" data-duration="0.720" data-track-index="62" data-volume="0.05"></audio>
-      <audio id="som35" class="clip" src="assets/sfx/whoosh-short.mp3" data-start="32.389" data-duration="0.570" data-track-index="63" data-volume="0.05"></audio>
-      <audio id="som36" class="clip" src="assets/sfx/pop.mp3" data-start="32.659" data-duration="0.720" data-track-index="60" data-volume="0.05"></audio>
-      <audio id="som37" class="clip" src="assets/sfx/whoosh-short.mp3" data-start="33.200" data-duration="0.570" data-track-index="61" data-volume="0.05"></audio>
-      <audio id="som38" class="clip" src="assets/sfx/pop.mp3" data-start="33.470" data-duration="0.720" data-track-index="62" data-volume="0.05"></audio>
-      <audio id="som39" class="clip" src="assets/sfx/riser.mp3" data-start="34.200" data-duration="10.030" data-track-index="63" data-volume="0.04"></audio>
-      <audio id="som40" class="clip" src="assets/sfx/typing.mp3" data-start="36.180" data-duration="1.500" data-track-index="60" data-volume="0.05"></audio>
-      <audio id="som41" class="clip" src="assets/sfx/whoosh.mp3" data-start="37.670" data-duration="0.570" data-track-index="61" data-volume="0.04"></audio>
-      <audio id="som42" class="clip" src="assets/sfx/whoosh.mp3" data-start="38.790" data-duration="0.570" data-track-index="62" data-volume="0.035"></audio>
-      <audio id="som43" class="clip" src="assets/sfx/pop.mp3" data-start="44.180" data-duration="0.720" data-track-index="63" data-volume="0.06"></audio>
-      <audio id="som44" class="clip" src="assets/sfx/pop.mp3" data-start="44.480" data-duration="0.720" data-track-index="60" data-volume="0.06"></audio>
-      <audio id="som45" class="clip" src="assets/sfx/click-soft.mp3" data-start="46.710" data-duration="0.370" data-track-index="61" data-volume="0.04"></audio>
-      <audio id="som46" class="clip" src="assets/sfx/whoosh-short.mp3" data-start="46.610" data-duration="0.570" data-track-index="62" data-volume="0.05"></audio>
-      <audio id="som47" class="clip" src="assets/sfx/ping.mp3" data-start="47.210" data-duration="1.320" data-track-index="63" data-volume="0.05"></audio>
-      <audio id="som48" class="clip" src="assets/sfx/ping.mp3" data-start="47.610" data-duration="1.320" data-track-index="60" data-volume="0.05"></audio>
-      <audio id="som49" class="clip" src="assets/sfx/whoosh-short.mp3" data-start="49.140" data-duration="0.570" data-track-index="61" data-volume="0.06"></audio>
-      <audio id="som50" class="clip" src="assets/sfx/whoosh-short.mp3" data-start="49.390" data-duration="0.570" data-track-index="62" data-volume="0.06"></audio>
-      <audio id="som51" class="clip" src="assets/sfx/pop.mp3" data-start="50.270" data-duration="0.720" data-track-index="63" data-volume="0.07"></audio>
-      <audio id="som52" class="clip" src="assets/sfx/whoosh.mp3" data-start="49.820" data-duration="0.570" data-track-index="60" data-volume="0.05"></audio>
-      <audio id="som53" class="clip" src="assets/sfx/click-soft.mp3" data-start="51.510" data-duration="0.370" data-track-index="61" data-volume="0.06"></audio>
-      <audio id="som54" class="clip" src="assets/sfx/click.mp3" data-start="52.370" data-duration="0.370" data-track-index="62" data-volume="0.1"></audio>
-      <audio id="som55" class="clip" src="assets/sfx/sparkle.mp3" data-start="54.373" data-duration="1.800" data-track-index="63" data-volume="0.07"></audio>
-      <audio id="som56" class="clip" src="assets/sfx/chime.mp3" data-start="54.943" data-duration="2.500" data-track-index="60" data-volume="0.04"></audio>
-      <audio id="som57" class="clip" src="assets/sfx/pop.mp3" data-start="54.893" data-duration="0.720" data-track-index="61" data-volume="0.05"></audio>
-      <audio id="som58" class="clip" src="assets/sfx/whoosh.mp3" data-start="59.070" data-duration="0.570" data-track-index="62" data-volume="0.035"></audio>
-      <audio id="som59" class="clip" src="assets/sfx/impact-bass-1.mp3" data-start="59.270" data-duration="1.170" data-track-index="63" data-volume="0.05"></audio>
-      <audio id="som60" class="clip" src="assets/sfx/pop.mp3" data-start="59.390" data-duration="0.720" data-track-index="60" data-volume="0.05"></audio>
+      <audio id="som8" class="clip" src="assets/sfx/whoosh-short.mp3" data-start="6.310" data-duration="0.570" data-track-index="60" data-volume="0.05"></audio>
+      <audio id="som9" class="clip" src="assets/sfx/click-soft.mp3" data-start="6.630" data-duration="0.370" data-track-index="61" data-volume="0.04"></audio>
+      <audio id="som10" class="clip" src="assets/sfx/whoosh.mp3" data-start="7.840" data-duration="0.570" data-track-index="62" data-volume="0.035"></audio>
+      <audio id="som11" class="clip" src="assets/sfx/key-press.mp3" data-start="8.269" data-duration="0.400" data-track-index="63" data-volume="0.08"></audio>
+      <audio id="som12" class="clip" src="assets/sfx/key-press.mp3" data-start="8.850" data-duration="0.400" data-track-index="60" data-volume="0.08"></audio>
+      <audio id="som13" class="clip" src="assets/sfx/key-press.mp3" data-start="9.609" data-duration="0.400" data-track-index="61" data-volume="0.08"></audio>
+      <audio id="som14" class="clip" src="assets/sfx/click.mp3" data-start="9.649" data-duration="0.370" data-track-index="62" data-volume="0.08399999999999999"></audio>
+      <audio id="som15" class="clip" src="assets/sfx/whoosh-short.mp3" data-start="10.199" data-duration="0.570" data-track-index="63" data-volume="0.05"></audio>
+      <audio id="som16" class="clip" src="assets/sfx/whoosh-cinematic.mp3" data-start="9.889" data-duration="5.540" data-track-index="60" data-volume="0.04"></audio>
+      <audio id="som17" class="clip" src="assets/sfx/riser.mp3" data-start="14.370" data-duration="10.030" data-track-index="61" data-volume="0.03"></audio>
+      <audio id="som18" class="clip" src="assets/sfx/click.mp3" data-start="17.900" data-duration="0.370" data-track-index="62" data-volume="0.055999999999999994"></audio>
+      <audio id="som19" class="clip" src="assets/sfx/whoosh.mp3" data-start="17.810" data-duration="0.570" data-track-index="63" data-volume="0.035"></audio>
+      <audio id="som20" class="clip" src="assets/sfx/click-soft.mp3" data-start="18.496" data-duration="0.370" data-track-index="60" data-volume="0.04"></audio>
+      <audio id="som21" class="clip" src="assets/sfx/whoosh-cinematic.mp3" data-start="20.016" data-duration="5.540" data-track-index="61" data-volume="0.04"></audio>
+      <audio id="som22" class="clip" src="assets/sfx/pop.mp3" data-start="23.006" data-duration="0.720" data-track-index="62" data-volume="0.06"></audio>
+      <audio id="som23" class="clip" src="assets/sfx/typing.mp3" data-start="23.056" data-duration="1.500" data-track-index="63" data-volume="0.04"></audio>
+      <audio id="som24" class="clip" src="assets/sfx/impact-bass-1.mp3" data-start="24.116" data-duration="2.120" data-track-index="60" data-volume="0.05"></audio>
+      <audio id="som25" class="clip" src="assets/sfx/whoosh-short.mp3" data-start="26.956" data-duration="0.570" data-track-index="61" data-volume="0.04"></audio>
+      <audio id="som26" class="clip" src="assets/sfx/whoosh-short.mp3" data-start="27.264" data-duration="0.570" data-track-index="62" data-volume="0.04"></audio>
+      <audio id="som27" class="clip" src="assets/sfx/whoosh-short.mp3" data-start="27.571" data-duration="0.570" data-track-index="63" data-volume="0.04"></audio>
+      <audio id="som28" class="clip" src="assets/sfx/click-soft.mp3" data-start="27.929" data-duration="0.370" data-track-index="60" data-volume="0.04"></audio>
+      <audio id="som29" class="clip" src="assets/sfx/impact-bass-2.mp3" data-start="30.360" data-duration="2.590" data-track-index="61" data-volume="0.04"></audio>
+      <audio id="som30" class="clip" src="assets/sfx/whoosh-short.mp3" data-start="31.380" data-duration="0.570" data-track-index="62" data-volume="0.05"></audio>
+      <audio id="som31" class="clip" src="assets/sfx/pop.mp3" data-start="31.650" data-duration="0.720" data-track-index="63" data-volume="0.05"></audio>
+      <audio id="som32" class="clip" src="assets/sfx/whoosh-short.mp3" data-start="32.389" data-duration="0.570" data-track-index="60" data-volume="0.05"></audio>
+      <audio id="som33" class="clip" src="assets/sfx/pop.mp3" data-start="32.659" data-duration="0.720" data-track-index="61" data-volume="0.05"></audio>
+      <audio id="som34" class="clip" src="assets/sfx/whoosh-short.mp3" data-start="33.200" data-duration="0.570" data-track-index="62" data-volume="0.05"></audio>
+      <audio id="som35" class="clip" src="assets/sfx/pop.mp3" data-start="33.470" data-duration="0.720" data-track-index="63" data-volume="0.05"></audio>
+      <audio id="som36" class="clip" src="assets/sfx/riser.mp3" data-start="34.200" data-duration="10.030" data-track-index="60" data-volume="0.04"></audio>
+      <audio id="som37" class="clip" src="assets/sfx/typing.mp3" data-start="36.180" data-duration="1.500" data-track-index="61" data-volume="0.05"></audio>
+      <audio id="som38" class="clip" src="assets/sfx/whoosh.mp3" data-start="37.670" data-duration="0.570" data-track-index="62" data-volume="0.04"></audio>
+      <audio id="som39" class="clip" src="assets/sfx/whoosh.mp3" data-start="38.790" data-duration="0.570" data-track-index="63" data-volume="0.035"></audio>
+      <audio id="som40" class="clip" src="assets/sfx/pop.mp3" data-start="44.180" data-duration="0.720" data-track-index="60" data-volume="0.06"></audio>
+      <audio id="som41" class="clip" src="assets/sfx/pop.mp3" data-start="44.480" data-duration="0.720" data-track-index="61" data-volume="0.06"></audio>
+      <audio id="som42" class="clip" src="assets/sfx/click-soft.mp3" data-start="46.710" data-duration="0.370" data-track-index="62" data-volume="0.04"></audio>
+      <audio id="som43" class="clip" src="assets/sfx/whoosh-short.mp3" data-start="46.610" data-duration="0.570" data-track-index="63" data-volume="0.05"></audio>
+      <audio id="som44" class="clip" src="assets/sfx/whoosh-short.mp3" data-start="49.140" data-duration="0.570" data-track-index="60" data-volume="0.06"></audio>
+      <audio id="som45" class="clip" src="assets/sfx/whoosh-short.mp3" data-start="49.390" data-duration="0.570" data-track-index="61" data-volume="0.06"></audio>
+      <audio id="som46" class="clip" src="assets/sfx/pop.mp3" data-start="50.270" data-duration="0.720" data-track-index="62" data-volume="0.07"></audio>
+      <audio id="som47" class="clip" src="assets/sfx/whoosh.mp3" data-start="49.820" data-duration="0.570" data-track-index="63" data-volume="0.05"></audio>
+      <audio id="som48" class="clip" src="assets/sfx/click-soft.mp3" data-start="51.510" data-duration="0.370" data-track-index="60" data-volume="0.06"></audio>
+      <audio id="som49" class="clip" src="assets/sfx/click.mp3" data-start="52.370" data-duration="0.370" data-track-index="61" data-volume="0.06999999999999999"></audio>
+      <audio id="som50" class="clip" src="assets/sfx/pop.mp3" data-start="54.893" data-duration="0.720" data-track-index="62" data-volume="0.05"></audio>
+      <audio id="som51" class="clip" src="assets/sfx/whoosh.mp3" data-start="59.070" data-duration="0.570" data-track-index="63" data-volume="0.035"></audio>
+      <audio id="som52" class="clip" src="assets/sfx/impact-bass-1.mp3" data-start="59.270" data-duration="1.170" data-track-index="60" data-volume="0.05"></audio>
+      <audio id="som53" class="clip" src="assets/sfx/pop.mp3" data-start="59.390" data-duration="0.720" data-track-index="61" data-volume="0.05"></audio>
     </div>
     <script>
       const tl = gsap.timeline({ paused: true });
-      tl.fromTo("#r0 .rot", { opacity: 0, y: -20, filter: "blur(12px)" }, { opacity: 1, x: 0, y: 0, scale: 1, filter: "blur(0px)", duration: 0.5, ease: "expo.out" }, 0.050);
+      tl.fromTo("#r0 .rot", { opacity: 0, y: -20, filter: "blur(12px)" }, { opacity: 1, x: 0, y: 0, scale: 1, filter: "blur(0px)", duration: 0.5, ease: "power3.out" }, 0.050);
       tl.to("#r0 .rot", { opacity: 0, y: -20, filter: "blur(8px)", duration: 0.22, ease: "power2.in" }, 2.380);
       tl.fromTo("#g1 .velo", { opacity: 0 }, { opacity: 1, duration: 0.3 }, 1.370);
-      tl.fromTo("#g1 .gig", { opacity: 0, y: 60, filter: "blur(20px)", scale: 0.94 }, { opacity: 1, y: 0, filter: "blur(0px)", scale: 1, duration: 0.6, ease: "expo.out" }, 1.370);
+      tl.fromTo("#g1 .gig", { opacity: 0, y: 60, filter: "blur(20px)", scale: 0.94 }, { opacity: 1, y: 0, filter: "blur(0px)", scale: 1, duration: 0.6, ease: "power3.out" }, 1.370);
       tl.to("#g1 .gig", { scale: 1.04, duration: 0.806, ease: "none" }, 1.970);
       tl.to("#g1", { opacity: 0, duration: 0.25 }, 2.726);
       tl.fromTo("#bt .obt", { scale: 0.3, opacity: 0, y: 60 }, { scale: 1, opacity: 1, y: 0, duration: 0.25, ease: "back.out(2)" }, 1.830);
       tl.to("#bt .obt i", { scale: 0.78, duration: 0.08, yoyo: true, repeat: 1 }, 2.060);
       tl.fromTo("#fl0 .luz", { opacity: 0.8 }, { opacity: 0, duration: 0.28, ease: "power2.out" }, 2.100);
-      tl.fromTo("#c1 .claro", { clipPath: "circle(0% at 50% 45%)" }, { clipPath: "circle(130% at 50% 45%)", duration: 0.45, ease: "expo.out" }, 2.956);
-      tl.fromTo("#c1a", { opacity: 0, y: 40, filter: "blur(12px)" }, { opacity: 1, x: 0, y: 0, scale: 1, filter: "blur(0px)", duration: 0.5, ease: "expo.out" }, 3.006);
-      tl.fromTo("#c1b", { opacity: 0, y: 40, filter: "blur(12px)" }, { opacity: 1, x: 0, y: 0, scale: 1, filter: "blur(0px)", duration: 0.4, ease: "expo.out" }, 3.716);
+      tl.fromTo("#c1 .claro", { clipPath: "circle(0% at 50% 45%)" }, { clipPath: "circle(130% at 50% 45%)", duration: 0.45, ease: "power3.out" }, 2.956);
+      tl.fromTo("#c1a", { opacity: 0, y: 40, filter: "blur(12px)" }, { opacity: 1, x: 0, y: 0, scale: 1, filter: "blur(0px)", duration: 0.5, ease: "power3.out" }, 3.006);
+      tl.fromTo("#c1b", { opacity: 0, y: 40, filter: "blur(12px)" }, { opacity: 1, x: 0, y: 0, scale: 1, filter: "blur(0px)", duration: 0.4, ease: "power3.out" }, 3.716);
       tl.fromTo("#c1c", { scale: 0.4, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.3, ease: "back.out(2.2)" }, 4.556);
       tl.to("#c1c", { textDecoration: "line-through", opacity: 0.45, duration: 0.01 }, 5.366);
-      tl.fromTo("#c1d", { y: 500, opacity: 0, rotation: 12 }, { y: 0, opacity: 1, rotation: -3, duration: 0.45, ease: "expo.out" }, 5.366);
+      tl.fromTo("#c1d", { y: 500, opacity: 0, rotation: 12 }, { y: 0, opacity: 1, rotation: -3, duration: 0.45, ease: "power3.out" }, 5.366);
       tl.fromTo("#c1d img", { filter: "brightness(2.4) saturate(0)" }, { filter: "brightness(1) saturate(1.1)", duration: 0.8, ease: "power2.out", immediateRender: false }, 5.466);
-      tl.fromTo("#c1e", { opacity: 0, y: 40, filter: "blur(12px)" }, { opacity: 1, x: 0, y: 0, scale: 1, filter: "blur(0px)", duration: 0.5, ease: "expo.out" }, 5.906);
-      tl.to("#c1", { clipPath: "inset(0% 0% 100% 0%)", duration: 0.3, ease: "expo.in" }, 6.330);
-      tl.fromTo("#r2 .rot", { opacity: 0, y: -20, filter: "blur(12px)" }, { opacity: 1, x: 0, y: 0, scale: 1, filter: "blur(0px)", duration: 0.5, ease: "expo.out" }, 6.630);
+      tl.fromTo("#c1e", { opacity: 0, y: 40, filter: "blur(12px)" }, { opacity: 1, x: 0, y: 0, scale: 1, filter: "blur(0px)", duration: 0.5, ease: "power3.out" }, 5.906);
+      tl.to("#c1", { clipPath: "inset(0% 0% 100% 0%)", duration: 0.3, ease: "power2.inOut" }, 6.330);
+      tl.fromTo("#r2 .rot", { opacity: 0, y: -20, filter: "blur(12px)" }, { opacity: 1, x: 0, y: 0, scale: 1, filter: "blur(0px)", duration: 0.5, ease: "power3.out" }, 6.630);
       tl.to("#r2 .rot", { opacity: 0, y: -20, filter: "blur(8px)", duration: 0.22, ease: "power2.in" }, 9.839);
       tl.fromTo("#g2 .velo", { opacity: 0 }, { opacity: 1, duration: 0.3 }, 7.960);
-      tl.fromTo("#g2 .gig", { opacity: 0, y: 60, filter: "blur(20px)", scale: 0.94 }, { opacity: 1, y: 0, filter: "blur(0px)", scale: 1, duration: 0.6, ease: "expo.out" }, 7.960);
+      tl.fromTo("#g2 .gig", { opacity: 0, y: 60, filter: "blur(20px)", scale: 0.94 }, { opacity: 1, y: 0, filter: "blur(0px)", scale: 1, duration: 0.6, ease: "power3.out" }, 7.960);
       tl.to("#g2 .gig", { scale: 1.04, duration: 0.200, ease: "none" }, 8.560);
       tl.to("#g2", { opacity: 0, duration: 0.25 }, 8.259);
-      tl.fromTo("#foc .foco", { scale: 1.6, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.5, ease: "expo.out" }, 6.830);
+      tl.fromTo("#foc .foco", { scale: 1.6, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.5, ease: "power3.out" }, 6.830);
       tl.to("#foc .foco", { scale: 0.86, duration: 0.18, ease: "back.out(3)" }, 8.840);
       tl.fromTo("#p3 .peca", { y: 80, opacity: 0, scale: 0.8 }, { y: 0, opacity: 1, scale: 1, duration: 0.35, stagger: 0.06, ease: "back.out(2)" }, 8.059);
       tl.to("#pc0", { background: "linear-gradient(135deg, rgba(246,231,211,0.97) 0%, rgba(247,168,119,0.95) 60%, rgba(240,86,45,0.95) 100%)", scale: 1.12, duration: 0.18, ease: "back.out(3)" }, 8.269);
@@ -306,20 +296,20 @@
       tl.fromTo("#fl1 .luz", { opacity: 0.9 }, { opacity: 0, duration: 0.28, ease: "power2.out" }, 9.689);
       tl.fromTo("#cgp", { scale: 1, borderRadius: 0, x: 0, y: 0, rotation: 0 }, { scale: 0.4, borderRadius: 60, x: 250, y: -420, rotation: -6, duration: 0.45, ease: "expo.inOut" }, 9.729);
       tl.to("#cgp", { x: 1200, rotation: 14, duration: 0.35, ease: "power3.in" }, 10.249);
-      tl.fromTo("#s3", { clipPath: "inset(12% 10% 12% 10% round 60px)" }, { clipPath: "inset(0% 0% 0% 0% round 0px)", duration: 0.55, ease: "expo.out" }, 10.009);
+      tl.fromTo("#s3", { clipPath: "inset(12% 10% 12% 10% round 60px)" }, { clipPath: "inset(0% 0% 0% 0% round 0px)", duration: 0.55, ease: "power3.out" }, 10.009);
       tl.fromTo("#s3 img", { scale: 1.5 }, { scale: 1.08, duration: 4.011, ease: "power1.out" }, 10.009);
-      tl.fromTo("#s3t", { opacity: 0, y: 40, filter: "blur(12px)" }, { opacity: 1, x: 0, y: 0, scale: 1, filter: "blur(0px)", duration: 0.6, ease: "expo.out" }, 11.690);
-      tl.to("#s3", { clipPath: "inset(12% 10% 12% 10% round 60px)", opacity: 0, duration: 0.3, ease: "expo.in" }, 13.720);
+      tl.fromTo("#s3t", { opacity: 0, y: 40, filter: "blur(12px)" }, { opacity: 1, x: 0, y: 0, scale: 1, filter: "blur(0px)", duration: 0.6, ease: "power3.out" }, 11.690);
+      tl.to("#s3", { clipPath: "inset(12% 10% 12% 10% round 60px)", opacity: 0, duration: 0.3, ease: "power2.inOut" }, 13.720);
       tl.fromTo("#car .velo", { opacity: 0 }, { opacity: 1, duration: 0.3 }, 14.370);
       tl.fromTo("#anel", { rotationY: 0, scale: 0.3, opacity: 0 }, { rotationY: -200, scale: 1, opacity: 1, duration: 3.580, ease: "power1.inOut" }, 14.370);
       tl.fromTo("#fl2 .luz", { opacity: 0.5 }, { opacity: 0, duration: 0.28, ease: "power2.out" }, 17.910);
       tl.fromTo("#g4 .velo", { opacity: 0 }, { opacity: 1, duration: 0.3 }, 17.930);
-      tl.fromTo("#g4 .gig", { opacity: 0, y: 60, filter: "blur(20px)", scale: 0.94 }, { opacity: 1, y: 0, filter: "blur(0px)", scale: 1, duration: 0.6, ease: "expo.out" }, 17.930);
+      tl.fromTo("#g4 .gig", { opacity: 0, y: 60, filter: "blur(20px)", scale: 0.94 }, { opacity: 1, y: 0, filter: "blur(0px)", scale: 1, duration: 0.6, ease: "power3.out" }, 17.930);
       tl.to("#g4 .gig", { scale: 1.04, duration: 0.200, ease: "none" }, 18.530);
       tl.to("#g4", { opacity: 0, duration: 0.25 }, 18.296);
-      tl.fromTo("#r5 .rot", { opacity: 0, y: -20, filter: "blur(12px)" }, { opacity: 1, x: 0, y: 0, scale: 1, filter: "blur(0px)", duration: 0.5, ease: "expo.out" }, 18.496);
+      tl.fromTo("#r5 .rot", { opacity: 0, y: -20, filter: "blur(12px)" }, { opacity: 1, x: 0, y: 0, scale: 1, filter: "blur(0px)", duration: 0.5, ease: "power3.out" }, 18.496);
       tl.to("#r5 .rot", { opacity: 0, y: -20, filter: "blur(8px)", duration: 0.22, ease: "power2.in" }, 22.686);
-      tl.fromTo("#fes", { clipPath: "inset(30% 20% 50% 20% round 60px)" }, { clipPath: "inset(0% 0% 0% 0% round 0px)", duration: 0.55, ease: "expo.out" }, 20.166);
+      tl.fromTo("#fes", { clipPath: "inset(30% 20% 50% 20% round 60px)" }, { clipPath: "inset(0% 0% 0% 0% round 0px)", duration: 0.55, ease: "power3.out" }, 20.166);
       tl.fromTo("#fes img", { scale: 1.3 }, { scale: 1.05, duration: 1.230, ease: "none" }, 20.166);
       tl.to("#fes", { opacity: 0, duration: 0.2 }, 21.196);
       tl.fromTo("#graf .graf", { y: 300, opacity: 0, scale: 0.85 }, { y: 0, opacity: 1, scale: 1, duration: 0.45, ease: "back.out(1.6)" }, 22.956);
@@ -349,26 +339,29 @@
       tl.set("#gn11", { opacity: 1 }, 24.119);
       tl.set("#gn11", { opacity: 0 }, 24.216);
       tl.set("#gn12", { opacity: 1 }, 24.216);
-      tl.to("#graf .graf", { y: 300, opacity: 0, duration: 0.3, ease: "expo.in" }, 25.226);
-      tl.fromTo("#rc0 img", { scale: 1.25 }, { scale: 1.08, duration: 0.308, ease: "none" }, 27.006);
-      tl.fromTo("#rc1 img", { scale: 1.25 }, { scale: 1.08, duration: 0.308, ease: "none" }, 27.314);
-      tl.fromTo("#rc2 img", { scale: 1.25 }, { scale: 1.08, duration: 0.308, ease: "none" }, 27.621);
+      tl.to("#graf .graf", { y: 300, opacity: 0, duration: 0.3, ease: "power2.inOut" }, 25.226);
+      tl.fromTo("#rc0 img", { scale: 1.2 }, { scale: 1.06, duration: 0.558, ease: "none" }, 27.006);
+      tl.fromTo("#rc0", { opacity: 0 }, { opacity: 1, duration: 0.22, ease: "power1.inOut" }, 27.006);
+      tl.fromTo("#rc1 img", { scale: 1.2 }, { scale: 1.06, duration: 0.558, ease: "none" }, 27.314);
+      tl.fromTo("#rc1", { opacity: 0 }, { opacity: 1, duration: 0.22, ease: "power1.inOut" }, 27.314);
+      tl.fromTo("#rc2 img", { scale: 1.2 }, { scale: 1.06, duration: 0.558, ease: "none" }, 27.621);
+      tl.fromTo("#rc2", { opacity: 0 }, { opacity: 1, duration: 0.22, ease: "power1.inOut" }, 27.621);
       tl.fromTo("#fl3 .luz", { opacity: 0.5 }, { opacity: 0, duration: 0.28, ease: "power2.out" }, 27.006);
-      tl.fromTo("#r7 .rot", { opacity: 0, y: -20, filter: "blur(12px)" }, { opacity: 1, x: 0, y: 0, scale: 1, filter: "blur(0px)", duration: 0.5, ease: "expo.out" }, 27.929);
+      tl.fromTo("#r7 .rot", { opacity: 0, y: -20, filter: "blur(12px)" }, { opacity: 1, x: 0, y: 0, scale: 1, filter: "blur(0px)", duration: 0.5, ease: "power3.out" }, 27.929);
       tl.to("#r7 .rot", { opacity: 0, y: -20, filter: "blur(8px)", duration: 0.22, ease: "power2.in" }, 30.089);
-      tl.fromTo("#lib", { clipPath: "circle(0% at 50% 50%)" }, { clipPath: "circle(120% at 50% 50%)", duration: 0.5, ease: "expo.out" }, 30.109);
+      tl.fromTo("#lib", { clipPath: "circle(0% at 50% 50%)" }, { clipPath: "circle(120% at 50% 50%)", duration: 0.5, ease: "power3.out" }, 30.109);
       tl.fromTo("#lib img", { scale: 1.3 }, { scale: 1.08, duration: 1.391, ease: "power2.out" }, 30.109);
-      tl.fromTo("#lib .txt", { opacity: 0, y: 40, filter: "blur(12px)" }, { opacity: 1, x: 0, y: 0, scale: 1, filter: "blur(0px)", duration: 0.5, ease: "expo.out" }, 30.310);
-      tl.fromTo("#cc0", { y: 700, opacity: 0, rotation: -12 }, { y: 0, opacity: 1, rotation: -3, duration: 0.45, ease: "expo.out" }, 31.420);
+      tl.fromTo("#lib .txt", { opacity: 0, y: 40, filter: "blur(12px)" }, { opacity: 1, x: 0, y: 0, scale: 1, filter: "blur(0px)", duration: 0.5, ease: "power3.out" }, 30.310);
+      tl.fromTo("#cc0", { y: 700, opacity: 0, rotation: -12 }, { y: 0, opacity: 1, rotation: -3, duration: 0.45, ease: "power3.out" }, 31.420);
       tl.fromTo("#cc0 img", { scale: 1.3 }, { scale: 1.05, duration: 2.700, ease: "none" }, 31.420);
-      tl.fromTo("#cc1", { y: 700, opacity: 0, rotation: 10 }, { y: 0, opacity: 1, rotation: 3, duration: 0.45, ease: "expo.out" }, 32.429);
+      tl.fromTo("#cc1", { y: 700, opacity: 0, rotation: 10 }, { y: 0, opacity: 1, rotation: 3, duration: 0.45, ease: "power3.out" }, 32.429);
       tl.fromTo("#cc1 img", { scale: 1.3 }, { scale: 1.05, duration: 1.691, ease: "none" }, 32.429);
-      tl.fromTo("#cc2", { y: 700, opacity: 0, rotation: -6 }, { y: 0, opacity: 1, rotation: -1, duration: 0.45, ease: "expo.out" }, 33.240);
+      tl.fromTo("#cc2", { y: 700, opacity: 0, rotation: -6 }, { y: 0, opacity: 1, rotation: -1, duration: 0.45, ease: "power3.out" }, 33.240);
       tl.fromTo("#cc2 img", { scale: 1.3 }, { scale: 1.05, duration: 0.880, ease: "none" }, 33.240);
-      tl.to("#c3 .cartao", { y: -900, opacity: 0, duration: 0.3, stagger: 0.04, ease: "expo.in" }, 33.860);
+      tl.to("#c3 .cartao", { y: -900, opacity: 0, duration: 0.3, stagger: 0.04, ease: "power2.inOut" }, 33.860);
       tl.fromTo("#exp img", { scale: 1.5 }, { scale: 1.1, duration: 1.980, ease: "power2.out" }, 34.200);
       tl.fromTo("#pal .velo", { opacity: 0 }, { opacity: 1, duration: 0.2 }, 36.180);
-      tl.fromTo("#pal .gig b", { opacity: 0, y: -60, filter: "blur(10px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.3, stagger: 0.04, ease: "expo.out" }, 36.230);
+      tl.fromTo("#pal .gig b", { opacity: 0, y: -60, filter: "blur(10px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.3, stagger: 0.04, ease: "power3.out" }, 36.230);
       tl.to("#lt0", { y: 300.0093916431113, x: -27.40052524833033, rotation: -27.982084009788036, opacity: 0, filter: "blur(6px)", duration: 0.6, ease: "power2.in" }, 37.720);
       tl.to("#lt1", { y: 450.38015830813913, x: 25.558445181491983, rotation: 18.825307078112523, opacity: 0, filter: "blur(6px)", duration: 0.6, ease: "power2.in" }, 37.750);
       tl.to("#lt2", { y: 356.45353945738333, x: -120.48552084271122, rotation: -55.45329389881962, opacity: 0, filter: "blur(6px)", duration: 0.6, ease: "power2.in" }, 37.780);
@@ -378,33 +371,33 @@
       tl.to("#lt6", { y: 360.09878090587387, x: -77.86305473552228, rotation: -29.705049195189513, opacity: 0, filter: "blur(6px)", duration: 0.6, ease: "power2.in" }, 37.900);
       tl.to("#lt7", { y: 324.1272548325952, x: 69.40178142832674, rotation: 34.95713810201602, opacity: 0, filter: "blur(6px)", duration: 0.6, ease: "power2.in" }, 37.930);
       tl.fromTo("#g9 .velo", { opacity: 0 }, { opacity: 1, duration: 0.3 }, 38.910);
-      tl.fromTo("#g9 .gig", { opacity: 0, y: 60, filter: "blur(20px)", scale: 0.94 }, { opacity: 1, y: 0, filter: "blur(0px)", scale: 1, duration: 0.6, ease: "expo.out" }, 38.910);
+      tl.fromTo("#g9 .gig", { opacity: 0, y: 60, filter: "blur(20px)", scale: 0.94 }, { opacity: 1, y: 0, filter: "blur(0px)", scale: 1, duration: 0.6, ease: "power3.out" }, 38.910);
       tl.to("#g9 .gig", { scale: 1.04, duration: 0.200, ease: "none" }, 39.510);
       tl.to("#g9", { opacity: 0, duration: 0.25 }, 31.209);
-      tl.fromTo("#pl0", { x: -500, rotation: -25, opacity: 0 }, { x: 0, rotation: -6, opacity: 1, duration: 0.5, ease: "expo.out" }, 44.030);
+      tl.fromTo("#pl0", { x: -500, rotation: -25, opacity: 0 }, { x: 0, rotation: -6, opacity: 1, duration: 0.5, ease: "power3.out" }, 44.030);
       tl.to("#pl0", { y: 30, duration: 1.790, ease: "sine.inOut" }, 44.530);
-      tl.fromTo("#pl1", { x: 500, rotation: 25, opacity: 0 }, { x: 0, rotation: 6, opacity: 1, duration: 0.5, ease: "expo.out" }, 44.330);
+      tl.fromTo("#pl1", { x: 500, rotation: 25, opacity: 0 }, { x: 0, rotation: 6, opacity: 1, duration: 0.5, ease: "power3.out" }, 44.330);
       tl.to("#pl1", { y: -30, duration: 1.790, ease: "sine.inOut" }, 44.830);
       tl.to("#enc .cartao", { opacity: 0, scale: 0.8, duration: 0.25 }, 46.470);
-      tl.fromTo("#r10 .rot", { opacity: 0, y: -20, filter: "blur(12px)" }, { opacity: 1, x: 0, y: 0, scale: 1, filter: "blur(0px)", duration: 0.5, ease: "expo.out" }, 46.710);
+      tl.fromTo("#r10 .rot", { opacity: 0, y: -20, filter: "blur(12px)" }, { opacity: 1, x: 0, y: 0, scale: 1, filter: "blur(0px)", duration: 0.5, ease: "power3.out" }, 46.710);
       tl.to("#r10 .rot", { opacity: 0, y: -20, filter: "blur(8px)", duration: 0.22, ease: "power2.in" }, 52.443);
       tl.fromTo("#cal .cal", { y: 400, opacity: 0, scale: 0.85 }, { y: 0, opacity: 1, scale: 1, duration: 0.45, ease: "back.out(1.6)" }, 46.710);
       tl.fromTo("#d5", { background: "rgba(29,19,14,0)", color: "#121212" }, { background: "#1E5B54", color: "#F6E7D3", scale: 1.2, duration: 0.2, ease: "back.out(3)" }, 47.210);
       tl.fromTo("#d6", { background: "rgba(29,19,14,0)", color: "#121212" }, { background: "#1E5B54", color: "#F6E7D3", scale: 1.2, duration: 0.2, ease: "back.out(3)" }, 47.610);
-      tl.to("#cal .cal", { y: 400, opacity: 0, duration: 0.25, ease: "expo.in" }, 48.940);
-      tl.fromTo("#fs .claro", { clipPath: "inset(50% 0% 50% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.3, ease: "expo.out" }, 49.190);
-      tl.fromTo("#fsa", { opacity: 0, x: -200, filter: "blur(12px)" }, { opacity: 1, x: 0, y: 0, scale: 1, filter: "blur(0px)", duration: 0.4, ease: "expo.out" }, 49.210);
-      tl.fromTo("#fsb", { opacity: 0, x: 200, filter: "blur(12px)" }, { opacity: 1, x: 0, y: 0, scale: 1, filter: "blur(0px)", duration: 0.4, ease: "expo.out" }, 49.440);
+      tl.to("#cal .cal", { y: 400, opacity: 0, duration: 0.25, ease: "power2.inOut" }, 48.940);
+      tl.fromTo("#fs .claro", { clipPath: "inset(50% 0% 50% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.3, ease: "power3.out" }, 49.190);
+      tl.fromTo("#fsa", { opacity: 0, x: -200, filter: "blur(12px)" }, { opacity: 1, x: 0, y: 0, scale: 1, filter: "blur(0px)", duration: 0.4, ease: "power3.out" }, 49.210);
+      tl.fromTo("#fsb", { opacity: 0, x: 200, filter: "blur(12px)" }, { opacity: 1, x: 0, y: 0, scale: 1, filter: "blur(0px)", duration: 0.4, ease: "power3.out" }, 49.440);
       tl.fromTo("#loc .loc", { y: 500, opacity: 0, scale: 0.85 }, { y: 0, opacity: 1, scale: 1, duration: 0.5, ease: "back.out(1.5)" }, 49.920);
       tl.fromTo("#loc img", { scale: 1.3 }, { scale: 1.05, duration: 1.590, ease: "none" }, 49.920);
       tl.fromTo("#loc .pin", { y: -80, opacity: 0 }, { y: 0, opacity: 1, duration: 0.3, ease: "bounce.out" }, 50.220);
-      tl.to("#loc .loc", { y: 500, opacity: 0, duration: 0.25, ease: "expo.in" }, 51.360);
-      tl.fromTo("#len", { scale: 3, rotation: -90, opacity: 0 }, { scale: 1, rotation: 0, opacity: 1, duration: 0.45, ease: "expo.out" }, 51.510);
+      tl.to("#loc .loc", { y: 500, opacity: 0, duration: 0.25, ease: "power2.inOut" }, 51.360);
+      tl.fromTo("#len", { scale: 3, rotation: -90, opacity: 0 }, { scale: 1, rotation: 0, opacity: 1, duration: 0.45, ease: "power3.out" }, 51.510);
       tl.to("#len", { rotation: 30, duration: 0.453, ease: "none" }, 51.960);
       tl.to("#len", { scale: 4, opacity: 0, duration: 0.25, ease: "power2.in" }, 52.413);
       tl.fromTo("#fl4 .luz", { opacity: 0.45 }, { opacity: 0, duration: 0.28, ease: "power2.out" }, 52.370);
       tl.fromTo("#niver .velo", { opacity: 0 }, { opacity: 1, duration: 0.3 }, 54.373);
-      tl.fromTo("#niver .gig", { scale: 0.5, opacity: 0, filter: "blur(20px)" }, { scale: 1, opacity: 1, filter: "blur(0px)", duration: 0.6, ease: "expo.out" }, 54.373);
+      tl.fromTo("#niver .gig", { scale: 0.5, opacity: 0, filter: "blur(20px)" }, { scale: 1, opacity: 1, filter: "blur(0px)", duration: 0.6, ease: "power3.out" }, 54.373);
       tl.fromTo("#br0", { y: 0, rotation: 0, opacity: 1 }, { y: 1988.2151388973998, rotation: 518.2073383211193, x: 8.537545291957226, opacity: 0.8, duration: 3.229, ease: "none" }, 55.298);
       tl.fromTo("#br1", { y: 0, rotation: 0, opacity: 1 }, { y: 2073.7056347419066, rotation: 324.72372867386963, x: -91.19227174259362, opacity: 0.8, duration: 2.036, ease: "none" }, 54.601);
       tl.fromTo("#br2", { y: 0, rotation: 0, opacity: 1 }, { y: 1799.5338584759895, rotation: 318.67128714857216, x: 52.311973903473465, opacity: 0.8, duration: 2.605, ease: "none" }, 55.451);
@@ -442,30 +435,31 @@
       tl.fromTo("#chipn .chip", { scale: 0.4, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.3, ease: "back.out(2.2)" }, 54.893);
       tl.to("#niver, #chipn", { opacity: 0, duration: 0.25 }, 55.483);
       tl.fromTo("#vem .velo", { opacity: 0 }, { opacity: 1, duration: 0.3 }, 59.190);
-      tl.fromTo("#vem .gig", { opacity: 0, y: 60, filter: "blur(20px)", scale: 0.94 }, { opacity: 1, y: 0, filter: "blur(0px)", scale: 1, duration: 0.6, ease: "expo.out" }, 59.190);
+      tl.fromTo("#vem .gig", { opacity: 0, y: 60, filter: "blur(20px)", scale: 0.94 }, { opacity: 1, y: 0, filter: "blur(0px)", scale: 1, duration: 0.6, ease: "power3.out" }, 59.190);
       tl.to("#vem .gig", { scale: 1.04, duration: 0.760, ease: "none" }, 59.790);
       tl.to("#vem", { opacity: 0, duration: 0.25 }, 60.500);
       tl.fromTo("#ing .ing", { y: 500, opacity: 0, rotation: 8 }, { y: 0, opacity: 1, rotation: -2, duration: 0.45, ease: "back.out(1.5)" }, 59.240);
       tl.fromTo("#fim .pre", { opacity: 0 }, { opacity: 1, duration: 0.35, ease: "power1.in" }, 60.100);
       tl.set("#camera", { scale: 1.22 }, 0);
-      tl.to("#camera", { scale: 1.02, duration: 0.5, ease: "expo.out" }, 0);
-      tl.set("#camera", { scale: 1.08 }, 2.967);
-      tl.set("#camera", { scale: 1 }, 6.600);
-      tl.set("#camera", { scale: 1.08 }, 8.400);
-      tl.set("#camera", { scale: 1 }, 9.233);
-      tl.set("#camera", { scale: 1.08 }, 10.167);
-      tl.set("#camera", { scale: 1 }, 11.100);
-      tl.set("#camera", { scale: 1.08 }, 14.000);
-      tl.set("#camera", { scale: 1 }, 18.467);
-      tl.set("#camera", { scale: 1.08 }, 22.967);
-      tl.set("#camera", { scale: 1 }, 27.900);
-      tl.set("#camera", { scale: 1.08 }, 34.033);
-      tl.set("#camera", { scale: 1 }, 34.700);
-      tl.set("#camera", { scale: 1.08 }, 36.533);
-      tl.set("#camera", { scale: 1 }, 38.100);
-      tl.set("#camera", { scale: 1.08 }, 46.700);
-      tl.set("#camera", { scale: 1 }, 52.633);
-      tl.set("#camera", { scale: 1.08 }, 57.400);
+      tl.to("#camera", { scale: 1.02, duration: 0.5, ease: "power3.out" }, 0);
+      tl.to("#camera", { scale: 1.1, duration: 59.950, ease: "sine.inOut" }, 0.5);
+      tl.fromTo("#dv1", { opacity: 1 }, { opacity: 0, duration: 0.22, ease: "power1.out" }, 2.967);
+      tl.fromTo("#dv2", { opacity: 1 }, { opacity: 0, duration: 0.22, ease: "power1.out" }, 6.600);
+      tl.fromTo("#dv3", { opacity: 1 }, { opacity: 0, duration: 0.22, ease: "power1.out" }, 8.400);
+      tl.fromTo("#dv4", { opacity: 1 }, { opacity: 0, duration: 0.22, ease: "power1.out" }, 9.233);
+      tl.fromTo("#dv5", { opacity: 1 }, { opacity: 0, duration: 0.22, ease: "power1.out" }, 10.167);
+      tl.fromTo("#dv6", { opacity: 1 }, { opacity: 0, duration: 0.22, ease: "power1.out" }, 11.100);
+      tl.fromTo("#dv7", { opacity: 1 }, { opacity: 0, duration: 0.22, ease: "power1.out" }, 14.000);
+      tl.fromTo("#dv8", { opacity: 1 }, { opacity: 0, duration: 0.22, ease: "power1.out" }, 18.467);
+      tl.fromTo("#dv9", { opacity: 1 }, { opacity: 0, duration: 0.22, ease: "power1.out" }, 22.967);
+      tl.fromTo("#dv10", { opacity: 1 }, { opacity: 0, duration: 0.22, ease: "power1.out" }, 27.900);
+      tl.fromTo("#dv11", { opacity: 1 }, { opacity: 0, duration: 0.22, ease: "power1.out" }, 34.033);
+      tl.fromTo("#dv12", { opacity: 1 }, { opacity: 0, duration: 0.22, ease: "power1.out" }, 34.700);
+      tl.fromTo("#dv13", { opacity: 1 }, { opacity: 0, duration: 0.22, ease: "power1.out" }, 36.533);
+      tl.fromTo("#dv14", { opacity: 1 }, { opacity: 0, duration: 0.22, ease: "power1.out" }, 38.100);
+      tl.fromTo("#dv15", { opacity: 1 }, { opacity: 0, duration: 0.22, ease: "power1.out" }, 46.700);
+      tl.fromTo("#dv16", { opacity: 1 }, { opacity: 0, duration: 0.22, ease: "power1.out" }, 52.633);
+      tl.fromTo("#dv17", { opacity: 1 }, { opacity: 0, duration: 0.22, ease: "power1.out" }, 57.400);
       tl.set("#recorte", { opacity: 0 }, 0);
       tl.set("#recorte", { opacity: 1 }, 1.370);
       tl.set("#recorte", { opacity: 0 }, 2.976);
@@ -485,79 +479,56 @@
       tl.set("#recorte", { opacity: 0 }, 55.733);
       tl.set("#recorte", { opacity: 1 }, 59.190);
       tl.set("#recorte", { opacity: 0 }, 60.750);
-      tl.fromTo("#lg0 .cx", { opacity: 0, y: 18, filter: "blur(8px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.22, ease: "expo.out" }, 0.030);
-      tl.fromTo("#lg1 .cx", { opacity: 0, y: 18, filter: "blur(8px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.22, ease: "expo.out" }, 0.320);
-      tl.fromTo("#lg2 .cx", { opacity: 0, y: 18, filter: "blur(8px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.22, ease: "expo.out" }, 0.790);
-      tl.fromTo("#lg3 .cx", { opacity: 0, y: 18, filter: "blur(8px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.22, ease: "expo.out" }, 1.370);
-      tl.fromTo("#lg4 .cx", { opacity: 0, y: 18, filter: "blur(8px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.22, ease: "expo.out" }, 1.700);
-      tl.fromTo("#lg5 .cx", { opacity: 0, y: 18, filter: "blur(8px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.22, ease: "expo.out" }, 2.030);
-      tl.fromTo("#lg6 .cx", { opacity: 0, y: 18, filter: "blur(8px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.22, ease: "expo.out" }, 2.610);
-      tl.fromTo("#lg15 .cx", { opacity: 0, y: 18, filter: "blur(8px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.22, ease: "expo.out" }, 6.620);
-      tl.fromTo("#lg16 .cx", { opacity: 0, y: 18, filter: "blur(8px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.22, ease: "expo.out" }, 7.200);
-      tl.fromTo("#lg17 .cx", { opacity: 0, y: 18, filter: "blur(8px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.22, ease: "expo.out" }, 7.790);
-      tl.fromTo("#lg21 .cx", { opacity: 0, y: 18, filter: "blur(8px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.22, ease: "expo.out" }, 10.380);
-      tl.fromTo("#lg22 .cx", { opacity: 0, y: 18, filter: "blur(8px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.22, ease: "expo.out" }, 10.849);
-      tl.fromTo("#lg27 .cx", { opacity: 0, y: 18, filter: "blur(8px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.22, ease: "expo.out" }, 14.020);
-      tl.fromTo("#lg28 .cx", { opacity: 0, y: 18, filter: "blur(8px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.22, ease: "expo.out" }, 14.700);
-      tl.fromTo("#lg29 .cx", { opacity: 0, y: 18, filter: "blur(8px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.22, ease: "expo.out" }, 15.190);
-      tl.fromTo("#lg30 .cx", { opacity: 0, y: 18, filter: "blur(8px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.22, ease: "expo.out" }, 15.970);
-      tl.fromTo("#lg31 .cx", { opacity: 0, y: 18, filter: "blur(8px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.22, ease: "expo.out" }, 16.259);
-      tl.fromTo("#lg32 .cx", { opacity: 0, y: 18, filter: "blur(8px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.22, ease: "expo.out" }, 16.500);
-      tl.fromTo("#lg33 .cx", { opacity: 0, y: 18, filter: "blur(8px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.22, ease: "expo.out" }, 17.100);
-      tl.fromTo("#lg34 .cx", { opacity: 0, y: 18, filter: "blur(8px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.22, ease: "expo.out" }, 17.760);
-      tl.fromTo("#lg35 .cx", { opacity: 0, y: 18, filter: "blur(8px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.22, ease: "expo.out" }, 18.496);
-      tl.fromTo("#lg36 .cx", { opacity: 0, y: 18, filter: "blur(8px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.22, ease: "expo.out" }, 18.846);
-      tl.fromTo("#lg37 .cx", { opacity: 0, y: 18, filter: "blur(8px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.22, ease: "expo.out" }, 19.576);
-      tl.fromTo("#lg38 .cx", { opacity: 0, y: 18, filter: "blur(8px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.22, ease: "expo.out" }, 20.166);
-      tl.fromTo("#lg39 .cx", { opacity: 0, y: 18, filter: "blur(8px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.22, ease: "expo.out" }, 20.936);
-      tl.fromTo("#lg40 .cx", { opacity: 0, y: 18, filter: "blur(8px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.22, ease: "expo.out" }, 21.366);
-      tl.fromTo("#lg41 .cx", { opacity: 0, y: 18, filter: "blur(8px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.22, ease: "expo.out" }, 21.846);
-      tl.fromTo("#lg49 .cx", { opacity: 0, y: 18, filter: "blur(8px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.22, ease: "expo.out" }, 25.696);
-      tl.fromTo("#lg50 .cx", { opacity: 0, y: 18, filter: "blur(8px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.22, ease: "expo.out" }, 26.186);
-      tl.fromTo("#lg51 .cx", { opacity: 0, y: 18, filter: "blur(8px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.22, ease: "expo.out" }, 26.706);
-      tl.fromTo("#lg53 .cx", { opacity: 0, y: 18, filter: "blur(8px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.22, ease: "expo.out" }, 27.929);
-      tl.fromTo("#lg54 .cx", { opacity: 0, y: 18, filter: "blur(8px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.22, ease: "expo.out" }, 28.619);
-      tl.fromTo("#lg55 .cx", { opacity: 0, y: 18, filter: "blur(8px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.22, ease: "expo.out" }, 29.310);
-      tl.fromTo("#lg56 .cx", { opacity: 0, y: 18, filter: "blur(8px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.22, ease: "expo.out" }, 29.650);
-      tl.fromTo("#lg63 .cx", { opacity: 0, y: 18, filter: "blur(8px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.22, ease: "expo.out" }, 34.200);
-      tl.fromTo("#lg64 .cx", { opacity: 0, y: 18, filter: "blur(8px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.22, ease: "expo.out" }, 34.910);
-      tl.fromTo("#lg65 .cx", { opacity: 0, y: 18, filter: "blur(8px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.22, ease: "expo.out" }, 35.510);
-      tl.fromTo("#lg66 .cx", { opacity: 0, y: 18, filter: "blur(8px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.22, ease: "expo.out" }, 35.900);
-      tl.fromTo("#lg67 .cx", { opacity: 0, y: 18, filter: "blur(8px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.22, ease: "expo.out" }, 36.860);
-      tl.fromTo("#lg68 .cx", { opacity: 0, y: 18, filter: "blur(8px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.22, ease: "expo.out" }, 37.520);
-      tl.fromTo("#lg69 .cx", { opacity: 0, y: 18, filter: "blur(8px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.22, ease: "expo.out" }, 38.120);
-      tl.fromTo("#lg70 .cx", { opacity: 0, y: 18, filter: "blur(8px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.22, ease: "expo.out" }, 38.450);
-      tl.fromTo("#lg71 .cx", { opacity: 0, y: 18, filter: "blur(8px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.22, ease: "expo.out" }, 38.910);
-      tl.fromTo("#lg72 .cx", { opacity: 0, y: 18, filter: "blur(8px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.22, ease: "expo.out" }, 39.420);
-      tl.fromTo("#lg73 .cx", { opacity: 0, y: 18, filter: "blur(8px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.22, ease: "expo.out" }, 39.710);
-      tl.fromTo("#lg74 .cx", { opacity: 0, y: 18, filter: "blur(8px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.22, ease: "expo.out" }, 40.630);
-      tl.fromTo("#lg75 .cx", { opacity: 0, y: 18, filter: "blur(8px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.22, ease: "expo.out" }, 41.270);
-      tl.fromTo("#lg76 .cx", { opacity: 0, y: 18, filter: "blur(8px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.22, ease: "expo.out" }, 42.360);
-      tl.fromTo("#lg77 .cx", { opacity: 0, y: 18, filter: "blur(8px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.22, ease: "expo.out" }, 43.070);
-      tl.fromTo("#lg78 .cx", { opacity: 0, y: 18, filter: "blur(8px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.22, ease: "expo.out" }, 43.850);
-      tl.fromTo("#lg79 .cx", { opacity: 0, y: 18, filter: "blur(8px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.22, ease: "expo.out" }, 44.670);
-      tl.fromTo("#lg80 .cx", { opacity: 0, y: 18, filter: "blur(8px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.22, ease: "expo.out" }, 45.130);
-      tl.fromTo("#lg81 .cx", { opacity: 0, y: 18, filter: "blur(8px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.22, ease: "expo.out" }, 45.460);
-      tl.fromTo("#lg82 .cx", { opacity: 0, y: 18, filter: "blur(8px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.22, ease: "expo.out" }, 45.890);
-      tl.fromTo("#lg93 .cx", { opacity: 0, y: 18, filter: "blur(8px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.22, ease: "expo.out" }, 51.250);
-      tl.fromTo("#lg94 .cx", { opacity: 0, y: 18, filter: "blur(8px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.22, ease: "expo.out" }, 51.870);
-      tl.fromTo("#lg95 .cx", { opacity: 0, y: 18, filter: "blur(8px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.22, ease: "expo.out" }, 52.270);
-      tl.fromTo("#lg96 .cx", { opacity: 0, y: 18, filter: "blur(8px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.22, ease: "expo.out" }, 52.663);
-      tl.fromTo("#lg97 .cx", { opacity: 0, y: 18, filter: "blur(8px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.22, ease: "expo.out" }, 53.013);
-      tl.fromTo("#lg98 .cx", { opacity: 0, y: 18, filter: "blur(8px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.22, ease: "expo.out" }, 53.273);
-      tl.fromTo("#lg99 .cx", { opacity: 0, y: 18, filter: "blur(8px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.22, ease: "expo.out" }, 53.713);
-      tl.fromTo("#lg100 .cx", { opacity: 0, y: 18, filter: "blur(8px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.22, ease: "expo.out" }, 54.043);
-      tl.fromTo("#lg101 .cx", { opacity: 0, y: 18, filter: "blur(8px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.22, ease: "expo.out" }, 54.403);
-      tl.fromTo("#lg102 .cx", { opacity: 0, y: 18, filter: "blur(8px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.22, ease: "expo.out" }, 54.943);
-      tl.fromTo("#lg103 .cx", { opacity: 0, y: 18, filter: "blur(8px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.22, ease: "expo.out" }, 55.293);
-      tl.fromTo("#lg104 .cx", { opacity: 0, y: 18, filter: "blur(8px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.22, ease: "expo.out" }, 55.733);
-      tl.fromTo("#lg105 .cx", { opacity: 0, y: 18, filter: "blur(8px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.22, ease: "expo.out" }, 56.083);
-      tl.fromTo("#lg106 .cx", { opacity: 0, y: 18, filter: "blur(8px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.22, ease: "expo.out" }, 56.623);
-      tl.fromTo("#lg107 .cx", { opacity: 0, y: 18, filter: "blur(8px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.22, ease: "expo.out" }, 57.013);
-      tl.fromTo("#lg108 .cx", { opacity: 0, y: 18, filter: "blur(8px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.22, ease: "expo.out" }, 57.420);
-      tl.fromTo("#lg109 .cx", { opacity: 0, y: 18, filter: "blur(8px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.22, ease: "expo.out" }, 57.670);
-      tl.fromTo("#lg110 .cx", { opacity: 0, y: 18, filter: "blur(8px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.22, ease: "expo.out" }, 58.079);
-      tl.fromTo("#lg111 .cx", { opacity: 0, y: 18, filter: "blur(8px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.22, ease: "expo.out" }, 58.590);
+      tl.fromTo("#lg0 .cx", { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.28, ease: "power2.out" }, 0.030);
+      tl.fromTo("#lg1 .cx", { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.28, ease: "power2.out" }, 0.560);
+      tl.fromTo("#lg2 .cx", { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.28, ease: "power2.out" }, 1.370);
+      tl.fromTo("#lg3 .cx", { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.28, ease: "power2.out" }, 2.030);
+      tl.fromTo("#lg10 .cx", { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.28, ease: "power2.out" }, 6.620);
+      tl.fromTo("#lg11 .cx", { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.28, ease: "power2.out" }, 7.200);
+      tl.fromTo("#lg15 .cx", { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.28, ease: "power2.out" }, 10.009);
+      tl.fromTo("#lg16 .cx", { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.28, ease: "power2.out" }, 10.849);
+      tl.fromTo("#lg19 .cx", { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.28, ease: "power2.out" }, 14.020);
+      tl.fromTo("#lg20 .cx", { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.28, ease: "power2.out" }, 15.040);
+      tl.fromTo("#lg21 .cx", { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.28, ease: "power2.out" }, 15.970);
+      tl.fromTo("#lg22 .cx", { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.28, ease: "power2.out" }, 16.500);
+      tl.fromTo("#lg23 .cx", { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.28, ease: "power2.out" }, 17.420);
+      tl.fromTo("#lg24 .cx", { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.28, ease: "power2.out" }, 18.496);
+      tl.fromTo("#lg25 .cx", { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.28, ease: "power2.out" }, 19.276);
+      tl.fromTo("#lg26 .cx", { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.28, ease: "power2.out" }, 20.166);
+      tl.fromTo("#lg27 .cx", { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.28, ease: "power2.out" }, 21.366);
+      tl.fromTo("#lg28 .cx", { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.28, ease: "power2.out" }, 22.216);
+      tl.fromTo("#lg34 .cx", { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.28, ease: "power2.out" }, 25.696);
+      tl.fromTo("#lg35 .cx", { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.28, ease: "power2.out" }, 26.186);
+      tl.fromTo("#lg37 .cx", { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.28, ease: "power2.out" }, 27.929);
+      tl.fromTo("#lg38 .cx", { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.28, ease: "power2.out" }, 28.950);
+      tl.fromTo("#lg43 .cx", { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.28, ease: "power2.out" }, 33.780);
+      tl.fromTo("#lg44 .cx", { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.28, ease: "power2.out" }, 34.910);
+      tl.fromTo("#lg45 .cx", { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.28, ease: "power2.out" }, 35.900);
+      tl.fromTo("#lg46 .cx", { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.28, ease: "power2.out" }, 37.320);
+      tl.fromTo("#lg47 .cx", { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.28, ease: "power2.out" }, 38.120);
+      tl.fromTo("#lg48 .cx", { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.28, ease: "power2.out" }, 38.740);
+      tl.fromTo("#lg49 .cx", { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.28, ease: "power2.out" }, 39.420);
+      tl.fromTo("#lg50 .cx", { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.28, ease: "power2.out" }, 39.710);
+      tl.fromTo("#lg51 .cx", { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.28, ease: "power2.out" }, 40.920);
+      tl.fromTo("#lg52 .cx", { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.28, ease: "power2.out" }, 42.360);
+      tl.fromTo("#lg53 .cx", { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.28, ease: "power2.out" }, 43.850);
+      tl.fromTo("#lg54 .cx", { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.28, ease: "power2.out" }, 44.670);
+      tl.fromTo("#lg55 .cx", { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.28, ease: "power2.out" }, 45.130);
+      tl.fromTo("#lg56 .cx", { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.28, ease: "power2.out" }, 45.890);
+      tl.fromTo("#lg65 .cx", { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.28, ease: "power2.out" }, 51.510);
+      tl.fromTo("#lg66 .cx", { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.28, ease: "power2.out" }, 52.270);
+      tl.fromTo("#lg67 .cx", { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.28, ease: "power2.out" }, 52.663);
+      tl.fromTo("#lg68 .cx", { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.28, ease: "power2.out" }, 53.143);
+      tl.fromTo("#lg69 .cx", { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.28, ease: "power2.out" }, 53.713);
+      tl.fromTo("#lg70 .cx", { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.28, ease: "power2.out" }, 54.043);
+      tl.fromTo("#lg71 .cx", { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.28, ease: "power2.out" }, 54.943);
+      tl.fromTo("#lg72 .cx", { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.28, ease: "power2.out" }, 55.423);
+      tl.fromTo("#lg73 .cx", { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.28, ease: "power2.out" }, 55.733);
+      tl.fromTo("#lg74 .cx", { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.28, ease: "power2.out" }, 56.213);
+      tl.fromTo("#lg75 .cx", { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.28, ease: "power2.out" }, 57.013);
+      tl.fromTo("#lg76 .cx", { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.28, ease: "power2.out" }, 57.420);
+      tl.fromTo("#lg77 .cx", { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.28, ease: "power2.out" }, 57.670);
+      tl.fromTo("#lg78 .cx", { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.28, ease: "power2.out" }, 58.340);
       window.__timelines["main"] = tl;
     </script>
   </body>

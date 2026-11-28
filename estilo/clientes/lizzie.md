@@ -21,3 +21,10 @@
 - **Voz mais alta/impactante:** -12 LUFS, compressão mais forte.
 - Final: ela numa polaroid grande com fita, fotos inteiras dele em volta (ela gostou, pediu para caprichar).
 - Script: `_tecnico/scripts/gerar-lizzie-v4.mjs` + `lizzie-cortes-v4.py` + `montar-lizzie-v4.py`.
+
+## Referência moderna (28/11) — `referencias/ref-lizzie-moderna-01.mp4`
+- Letra fina geométrica minúscula (1–2 palavras), palavras grandes finas em DEGRADÊ (às vezes atrás da pessoa).
+- Cartões "de vidro"/UI arredondados em degradê como infográfico: peças A B C D / 1 2 3, calendário com dias, gráfico de linha, etiquetas "+2€".
+- Rótulos pequenos de seção no topo ("01 / estratégia"). Cenas limpas de tela cheia (branco/preto) com gráfico.
+- Imagem nítida, cor viva e quente, sem granulado. Cortes a cada 3–5 s; o movimento está nos gráficos.
+- Pedido: juntar esse estilo moderno com a criatividade da Lizzie (fotos, recorte, palavras atrás).

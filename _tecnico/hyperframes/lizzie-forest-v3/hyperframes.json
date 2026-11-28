@@ -1,0 +1,60 @@
+{
+  "$schema": "https://hyperframes.heygen.com/schema/hyperframes.json",
+  "registry": "https://raw.githubusercontent.com/heygen-com/hyperframes/main/registry",
+  "paths": {
+    "blocks": "compositions",
+    "components": "compositions/components",
+    "assets": "assets"
+  },
+  "media": {
+    "autoProxy": true
+  },
+  "authoringSkill": "hyperframes",
+  "registryItems": [
+    {
+      "name": "gallery-tunnel",
+      "type": "hyperframes:block",
+      "target": "compositions/gallery-tunnel.html"
+    },
+    {
+      "name": "caption-kinetic-slam",
+      "type": "hyperframes:component",
+      "target": "compositions/components/caption-kinetic-slam.html"
+    },
+    {
+      "name": "organic-light-leak-overlay",
+      "type": "hyperframes:block",
+      "target": "compositions/organic-light-leak-overlay.html"
+    },
+    {
+      "name": "light-leak",
+      "type": "hyperframes:block",
+      "target": "compositions/light-leak.html"
+    },
+    {
+      "name": "ridged-burn",
+      "type": "hyperframes:block",
+      "target": "compositions/ridged-burn.html"
+    },
+    {
+      "name": "cinematic-zoom",
+      "type": "hyperframes:block",
+      "target": "compositions/cinematic-zoom.html"
+    },
+    {
+      "name": "caption-parallax-layers",
+      "type": "hyperframes:component",
+      "target": "compositions/components/caption-parallax-layers.html"
+    },
+    {
+      "name": "mk-emphasis-type",
+      "type": "hyperframes:component",
+      "target": "compositions/components/mk-emphasis-type.html"
+    },
+    {
+      "name": "parallax-zoom",
+      "type": "hyperframes:component",
+      "target": "compositions/components/parallax-zoom.html"
+    }
+  ]
+}

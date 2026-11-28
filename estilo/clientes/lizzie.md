@@ -34,3 +34,4 @@
 - Títulos de capa: letra condensada grossa, maiúscula, laranja. Destaques em serifa creme.
 - Não usar rosa/roxo como cor da marca dela (o roxo/neon só aparece nas fotos de festival).
 - **Sem efeitos que pareçam passarinho** (sparkle, chime, ping). Ela pediu fluidez: câmera com aproximação contínua (sem saltos de zoom), dissolver curto (0,2 s) nos cortes internos, cenas entrando/saindo suaves.
+- **Recorte (fundo removido):** fundo atrás dela LARANJA (dela), sutil — entra/sai devagar (0,5 s), palavras grandes em creme. Nada de fundo escuro.

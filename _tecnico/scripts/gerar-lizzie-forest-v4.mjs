@@ -36,16 +36,16 @@ let nfl = 0;
 const flash = (t, o = 0.7) => { const id = `fl${nfl++}`; frente(id, t, t + 0.3, `<i class="luz"></i>`, 40); tw(`tl.fromTo("#${id} .luz", { opacity: ${o} }, { opacity: 0, duration: 0.28, ease: "power2.out" }, ${f(t)});`); };
 // palavra grande, fina, em degradê, atrás dela
 const atrasDela = (id, t0, t1, txt, estilo = "") => {
-  tras(id, t0, t1, `<i class="velo"></i><div class="gig grad" style="${estilo}">${txt}</div>`);
-  tw(`tl.fromTo("#${id} .velo", { opacity: 0 }, { opacity: 1, duration: 0.3 }, ${f(t0)});`);
-  tw(`tl.fromTo("#${id} .gig", { opacity: 0, y: 60, filter: "blur(20px)", scale: 0.94 }, { opacity: 1, y: 0, filter: "blur(0px)", scale: 1, duration: 0.6, ease: "power3.out" }, ${f(t0)});`);
+  tras(id, t0, t1, `<i class="velo"></i><div class="gig" style="${estilo}">${txt}</div>`);
+  tw(`tl.fromTo("#${id} .velo", { opacity: 0 }, { opacity: 1, duration: 0.5, ease: "power1.inOut" }, ${f(t0)});`);
+  tw(`tl.fromTo("#${id} .gig", { opacity: 0, y: 30, scale: 0.97 }, { opacity: 1, y: 0, scale: 1, duration: 0.7, ease: "power3.out" }, ${f(t0)});`);
   tw(`tl.to("#${id} .gig", { scale: 1.04, duration: ${f(Math.max(0.2, t1 - t0 - 0.8))}, ease: "none" }, ${f(t0 + 0.6)});`);
-  tw(`tl.to("#${id}", { opacity: 0, duration: 0.25 }, ${f(t1 - 0.25)});`);
+  tw(`tl.to("#${id}", { opacity: 0, duration: 0.45, ease: "power1.inOut" }, ${f(t1 - 0.45)});`);
   som("whoosh", t0 - 0.12, 0.035);
 };
 
 // ============ 0 — gancho ============
-rotulo("r0", 0.05, 2.6, "fotografia · festivais");
+rotulo("r0", 0.05, T("momento") + 0.1, "fotografia · festivais");
 atrasDela("g1", T("momento") - 0.05, T("Fotografar") - 0.02, "momento");
 { // botão do obturador de vidro, pressionado no "clico"
   const t = T("clico") - 0.25;
@@ -111,7 +111,7 @@ atrasDela("g1", T("momento") - 0.05, T("Fotografar") - 0.02, "momento");
   const t0 = T("Observando") + 0.3, tm = T("memória"), t1 = T("O meu trabalho") - 0.05;
   const F = ["poente1", "luzes", "maos2", "palco1", "floripa2", "multidao"];
   tras("car", t0, tm + 0.1, `<i class="velo"></i><div class="cena3d"><div class="anel" id="anel">${F.map((n, k) => `<div class="card3d" style="transform: rotateY(${k * 60}deg) translateZ(520px)"><img src="assets/fotos/${n}.jpg"></div>`).join("")}</div></div>`);
-  tw(`tl.fromTo("#car .velo", { opacity: 0 }, { opacity: 1, duration: 0.3 }, ${f(t0)});`);
+  tw(`tl.fromTo("#car .velo", { opacity: 0 }, { opacity: 1, duration: 0.5, ease: "power1.inOut" }, ${f(t0)});`);
   tw(`tl.fromTo("#anel", { rotationY: 0, scale: 0.3, opacity: 0 }, { rotationY: -200, scale: 1, opacity: 1, duration: ${f(tm - t0)}, ease: "power1.inOut" }, ${f(t0)});`);
   som("riser", t0, 0.03); flash(tm - 0.04, 0.5); som("click", tm - 0.05, 0.08);
   atrasDela("g4", tm - 0.02, t1 + 0.05, "memória");
@@ -121,10 +121,10 @@ atrasDela("g1", T("momento") - 0.05, T("Fotografar") - 0.02, "momento");
 {
   const t0 = T("dentro desses") - 0.05, t1 = T("é algo") - 0.02;
   rotulo("r5", T("O meu trabalho") - 0.05, T("Por ser") - 0.1, "02 / os festivais");
-  tras("fes", t0, t1, `<div class="fcheia"><img src="assets/fotos/fest3.jpg"></div><i class="sombra" style="opacity:0.35"></i>`);
-  tw(`tl.fromTo("#fes", { clipPath: "inset(30% 20% 50% 20% round 60px)" }, { clipPath: "inset(0% 0% 0% 0% round 0px)", duration: 0.55, ease: "power3.out" }, ${f(t0)});`);
+  tras("fes", t0, t1, `<div class="fcheia"><img src="assets/fotos/fest3.jpg" style="filter:grayscale(1) contrast(1.1)"></div><i class="velo" style="opacity:0.86"></i>`);
+  tw(`tl.fromTo("#fes", { opacity: 0 }, { opacity: 1, duration: 0.5, ease: "power1.inOut" }, ${f(t0)});`);
   tw(`tl.fromTo("#fes img", { scale: 1.3 }, { scale: 1.05, duration: ${f(t1 - t0)}, ease: "none" }, ${f(t0)});`);
-  tw(`tl.to("#fes", { opacity: 0, duration: 0.2 }, ${f(t1 - 0.2)});`); som("whoosh-cinematic", t0 - 0.15, 0.04);
+  tw(`tl.to("#fes", { opacity: 0, duration: 0.45, ease: "power1.inOut" }, ${f(t1 - 0.45)});`); som("whoosh-cinematic", t0 - 0.15, 0.04);
 }
 
 // ============ 6 — gráfico de vidro "12 anos de pista" + cortes rápidos de fotos ============
@@ -168,7 +168,7 @@ atrasDela("g1", T("momento") - 0.05, T("Fotografar") - 0.02, "momento");
   frente("exp", t0, tp + 0.05, `<div class="fcheia"><img src="assets/fotos/laser.jpg"></div>`, 10);
   tw(`tl.fromTo("#exp img", { scale: 1.5 }, { scale: 1.1, duration: ${f(tp - t0)}, ease: "power2.out" }, ${f(t0)});`); som("riser", t0, 0.04);
   const L = "palavras".split("");
-  tras("pal", tp, t1, `<i class="velo"></i><div class="gig grad">${L.map((c, k) => `<b id="lt${k}" style="display:inline-block">${c}</b>`).join("")}</div>`);
+  tras("pal", tp, t1, `<i class="velo"></i><div class="gig">${L.map((c, k) => `<b id="lt${k}" style="display:inline-block">${c}</b>`).join("")}</div>`);
   tw(`tl.fromTo("#pal .velo", { opacity: 0 }, { opacity: 1, duration: 0.2 }, ${f(tp)});`);
   tw(`tl.fromTo("#pal .gig b", { opacity: 0, y: -60, filter: "blur(10px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.3, stagger: 0.04, ease: "power3.out" }, ${f(tp + 0.05)});`); som("typing", tp, 0.05);
   L.forEach((c, k) => tw(`tl.to("#lt${k}", { y: ${300 + rnd() * 400}, x: ${(rnd() - 0.5) * 260}, rotation: ${(rnd() - 0.5) * 120}, opacity: 0, filter: "blur(6px)", duration: 0.6, ease: "power2.in" }, ${f(T("palavras") + 0.15 + k * 0.03)});`));
@@ -216,9 +216,9 @@ atrasDela("g1", T("momento") - 0.05, T("Fotografar") - 0.02, "momento");
 // ============ 11 — aniversário: "6" em degradê atrás dela + etiqueta de vidro + brilhos ============
 {
   const t0 = T("aniversário") - 0.08, t1 = T("Então") - 0.05;
-  tras("niver", t0, t1, `<i class="velo"></i><div class="gig grad" style="top:-20px;font-size:460px;font-weight:300">6</div>` +
+  tras("niver", t0, t1, `<i class="velo"></i><div class="gig" style="top:-20px;font-size:460px;font-weight:300">6</div>` +
     Array.from({ length: 34 }, (_, k) => `<i class="brilho" id="br${k}" style="left:${Math.round(rnd() * 1060)}px;top:-40px;width:${5 + Math.round(rnd() * 9)}px;height:${5 + Math.round(rnd() * 9)}px"></i>`).join(""));
-  tw(`tl.fromTo("#niver .velo", { opacity: 0 }, { opacity: 1, duration: 0.3 }, ${f(t0)});`);
+  tw(`tl.fromTo("#niver .velo", { opacity: 0 }, { opacity: 1, duration: 0.5, ease: "power1.inOut" }, ${f(t0)});`);
   tw(`tl.fromTo("#niver .gig", { scale: 0.5, opacity: 0, filter: "blur(20px)" }, { scale: 1, opacity: 1, filter: "blur(0px)", duration: 0.6, ease: "power3.out" }, ${f(t0)});`);
   for (let k = 0; k < 34; k++) tw(`tl.fromTo("#br${k}", { y: 0, rotation: 0, opacity: 1 }, { y: ${1500 + rnd() * 600}, rotation: ${rnd() * 720}, x: ${(rnd() - 0.5) * 200}, opacity: 0.8, duration: ${f(1.8 + rnd() * 1.5)}, ease: "none" }, ${f(t0 + rnd() * 1.4)});`);
   frente("chipn", T("dia 6") - 0.1, t1, `<div class="chip" style="top:560px">06.12 · meu aniversário</div>`, 24);
@@ -259,7 +259,8 @@ grupos.forEach((gr, i) => {
   if (b - a < 0.1) return;
   const meio = (a + b) / 2; if (SEM_LEG.some(([s0, s1]) => meio > s0 && meio < s1)) return;
   const linhas = gr.map((p) => `<span class="${ehChave(p) ? "ch" : "nm"}">${esc(p.texto.replace(/[.,!?;:]+$/, "").toLowerCase())}</span>`).join(" ");
-  lh += `      <div id="lg${i}" class="clip grupo" data-start="${f(a)}" data-duration="${f(b - a)}" data-track-index="50" style="z-index:50"><div class="cx">${linhas}</div></div>\n`;
+  const noLaranja = RECORTE_ON.some(([r0, r1]) => meio > r0 && meio < r1);
+  lh += `      <div id="lg${i}" class="clip grupo${noLaranja ? " laranja" : ""}" data-start="${f(a)}" data-duration="${f(b - a)}" data-track-index="50" style="z-index:50"><div class="cx">${linhas}</div></div>\n`;
   tw(`tl.fromTo("#lg${i} .cx", { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.28, ease: "power2.out" }, ${f(a)});`);
 });
 
@@ -285,12 +286,12 @@ fs.writeFileSync(path.join(P, "index.html"), `<!doctype html>
       #camera { position: absolute; inset: 0; overflow: hidden; transform-origin: 50% 32%; z-index: 0; }
       #fundo, #recorte video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
       #fundo { filter: contrast(1.08) saturate(1.22) brightness(1.05); }
-      #recorte video { filter: contrast(1.08) saturate(1.22) brightness(1.05); }
+      #recorte video { filter: contrast(1.08) saturate(1.22) brightness(1.05) drop-shadow(0 0 3px rgba(205,66,32,0.7)) drop-shadow(0 18px 40px rgba(120,30,10,0.35)); }
       #dissolve { position: absolute; inset: 0; z-index: 1; } .dv { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: contrast(1.08) saturate(1.22) brightness(1.05); }
       #atras { position: absolute; inset: 0; z-index: 2; } #recorte { position: absolute; inset: 0; z-index: 3; }
       .cena { position: absolute; left: 0; top: 0; width: ${W}px; height: ${H}px; overflow: hidden; }
       .grad { background: ${GRAD}; -webkit-background-clip: text; background-clip: text; color: transparent !important; }
-      .velo { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(18,18,18,0.85) 0%, rgba(18,18,18,0.55) 45%, rgba(18,18,18,0.3) 100%); }
+      .velo { position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 35%, rgba(247,150,100,0.92) 0%, rgba(240,86,45,0.94) 55%, rgba(205,66,32,0.96) 100%); }
       .gig { position: absolute; left: -40px; right: -40px; top: 110px; text-align: center; font-weight: 300; font-size: 230px; line-height: 1; letter-spacing: -0.04em; color: ${BR}; }
       .claro { position: absolute; inset: 0; background: ${BR}; }
       .txt { position: absolute; left: 0; right: 0; text-align: center; color: ${ESC}; }
@@ -341,14 +342,14 @@ fs.writeFileSync(path.join(P, "index.html"), `<!doctype html>
       .lente i:nth-child(1) { left: -330px; top: -330px; width: 660px; height: 660px; border-style: dashed; border-width: 2px; }
       .lente i:nth-child(2) { left: -280px; top: -280px; width: 560px; height: 560px; }
       .lente i:nth-child(3) { left: -230px; top: -230px; width: 460px; height: 460px; border-color: ${LARANJA}; border-width: 5px; }
-      .brilho { position: absolute; background: ${BR}; border-radius: 50%; box-shadow: 0 0 14px ${LARANJA}; }
+      .brilho { position: absolute; background: ${BR}; border-radius: 50%; box-shadow: 0 0 10px rgba(255,255,255,0.6); }
       .luz { position: absolute; inset: 0; background: #fff8ee; opacity: 0; }
       .pre { position: absolute; inset: 0; background: #000; }
       #vinheta { position: absolute; inset: 0; z-index: 71; background: radial-gradient(ellipse at 50% 45%, rgba(0,0,0,0) 60%, rgba(10,5,0,0.35) 100%); pointer-events: none; }
       .grupo { position: absolute; left: 60px; width: 960px; top: 1290px; text-align: center; }
       .cx { display: inline-block; line-height: 1.1; color: ${BR}; text-shadow: 0 2px 22px rgba(0,0,0,0.55); }
       .nm, .ch { display: inline-block; margin: 0 0.12em; font-size: 74px; letter-spacing: -0.03em; }
-      .nm { font-weight: 300; } .ch { font-weight: 700; color: ${LARANJA}; text-shadow: 0 2px 18px rgba(0,0,0,0.55); }
+      .nm { font-weight: 300; } .ch { font-weight: 700; color: ${LARANJA}; text-shadow: 0 2px 18px rgba(0,0,0,0.55); } .grupo.laranja .ch { color: ${BR}; text-decoration: underline; text-decoration-thickness: 4px; text-underline-offset: 10px; }
     </style>
   </head>
   <body>

@@ -74,7 +74,7 @@
       .grupo { position: absolute; left: 60px; width: 960px; top: 1290px; text-align: center; }
       .cx { display: inline-block; line-height: 1.1; color: #FFF8EE; text-shadow: 0 2px 22px rgba(0,0,0,0.55); }
       .nm, .ch { display: inline-block; margin: 0 0.12em; font-size: 74px; letter-spacing: -0.03em; }
-      .nm { font-weight: 300; } .ch { font-weight: 400; background: linear-gradient(100deg, #FFE7B3 0%, #F9B26A 38%, #EE7A63 68%, #D9558A 100%); -webkit-background-clip: text; background-clip: text; color: transparent; text-shadow: none; filter: drop-shadow(0 2px 14px rgba(0,0,0,0.45)); }
+      .nm { font-weight: 300; } .ch { font-weight: 600; color: #FFC27A; }
     </style>
   </head>
   <body>
@@ -205,7 +205,7 @@
       <div id="lg109" class="clip grupo" data-start="57.670" data-duration="0.409" data-track-index="50" style="z-index:50"><div class="cx"><span class="nm">se</span> <span class="nm">você</span></div></div>
       <div id="lg110" class="clip grupo" data-start="58.079" data-duration="0.511" data-track-index="50" style="z-index:50"><div class="cx"><span class="nm">ainda</span> <span class="nm">está</span></div></div>
       <div id="lg111" class="clip grupo" data-start="58.590" data-duration="0.610" data-track-index="50" style="z-index:50"><div class="cx"><span class="nm">na</span> <span class="nm">dúvida</span></div></div>
-      <div id="vinheta"></div>
+
       <audio id="som0" class="clip" src="assets/sfx/click-soft.mp3" data-start="0.050" data-duration="0.370" data-track-index="60" data-volume="0.04"></audio>
       <audio id="som1" class="clip" src="assets/sfx/whoosh.mp3" data-start="1.250" data-duration="0.570" data-track-index="61" data-volume="0.035"></audio>
       <audio id="som2" class="clip" src="assets/sfx/click.mp3" data-start="2.050" data-duration="0.370" data-track-index="62" data-volume="0.11"></audio>
@@ -281,7 +281,6 @@
       tl.fromTo("#fl0 .luz", { opacity: 0.8 }, { opacity: 0, duration: 0.28, ease: "power2.out" }, 2.100);
       tl.fromTo("#c1 .claro", { clipPath: "circle(0% at 50% 45%)" }, { clipPath: "circle(130% at 50% 45%)", duration: 0.45, ease: "expo.out" }, 2.956);
       tl.fromTo("#c1a", { opacity: 0, y: 40, filter: "blur(12px)" }, { opacity: 1, x: 0, y: 0, scale: 1, filter: "blur(0px)", duration: 0.5, ease: "expo.out" }, 3.006);
-      tl.fromTo("#c1a", { letterSpacing: "0px" }, { letterSpacing: "0px", duration: 0.01 }, 2.956);
       tl.fromTo("#c1b", { opacity: 0, y: 40, filter: "blur(12px)" }, { opacity: 1, x: 0, y: 0, scale: 1, filter: "blur(0px)", duration: 0.4, ease: "expo.out" }, 3.716);
       tl.fromTo("#c1c", { scale: 0.4, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.3, ease: "back.out(2.2)" }, 4.556);
       tl.to("#c1c", { textDecoration: "line-through", opacity: 0.45, duration: 0.01 }, 5.366);

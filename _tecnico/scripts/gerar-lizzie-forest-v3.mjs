@@ -38,7 +38,7 @@ const palavraGigante = (id, t0, t1, txt, estilo = "", entrada = "sobe") => {
   tras(id, t0, t1, `<i class="escurece"></i><div class="gig" style="${estilo}">${txt}</div>`);
   tw(`tl.fromTo("#${id} .escurece", { opacity: 0 }, { opacity: 1, duration: 0.25 }, ${f(t0)});`);
   if (entrada === "sobe") tw(`tl.fromTo("#${id} .gig", { yPercent: 40, opacity: 0, scale: 0.9 }, { yPercent: 0, opacity: 1, scale: 1, duration: 0.45, ease: "power3.out" }, ${f(t0)});`);
-  else tw(`tl.fromTo("#${id} .gig", { scale: 1.6, opacity: 0, letterSpacing: 0 }, { scale: 1, opacity: 1, duration: 0.35, ease: "expo.out" }, ${f(t0)});`);
+  else tw(`tl.fromTo("#${id} .gig", { scale: 1.6, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.35, ease: "expo.out" }, ${f(t0)});`);
   tw(`tl.to("#${id} .gig", { scale: 1.06, duration: ${f(Math.max(0.2, t1 - t0 - 0.7))}, ease: "none" }, ${f(t0 + 0.45)});`);
   tw(`tl.to("#${id}", { opacity: 0, duration: 0.22 }, ${f(t1 - 0.22)});`);
   som("whoosh", t0 - 0.12, 0.04); som("impact-bass-1", t0 + 0.1, 0.035);
@@ -70,7 +70,7 @@ flash(T("clico") - 0.03); som("click", T("clico") - 0.05, 0.11); som("riser", 0,
 // ============ 2 — visor de câmera sobre ela: "É conseguir, através do meu olhar, perceber, enquadrar e registrar" ============
 {
   const t0 = T("É conseguir") - 0.04, tr = T("registrar", 8), t1 = tr + 0.5;
-  palavraGigante("g2", T("olhar") - 0.06, T("perceber") + 0.1, "olhar", "top:520px");
+  palavraGigante("g2", T("olhar") - 0.06, T("perceber") + 0.1, "olhar");
   cheia("hud", t0, t1, `<div class="hud"><i class="c1"></i><i class="c2"></i><i class="c3"></i><i class="c4"></i>
       <div class="foco" id="foco"></div><div class="hudt e">f/1.8 · 1/250 · ISO 400</div><div class="hudt d">●  AF</div>
       <div class="hudw" id="hp">PERCEBER</div><div class="hudw" id="he">ENQUADRAR</div><div class="hudw" id="hr">REGISTRAR</div></div>`, 30);
@@ -125,12 +125,13 @@ flash(T("clico") - 0.03); som("click", T("clico") - 0.05, 0.11); som("riser", 0,
 // ============ 6 — "+12 anos" contando atrás dela; depois cortes rápidos de fotos no ritmo ("festas e festivais") ============
 {
   const t0 = T("Por ser") - 0.05, t12 = T("12"), tf = T("festas e") - 0.05, t1 = T("São espaços") - 0.05;
-  tras("doze", t0, T("relação") + 0.2, `<i class="escurece"></i><div class="gig num"><span class="mais">+</span><span class="cont">${Array.from({ length: 13 }, (_, k) => `<b id="n${k}">${k}</b>`).join("")}</span></div><div class="gsub">anos de pista</div>`);
+  tras("doze", t0, T("relação") + 0.2, `<i class="escurece"></i><div class="gig num"><span class="mais">+</span><span class="cont">${Array.from({ length: 13 }, (_, k) => `<b id="n${k}">${k}</b>`).join("")}</span></div>`);
+  cheia("dozes", t12, T("relação") + 0.2, `<div class="gsub frente">anos de pista</div>`, 20);
   tw(`tl.fromTo("#doze .escurece", { opacity: 0 }, { opacity: 1, duration: 0.25 }, ${f(t0)});`);
   tw(`tl.fromTo("#doze .gig", { scale: 0.6, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.35, ease: "back.out(2)" }, ${f(t0)});`);
   for (let k = 0; k <= 12; k++) { const a = t0 + 0.05 + (t12 - t0) * k / 12; tw(`tl.set("#n${k}", { opacity: 1 }, ${f(a)});`); if (k < 12) tw(`tl.set("#n${k}", { opacity: 0 }, ${f(t0 + 0.05 + (t12 - t0) * (k + 1) / 12)});`); }
   som("typing", t0, 0.05); som("impact-bass-1", t12, 0.06);
-  tw(`tl.fromTo("#doze .gsub", { opacity: 0, letterSpacing: "0.9em" }, { opacity: 1, letterSpacing: "0.35em", duration: 0.4 }, ${f(t12 + 0.1)});`);
+  tw(`tl.fromTo("#dozes .gsub", { opacity: 0, scaleX: 1.5 }, { opacity: 1, scaleX: 1, duration: 0.4 }, ${f(t12 + 0.1)});`);
   tw(`tl.to("#doze", { opacity: 0, duration: 0.2 }, ${f(T("relação"))});`);
   // cortes rápidos (cada foto ~0,3 s) com clique
   const R = ["fest4", "fest5", "fest1"]; const passo = (t1 - tf) / R.length;
@@ -148,7 +149,7 @@ flash(T("clico") - 0.03); som("click", T("clico") - 0.05, 0.11); som("riser", 0,
   som("impact-bass-2", T("liberdade"), 0.05); vaza(t0 - 0.15, 0.8); SEM_LEG.push([T("liberdade") - 0.1, ts - 0.05]);
   // tela dividida em 3 faixas que entram uma a uma
   const S = [["maos1", "sair da rotina", ts], ["grama", "desestressar", td], ["risos1", "encontrar pessoas", te]];
-  cheia("div3", ts - 0.05, t1, S.map(([n, txt], k) => `<div class="faixa" id="fx${k}" style="top:${k * 640}px"><img src="assets/fotos/${n}.jpg"><span>${txt}</span></div>`).join(""), 10);
+  cheia("div3", ts - 0.05, t1, `<i class="kescuro" style="background:#120c08;opacity:1"></i>` + S.map(([n, txt], k) => `<div class="faixa" id="fx${k}" style="top:${k * 640}px"><img src="assets/fotos/${n}.jpg"><span>${txt}</span></div>`).join(""), 10);
   S.forEach(([n, txt, a], k) => { tw(`tl.fromTo("#fx${k}", { xPercent: ${k % 2 ? 100 : -100} }, { xPercent: 0, duration: 0.3, ease: "expo.out" }, ${f(a - 0.08)});`);
     tw(`tl.fromTo("#fx${k} img", { scale: 1.3 }, { scale: 1.05, duration: ${f(t1 - a)}, ease: "none" }, ${f(a - 0.08)});`);
     tw(`tl.fromTo("#fx${k} span", { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.25 }, ${f(a + 0.05)});`); som("whoosh-short", a - 0.12, 0.05); });
@@ -172,7 +173,7 @@ flash(T("clico") - 0.03); som("click", T("clico") - 0.05, 0.11); som("riser", 0,
 
 // ============ 9 — "E é isso que me move" atrás dela; "espontaneidade" com queima de filme; fotos girando nos "encontros" ============
 {
-  palavraGigante("g9", T("me move") - 0.05, T("Poder") + 0.2, "me move", "font-size:300px");
+  palavraGigante("g9", T("me move") - 0.05, T("Poder") + 0.2, "me move", "font-size:210px");
   const tq = T("espontaneidade") - 0.1;
   cheia("queima", tq, tq + 0.7, `<i class="burn"></i>`, 39);
   tw(`tl.fromTo("#queima .burn", { opacity: 0, scale: 0.6, x: 300 }, { opacity: 1, scale: 1.4, x: -100, duration: 0.35, ease: "power2.in" }, ${f(tq)});`);
@@ -187,10 +188,11 @@ flash(T("clico") - 0.03); som("click", T("clico") - 0.05, 0.11); som("riser", 0,
 // ============ 10 — "5 e 6 de dezembro… Forest Shankara… na Ilha da Magia… através das minhas lentes" ============
 {
   const t0 = T("5") - 0.08, tfo = T("Forest") - 0.05, ti = T("Ilha") - 0.08, tl_ = T("através das") - 0.05, t1 = T("Ainda mais") - 0.05;
-  tras("dat", t0, tfo + 0.05, `<i class="escurece"></i><div class="gig" style="top:300px;font-size:300px">5•6</div><div class="gsub" style="top:700px">dezembro</div>`);
+  tras("dat", t0, tfo + 0.05, `<i class="escurece"></i><div class="gig" style="top:20px;font-size:300px">5•6</div>`);
+  cheia("dats", T("dezembro") - 0.05, tfo + 0.05, `<div class="gsub frente" style="top:330px">dezembro</div>`, 20);
   tw(`tl.fromTo("#dat .escurece", { opacity: 0 }, { opacity: 1, duration: 0.2 }, ${f(t0)});`);
   tw(`tl.fromTo("#dat .gig", { scale: 2, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.3, ease: "expo.out" }, ${f(t0)});`);
-  tw(`tl.fromTo("#dat .gsub", { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.3 }, ${f(T("dezembro") - 0.05)});`); som("impact-bass-2", t0 + 0.1, 0.06);
+  tw(`tl.fromTo("#dats .gsub", { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.3 }, ${f(T("dezembro") - 0.05)});`); som("impact-bass-2", t0 + 0.1, 0.06);
   cheia("fs", tfo, ti, `<i class="kescuro" style="opacity:0.92;background:#120c08"></i><div class="kw cx" id="fsa" style="top:700px;font-size:120px;letter-spacing:0.12em">FOREST</div><div class="kw cx" id="fsb" style="top:860px;font-size:120px;letter-spacing:0.12em">SHANKARA</div>`, 10);
   tw(`tl.fromTo("#fsa", { x: -1100 }, { x: 0, duration: 0.25, ease: "expo.out" }, ${f(tfo)});`); tw(`tl.fromTo("#fsb", { x: 1100 }, { x: 0, duration: 0.25, ease: "expo.out" }, ${f(T("Shankara") - 0.05)});`);
   som("whoosh-short", tfo - 0.05, 0.06); som("whoosh-short", T("Shankara") - 0.1, 0.06); SEM_LEG.push([tfo, ti]);
@@ -210,11 +212,11 @@ flash(T("clico") - 0.03); som("click", T("clico") - 0.05, 0.11); som("riser", 0,
 // ============ 11 — aniversário: "6" gigante atrás dela e brilhos dourados caindo ============
 {
   const t0 = T("aniversário") - 0.08, t1 = T("Então") - 0.05;
-  tras("niver", t0, t1, `<i class="escurece"></i><div class="gig" style="top:200px;font-size:640px;color:${OURO}">6</div><div class="gsub" style="top:930px">de dezembro</div>` +
+  tras("niver", t0, t1, `<i class="escurece"></i><div class="gig" style="top:-10px;font-size:420px;color:${OURO}">6</div>` +
     Array.from({ length: 40 }, (_, k) => `<i class="brilho" id="br${k}" style="left:${Math.round(rnd() * 1060)}px;top:-40px;width:${6 + Math.round(rnd() * 10)}px;height:${6 + Math.round(rnd() * 10)}px"></i>`).join(""));
   tw(`tl.fromTo("#niver .escurece", { opacity: 0 }, { opacity: 0.85, duration: 0.3 }, ${f(t0)});`);
   tw(`tl.fromTo("#niver .gig", { scale: 0.4, opacity: 0, rotation: -15 }, { scale: 1, opacity: 1, rotation: 0, duration: 0.5, ease: "back.out(1.8)" }, ${f(t0)});`);
-  tw(`tl.fromTo("#niver .gsub", { opacity: 0 }, { opacity: 1, duration: 0.3 }, ${f(T("dezembro", 54) - 0.05)});`);
+  tw(`tl.set({}, {}, 0);`);
   for (let k = 0; k < 40; k++) tw(`tl.fromTo("#br${k}", { y: 0, rotation: 0, opacity: 1 }, { y: ${1500 + rnd() * 600}, rotation: ${rnd() * 720}, x: ${(rnd() - 0.5) * 200}, opacity: 0.8, duration: ${f(1.8 + rnd() * 1.5)}, ease: "none" }, ${f(t0 + rnd() * 1.5)});`);
   som("sparkle", t0, 0.07); som("chime", T("6", 54) - 0.05, 0.04);
   tw(`tl.to("#niver", { opacity: 0, duration: 0.25 }, ${f(t1 - 0.25)});`);
@@ -223,7 +225,7 @@ flash(T("clico") - 0.03); som("click", T("clico") - 0.05, 0.11); som("riser", 0,
 // ============ 12 — final: "vem com a gente" atrás dela, e acaba ============
 {
   const t0 = T("vem com") - 0.06;
-  tras("vem", t0, DUR, `<i class="escurece"></i><div class="gig" style="top:330px;font-size:230px;line-height:0.95">vem<br>com a<br>gente</div>`);
+  tras("vem", t0, DUR, `<i class="escurece"></i><div class="gig" style="top:60px;font-size:118px">vem com a gente</div>`);
   tw(`tl.fromTo("#vem .escurece", { opacity: 0 }, { opacity: 1, duration: 0.2 }, ${f(t0)});`);
   tw(`tl.fromTo("#vem .gig", { y: 300, opacity: 0, skewY: 8 }, { y: 0, opacity: 1, skewY: 0, duration: 0.4, ease: "expo.out" }, ${f(t0)});`);
   som("impact-bass-1", t0 + 0.05, 0.06); som("whoosh", t0 - 0.12, 0.05);
@@ -283,11 +285,11 @@ fs.writeFileSync(path.join(P, "index.html"), `<!doctype html>
       #recorte { position: absolute; inset: 0; z-index: 3; }
       .cena { position: absolute; left: 0; top: 0; width: ${W}px; height: ${H}px; overflow: hidden; }
       .escurece { position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 40%, rgba(30,18,10,0.55), rgba(8,5,3,0.92)); }
-      .gig { position: absolute; left: -40px; right: -40px; top: 380px; text-align: center; font-family: "Playfair Display"; font-style: italic; font-weight: 800; font-size: 270px; line-height: 1; color: ${CR}; letter-spacing: -0.02em; text-shadow: 0 20px 60px rgba(0,0,0,0.5); }
-      .gig.num { font-size: 420px; top: 260px; } .gig.num .mais { font-size: 0.6em; vertical-align: 0.35em; margin-right: 0.05em; }
+      .gig { position: absolute; left: -40px; right: -40px; top: 120px; text-align: center; font-family: "Playfair Display"; font-style: italic; font-weight: 800; font-size: 230px; line-height: 1; color: ${CR}; letter-spacing: -0.02em; text-shadow: 0 20px 60px rgba(0,0,0,0.5); }
+      .gig.num { font-size: 330px; top: 0px; } .gsub.frente { top: 340px; text-shadow: 0 4px 20px rgba(0,0,0,0.9); } .gig.num .mais { font-size: 0.6em; vertical-align: 0.35em; margin-right: 0.05em; }
       .gig .cont { position: relative; display: inline-block; width: 1.05em; height: 1em; } .gig .cont b { position: absolute; left: 0; right: 0; font-weight: 800; opacity: 0; }
-      .gig.letras b { display: inline-block; font-weight: 800; }
-      .gsub { position: absolute; left: 0; right: 0; top: 760px; text-align: center; font-family: "Poppins"; font-weight: 600; font-size: 54px; letter-spacing: 0.35em; text-transform: uppercase; color: ${CR}; }
+      .gig.letras { font-size: 190px; font-style: normal; font-family: "Poppins"; } .gig.letras b { display: inline-block; font-weight: 800; }
+      .gsub { position: absolute; left: 0; right: 0; top: 420px; text-align: center; font-family: "Poppins"; font-weight: 600; font-size: 54px; letter-spacing: 0.35em; text-transform: uppercase; color: ${CR}; }
       .kfundo, .fcheia img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
       .fcheia { position: absolute; inset: 0; overflow: hidden; }
       .kescuro { position: absolute; inset: 0; background: rgba(12,8,5,0.72); }

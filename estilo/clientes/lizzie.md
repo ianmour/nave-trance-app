@@ -28,3 +28,8 @@
 - Rótulos pequenos de seção no topo ("01 / estratégia"). Cenas limpas de tela cheia (branco/preto) com gráfico.
 - Imagem nítida, cor viva e quente, sem granulado. Cortes a cada 3–5 s; o movimento está nos gráficos.
 - Pedido: juntar esse estilo moderno com a criatividade da Lizzie (fotos, recorte, palavras atrás).
+
+## CORES DA LIZZIE (sempre usar nos vídeos dela) — tiradas do perfil
+- **Laranja forte #F0562D** (títulos das capas), **creme #F6E7D3** (caixas, textos), **verde-petróleo #1E5B54** (fundo de capa), fundo escuro #121212.
+- Títulos de capa: letra condensada grossa, maiúscula, laranja. Destaques em serifa creme.
+- Não usar rosa/roxo como cor da marca dela (o roxo/neon só aparece nas fotos de festival).

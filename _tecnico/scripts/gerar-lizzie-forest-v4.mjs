@@ -10,9 +10,9 @@ import path from "node:path";
 
 const [P, TJ, FALA_S, MAPA_J] = process.argv.slice(2);
 const W = 1080, H = 1920;
-const BR = "#FFF8EE", ESC = "#1d130e";
-const GRAD = "linear-gradient(100deg, #FFE7B3 0%, #F9B26A 38%, #EE7A63 68%, #D9558A 100%)";
-const VIDRO = "linear-gradient(135deg, rgba(255,233,190,0.96) 0%, rgba(249,178,106,0.94) 55%, rgba(238,122,99,0.94) 100%)";
+const BR = "#F6E7D3", ESC = "#121212", VERDE = "#1E5B54", LARANJA = "#F0562D";
+const GRAD = "linear-gradient(100deg, #F6E7D3 0%, #F7A877 45%, #F0562D 100%)";
+const VIDRO = "linear-gradient(135deg, rgba(246,231,211,0.97) 0%, rgba(247,168,119,0.95) 60%, rgba(240,86,45,0.95) 100%)";
 const FALA = +FALA_S, DUR = +(FALA + 0.45).toFixed(2);
 const MAPA = JSON.parse(fs.readFileSync(MAPA_J, "utf8"));
 const f = (n) => (+n).toFixed(3);
@@ -154,7 +154,7 @@ atrasDela("g1", T("momento") - 0.05, T("Fotografar") - 0.02, "momento");
   tw(`tl.fromTo("#lib img", { scale: 1.3 }, { scale: 1.08, duration: ${f(ts - t0)}, ease: "power2.out" }, ${f(t0)});`);
   entraSuave("#lib .txt", T("liberdade") - 0.05, 0.5); som("impact-bass-2", T("liberdade"), 0.04); SEM_LEG.push([T("liberdade") - 0.1, ts - 0.05]);
   const S = [["maos1", "− rotina", ts], ["grama", "+ leveza", td], ["risos1", "+ pessoas", te]];
-  frente("c3", ts - 0.05, t1, `<div class="claro" style="background:#14100d"></div>` + S.map(([n, txt], k) => `<div class="cartao foto" id="cc${k}" style="left:${[60, 560, 300][k]}px;top:${[170, 560, 980][k]}px;width:460px;height:${[560, 560, 600][k]}px"><img src="assets/fotos/${n}.jpg"><div class="chip pq" style="position:absolute;left:24px;bottom:24px;top:auto">${txt}</div></div>`).join(""), 10);
+  frente("c3", ts - 0.05, t1, `<div class="claro" style="background:${VERDE}"></div>` + S.map(([n, txt], k) => `<div class="cartao foto" id="cc${k}" style="left:${[60, 560, 300][k]}px;top:${[170, 560, 980][k]}px;width:460px;height:${[560, 560, 600][k]}px"><img src="assets/fotos/${n}.jpg"><div class="chip pq" style="position:absolute;left:24px;bottom:24px;top:auto">${txt}</div></div>`).join(""), 10);
   S.forEach(([n, txt, a], k) => { tw(`tl.fromTo("#cc${k}", { y: 700, opacity: 0, rotation: ${[-12, 10, -6][k]} }, { y: 0, opacity: 1, rotation: ${[-3, 3, -1][k]}, duration: 0.45, ease: "expo.out" }, ${f(a - 0.08)});`);
     tw(`tl.fromTo("#cc${k} img", { scale: 1.3 }, { scale: 1.05, duration: ${f(t1 - a)}, ease: "none" }, ${f(a - 0.08)});`); som("whoosh-short", a - 0.12, 0.05); som("pop", a + 0.15, 0.05); });
   SEM_LEG.push([ts - 0.05, t1]);
@@ -191,11 +191,11 @@ atrasDela("g1", T("momento") - 0.05, T("Fotografar") - 0.02, "momento");
   const dias = Array.from({ length: 14 }, (_, k) => k + 1);
   frente("cal", t0, tfo, `<div class="vidro cal"><div class="ct"><span>dezembro</span><span class="mini">2026</span></div><div class="dias">${["s", "t", "q", "q", "s", "s", "d"].map((d) => `<i class="sem">${d}</i>`).join("")}${dias.map((d) => `<i id="d${d}" class="${d === 5 || d === 6 ? "marca" : ""}">${d}</i>`).join("")}</div></div>`, 23);
   tw(`tl.fromTo("#cal .cal", { y: 400, opacity: 0, scale: 0.85 }, { y: 0, opacity: 1, scale: 1, duration: 0.45, ease: "back.out(1.6)" }, ${f(t0)});`); som("whoosh-short", t0 - 0.1, 0.05);
-  tw(`tl.fromTo("#d5", { background: "rgba(29,19,14,0)", color: "${ESC}" }, { background: "${ESC}", color: "#FFE7B3", scale: 1.2, duration: 0.2, ease: "back.out(3)" }, ${f(T("5") - 0.03)});`); som("ping", T("5") - 0.03, 0.05);
-  tw(`tl.fromTo("#d6", { background: "rgba(29,19,14,0)", color: "${ESC}" }, { background: "${ESC}", color: "#FFE7B3", scale: 1.2, duration: 0.2, ease: "back.out(3)" }, ${f(T("6") - 0.03)});`); som("ping", T("6") - 0.03, 0.05);
+  tw(`tl.fromTo("#d5", { background: "rgba(29,19,14,0)", color: "${ESC}" }, { background: "${VERDE}", color: "${BR}", scale: 1.2, duration: 0.2, ease: "back.out(3)" }, ${f(T("5") - 0.03)});`); som("ping", T("5") - 0.03, 0.05);
+  tw(`tl.fromTo("#d6", { background: "rgba(29,19,14,0)", color: "${ESC}" }, { background: "${VERDE}", color: "${BR}", scale: 1.2, duration: 0.2, ease: "back.out(3)" }, ${f(T("6") - 0.03)});`); som("ping", T("6") - 0.03, 0.05);
   tw(`tl.to("#cal .cal", { y: 400, opacity: 0, duration: 0.25, ease: "expo.in" }, ${f(tfo - 0.25)});`);
   SEM_LEG.push([t0, tfo]);
-  frente("fs", tfo, ti, `<div class="claro" style="background:#0f0b09"></div><div class="txt fino grad" id="fsa" style="top:760px;font-size:150px">forest</div><div class="txt fino grad" id="fsb" style="top:930px;font-size:150px">shankara</div>`, 10);
+  frente("fs", tfo, ti, `<div class="claro" style="background:${VERDE}"></div><div class="txt fino grad" id="fsa" style="top:760px;font-size:150px">forest</div><div class="txt fino grad" id="fsb" style="top:930px;font-size:150px">shankara</div>`, 10);
   tw(`tl.fromTo("#fs .claro", { clipPath: "inset(50% 0% 50% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.3, ease: "expo.out" }, ${f(tfo)});`);
   entraSuave("#fsa", tfo + 0.02, 0.4, "x: -200"); entraSuave("#fsb", T("Shankara") - 0.05, 0.4, "x: 200");
   som("whoosh-short", tfo - 0.05, 0.06); som("whoosh-short", T("Shankara") - 0.1, 0.06); SEM_LEG.push([tfo, ti]);
@@ -286,13 +286,13 @@ fs.writeFileSync(path.join(P, "index.html"), `<!doctype html>
       #atras { position: absolute; inset: 0; z-index: 2; } #recorte { position: absolute; inset: 0; z-index: 3; }
       .cena { position: absolute; left: 0; top: 0; width: ${W}px; height: ${H}px; overflow: hidden; }
       .grad { background: ${GRAD}; -webkit-background-clip: text; background-clip: text; color: transparent !important; }
-      .velo { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(14,9,6,0.82) 0%, rgba(14,9,6,0.55) 45%, rgba(14,9,6,0.3) 100%); }
+      .velo { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(18,18,18,0.85) 0%, rgba(18,18,18,0.55) 45%, rgba(18,18,18,0.3) 100%); }
       .gig { position: absolute; left: -40px; right: -40px; top: 110px; text-align: center; font-weight: 300; font-size: 230px; line-height: 1; letter-spacing: -0.04em; color: ${BR}; }
-      .claro { position: absolute; inset: 0; background: #FBF6EE; }
+      .claro { position: absolute; inset: 0; background: ${BR}; }
       .txt { position: absolute; left: 0; right: 0; text-align: center; color: ${ESC}; }
       .txt.fino { font-weight: 200; font-size: 150px; letter-spacing: -0.04em; line-height: 1; }
       .txt.fino.pq { font-weight: 300; font-size: 58px; letter-spacing: -0.01em; color: #6b5a50; }
-      .chip { position: absolute; left: 50%; transform: translateX(-50%); padding: 22px 44px; border-radius: 999px; background: ${VIDRO}; color: ${ESC}; font-weight: 600; font-size: 52px; letter-spacing: -0.01em; white-space: nowrap; box-shadow: 0 20px 50px rgba(238,122,99,0.35), inset 0 1px 0 rgba(255,255,255,0.7); }
+      .chip { position: absolute; left: 50%; transform: translateX(-50%); padding: 22px 44px; border-radius: 999px; background: ${VIDRO}; color: ${ESC}; font-weight: 600; font-size: 52px; letter-spacing: -0.01em; white-space: nowrap; box-shadow: 0 20px 50px rgba(240,86,45,0.35), inset 0 1px 0 rgba(255,255,255,0.7); }
       .chip.pq { font-size: 38px; padding: 14px 28px; transform: none; left: auto; }
       .cartao { position: absolute; border-radius: 48px; overflow: hidden; box-shadow: 0 40px 80px rgba(0,0,0,0.35); }
       .cartao img { width: 100%; height: 100%; object-fit: cover; display: block; }
@@ -323,8 +323,8 @@ fs.writeFileSync(path.join(P, "index.html"), `<!doctype html>
       .loc { left: 140px; right: 140px; top: 1050px; padding: 22px; }
       .loc .lfoto { height: 440px; border-radius: 38px; overflow: hidden; } .loc .lfoto img { width: 100%; height: 100%; object-fit: cover; }
       .loc .linfo { display: flex; align-items: center; gap: 22px; padding: 26px 16px 10px; } .loc b { display: block; font-weight: 600; font-size: 56px; letter-spacing: -0.02em; }
-      .pin { width: 56px; height: 56px; border-radius: 50% 50% 50% 0; transform: rotate(-45deg); background: ${ESC}; flex: none; position: relative; }
-      .pin::after { content: ""; position: absolute; left: 18px; top: 18px; width: 20px; height: 20px; border-radius: 50%; background: #FFE7B3; }
+      .pin { width: 56px; height: 56px; border-radius: 50% 50% 50% 0; transform: rotate(-45deg); background: ${VERDE}; flex: none; position: relative; }
+      .pin::after { content: ""; position: absolute; left: 18px; top: 18px; width: 20px; height: 20px; border-radius: 50%; background: ${BR}; }
       .ing { left: 110px; right: 110px; top: 1180px; height: 300px; display: flex; align-items: center; padding: 0 0 0 50px; overflow: hidden; }
       .ing > div:first-child { flex: 1; } .ing b { display: block; font-weight: 300; font-size: 80px; letter-spacing: -0.03em; line-height: 1.1; }
       .ing .pic { width: 0; height: 100%; border-left: 5px dashed rgba(29,19,14,0.4); } .ing .adm { width: 200px; text-align: center; font-weight: 200; font-size: 76px; }
@@ -336,15 +336,15 @@ fs.writeFileSync(path.join(P, "index.html"), `<!doctype html>
       .lente i { position: absolute; border-radius: 50%; border: 3px solid rgba(255,248,238,0.9); }
       .lente i:nth-child(1) { left: -330px; top: -330px; width: 660px; height: 660px; border-style: dashed; border-width: 2px; }
       .lente i:nth-child(2) { left: -280px; top: -280px; width: 560px; height: 560px; }
-      .lente i:nth-child(3) { left: -230px; top: -230px; width: 460px; height: 460px; border-color: #F9B26A; border-width: 5px; }
-      .brilho { position: absolute; background: #FFD796; border-radius: 50%; box-shadow: 0 0 14px #F9B26A; }
+      .lente i:nth-child(3) { left: -230px; top: -230px; width: 460px; height: 460px; border-color: ${LARANJA}; border-width: 5px; }
+      .brilho { position: absolute; background: ${BR}; border-radius: 50%; box-shadow: 0 0 14px ${LARANJA}; }
       .luz { position: absolute; inset: 0; background: #fff8ee; opacity: 0; }
       .pre { position: absolute; inset: 0; background: #000; }
       #vinheta { position: absolute; inset: 0; z-index: 71; background: radial-gradient(ellipse at 50% 45%, rgba(0,0,0,0) 60%, rgba(10,5,0,0.35) 100%); pointer-events: none; }
       .grupo { position: absolute; left: 60px; width: 960px; top: 1290px; text-align: center; }
       .cx { display: inline-block; line-height: 1.1; color: ${BR}; text-shadow: 0 2px 22px rgba(0,0,0,0.55); }
       .nm, .ch { display: inline-block; margin: 0 0.12em; font-size: 74px; letter-spacing: -0.03em; }
-      .nm { font-weight: 300; } .ch { font-weight: 600; color: #FFC27A; }
+      .nm { font-weight: 300; } .ch { font-weight: 700; color: ${LARANJA}; text-shadow: 0 2px 18px rgba(0,0,0,0.55); }
     </style>
   </head>
   <body>
